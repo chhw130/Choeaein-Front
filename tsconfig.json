@@ -16,6 +16,14 @@
     "incremental": true,
     "plugins": [
       {
+        "plugins": [
+          {
+            "name": "typescript-plugin-css-modules"
+          },
+          { "name": "next" }
+        ]
+      },
+      {
         "name": "next"
       }
     ],
@@ -23,6 +31,12 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "component/calendarPage/Sidebar.jsx"
+  ],
   "exclude": ["node_modules"]
 }
