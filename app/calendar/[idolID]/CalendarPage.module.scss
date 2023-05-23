@@ -26,14 +26,13 @@
 }
 
 .calendar {
-  width: 90vw;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 .calendarWrap {
+  width: 100vw;
   padding-top: 75px;
-  width: 90vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -53,7 +52,6 @@
   }
 }
 .nextSchedule {
-  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -101,7 +99,6 @@
 
 .nextSchedule_List {
   margin-top: 30px;
-  width: 80%;
   list-style: none;
   display: flex;
   flex-direction: column;
@@ -152,7 +149,6 @@
 @media (max-width: 768px) {
   .calendarWrap {
     padding-top: 75px;
-    width: 90vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -171,7 +167,6 @@
   }
 
   .nextSchedule_List {
-    width: 100%;
     padding: 0 2vw;
   }
   .nextScheduleItem {

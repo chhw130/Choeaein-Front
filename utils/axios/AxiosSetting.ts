@@ -21,8 +21,13 @@ export const postLogin = (loginInform: any) =>
   instance.post(`/users/login/`, loginInform).then((res) => res.data);
 
 /**메인 페이지 */
-export const getIdolSchedules = () =>
-  instance.get(`/idols/schedules/`).then((response) => response.data);
+export const getIdolSchedules = async () => {
+  const res = await fetch(
+    `https://backend.myfavor.site/api/v1/idols/schedules/`
+  );
+  const data = await res.json();
+  return data;
+};
 
 export const getIdolList = () =>
   instance.get(`/idols/`).then((response) => response.data);

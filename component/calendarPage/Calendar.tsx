@@ -2,7 +2,6 @@ import styles from "./Calendar.module.scss";
 import { useEffect, useState } from "react";
 import moment from "moment";
 import "moment/locale/ko";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import {
   faUser,
@@ -16,6 +15,7 @@ import {
   faCalendarCheck,
 } from "@fortawesome/free-solid-svg-icons";
 import { ShowEvent } from "./ShowEvent";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Calendar = ({ todayDate, setSidebarOpen, prevDate, nextDate }: any) => {
   /**선택한 날 */
@@ -298,11 +298,7 @@ const Calendar = ({ todayDate, setSidebarOpen, prevDate, nextDate }: any) => {
             key={btn.category}
             onClick={() => handleClick(btn.category)}
           >
-            <FontAwesomeIcon
-              className={styles.icons}
-              icon={btn.icon}
-              size="sm"
-            />
+            <FontAwesomeIcon className={styles.icons} icon={btn.icon} />
             {btn.content}
           </button>
         ))}

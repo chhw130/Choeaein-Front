@@ -9,7 +9,6 @@ import styles from "./CalendarPage.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { fa0, faCheck } from "@fortawesome/free-solid-svg-icons";
 import Calendar from "@/component/calendarPage/Calendar";
-import Sidebar from "@/component/calendarPage/SidebarUI";
 
 const CalendarPage = () => {
   const idolId = 1;
@@ -138,7 +137,7 @@ const CalendarPage = () => {
             prevDate={prevDate}
             nextDate={nextDate}
           />
-          <Sidebar
+          {/* <Sidebar
             sidebar={sidebar}
             setSidebarClose={setSidebarClose}
             selectedDate={selectedDate}
@@ -148,7 +147,7 @@ const CalendarPage = () => {
             prevIdolDateSchedule={prevIdolDateSchedule}
             nextIdolDateSchedule={nextIdolDateSchedule}
             newUserDateSchedule={newUserDateSchedule}
-          />
+          /> */}
         </div>
         {/* {Number(idolId) === userPick ? (
           <button

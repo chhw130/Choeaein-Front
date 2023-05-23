@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./Header.scss";
-import axios from "axios";
-import { Input, InputGroup, InputRightAddon } from "@chakra-ui/react";
+import { Avatar, Input, InputGroup, InputRightAddon } from "@chakra-ui/react";
 import { GoSearch } from "react-icons/go";
 import Link from "next/link";
 

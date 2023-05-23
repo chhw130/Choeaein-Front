@@ -51,7 +51,7 @@
 
 .buttonss {
   // opacity: 1;
-  width: 10vw;
+  width: 20%;
   height: 8vh;
   font-family: "Jua", sans-serif;
   font-size: medium;
@@ -61,10 +61,10 @@
   justify-content: center;
   align-items: center;
   @media (max-width: 376px) {
-    width: 18vw;
+    width: 35%;
   }
   @media (max-width: 768px) {
-    width: 18vw;
+    width: 23%;
   }
 }
 .icons {
@@ -123,13 +123,9 @@
   }
 
   .categoryContainer {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    margin-left: 5vw;
-    margin-right: 5vw;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
   }
 
   .categoryBtn {
@@ -178,11 +174,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%;
     margin: 0 auto;
   }
   .calendarTbody {
-    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;

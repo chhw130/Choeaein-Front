@@ -5,11 +5,11 @@ import styles from "../../app/page.module.scss";
 import Link from "next/link";
 import { Spinner } from "@chakra-ui/react";
 
-const IdolSection = () => {
-  const { isLoading: idolLoading, data: idolData } = useQuery(
-    ["idol"],
-    getIdolList
-  );
+const IdolSection = ({ idolData }: any) => {
+  // const { isLoading: idolLoading, data: idolData } = useQuery(
+  //   ["idol"],
+  //   getIdolList
+  // );
 
   const slideImage = idolData?.slice(0, 30);
 
@@ -27,23 +27,19 @@ const IdolSection = () => {
           </div>
         </div>
         <ul className={styles.artistImageWrapper}>
-          {idolLoading ? (
-            <Spinner />
-          ) : (
-            slideImage?.map((data: any) => (
-              <li className={styles.artistThumnail} key={data.pk}>
-                <Link href={`calendar/${data.pk}`}>
-                  <img
-                    className={styles.artistImage}
-                    src={data.idol_profile}
-                    alt="아티스트 이미지"
-                  />
-                  <h3 className={styles.artistName}>{data.idol_name_kr}</h3>
-                  <p className={styles.artistFont}>{data.idol_name_en}</p>
-                </Link>
-              </li>
-            ))
-          )}
+          {slideImage?.map((data: any) => (
+            <li className={styles.artistThumnail} key={data.pk}>
+              <Link href={`calendar/${data.pk}`}>
+                <img
+                  className={styles.artistImage}
+                  src={data.idol_profile}
+                  alt="아티스트 이미지"
+                />
+                <h3 className={styles.artistName}>{data.idol_name_kr}</h3>
+                <p className={styles.artistFont}>{data.idol_name_en}</p>
+              </Link>
+            </li>
+          ))}
         </ul>
       </article>
     </div>

@@ -1,5 +1,4 @@
 import { getIdolSchedules } from "@/utils/axios/AxiosSetting";
-import { useQuery } from "@tanstack/react-query";
 import React, { useEffect, useState } from "react";
 import styles from "../../app/page.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -12,8 +11,8 @@ import {
   faMicrophone,
 } from "@fortawesome/free-solid-svg-icons";
 
-const RandomSchedule = () => {
-  const { data: schedulesData } = useQuery(["schedules"], getIdolSchedules);
+const RandomSchedule = ({ schedulesData }: any) => {
+  // const { data: schedulesData } = useQuery(["schedules"], getIdolSchedules);
 
   const slideBanner = schedulesData?.slice(0, 10);
 

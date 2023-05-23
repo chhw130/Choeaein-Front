@@ -1,24 +1,24 @@
 "use client";
-import Image from "next/image";
 import styles from "./page.module.scss";
-import { useEffect, useState } from "react";
-import axios from "axios";
-import { useQuery } from "@tanstack/react-query";
+
+import IdolSection from "@/component/mainPage/IdolSection";
+import MainVideo from "@/component/mainPage/MainVideo";
+import RandomSchedule from "@/component/mainPage/RandomSchedule";
 import { getIdolList, getIdolSchedules } from "@/utils/axios/AxiosSetting";
 
-import Link from "next/link";
-import IdolSection from "@/component/mainPage/IdolSection";
-import RandomSchedule from "@/component/mainPage/RandomSchedule";
-import MainVideo from "@/component/mainPage/MainVideo";
+export const dynamic = "force-dynamic";
 
-export default function Home() {
+export default async function Home() {
+  const schedulesData = await getIdolSchedules();
+  const idolData = await getIdolList();
+
   return (
     <>
       <MainVideo />
       <div className={styles.home}>
         <div className={styles.homeContainer}>
-          <RandomSchedule />
-          <IdolSection />
+          <RandomSchedule schedulesData={schedulesData} />
+          <IdolSection idolData={idolData} />
         </div>
       </div>
     </>

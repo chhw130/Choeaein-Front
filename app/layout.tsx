@@ -4,13 +4,11 @@ import ReactQueryProvider from "./ReactQueryProvider";
 import "./globals.css";
 import Header from "./Header";
 import Footer from "./Footer";
-import RootStyleRegistry from "./RootStyle";
 import DefaultLayout from "./DefaultLayout";
-// import styled from "styled-components";
-// const Div = styled.div`
-//   width: 100%;
-//   overflow: hidden;
-// `;
+import { Providers } from "./ChakraUIProvider";
+import { config } from "@fortawesome/fontawesome-svg-core";
+import "@fortawesome/fontawesome-svg-core/styles.css";
+config.autoAddCss = false;
 
 export default function RootLayout({
   children,
@@ -18,14 +16,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" style={{ width: "100%" }}>
       <body>
         <ReactQueryProvider>
-          <RootStyleRegistry>
-            <ChakraProvider>
-              <DefaultLayout>{children}</DefaultLayout>
-            </ChakraProvider>
-          </RootStyleRegistry>
+          <Providers>
+            <DefaultLayout>{children}</DefaultLayout>
+          </Providers>
         </ReactQueryProvider>
       </body>
     </html>
