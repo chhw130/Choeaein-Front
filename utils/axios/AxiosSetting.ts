@@ -33,8 +33,13 @@ export const getIdolList = () =>
   instance.get(`/idols/`).then((response) => response.data);
 
 /**캘린더페이지 */
-export const specificIdolInform = (idolId: any) =>
-  instance.get(`/idols/${idolId}/`).then((response) => response.data);
+export const specificIdolInform = async (idolId: any) => {
+  const res = await fetch(
+    `https://backend.myfavor.site/api/v1/idols/${idolId}/`
+  );
+  const data = await res.json();
+  return data;
+};
 
 export const specificIdolSchedule = (idolId: any) =>
   instance.get(`/idols/${idolId}/schedules/`).then((response) => response.data);

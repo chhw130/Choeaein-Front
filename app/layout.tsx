@@ -1,9 +1,6 @@
 "use client";
 import { ChakraProvider } from "@chakra-ui/react";
 import ReactQueryProvider from "./ReactQueryProvider";
-import "./globals.css";
-import Header from "./Header";
-import Footer from "./Footer";
 import DefaultLayout from "./DefaultLayout";
 import { Providers } from "./ChakraUIProvider";
 import { config } from "@fortawesome/fontawesome-svg-core";
@@ -16,7 +13,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" style={{ width: "100%" }}>
+    <html lang="en">
       <body>
         <ReactQueryProvider>
           <Providers>

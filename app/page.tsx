@@ -6,11 +6,8 @@ import MainVideo from "@/component/mainPage/MainVideo";
 import RandomSchedule from "@/component/mainPage/RandomSchedule";
 import { getIdolList, getIdolSchedules } from "@/utils/axios/AxiosSetting";
 
-export const dynamic = "force-dynamic";
-
 export default async function Home() {
-  const schedulesData = await getIdolSchedules();
-  const idolData = await getIdolList();
+  const { schedulesData, idolData } = await getData();
 
   return (
     <>
@@ -23,4 +20,11 @@ export default async function Home() {
       </div>
     </>
   );
+}
+
+async function getData() {
+  const schedulesData = await getIdolSchedules();
+  const idolData = await getIdolList();
+
+  return { schedulesData, idolData };
 }

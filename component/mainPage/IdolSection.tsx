@@ -29,7 +29,7 @@ const IdolSection = ({ idolData }: any) => {
         <ul className={styles.artistImageWrapper}>
           {slideImage?.map((data: any) => (
             <li className={styles.artistThumnail} key={data.pk}>
-              <Link href={`calendar/${data.pk}`}>
+              <Link href={`calendar/${data.pk}`} prefetch={false}>
                 <img
                   className={styles.artistImage}
                   src={data.idol_profile}

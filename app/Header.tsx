@@ -1,6 +1,7 @@
+"use client";
 import React, { useState, useEffect } from "react";
 import "./Header.scss";
-import { Avatar, Input, InputGroup, InputRightAddon } from "@chakra-ui/react";
+import { Input, InputGroup, InputRightAddon } from "@chakra-ui/react";
 import { GoSearch } from "react-icons/go";
 import Link from "next/link";
 
@@ -34,41 +35,42 @@ const Header = () => {
   // };
 
   return (
-    <div
-      className="header"
-      style={{
-        backgroundColor: navColor,
-        height: navSize,
-        transition: "all 1s",
-      }}
-    >
-      <div className="headerNav">
-        <div className="navItems">
-          <div className="navItem">
-            <Link href="/">
-              <img
-                className="navImg"
-                src="https://velog.velcdn.com/images/view_coding/post/6e4d7220-8bc8-4e88-9d4b-f3dd9e09b523/image.png"
-                alt=""
-              ></img>
-            </Link>
-          </div>
-          <div className="navItem navSpan">
-            {true ? (
+    <>
+      <div
+        className="header"
+        style={{
+          backgroundColor: navColor,
+          height: navSize,
+          transition: "all 1s",
+        }}
+      >
+        <div className="headerNav">
+          <div className="navItems">
+            <div className="navItem">
               <Link href="/">
-                <span className="navItem_span">스케줄 보기</span>
+                <img
+                  className="navImg"
+                  src="https://velog.velcdn.com/images/view_coding/post/6e4d7220-8bc8-4e88-9d4b-f3dd9e09b523/image.png"
+                  alt=""
+                />
               </Link>
-            ) : null}
+            </div>
+            <div className="navItem navSpan">
+              {true ? (
+                <Link href="/" prefetch={false}>
+                  <span className="navItem_span">스케줄 보기</span>
+                </Link>
+              ) : null}
+            </div>
           </div>
-        </div>
 
-        <div className="navItems">
-          <InputGroup marginRight="10px">
-            <Input placeholder="아이돌을 검색해보세요." fontSize="0.9rem" />
-            <InputRightAddon children={<GoSearch />} padding="0px 8px" />
-          </InputGroup>
-          <div className="navItem">
-            {/* {isAdmin ? (
+          <div className="navItems">
+            <InputGroup marginRight="10px">
+              <Input placeholder="아이돌을 검색해보세요." fontSize="0.9rem" />
+              <InputRightAddon children={<GoSearch />} padding="0px 8px" />
+            </InputGroup>
+            <div className="navItem">
+              {/* {isAdmin ? (
               <>
                 <Link href="/admin/">
                   <button className="navBtn">
@@ -97,10 +99,11 @@ const Header = () => {
                 </button>
               </>
             )} */}
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 export default Header;

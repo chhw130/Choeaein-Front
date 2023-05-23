@@ -9,21 +9,16 @@ import styles from "./CalendarPage.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { fa0, faCheck } from "@fortawesome/free-solid-svg-icons";
 import Calendar from "@/component/calendarPage/Calendar";
+import IdolInform from "@/component/calendarPage/IdolInform";
 
-const CalendarPage = () => {
-  const idolId = 1;
+async function CalendarPage(params: any) {
   const [reportModal, setReportModal] = useState(false);
 
-  // 아이돌 데이터
-  const { data: idolData } = useQuery(["info", idolId], () =>
-    specificIdolInform(idolId)
-  );
+  const idolSchedule: [] = [];
 
-  // 스케줄 데이터
-  const { data: idolSchedule } = useQuery(["idolSchedule", idolId], () =>
-    specificIdolSchedule(idolId)
-  );
-
+  const idolId = params.params.idolID;
+  const idolData = await getData(idolId);
+  console.log(idolData);
   // 3일 이후 날짜 구하기
 
   const today = new Date();
@@ -123,14 +118,7 @@ const CalendarPage = () => {
     <div className={styles.calendarContainer}>
       <div className={styles.calendar}>
         <div className={styles.calendarWrap}>
-          <div className={styles.idolName}>
-            <p>{idolData?.idol_name_kr}</p>
-            {idolData?.Girl_group ? (
-              <p>{idolData?.Girl_group}</p>
-            ) : (
-              <p>{idolData?.Boy_group}</p>
-            )}
-          </div>
+          {/* <IdolInform idolData={idolData} /> */}
           <Calendar
             todayDate={todayDate}
             setSidebarOpen={setSidebarOpen}
@@ -221,6 +209,12 @@ const CalendarPage = () => {
       </div>
     </div>
   );
-};
+}
 
 export default CalendarPage;
+
+async function getData(idolId: string) {
+  const idolData = await specificIdolInform(idolId);
+
+  return idolData;
+}
