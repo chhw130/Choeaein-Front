@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "../../app/page.module.scss";
 
 const MainVideo = () => {

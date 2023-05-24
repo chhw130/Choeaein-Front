@@ -13,8 +13,6 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 const RandomSchedule = ({ schedulesData }: any) => {
-  // const { data: schedulesData } = useQuery(["schedules"], getIdolSchedules);
-
   const slideBanner = schedulesData?.slice(0, 10);
 
   // 슬라이드의 가로 위치를 결정하며, 변경되면 슬라이드가 움직인다

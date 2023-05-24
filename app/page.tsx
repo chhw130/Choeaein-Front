@@ -1,5 +1,4 @@
 import styles from "./page.module.scss";
-
 import IdolSection from "@/component/mainPage/IdolSection";
 import MainVideo from "@/component/mainPage/MainVideo";
 import RandomSchedule from "@/component/mainPage/RandomSchedule";
