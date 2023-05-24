@@ -54,7 +54,7 @@ const UserLogin = () => {
             (errors.password && <p>{errors.password.message}</p>)}
         </div>
         <div className={styles.goSignUp}>
-          <Link href={"/signup"}>
+          <Link href={"/signup"} prefetch={false}>
             <Button bg="transparent" type="button">
               Not user?
             </Button>

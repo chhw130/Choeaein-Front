@@ -5,9 +5,15 @@ import Footer from "./Footer";
 const DefaultLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
-      <Header />
-      {children}
-      <Footer />
+      {!true ? (
+        <>
+          <Header />
+          {children}
+          <Footer />
+        </>
+      ) : (
+        <div>{children}</div>
+      )}
     </>
   );
 };

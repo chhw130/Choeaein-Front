@@ -4,6 +4,7 @@ import "./Header.scss";
 import { Input, InputGroup, InputRightAddon } from "@chakra-ui/react";
 import { GoSearch } from "react-icons/go";
 import Link from "next/link";
+import HeaderBtn from "@/component/header/HeaderBtn";
 
 const Header = () => {
   const [navSize, setnavSize] = useState("6rem");
@@ -57,7 +58,7 @@ const Header = () => {
             </div>
             <div className="navItem navSpan">
               {true ? (
-                <Link href="/">
+                <Link href="/" prefetch={false}>
                   <span className="navItem_span">스케줄 보기</span>
                 </Link>
               ) : null}
@@ -70,35 +71,7 @@ const Header = () => {
               <InputRightAddon children={<GoSearch />} padding="0px 8px" />
             </InputGroup>
             <div className="navItem">
-              {/* {isAdmin ? (
-              <>
-                <Link href="/admin/">
-                  <button className="navBtn">
-                    <span>관리자페이지</span>
-                  </button>
-                </Link>
-                <button className="navBtn" onClick={LogoutHandler}>
-                  <span>로그아웃</span>
-                </button>
-              </>
-            ) : !isLogin ? (
-              <Link href="/login">
-                <button className="navBtn">
-                  <span>로그인</span>
-                </button>
-              </Link>
-            ) : (
-              <>
-                <button className="navBtn">
-                  <Link to="/edituser">
-                    <span>내 정보</span>
-                  </Link>
-                </button>
-                <button className="navBtn" onClick={LogoutHandler}>
-                  <span>로그아웃</span>
-                </button>
-              </>
-            )} */}
+              <HeaderBtn />
             </div>
           </div>
         </div>
