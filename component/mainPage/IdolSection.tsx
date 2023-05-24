@@ -1,16 +1,10 @@
-import { getIdolList } from "@/utils/axios/AxiosSetting";
-import { useQuery } from "@tanstack/react-query";
+"use client";
+
 import React from "react";
 import styles from "../../app/page.module.scss";
 import Link from "next/link";
-import { Spinner } from "@chakra-ui/react";
 
 const IdolSection = ({ idolData }: any) => {
-  // const { isLoading: idolLoading, data: idolData } = useQuery(
-  //   ["idol"],
-  //   getIdolList
-  // );
-
   const slideImage = idolData?.slice(0, 30);
 
   return (
@@ -29,7 +23,7 @@ const IdolSection = ({ idolData }: any) => {
         <ul className={styles.artistImageWrapper}>
           {slideImage?.map((data: any) => (
             <li className={styles.artistThumnail} key={data.pk}>
-              <Link href={`calendar/${data.pk}`} prefetch={false}>
+              <Link href={`calendar/${data.pk}`}>
                 <img
                   className={styles.artistImage}
                   src={data.idol_profile}

@@ -57,7 +57,7 @@ const Header = () => {
             </div>
             <div className="navItem navSpan">
               {true ? (
-                <Link href="/" prefetch={false}>
+                <Link href="/">
                   <span className="navItem_span">스케줄 보기</span>
                 </Link>
               ) : null}
