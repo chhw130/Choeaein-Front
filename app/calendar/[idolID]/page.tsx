@@ -1,10 +1,9 @@
-"use client";
 import {
   specificIdolInform,
   specificIdolSchedule,
 } from "@/utils/axios/AxiosSetting";
 import { useQuery } from "@tanstack/react-query";
-import { useState } from "react";
+// import { useState } from "react";
 import styles from "./CalendarPage.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { fa0, faCheck } from "@fortawesome/free-solid-svg-icons";
@@ -12,14 +11,10 @@ import Calendar from "@/component/calendarPage/Calendar";
 import IdolInform from "@/component/calendarPage/IdolInform";
 
 async function CalendarPage(params: any) {
-  const [reportModal, setReportModal] = useState(false);
-
   const idolSchedule: [] = [];
 
   const idolId = params.params.idolID;
   const idolData = await getData(idolId);
-  console.log(idolData);
-  // 3일 이후 날짜 구하기
 
   const today = new Date();
 
@@ -67,75 +62,14 @@ async function CalendarPage(params: any) {
   }
 
   /**사이드바 */
-  const [sidebar, setSidebar] = useState(false);
   /**아이돌 day데이터 */
-  const [newIdolDateSchedule, setNewIdolDateSchedule] = useState([]);
-
-  const [prevIdolDateSchedule, setPrevIdolDateSchedule] = useState([]);
-  const [nextIdolDateSchedule, setNextIdolDateSchedule] = useState([]);
-
-  const [selectedDate, setSelectedDate] = useState(0);
-  const [newUserDateSchedule, setNewUserDateSchedule] = useState([]);
-
-  const [prevSelectedDate, setPrevSelectedDate] = useState(0);
-  const [nextSelectedDate, setNextSelectedDate] = useState(0);
-
-  /**클릭한 날짜와 그 날짜의 스케줄 */
-  const todayDate = (
-    date: any,
-    idolDateSchedule: any,
-    userDateSchedule: any
-  ) => {
-    setNewIdolDateSchedule(idolDateSchedule);
-    setNewUserDateSchedule(userDateSchedule);
-    setSelectedDate(date.format("M월 D일 (ddd)"));
-  };
-
-  const prevDate = (date: any, idolDateSchedule: any) => {
-    setPrevIdolDateSchedule(idolDateSchedule);
-    setPrevSelectedDate(date.format("M월 D일 (ddd)"));
-  };
-
-  const nextDate = (date: any, idolDateSchedule: any) => {
-    setNextIdolDateSchedule(idolDateSchedule);
-    setNextSelectedDate(date.format("M월 D일 (ddd)"));
-  };
-
-  const setSidebarOpen = (isSidebar: boolean) => {
-    setSidebar(isSidebar);
-  };
-
-  const setSidebarClose = (isSidebar: boolean) => {
-    setSidebar(isSidebar);
-  };
-
-  /**모달 숨기는 함수 */
-  const hideModalHandler = () => {
-    setReportModal(false);
-  };
 
   return (
     <div className={styles.calendarContainer}>
       <div className={styles.calendar}>
         <div className={styles.calendarWrap}>
-          {/* <IdolInform idolData={idolData} /> */}
-          <Calendar
-            todayDate={todayDate}
-            setSidebarOpen={setSidebarOpen}
-            prevDate={prevDate}
-            nextDate={nextDate}
-          />
-          {/* <Sidebar
-            sidebar={sidebar}
-            setSidebarClose={setSidebarClose}
-            selectedDate={selectedDate}
-            prevSelectedDate={prevSelectedDate}
-            nextSelectedDate={nextSelectedDate}
-            newIdolDateSchedule={newIdolDateSchedule}
-            prevIdolDateSchedule={prevIdolDateSchedule}
-            nextIdolDateSchedule={nextIdolDateSchedule}
-            newUserDateSchedule={newUserDateSchedule}
-          /> */}
+          <IdolInform idolData={idolData} />
+          <Calendar />
         </div>
         {/* {Number(idolId) === userPick ? (
           <button

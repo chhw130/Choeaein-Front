@@ -1,4 +1,3 @@
-"use client";
 import styles from "./page.module.scss";
 
 import IdolSection from "@/component/mainPage/IdolSection";

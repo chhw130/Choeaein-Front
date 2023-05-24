@@ -1,3 +1,4 @@
+"use client";
 import styles from "./Calendar.module.scss";
 import { useEffect, useState } from "react";
 import moment from "moment";
