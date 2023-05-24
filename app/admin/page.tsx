@@ -1,13 +1,12 @@
 import React from "react";
 import SidebarWithHeader from "@/component/adminPage/Sidebar";
+import AdminLayout from "./layout";
 
 const AdminPage = () => {
   return (
-    <div>
-      <SidebarWithHeader>
-        <p>123</p>
-      </SidebarWithHeader>
-    </div>
+    <>
+      <p>sdf</p>
+    </>
   );
 };
 

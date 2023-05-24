@@ -10,18 +10,13 @@ import {
   VStack,
   Icon,
   useColorModeValue,
-  Link,
   Drawer,
   DrawerContent,
   Text,
   useDisclosure,
   BoxProps,
   FlexProps,
-  Menu,
-  MenuButton,
-  MenuDivider,
-  MenuItem,
-  MenuList,
+  Img,
 } from "@chakra-ui/react";
 import {
   FiHome,
@@ -30,11 +25,11 @@ import {
   FiStar,
   FiSettings,
   FiMenu,
-  FiBell,
-  FiChevronDown,
 } from "react-icons/fi";
 import { IconType } from "react-icons";
-import { ReactText } from "react";
+import UserInform from "./UserInform";
+import Link from "next/link";
+import { Image } from "@chakra-ui/next-js";
 
 interface LinkItemProps {
   name: string;
@@ -42,10 +37,8 @@ interface LinkItemProps {
 }
 const LinkItems: Array<LinkItemProps> = [
   { name: "Home", icon: FiHome },
-  { name: "Trending", icon: FiTrendingUp },
-  { name: "Explore", icon: FiCompass },
-  { name: "Favourites", icon: FiStar },
-  { name: "Settings", icon: FiSettings },
+  { name: "idols", icon: FiTrendingUp },
+  { name: "schedules", icon: FiCompass },
 ];
 
 export default function SidebarWithHeader({
@@ -99,11 +92,16 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
       {...rest}
     >
       <Flex h="20" alignItems="center" mx="8" justifyContent="space-between">
-        <Text fontSize="2xl" fontFamily="monospace" fontWeight="bold">
-          Logo
-        </Text>
+        <Img
+          src={
+            "https://velog.velcdn.com/images/view_coding/post/6e4d7220-8bc8-4e88-9d4b-f3dd9e09b523/image.png"
+          }
+          width={170}
+          alt="myfavor"
+        />
         <CloseButton display={{ base: "flex", md: "none" }} onClick={onClose} />
       </Flex>
+      <UserInform />
       {LinkItems.map((link) => (
         <NavItem key={link.name} link={link.name} icon={link.icon}>
           {link.name}
@@ -115,16 +113,11 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
 
 interface NavItemProps extends FlexProps {
   icon: IconType;
-  children: ReactText;
   link: string;
 }
 const NavItem = ({ icon, children, link, ...rest }: NavItemProps) => {
   return (
-    <Link
-      href={`/admin/${link}`}
-      style={{ textDecoration: "none" }}
-      _focus={{ boxShadow: "none" }}
-    >
+    <Link href={`/admin/${link}`} style={{ textDecoration: "none" }}>
       <Flex
         align="center"
         p="4"
