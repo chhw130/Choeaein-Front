@@ -1,0 +1,131 @@
+.signUp {
+  margin: 0 auto;
+  width: auto;
+  max-width: 560px;
+  padding: 70px 30px;
+  border-radius: 20px;
+  form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .bootCampinput {
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+  }
+  .signUpImg {
+    width: 200px;
+    margin: auto;
+  }
+  .typeDiv {
+    width: 90%;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    label {
+      line-height: 2;
+      text-align: left;
+      display: block;
+      color: black;
+      font-size: 1rem;
+      font-weight: bold;
+      &::after {
+        content: "*";
+        color: red;
+      }
+    }
+    .uploadFile {
+      &::after {
+        content: "";
+      }
+      background-color: #edf2f7;
+      border-radius: 10px;
+      height: 50px;
+      width: 100px;
+      padding: 10px;
+      text-align: center;
+    }
+    input {
+      display: block;
+      box-sizing: border-box;
+      height: 50px;
+      margin-bottom: 1px;
+    }
+
+    input[type="file"] {
+      width: 0;
+      height: 0;
+      opacity: 0;
+      padding: 0;
+      border: 0;
+    }
+    p {
+      color: red;
+      position: relative;
+      font-size: 0.8rem;
+      width: 100%;
+      height: 0px;
+      justify-content: flex-end;
+      display: flex;
+      margin: 0;
+      &:before {
+        display: inline;
+        content: "⚠ ";
+      }
+    }
+  }
+
+  h2 {
+    margin-left: 30px;
+    font-size: 1.3rem;
+  }
+}
+
+// select {
+//   width: 60%;
+//   font-size: 0.4rem;
+//   border-radius: 4px;
+//   border: 1px solid black;
+// }
+
+.error {
+  color: red;
+  font-size: 0.8rem;
+
+  &:before {
+    display: inline;
+    content: "⚠ ";
+  }
+}
+
+@media (max-width: 768px) {
+  .signUp {
+    width: auto;
+    max-width: 485px;
+    label {
+      font-size: 0.8rem;
+    }
+  }
+}
+
+@media (max-width: 376px) {
+  .signUp {
+    width: auto;
+    max-width: 560px;
+    padding: 20px 15px 20px 15px;
+    border-radius: 20px;
+
+    .typeDiv {
+      width: 90%;
+      label {
+        font-size: 0.9rem;
+      }
+      input {
+        width: 100%;
+      }
+    }
+  }
+}

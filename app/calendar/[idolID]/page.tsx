@@ -3,7 +3,6 @@ import {
   specificIdolSchedule,
 } from "@/utils/axios/AxiosSetting";
 import { useQuery } from "@tanstack/react-query";
-// import { useState } from "react";
 import styles from "./CalendarPage.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { fa0, faCheck } from "@fortawesome/free-solid-svg-icons";

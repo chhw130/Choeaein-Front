@@ -14,18 +14,11 @@
 // };
 
 const nextConfig = {
-  // async rewrites() {
-  //   return {
-  //     fallback: [
-  //       {
-  //         source: "/:path*",
-  //         destination: `https://backend.myfavor.site/:path*`,
-  //       },
-  //     ],
-  //   };
-  // },
   compiler: {
     styledComponents: true,
+  },
+  experimental: {
+    appDir: true,
   },
 };
 
