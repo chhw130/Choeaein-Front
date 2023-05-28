@@ -17,6 +17,7 @@ import {
   BoxProps,
   FlexProps,
   Button,
+  Image,
 } from "@chakra-ui/react";
 import {
   FiHome,
@@ -29,7 +30,6 @@ import {
 import { IconType } from "react-icons";
 import UserInform from "./UserInform";
 import Link from "next/link";
-import Image from "next/image";
 interface LinkItemProps {
   name: string;
   icon: IconType;
@@ -95,15 +95,19 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
           src={
             "https://velog.velcdn.com/images/view_coding/post/6e4d7220-8bc8-4e88-9d4b-f3dd9e09b523/image.png"
           }
-          width={170}
-          height={120}
+          width={150}
           alt="myfavor"
         />
         <CloseButton display={{ base: "flex", md: "none" }} onClick={onClose} />
       </Flex>
       <UserInform />
       {LinkItems.map((link) => (
-        <NavItem key={link.name} link={link.name} icon={link.icon}>
+        <NavItem
+          key={link.name}
+          link={link.name}
+          icon={link.icon}
+          onClick={onClose}
+        >
           {link.name}
         </NavItem>
       ))}
@@ -116,6 +120,8 @@ interface NavItemProps extends FlexProps {
   link: string;
 }
 const NavItem = ({ icon, children, link, ...rest }: NavItemProps) => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
   return (
     <Link href={`/admin/${link}`} style={{ textDecoration: "none" }}>
       <Flex

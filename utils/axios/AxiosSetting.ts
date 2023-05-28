@@ -91,6 +91,10 @@ export const postProfileImg = async (profileImg: any) => {
     .catch((res) => res);
 };
 
+/**유저가 제보한 아이돌 일정 */
+export const getUserReportSchedule = async () =>
+  await instance.get(`/users/reports/`).then((res) => res.data);
+
 /**유저 일정 등록 */
 
 export const postUserCalendar = async (data: any) =>
