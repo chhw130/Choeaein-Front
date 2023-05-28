@@ -18,6 +18,7 @@ import {
   FlexProps,
   Button,
   Image,
+  Tabs,
 } from "@chakra-ui/react";
 import {
   FiHome,
