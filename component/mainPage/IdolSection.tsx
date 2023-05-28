@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import styles from "../../app/page.module.scss";
 import Link from "next/link";
-import { IdolData } from "@/app/admin/[...category]/interface";
+import { IdolData } from "@/app/admin/[category]/interface";
+import Image from "next/image";
 
 interface IdolSectionProps {
   idolData: IdolData[];
@@ -28,10 +29,13 @@ const IdolSection = ({ idolData }: IdolSectionProps) => {
             {slideImage?.map((data: any) => (
               <li className={styles.artistThumnail} key={data.pk}>
                 <Link href={`calendar/${data.pk}`}>
-                  <img
+                  <Image
                     className={styles.artistImage}
-                    src={data.idol_profile}
+                    src={data?.idol_profile}
                     alt="아티스트 이미지"
+                    width={200}
+                    height={200}
+                    loading="lazy"
                   />
                   <h3 className={styles.artistName}>{data.idol_name_kr}</h3>
                   <p className={styles.artistFont}>{data.idol_name_en}</p>

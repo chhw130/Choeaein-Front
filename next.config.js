@@ -16,7 +16,12 @@
 const nextConfig = {
   experimental: {
     appDir: true,
+    optimizeFonts: true,
+
     // newNextLinkBehavior: false,
+  },
+  images: {
+    domains: ["image.kpopmap.com", "velog.velcdn.com"],
   },
 };
 

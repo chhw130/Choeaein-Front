@@ -16,7 +16,7 @@ import {
   useDisclosure,
   BoxProps,
   FlexProps,
-  Img,
+  Button,
 } from "@chakra-ui/react";
 import {
   FiHome,
@@ -29,8 +29,7 @@ import {
 import { IconType } from "react-icons";
 import UserInform from "./UserInform";
 import Link from "next/link";
-import { Image } from "@chakra-ui/next-js";
-
+import Image from "next/image";
 interface LinkItemProps {
   name: string;
   icon: IconType;
@@ -92,11 +91,12 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
       {...rest}
     >
       <Flex h="20" alignItems="center" mx="8" justifyContent="space-between">
-        <Img
+        <Image
           src={
             "https://velog.velcdn.com/images/view_coding/post/6e4d7220-8bc8-4e88-9d4b-f3dd9e09b523/image.png"
           }
           width={170}
+          height={120}
           alt="myfavor"
         />
         <CloseButton display={{ base: "flex", md: "none" }} onClick={onClose} />
@@ -177,8 +177,9 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
         fontFamily="monospace"
         fontWeight="bold"
       >
-        Logo
+        CHOEAEIN
       </Text>
+      <Button>로그아웃</Button>
     </Flex>
   );
 };
