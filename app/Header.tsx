@@ -1,14 +1,25 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import "./Header.scss";
-import { Input, InputGroup, InputRightAddon, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Drawer,
+  DrawerContent,
+  Input,
+  InputGroup,
+  InputRightAddon,
+  Text,
+  useDisclosure,
+} from "@chakra-ui/react";
 import { GoSearch } from "react-icons/go";
 import Link from "next/link";
 import HeaderBtn from "@/component/header/HeaderBtn";
+import { MobileNav, SidebarContent } from "@/component/adminPage/Sidebar";
 
 const Header = () => {
   const [navSize, setnavSize] = useState("6rem");
   const [navColor, setnavColor] = useState("transparent");
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   const listenScrollEvent = () => {
     window.scrollY > 10 ? setnavColor("#ffff") : setnavColor("transparent");
@@ -78,6 +89,21 @@ const Header = () => {
           </div>
         </div>
       </div>
+
+      <MobileNav onOpen={onOpen} />
+      <Drawer
+        autoFocus={false}
+        isOpen={isOpen}
+        placement="left"
+        onClose={onClose}
+        returnFocusOnClose={false}
+        onOverlayClick={onClose}
+        size="full"
+      >
+        <DrawerContent>
+          <SidebarContent onClose={onClose} />
+        </DrawerContent>
+      </Drawer>
     </>
   );
 };

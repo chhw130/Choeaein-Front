@@ -79,7 +79,7 @@ interface SidebarProps extends BoxProps {
   onClose: () => void;
 }
 
-const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
+export const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
   return (
     <Box
       transition="3s ease"
@@ -157,10 +157,14 @@ const NavItem = ({ icon, children, link, ...rest }: NavItemProps) => {
 interface MobileProps extends FlexProps {
   onOpen: () => void;
 }
-const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
+export const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
   return (
     <Flex
       ml={{ base: 0, md: 60 }}
+      display={{ base: "flex", md: "none" }}
+      position="fixed"
+      width="100%"
+      zIndex={100}
       px={{ base: 4, md: 4 }}
       height="20"
       alignItems="center"
@@ -178,14 +182,16 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
         icon={<FiMenu />}
       />
 
-      <Text
-        display={{ base: "flex", md: "none" }}
-        fontSize="2xl"
-        fontFamily="monospace"
-        fontWeight="bold"
-      >
-        CHOEAEIN
-      </Text>
+      <Link href={"/"}>
+        <Text
+          display={{ base: "flex", md: "none" }}
+          fontSize="2xl"
+          fontFamily="monospace"
+          fontWeight="bold"
+        >
+          CHOEAEIN
+        </Text>
+      </Link>
       <Button>로그아웃</Button>
     </Flex>
   );

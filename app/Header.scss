@@ -54,3 +54,9 @@
   display: flex;
   justify-content: center;
 }
+
+@media (max-width: 769px) {
+  .header {
+    display: none;
+  }
+}
