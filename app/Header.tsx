@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import "./Header.scss";
-import { Input, InputGroup, InputRightAddon } from "@chakra-ui/react";
+import { Input, InputGroup, InputRightAddon, Text } from "@chakra-ui/react";
 import { GoSearch } from "react-icons/go";
 import Link from "next/link";
 import HeaderBtn from "@/component/header/HeaderBtn";
@@ -59,7 +59,9 @@ const Header = () => {
             <div className="navItem navSpan">
               {true ? (
                 <Link href="/" prefetch={false}>
-                  <span className="navItem_span">스케줄 보기</span>
+                  <Text fontSize={[8, 10, 13]} marginLeft={1}>
+                    스케줄 보기
+                  </Text>
                 </Link>
               ) : null}
             </div>

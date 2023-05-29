@@ -17,10 +17,40 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { ShowEvent } from "./ShowEvent";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import IdolInform from "./IdolInform";
+import {
+  Box,
+  Button,
+  Flex,
+  Spinner,
+  Table,
+  Tbody,
+  Td,
+  Th,
+  Thead,
+  Tr,
+  useToast,
+} from "@chakra-ui/react";
+import { useQuery } from "@tanstack/react-query";
+import { specificIdolSchedule } from "@/utils/axios/AxiosSetting";
 
-const Calendar = ({ todayDate, setSidebarOpen, prevDate, nextDate }: any) => {
+const days = ["일", "월", "화", "수", "목", "금", "토"];
+
+const Calendar = ({
+  todayDate,
+  setSidebarOpen,
+  prevDate,
+  nextDate,
+  idolData,
+  params,
+}: any) => {
+  const idolId = params.params.idolID;
+  const { data: newIdolSchedule = [], isLoading } = useQuery(
+    ["idolSchedule", idolId],
+    () => specificIdolSchedule(idolId)
+  );
+
   /**선택한 날 */
-  const idolId = 1;
   const userPick = 1;
   const [selectedDay, setSelectedDay] = useState(moment());
   const [prevsSelectedDay, setPrevsSelectedDay] = useState(
@@ -84,7 +114,7 @@ const Calendar = ({ todayDate, setSidebarOpen, prevDate, nextDate }: any) => {
   const [activeButtons, setActiveButtons] = useState(initActiveButtons);
 
   /**이번달 데이터 */
-  const [newIdolSchedule, setNewIdolSchedule] = useState([]);
+  // const [newIdolSchedule, setNewIdolSchedule] = useState([]);
   /**이번달 데이터와 클릭한 일자 데이터 */
   const [newIdolDateSchedule, setNewIdolDateSchedule] = useState([]);
 
@@ -95,40 +125,6 @@ const Calendar = ({ todayDate, setSidebarOpen, prevDate, nextDate }: any) => {
 
   const prevSelectedDay = prevsSelectedDay.format("YYYY/MM/DD");
   const nextSelectedDay = nextsSelectedDay.format("YYYY/MM/DD");
-
-  // useEffect(() => {
-  //   fetchMonthData(getMoment, activeButtons, idolId).then((data) =>
-  //     setNewIdolSchedule(data)
-  //   );
-  //   fetchDayIdolSchedule(newSelectedDay, activeButtons, idolId).then((data) =>
-  //     setNewIdolDateSchedule(data)
-  //   );
-  //   fetchDayIdolSchedule(prevSelectedDay, activeButtons, idolId).then((data) =>
-  //     setPrevIdolDateSchedule(data)
-  //   );
-  //   fetchDayIdolSchedule(nextSelectedDay, activeButtons, idolId).then((data) =>
-  //     setNextIdolDateSchedule(data)
-  //   );
-  // }, [
-  //   activeButtons,
-  //   idolId,
-  //   getMoment,
-  //   newSelectedDay,
-  //   nextSelectedDay,
-  //   prevSelectedDay,
-  // ]);
-
-  // const idolDateSchedule = newIdolDateSchedule.idolDaySchdule;
-  // const userDateSchedule = newIdolDateSchedule.newUserData;
-
-  // const previosIdolDateSchedule = prevIdolDateSchedule.idolDaySchdule;
-  // const nextToIdolDateSchedule = nextIdolDateSchedule.idolDaySchdule;
-  // prevDate(prevsSelectedDay, previosIdolDateSchedule);
-  // nextDate(nextsSelectedDay, nextToIdolDateSchedule);
-
-  // handleClick 함수는 클릭된 버튼의 ID를 배열에 추가하거나 삭제
-  // map 함수에서 각 버튼의 className 속성은 activeButtons 배열에 현재 버튼의 ID가 포함되어 있는 경우에는 active 클래스를, 아닌 경우에는 inactive 클래스를 적용
-  // todayDate(selectedDay, idolDateSchedule, userDateSchedule);
 
   /**클릭한 버튼 toggle 함수 */
   const handleClick = (buttonPk: string) => {
@@ -154,7 +150,12 @@ const Calendar = ({ todayDate, setSidebarOpen, prevDate, nextDate }: any) => {
 
     for (week; week <= lastWeek; week++) {
       result = result.concat(
-        <tr key={week} className={styles.calendarTr}>
+        <Tr
+          key={week}
+          fontSize={[15, 18, 20]}
+          lineHeight={2}
+          padding={[2, 3, 4]}
+        >
           {Array(7)
             .fill(0)
             // eslint-disable-next-line
@@ -169,7 +170,11 @@ const Calendar = ({ todayDate, setSidebarOpen, prevDate, nextDate }: any) => {
               // 오늘 날짜에 today style 적용
               if (moment().format("YYYYMMDD") === days.format("YYYYMMDD")) {
                 return (
-                  <td
+                  <Td
+                    width={10}
+                    height={20}
+                    padding={[2, 3, 4]}
+                    textAlign="center"
                     key={index}
                     onClick={() => {
                       setSelectedDay(days);
@@ -180,19 +185,18 @@ const Calendar = ({ todayDate, setSidebarOpen, prevDate, nextDate }: any) => {
                     }}
                     className={styles.today}
                   >
-                    <span>
-                      <div
-                        className={
-                          selectedDay &&
-                          selectedDay.format("YYYYMMDD") ===
-                            days.format("YYYYMMDD")
-                            ? styles.dayContent
-                            : undefined
-                        }
-                      >
-                        {days.format("D")}
-                      </div>
-                    </span>
+                    <div
+                      className={
+                        selectedDay &&
+                        selectedDay.format("YYYYMMDD") ===
+                          days.format("YYYYMMDD")
+                          ? styles.dayContent
+                          : undefined
+                      }
+                    >
+                      {days.format("D")}
+                    </div>
+
                     <div className={styles.eventContent}>
                       <ShowEvent
                         buttons={buttons}
@@ -200,40 +204,49 @@ const Calendar = ({ todayDate, setSidebarOpen, prevDate, nextDate }: any) => {
                         newIdolSchedule={newIdolSchedule}
                       />
                     </div>
-                  </td>
+                  </Td>
                 );
                 // 다른 달은 글씨 색 연하게
               } else if (days.format("MM") !== today.format("MM")) {
                 return (
-                  <td key={index} style={{ color: "#c2c2c2" }}>
-                    <span>{days.format("D")}</span>
-                  </td>
+                  <Td
+                    width={10}
+                    height={20}
+                    padding={[2, 3, 4]}
+                    textAlign="center"
+                    key={index}
+                    style={{ color: "#c2c2c2" }}
+                  >
+                    {days.format("D")}
+                    <div className={styles.eventContent} />
+                  </Td>
                 );
               } else {
                 return (
-                  <td
+                  <Td
+                    width={10}
+                    height={20}
+                    padding={[2, 3, 4]}
+                    textAlign="center"
                     key={index}
                     onClick={(e) => {
                       setSelectedDay(days);
                       setPrevsSelectedDay(moment(days).subtract(1, "days"));
                       setNextsSelectedDay(moment(days).add(1, "days"));
-
                       setSidebarOpen(true);
                     }}
                   >
-                    <span>
-                      <div
-                        className={
-                          selectedDay &&
-                          selectedDay.format("YYYYMMDD") ===
-                            days.format("YYYYMMDD")
-                            ? styles.dayContent
-                            : undefined
-                        }
-                      >
-                        {days.format("D")}
-                      </div>
-                    </span>
+                    <div
+                      className={
+                        selectedDay &&
+                        selectedDay.format("YYYYMMDD") ===
+                          days.format("YYYYMMDD")
+                          ? styles.dayContent
+                          : undefined
+                      }
+                    >
+                      {days.format("D")}
+                    </div>
 
                     <div className={styles.eventContent}>
                       <ShowEvent
@@ -242,11 +255,11 @@ const Calendar = ({ todayDate, setSidebarOpen, prevDate, nextDate }: any) => {
                         newIdolSchedule={newIdolSchedule}
                       />
                     </div>
-                  </td>
+                  </Td>
                 );
               }
             })}
-        </tr>
+        </Tr>
       );
     }
     return result;
@@ -255,70 +268,98 @@ const Calendar = ({ todayDate, setSidebarOpen, prevDate, nextDate }: any) => {
   // 카테고리 배열
 
   return (
-    <div className={styles.calendarContainer}>
-      <div className={styles.controlContainer}>
-        <button
-          className={styles.prevBtn}
-          onClick={() => {
-            // clone() 은 기존의 moment가 아닌 새로운 객체를 반환했다는 의미
-            setMoment(getMoment.clone().subtract(1, "month"));
-          }}
-        >
-          <FontAwesomeIcon icon={faChevronLeft} size="lg" />
-        </button>
-        <span className={styles.title}>{today.format("YYYY.MM")}</span>
-        <button
-          className={styles.nextBtn}
-          onClick={() => {
-            setMoment(getMoment.clone().add(1, "month"));
-          }}
-        >
-          <FontAwesomeIcon icon={faChevronRight} size="lg" />
-        </button>
-        <button
-          className={styles.todayBtn}
-          onClick={() => {
-            setMoment(moment());
-          }}
-        >
-          <FontAwesomeIcon icon={faRotateRight} />
-        </button>
-      </div>
+    <>
+      <div className={styles.calendarContainer}>
+        <Flex justifyContent="space-between" padding="10px 20px">
+          <IdolInform idolData={idolData} />
+          <Flex fontSize={[20, 30, 30]}>
+            <button
+              className={styles.prevBtn}
+              onClick={() => {
+                // clone() 은 기존의 moment가 아닌 새로운 객체를 반환했다는 의미
+                setMoment(getMoment.clone().subtract(1, "month"));
+              }}
+            >
+              <FontAwesomeIcon icon={faChevronLeft} size="lg" />
+            </button>
+            <div className={styles.title}>{today.format("YYYY.MM")}</div>
+            <button
+              className={styles.nextBtn}
+              onClick={() => {
+                setMoment(getMoment.clone().add(1, "month"));
+              }}
+            >
+              <FontAwesomeIcon icon={faChevronRight} size="lg" />
+            </button>
+            <button
+              className={styles.todayBtn}
+              onClick={() => {
+                setMoment(moment());
+              }}
+            >
+              <FontAwesomeIcon icon={faRotateRight} />
+            </button>
+          </Flex>
+        </Flex>
 
-      {/* 버튼 */}
-      <div className={styles.categoryContainer}>
-        {buttons.map((btn) => (
-          <button
-            className={`${
-              activeButtons.includes(btn.category)
-                ? styles.active
-                : styles.inactive
-            } 
+        {/* 버튼 */}
+        <div className={styles.categoryContainer}>
+          {buttons.map((btn) => (
+            <Button
+              fontSize={[11, 13, 15]}
+              w={[40, 80, 150]}
+              h={[10, 14, 16]}
+              className={`${
+                activeButtons.includes(btn.category)
+                  ? styles.active
+                  : styles.inactive
+              } 
              ${styles.buttonss}
             `}
-            key={btn.category}
-            onClick={() => handleClick(btn.category)}
-          >
-            <FontAwesomeIcon className={styles.icons} icon={btn.icon} />
-            {btn.content}
-          </button>
-        ))}
+              key={btn.category}
+              onClick={() => handleClick(btn.category)}
+            >
+              <FontAwesomeIcon className={styles.icons} icon={btn.icon} />
+              {btn.content}
+            </Button>
+          ))}
+        </div>
+        {!isLoading ? (
+          <Table h={"500px"} w="100%">
+            <Thead>
+              <Tr>
+                {days.map((day, index) => {
+                  return (
+                    <Th
+                      key={index}
+                      textAlign="center"
+                      fontSize={[15, 18, 20]}
+                      padding={[3, 4, 5]}
+                    >
+                      {day}
+                    </Th>
+                  );
+                })}
+              </Tr>
+            </Thead>
+            <Tbody className={styles.calendarTbody}>{calendarArr()}</Tbody>
+          </Table>
+        ) : (
+          <Box w="100%" h={"500px"}>
+            <Spinner
+              position="absolute"
+              top="30%"
+              left="47.5%"
+              thickness="4px"
+              speed="0.65s"
+              emptyColor="gray.200"
+              color="#f89598"
+              size="xl"
+            />
+          </Box>
+        )}
       </div>
-      <table className={styles.calendarTable}>
-        <tbody className={styles.calendarTbody}>
-          <tr className={styles.calendarTr}>
-            <td className="week">일</td>
-            <td className="week">월</td>
-            <td className="week">화</td>
-            <td className="week">수</td>
-            <td className="week">목</td>
-            <td className="week">금</td>
-            <td className="week">토</td>
-          </tr>
-          {calendarArr()}
-        </tbody>
-      </table>
-    </div>
+    </>
   );
 };
 export default Calendar;

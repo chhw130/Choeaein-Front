@@ -12,7 +12,7 @@
   // }
 }
 .headerNav {
-  width: 95vw;
+  width: 90%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -53,13 +53,4 @@
   height: 100%;
   display: flex;
   justify-content: center;
-}
-
-@media (max-width: 376px) {
-  .navImg {
-    width: 100px;
-  }
-  .navItem_span {
-    font-size: 3.2vw;
-  }
 }

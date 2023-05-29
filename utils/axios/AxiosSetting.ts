@@ -41,8 +41,10 @@ export const specificIdolInform = async (idolId: any) => {
   return data;
 };
 
-export const specificIdolSchedule = (idolId: any) =>
-  instance.get(`/idols/${idolId}/schedules/`).then((response) => response.data);
+export const specificIdolSchedule = (idolId: string) =>
+  instance
+    .get(`/idols/${idolId}/schedules/event/2023/4/`)
+    .then((response) => response.data);
 
 /**사진을 업로드 할 url 가져오는 함수. */
 export const getUploadUrl = async (img: any) => {

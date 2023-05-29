@@ -1,16 +1,17 @@
 "use client";
+import { Flex, HStack, Text } from "@chakra-ui/react";
 import styles from "../calendarPage/Calendar.module.scss";
 
 const IdolInform = ({ idolData }: any) => {
   return (
-    <div className={styles.idolName}>
-      <p>{idolData?.idol_name_kr}</p>
+    <HStack spacing={2}>
+      <Text fontSize={[30, 30, 40]}>{idolData?.idol_name_kr}</Text>
       {idolData?.Girl_group ? (
-        <p>{idolData?.Girl_group}</p>
+        <Text fontSize={[10, 20, 25]}>{idolData?.Girl_group}</Text>
       ) : (
-        <p>{idolData?.Boy_group}</p>
+        <Text fontSize={[10, 20, 25]}>{idolData?.Boy_group}</Text>
       )}
-    </div>
+    </HStack>
   );
 };
 

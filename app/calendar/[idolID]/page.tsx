@@ -67,24 +67,9 @@ async function CalendarPage(params: any) {
     <div className={styles.calendarContainer}>
       <div className={styles.calendar}>
         <div className={styles.calendarWrap}>
-          <IdolInform idolData={idolData} />
-          <Calendar />
+          <Calendar idolData={idolData} params={params} />
         </div>
-        {/* {Number(idolId) === userPick ? (
-          <button
-            className={styles.reportBtn}
-            onClick={() => {
-              setReportModal(true);
-            }}
-          >
-            제보하기
-          </button>
-        ) : null}
-        {reportModal ? (
-          <Modal hideCartHandler={hideModalHandler}>
-            <ReportSchedule hideModalHandler={hideModalHandler} />
-          </Modal>
-        ) : null} */}
+
         <section className={styles.nextSchedule}>
           <div className={styles.nextSchedule_Title}>
             <h3 className={styles.nextSchedule_Content}>다가오는 스케줄</h3>
