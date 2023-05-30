@@ -5,6 +5,8 @@ declare global {
       NEXT_PUBLIC_GITHUB_SECRET: string;
       NEXT_PUBLIC_KAKAO_ID: string;
       NEXT_PUBLIC_KAKAO_SECRET: string;
+      NEXT_PUBLIC_NAVER_ID: string;
+      NEXT_PUBLIC_NAVER_SECRET: string;
       NODE_ENV: "development" | "production";
     }
   }
