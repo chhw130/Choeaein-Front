@@ -17,7 +17,6 @@ import { useRouter } from "next/navigation";
 import { SignUpData } from "@/app/signup/interface";
 import IdolOption from "./IdolOption";
 import { useMutation } from "@tanstack/react-query";
-// import { postSignUp } from "../../../axios-settings/Axios";
 
 const SignUp = () => {
   /**회원가입 확인 모달창 */

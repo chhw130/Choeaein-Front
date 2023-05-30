@@ -3,13 +3,22 @@
 import styles from "./UserLogin.module.scss";
 import { useForm } from "react-hook-form";
 // import choeImg from "/img/logo_main.png";
-import { Button, ButtonGroup, Input } from "@chakra-ui/react";
+import {
+  Button,
+  ButtonGroup,
+  Divider,
+  HStack,
+  Input,
+  Stack,
+  Text,
+} from "@chakra-ui/react";
 // import { postLogin } from "../../../axios-settings/Axios";
 import { postLogin } from "@/utils/axios/AxiosSetting";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { LoginData } from "@/app/login/interface";
 import { useMutation } from "@tanstack/react-query";
+import { OAuthButtonGroup } from "./OAuthButtonGroup";
 
 const UserLogin = () => {
   const {
@@ -60,7 +69,7 @@ const UserLogin = () => {
             </Button>
           </Link>
         </div>
-        <ButtonGroup marginTop="30px">
+        <ButtonGroup marginTop="10px">
           <Button
             w="150px"
             h="50px"
@@ -81,6 +90,16 @@ const UserLogin = () => {
             로그인
           </Button>
         </ButtonGroup>
+        <Stack spacing="6" w="80%" marginTop={5}>
+          <HStack>
+            <Divider />
+            <Text fontSize="sm" whiteSpace="nowrap" color="muted">
+              or continue with
+            </Text>
+            <Divider />
+          </HStack>
+          <OAuthButtonGroup />
+        </Stack>
       </form>
     </div>
   );

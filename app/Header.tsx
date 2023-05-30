@@ -15,15 +15,8 @@ import { GoSearch } from "react-icons/go";
 import Link from "next/link";
 import HeaderBtn from "@/component/header/HeaderBtn";
 import { MobileNav, SidebarContent } from "@/component/adminPage/Sidebar";
-import { getServerSession } from "next-auth";
-import { authOptions } from "@/pages/api/auth/[...nextauth]";
 
-const Header = async () => {
-  let session = await getServerSession(authOptions);
-  if (session) {
-    console.log(session);
-  }
-
+const Header = () => {
   const [navSize, setnavSize] = useState("6rem");
   const [navColor, setnavColor] = useState("transparent");
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -73,15 +66,6 @@ const Header = async () => {
                   alt=""
                 />
               </Link>
-            </div>
-            <div className="navItem navSpan">
-              {true ? (
-                <Link href="/" prefetch={false}>
-                  <Text fontSize={[8, 10, 13]} marginLeft={1}>
-                    스케줄 보기
-                  </Text>
-                </Link>
-              ) : null}
             </div>
           </div>
 

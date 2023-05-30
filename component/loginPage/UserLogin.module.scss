@@ -2,8 +2,9 @@
   height: 100vh;
   display: flex;
   form {
-    margin-top: 50px;
-    width: 100%;
+    margin: 50px auto;
+    width: 500px;
+
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -34,19 +35,19 @@
       font-weight: bold;
     }
   }
-  p {
-    color: #bf1650;
-    left: 0;
-    font-size: 0.8rem;
-    margin: 0;
-  }
-  p::before {
-    display: inline;
-    content: "⚠ ";
-  }
-  .errorMessage {
-    width: 450px;
-  }
+  // p {
+  //   color: #bf1650;
+  //   left: 0;
+  //   font-size: 0.8rem;
+  //   margin: 0;
+  // }
+  // p::before {
+  //   display: inline;
+  //   content: "⚠ ";
+  // }
+  // .errorMessage {
+  //   width: 450px;
+  // }
 }
 
 .mainImg {
