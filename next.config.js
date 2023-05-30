@@ -16,7 +16,7 @@
 const nextConfig = {
   experimental: {
     appDir: true,
-    optimizeFonts: true,
+    // optimizeFonts: true,
   },
   images: {
     domains: ["image.kpopmap.com", "velog.velcdn.com"],

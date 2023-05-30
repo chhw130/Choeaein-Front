@@ -2,23 +2,24 @@
 
 import styles from "./UserLogin.module.scss";
 import { useForm } from "react-hook-form";
-// import choeImg from "/img/logo_main.png";
 import {
+  Box,
   Button,
   ButtonGroup,
+  Center,
   Divider,
   HStack,
   Input,
   Stack,
   Text,
 } from "@chakra-ui/react";
-// import { postLogin } from "../../../axios-settings/Axios";
 import { postLogin } from "@/utils/axios/AxiosSetting";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { LoginData } from "@/app/login/interface";
 import { useMutation } from "@tanstack/react-query";
 import { OAuthButtonGroup } from "./OAuthButtonGroup";
+import Image from "next/image";
 
 const UserLogin = () => {
   const {
@@ -41,8 +42,13 @@ const UserLogin = () => {
   return (
     <div className={styles.logInDiv}>
       <form onSubmit={handleSubmit(onSubmit)} className={styles.logInForm}>
-        {/* <img className={styles.mainImg} src={choeImg} alt="" /> */}
-        <h1>로그인</h1>
+        <Image
+          src="https://velog.velcdn.com/images/view_coding/post/6e4d7220-8bc8-4e88-9d4b-f3dd9e09b523/image.png"
+          alt="최애돌"
+          width={300}
+          height={80}
+          className={styles.mainImg}
+        />
         <Input
           className={styles.logInInput}
           placeholder="UserEmail"
@@ -62,35 +68,34 @@ const UserLogin = () => {
           {(errors.email && <p>{errors.email.message}</p>) ||
             (errors.password && <p>{errors.password.message}</p>)}
         </div>
-        <div className={styles.goSignUp}>
-          <Link href={"/signup"} prefetch={false}>
-            <Button bg="transparent" type="button">
-              Not user?
+
+        <Stack spacing="6" w="90%" maxW="450px" marginTop={5}>
+          <ButtonGroup marginTop="10px" justifyContent="center" w="100%">
+            <Button
+              w="50%"
+              h="50px"
+              onClick={() => {
+                router.back();
+              }}
+              type="button"
+            >
+              홈으로
             </Button>
-          </Link>
-        </div>
-        <ButtonGroup marginTop="10px">
-          <Button
-            w="150px"
-            h="50px"
-            onClick={() => {
-              router.back();
-            }}
-            type="button"
-          >
-            홈으로
-          </Button>
-          <Button
-            w="150px"
-            h="50px"
-            type="submit"
-            color="white"
-            colorScheme="twitter"
-          >
-            로그인
-          </Button>
-        </ButtonGroup>
-        <Stack spacing="6" w="80%" marginTop={5}>
+            <Button w="50%" h="50px" type="submit" color="white" bg="#f89598">
+              로그인
+            </Button>
+          </ButtonGroup>
+          <HStack fontSize={"sm"} w={"100%"}>
+            <HStack w="100%" justifyContent={"center"}>
+              <Link href="user/findId">
+                <Text>아이디 찾기</Text>
+              </Link>
+              <Text color={"gray.300"}>|</Text>
+              <Link href="user/findPassword">비밀번호 찾기</Link>
+              <Text color={"gray.300"}>|</Text>
+              <Link href={"/signup"}>회원가입</Link>
+            </HStack>
+          </HStack>
           <HStack>
             <Divider />
             <Text fontSize="sm" whiteSpace="nowrap" color="muted">

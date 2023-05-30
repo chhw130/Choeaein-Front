@@ -2,8 +2,9 @@
   height: 100vh;
   display: flex;
   form {
-    margin: 50px auto;
-    width: 500px;
+    margin: 30px auto;
+    width: 100%;
+    max-width: 500px;
 
     display: flex;
     flex-direction: column;
@@ -23,18 +24,7 @@
     padding: 0;
     font-size: 2.5rem;
   }
-  .goSignUp {
-    position: relative;
-    width: 450px;
-    font-size: 0.8rem;
-    text-align: right;
-    button {
-      border: 0;
-      border-radius: 10px;
-      padding: 8px;
-      font-weight: bold;
-    }
-  }
+
   // p {
   //   color: #bf1650;
   //   left: 0;
@@ -51,23 +41,23 @@
 }
 
 .mainImg {
-  width: 60px;
+  width: 65%;
+  max-width: 400px;
   height: 60px;
+  margin: 40px;
 }
 
 @media (max-width: 768px) {
   .logInDiv {
     display: flex;
     .logInInput {
-      width: 310px;
+      width: 90%;
+
       margin-bottom: 13px;
     }
     h1 {
       margin-bottom: 40px;
       padding: 0;
-    }
-    .goSignUp {
-      width: 310px;
     }
 
     .errorMessage {
@@ -77,21 +67,22 @@
 }
 
 @media (max-width: 376px) {
+  .mainImg {
+    width: 50%;
+    height: 30px;
+    margin: 40px;
+  }
+
   .logInDiv {
     height: 100vh;
     display: flex;
     .logInInput {
       margin-bottom: 13px;
+      height: 65px;
     }
     h1 {
       margin-bottom: 40px;
       padding: 0;
     }
-  }
-  .goSignUp {
-    position: relative;
-    width: 310px;
-    font-size: 0.8rem;
-    text-align: right;
   }
 }

@@ -31,6 +31,7 @@ import {
 import { IconType } from "react-icons";
 import UserInform from "./UserInform";
 import Link from "next/link";
+import HeaderBtn from "../header/HeaderBtn";
 interface LinkItemProps {
   name: string;
   icon: IconType;
@@ -166,7 +167,7 @@ export const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
       width="100%"
       zIndex={100}
       px={{ base: 4, md: 4 }}
-      height="20"
+      height="65px"
       alignItems="center"
       bg={useColorModeValue("white", "gray.900")}
       borderBottomWidth="1px"
@@ -192,7 +193,7 @@ export const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
           CHOEAEIN
         </Text>
       </Link>
-      <Button>로그아웃</Button>
+      <HeaderBtn />
     </Flex>
   );
 };
