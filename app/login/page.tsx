@@ -1,8 +1,13 @@
+import SocialLogin from "@/component/loginPage/SocialLogin";
 import UserLogin from "@/component/loginPage/UserLogin";
-import React from "react";
 
-const LoginPage = () => {
-  return <UserLogin />;
+const LoginPage = async () => {
+  return (
+    <>
+      <UserLogin />
+      <SocialLogin />
+    </>
+  );
 };
 
 export default LoginPage;
