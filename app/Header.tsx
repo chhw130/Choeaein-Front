@@ -15,8 +15,15 @@ import { GoSearch } from "react-icons/go";
 import Link from "next/link";
 import HeaderBtn from "@/component/header/HeaderBtn";
 import { MobileNav, SidebarContent } from "@/component/adminPage/Sidebar";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/pages/api/auth/[...nextauth]";
 
-const Header = () => {
+const Header = async () => {
+  let session = await getServerSession(authOptions);
+  if (session) {
+    console.log(session);
+  }
+
   const [navSize, setnavSize] = useState("6rem");
   const [navColor, setnavColor] = useState("transparent");
   const { isOpen, onOpen, onClose } = useDisclosure();
