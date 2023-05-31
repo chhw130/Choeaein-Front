@@ -60,6 +60,7 @@ const UserLogin = () => {
           className={styles.logInInput}
           placeholder="Password"
           type="password"
+          autoComplete="off"
           {...register("password", {
             required: "Password를 입력해주세요.",
           })}
