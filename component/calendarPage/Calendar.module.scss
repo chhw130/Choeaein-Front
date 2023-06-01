@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Jua&display=swap");
+// @import url("https://fonts.googleapis.com/css2?family=Jua&display=swap");
 
 .testDiv {
   /* border: 1px solid black; */
@@ -13,9 +13,9 @@
 }
 
 .active {
-  // opacity: 1;
   &:nth-child(1) {
     background-color: #443c68;
+    color: white;
   }
 
   &:nth-child(2) {
