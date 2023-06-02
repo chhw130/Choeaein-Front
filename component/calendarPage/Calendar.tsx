@@ -190,7 +190,7 @@ const Calendar = ({
                         selectedDay &&
                         selectedDay.format("YYYYMMDD") ===
                           days.format("YYYYMMDD")
-                          ? styles.dayContent
+                          ? styles.selectedDay
                           : undefined
                       }
                     >
@@ -241,7 +241,7 @@ const Calendar = ({
                         selectedDay &&
                         selectedDay.format("YYYYMMDD") ===
                           days.format("YYYYMMDD")
-                          ? styles.dayContent
+                          ? styles.selectedDay
                           : undefined
                       }
                     >
