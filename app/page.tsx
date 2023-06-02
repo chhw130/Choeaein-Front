@@ -4,6 +4,7 @@ import MainVideo from "@/component/mainPage/MainVideo";
 import RandomSchedule from "@/component/mainPage/RandomSchedule";
 import { getIdolList, getIdolSchedules } from "@/utils/axios/AxiosSetting";
 import { Metadata } from "next";
+import { ColorModeScript, theme } from "@chakra-ui/react";
 
 export const metadata: Metadata = {
   title: "Myfavor",
@@ -20,12 +21,8 @@ export default async function Home() {
   return (
     <>
       <MainVideo />
-      <div className={styles.home}>
-        <div className={styles.homeContainer}>
-          <RandomSchedule schedulesData={schedulesData} />
-          <IdolSection idolData={idolData} />
-        </div>
-      </div>
+      <RandomSchedule schedulesData={schedulesData} />
+      <IdolSection idolData={idolData} />
     </>
   );
 }

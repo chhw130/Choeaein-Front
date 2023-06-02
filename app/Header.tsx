@@ -3,12 +3,14 @@ import React, { useState, useEffect } from "react";
 import "./Header.scss";
 import {
   Box,
+  Button,
   Drawer,
   DrawerContent,
   Input,
   InputGroup,
   InputRightAddon,
   Text,
+  useColorMode,
   useDisclosure,
 } from "@chakra-ui/react";
 import { GoSearch } from "react-icons/go";
@@ -17,6 +19,7 @@ import HeaderBtn from "@/component/header/HeaderBtn";
 import { MobileNav, SidebarContent } from "@/component/adminPage/Sidebar";
 
 const Header = () => {
+  const { colorMode, toggleColorMode } = useColorMode();
   const [navSize, setnavSize] = useState("6rem");
   const [navColor, setnavColor] = useState("transparent");
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -33,7 +36,7 @@ const Header = () => {
   }, []);
 
   return (
-    <>
+    <Box>
       <div
         className="header"
         style={{
@@ -60,6 +63,9 @@ const Header = () => {
               <Input placeholder="아이돌을 검색해보세요." fontSize="0.9rem" />
               <InputRightAddon children={<GoSearch />} padding="0px 8px" />
             </InputGroup>
+            <Button onClick={toggleColorMode}>
+              {colorMode === "light" ? "다크" : "화이트"}모드
+            </Button>
             <div className="navItem">
               <HeaderBtn />
             </div>
@@ -81,7 +87,7 @@ const Header = () => {
           <SidebarContent onClose={onClose} />
         </DrawerContent>
       </Drawer>
-    </>
+    </Box>
   );
 };
 export default Header;

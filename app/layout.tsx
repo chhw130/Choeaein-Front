@@ -4,7 +4,6 @@ import { Providers } from "./ChakraUIProvider";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { Metadata } from "next";
-import { SessionProvider } from "next-auth/react";
 config.autoAddCss = false;
 
 export const metadata: Metadata = {

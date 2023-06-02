@@ -11,6 +11,7 @@ import {
   faCalendarCheck,
   faMicrophone,
 } from "@fortawesome/free-solid-svg-icons";
+import { Box, Flex } from "@chakra-ui/react";
 
 const RandomSchedule = ({ schedulesData }: any) => {
   const slideBanner = schedulesData?.slice(0, 10);
@@ -61,8 +62,9 @@ const RandomSchedule = ({ schedulesData }: any) => {
   }, [isHovered, slideBanner]);
 
   return (
-    <div
-      className={styles.slider}
+    <Flex
+      overflow="hidden"
+      padding="20px 0px"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -95,10 +97,18 @@ const RandomSchedule = ({ schedulesData }: any) => {
           // }[scheduleType];
 
           return (
-            <div className={styles.slide} key={`${data.id}-${i}`}>
-              <div className={styles.slideInner}>
-                <div className={styles.slideContent}>
-                  <div className={styles.slideTop}>
+            <Box key={`${data.id}-${i}`}>
+              <Flex
+                flexDir="column"
+                h={"140px"}
+                w="280px"
+                transition="transform 0.5s"
+                boxShadow="5.1px 6.1px 17px 0 rgba(0,0,0,0.13)"
+                cursor="pointer"
+                borderRadius="10px"
+              >
+                <Box padding="20px" fontSize={"0.9rem"}>
+                  <div>
                     <span>{dateFormat}</span>
                   </div>
                   <div className={styles.slideMid}>
@@ -118,9 +128,9 @@ const RandomSchedule = ({ schedulesData }: any) => {
                       {data.participant[0].idol_name_kr}
                     </span>
                   </div>
-                </div>
-              </div>
-            </div>
+                </Box>
+              </Flex>
+            </Box>
           );
         })}
         {slideBanner?.map((data: any, i: number) => {
@@ -149,7 +159,10 @@ const RandomSchedule = ({ schedulesData }: any) => {
 
           return (
             // 인덱스인 i, 그리고 문자열 -duplicate를 결합하여 중복 슬라이드 요소에 대한 고유한 키를 생성
-            <div className={styles.slide} key={`${data.id}-${i}-duplicate`}>
+            <Box
+              // className={styles.slide}
+              key={`${data.id}-${i}-duplicate`}
+            >
               <div className={styles.slideInner}>
                 <div className={styles.slideContent}>
                   <div className={styles.slideTop}>
@@ -173,11 +186,11 @@ const RandomSchedule = ({ schedulesData }: any) => {
                   </div>
                 </div>
               </div>
-            </div>
+            </Box>
           );
         })}
       </div>
-    </div>
+    </Flex>
   );
 };
 
