@@ -1,18 +1,20 @@
-"use client";
-import { Cherry_Cream_Soda, Inter, Roboto, Work_Sans } from "next/font/google";
 import ReactQueryProvider from "./ReactQueryProvider";
 import DefaultLayout from "./DefaultLayout";
 import { Providers } from "./ChakraUIProvider";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
-import { SessionProvider } from "next-auth/react";
 import { Metadata } from "next";
+import { SessionProvider } from "next-auth/react";
 config.autoAddCss = false;
 
-const roboto = Roboto({
-  weight: ["400"],
-  subsets: ["latin"],
-});
+export const metadata: Metadata = {
+  title: "Myfavor",
+  description: "최애의 스케줄을 확인하세요.",
+  icons: {
+    icon: "/img/logo_main.png",
+    shortcut: "/img/logo_main.png",
+  },
+};
 
 export default function RootLayout({
   children,
@@ -21,16 +23,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body
-      // className={roboto.className}
-      >
-        <SessionProvider>
-          <ReactQueryProvider>
-            <Providers>
-              <DefaultLayout>{children}</DefaultLayout>
-            </Providers>
-          </ReactQueryProvider>
-        </SessionProvider>
+      <body>
+        <ReactQueryProvider>
+          <Providers>
+            <DefaultLayout>{children}</DefaultLayout>
+          </Providers>
+        </ReactQueryProvider>
       </body>
     </html>
   );

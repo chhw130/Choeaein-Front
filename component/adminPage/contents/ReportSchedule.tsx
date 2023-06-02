@@ -1,8 +1,4 @@
 "use client";
-import {} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import styles from "./ReportTable.module.scss";
-import { IdolData } from "@/app/admin/[category]/interface";
 import { useQuery } from "@tanstack/react-query";
 import { useMemo } from "react";
 import { useTable, usePagination } from "react-table";
@@ -20,7 +16,6 @@ import {
   Thead,
   Tr,
 } from "@chakra-ui/react";
-import Image from "next/image";
 import { getUserReportSchedule } from "@/utils/axios/AxiosSetting";
 import SkeletonUI from "../UI/SkeletonUI";
 

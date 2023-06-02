@@ -1,8 +1,5 @@
 "use client";
-import {} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styles from "./ReportTable.module.scss";
-import { IdolData } from "@/app/admin/[category]/interface";
 import { useQuery } from "@tanstack/react-query";
 import { useMemo } from "react";
 import { useTable, usePagination } from "react-table";
@@ -10,10 +7,7 @@ import {
   Box,
   Button,
   ButtonGroup,
-  Flex,
   HStack,
-  Img,
-  Skeleton,
   Table,
   TableContainer,
   Tbody,
@@ -22,7 +16,6 @@ import {
   Th,
   Thead,
   Tr,
-  VStack,
 } from "@chakra-ui/react";
 import Image from "next/image";
 import { getIdolList } from "@/utils/axios/AxiosSetting";
@@ -53,6 +46,7 @@ const IdolList = () => {
                 width={300}
                 height={300}
                 alt="아이돌"
+                priority={true}
               />
             </Box>
           </>

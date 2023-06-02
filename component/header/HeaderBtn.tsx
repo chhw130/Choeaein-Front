@@ -1,13 +1,6 @@
 "use client";
-import {
-  Avatar,
-  Button,
-  Menu,
-  MenuButton,
-  MenuItem,
-  MenuList,
-} from "@chakra-ui/react";
-import { signOut, useSession } from "next-auth/react";
+import { Avatar, Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/react";
+import { signOut } from "next-auth/react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React from "react";
@@ -39,10 +32,10 @@ const logoutMenu = [
 ];
 
 const HeaderBtn = () => {
-  let session = useSession();
-  if (session.data?.user) {
-    console.log(session);
-  }
+  // let session = useSession();
+  // if (session.data?.user) {
+  //   console.log(session);
+  // }
 
   const signOutHandler = async () => {
     await signOut();
@@ -52,13 +45,13 @@ const HeaderBtn = () => {
     <Menu>
       <MenuButton>
         <Avatar
-          // @ts-ignore
-          src={session?.data?.user?.image}
+        // @ts-ignore
+        // src={session?.data?.user?.image}
         />
       </MenuButton>
       {
         <MenuList>
-          {!session.data?.user
+          {true
             ? loginMenu.map((menu, index) => (
                 <Link href={menu.link} key={index}>
                   <MenuItem>{menu.title}</MenuItem>

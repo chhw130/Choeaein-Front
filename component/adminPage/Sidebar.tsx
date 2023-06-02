@@ -2,12 +2,9 @@
 import React, { ReactNode } from "react";
 import {
   IconButton,
-  Avatar,
   Box,
   CloseButton,
   Flex,
-  HStack,
-  VStack,
   Icon,
   useColorModeValue,
   Drawer,
@@ -16,17 +13,8 @@ import {
   useDisclosure,
   BoxProps,
   FlexProps,
-  Button,
-  Tabs,
 } from "@chakra-ui/react";
-import {
-  FiHome,
-  FiTrendingUp,
-  FiCompass,
-  FiStar,
-  FiSettings,
-  FiMenu,
-} from "react-icons/fi";
+import { FiHome, FiTrendingUp, FiCompass, FiMenu } from "react-icons/fi";
 import { IconType } from "react-icons";
 import UserInform from "./UserInform";
 import Link from "next/link";
@@ -100,6 +88,7 @@ export const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
           width={150}
           height={100}
           alt="myfavor"
+          priority={true}
         />
         <CloseButton display={{ base: "flex", md: "none" }} onClick={onClose} />
       </Flex>
@@ -123,8 +112,6 @@ interface NavItemProps extends FlexProps {
   link: string;
 }
 const NavItem = ({ icon, children, link, ...rest }: NavItemProps) => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
-
   return (
     <Link href={`/admin/${link}`} style={{ textDecoration: "none" }}>
       <Flex
