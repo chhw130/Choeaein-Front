@@ -32,20 +32,6 @@ const Header = () => {
     };
   }, []);
 
-  /**로그아웃 */
-  // const LogoutHandler = async () => {
-  //   axios
-  //     .post(`${BASE_URL}users/logout/`, "", {
-  //       withCredentials: true,
-  //     })
-  //     .then((res) => res)
-  //     .then((data) => data);
-  //   dispatch(authActions.logOut());
-  //   removeCookie("isLogin");
-  //   window.location.reload();
-  //   navigate("/");
-  // };
-
   return (
     <>
       <div

@@ -45,6 +45,7 @@ const UserLogin = () => {
           alt="최애돌"
           width={300}
           height={80}
+          priority={true}
           className={styles.mainImg}
         />
         <Input

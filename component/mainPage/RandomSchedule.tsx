@@ -106,6 +106,7 @@ const RandomSchedule = ({ schedulesData }: any) => {
                       icon={faBroadcastTower}
                       // icon={scheduleIcon}
                       // color={scheduleIconColor}
+                      color="red"
                     />
                     <span className={styles.contentTitle}>
                       {data.ScheduleTitle}

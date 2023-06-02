@@ -17,7 +17,6 @@ import {
   BoxProps,
   FlexProps,
   Button,
-  Image,
   Tabs,
 } from "@chakra-ui/react";
 import {
@@ -32,6 +31,7 @@ import { IconType } from "react-icons";
 import UserInform from "./UserInform";
 import Link from "next/link";
 import HeaderBtn from "../header/HeaderBtn";
+import Image from "next/image";
 interface LinkItemProps {
   name: string;
   icon: IconType;
@@ -98,6 +98,7 @@ export const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
             "https://velog.velcdn.com/images/view_coding/post/6e4d7220-8bc8-4e88-9d4b-f3dd9e09b523/image.png"
           }
           width={150}
+          height={100}
           alt="myfavor"
         />
         <CloseButton display={{ base: "flex", md: "none" }} onClick={onClose} />

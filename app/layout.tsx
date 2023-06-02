@@ -1,7 +1,5 @@
 "use client";
-import "./globals.scss";
 import { Cherry_Cream_Soda, Inter, Roboto, Work_Sans } from "next/font/google";
-
 import ReactQueryProvider from "./ReactQueryProvider";
 import DefaultLayout from "./DefaultLayout";
 import { Providers } from "./ChakraUIProvider";
@@ -13,7 +11,6 @@ config.autoAddCss = false;
 
 const roboto = Roboto({
   weight: ["400"],
-  // style: ["normal", "italic"],
   subsets: ["latin"],
 });
 
