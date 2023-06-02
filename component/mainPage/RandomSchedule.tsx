@@ -159,20 +159,26 @@ const RandomSchedule = ({ schedulesData }: any) => {
 
           return (
             // 인덱스인 i, 그리고 문자열 -duplicate를 결합하여 중복 슬라이드 요소에 대한 고유한 키를 생성
-            <Box
-              // className={styles.slide}
-              key={`${data.id}-${i}-duplicate`}
-            >
-              <div className={styles.slideInner}>
-                <div className={styles.slideContent}>
-                  <div className={styles.slideTop}>
+            <Box key={`${data.id}-${i}`}>
+              <Flex
+                flexDir="column"
+                h={"140px"}
+                w="280px"
+                transition="transform 0.5s"
+                boxShadow="5.1px 6.1px 17px 0 rgba(0,0,0,0.13)"
+                cursor="pointer"
+                borderRadius="10px"
+              >
+                <Box padding="20px" fontSize={"0.9rem"}>
+                  <div>
                     <span>{dateFormat}</span>
                   </div>
                   <div className={styles.slideMid}>
                     <FontAwesomeIcon
+                      icon={faBroadcastTower}
                       // icon={scheduleIcon}
-                      icon={faCalendarCheck}
                       // color={scheduleIconColor}
+                      color="red"
                     />
                     <span className={styles.contentTitle}>
                       {data.ScheduleTitle}
@@ -184,8 +190,8 @@ const RandomSchedule = ({ schedulesData }: any) => {
                       {data.participant[0].idol_name_kr}
                     </span>
                   </div>
-                </div>
-              </div>
+                </Box>
+              </Flex>
             </Box>
           );
         })}

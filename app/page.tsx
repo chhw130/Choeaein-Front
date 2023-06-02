@@ -21,7 +21,7 @@ export default async function Home() {
   return (
     <>
       <MainVideo />
-      <RandomSchedule schedulesData={schedulesData} />
+      {/* <RandomSchedule schedulesData={schedulesData} /> */}
       <IdolSection idolData={idolData} />
     </>
   );

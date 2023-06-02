@@ -86,7 +86,6 @@
   .artistImage {
     width: 16vw;
     height: 16vw;
-    border-radius: 4vw;
   }
   .artistName {
     padding: 0;
@@ -98,31 +97,5 @@
   }
   .articleContents {
     width: 70vw;
-  }
-}
-
-@media (max-width: 376px) {
-  // 아티스트 썸네일 박스
-
-  // .mainTitle {
-  //   line-height: 1vh;
-  // }
-
-  .subTitle {
-    margin-top: 2.5vw;
-  }
-  .artistFontWrapper {
-    margin-top: 2.5vw;
-  }
-  .artistName {
-    padding: 0;
-    margin-top: 1vh;
-    font-size: 3vw;
-  }
-  .artistFont {
-    font-size: 2.8vw;
-  }
-  .articleContents {
-    width: 80vw;
   }
 }
