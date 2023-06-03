@@ -1,5 +1,4 @@
 "use client";
-import { getIdolSchedules } from "@/utils/axios/AxiosSetting";
 import React, { useEffect, useState } from "react";
 import styles from "../../app/page.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
