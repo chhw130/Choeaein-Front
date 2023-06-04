@@ -102,7 +102,7 @@ const RandomSchedule = ({ schedulesData }: any) => {
                 h={"140px"}
                 w="280px"
                 transition="transform 0.5s"
-                boxShadow="5.1px 6.1px 17px 0 rgba(0,0,0,0.13)"
+                boxShadow="5.1px 6.1px 17px 0 rgba(243,97,166,0.23)"
                 cursor="pointer"
                 borderRadius="10px"
               >
@@ -164,7 +164,7 @@ const RandomSchedule = ({ schedulesData }: any) => {
                 h={"140px"}
                 w="280px"
                 transition="transform 0.5s"
-                boxShadow="5.1px 6.1px 17px 0 rgba(0,0,0,0.13)"
+                boxShadow="5.1px 6.1px 17px 0 rgba(243,97,166,0.23)"
                 cursor="pointer"
                 borderRadius="10px"
               >

@@ -1,29 +1,5 @@
 /* 수정 */
 
-.headerNav {
-  width: 96%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.navItems {
-  display: flex;
-  align-items: center;
-}
-
-.navItem {
-  display: flex;
-  align-items: center;
-}
-
-.navItem a {
-  text-decoration: none;
-  color: black;
-}
-/* .navSpan {
-  width: 100px;
-} */
 .navItem_span {
   padding-left: 10px;
   display: flex;

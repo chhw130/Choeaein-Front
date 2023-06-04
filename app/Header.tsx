@@ -1,6 +1,7 @@
 "use client";
 import "./Header.scss";
 import {
+  Box,
   Button,
   Drawer,
   DrawerContent,
@@ -36,19 +37,15 @@ const Header = () => {
         bg={colorMode === "light" ? "white" : "#171923"}
         height="4rem"
       >
-        <div className="headerNav">
-          <div className="navItems">
-            <div className="navItem">
-              <Link href="/">
-                <HStack>
-                  <Image src={logo} height={20} width={20} alt="choe" />
-                  <Text fontSize={20} fontWeight={"bold"}>
-                    CHOEAEIN
-                  </Text>
-                </HStack>
-              </Link>
-            </div>
-          </div>
+        <Flex w={"96%"} justifyContent={"space-between"} alignItems={"center"}>
+          <Link href="/">
+            <HStack>
+              <Image src={logo} height={20} width={20} alt="choe" />
+              <Box fontSize={20} fontWeight={"bold"}>
+                CHOEAEIN
+              </Box>
+            </HStack>
+          </Link>
 
           <HStack>
             <InputGroup marginRight="10px">
@@ -65,7 +62,7 @@ const Header = () => {
               <HeaderBtn />
             </div>
           </HStack>
-        </div>
+        </Flex>
       </Flex>
 
       <MobileNav onOpen={onOpen} />
