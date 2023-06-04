@@ -1,19 +1,15 @@
 "use client";
-import React, { useState, useEffect } from "react";
 import "./Header.scss";
 import {
-  Box,
   Button,
   Drawer,
   DrawerContent,
   Flex,
   HStack,
-  Icon,
   Input,
   InputGroup,
   InputRightAddon,
   Text,
-  VStack,
   useColorMode,
   useDisclosure,
 } from "@chakra-ui/react";
@@ -22,6 +18,8 @@ import { GoSearch } from "react-icons/go";
 import Link from "next/link";
 import HeaderBtn from "@/component/header/HeaderBtn";
 import { MobileNav, SidebarContent } from "@/component/adminPage/Sidebar";
+import logo from "../public/img/logo_main.png";
+import Image from "next/image";
 
 const Header = () => {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -42,11 +40,12 @@ const Header = () => {
           <div className="navItems">
             <div className="navItem">
               <Link href="/">
-                <img
-                  className="navImg"
-                  src="https://velog.velcdn.com/images/view_coding/post/6e4d7220-8bc8-4e88-9d4b-f3dd9e09b523/image.png"
-                  alt=""
-                />
+                <HStack>
+                  <Image src={logo} height={20} width={20} alt="choe" />
+                  <Text fontSize={20} fontWeight={"bold"}>
+                    CHOEAEIN
+                  </Text>
+                </HStack>
               </Link>
             </div>
           </div>
@@ -58,7 +57,7 @@ const Header = () => {
             </InputGroup>
             <Button
               onClick={toggleColorMode}
-              color={colorMode === "light" ? "black" : "black"}
+              color={colorMode === "light" ? "black" : "white"}
             >
               {colorMode === "light" ? <MoonIcon /> : <SunIcon />}
             </Button>
