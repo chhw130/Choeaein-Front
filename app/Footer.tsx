@@ -1,26 +1,37 @@
 "use client";
-import { VStack, useColorMode, useColorModeValue } from "@chakra-ui/react";
+import {
+  Box,
+  Flex,
+  VStack,
+  useColorMode,
+  useColorModeValue,
+} from "@chakra-ui/react";
 import styles from "./Footer.module.scss";
+import Image from "next/image";
 
 const Footer = () => {
   const { colorMode } = useColorMode();
 
   return (
     <VStack
-      padding="30px 0"
+      padding="90px"
       bg={
         colorMode === "light" ? "linear-gradient(#fccec0, #f89598)" : "#171923"
       }
       w="100%"
+      spacing={2}
+      alignItems="flex-start"
     >
-      <img
+      <Image
         src="https://velog.velcdn.com/images/view_coding/post/b0d48523-f2f5-4319-be6f-1784d4457a54/image.png"
         alt="logo"
+        width={300}
+        height={300}
       />
-      <div className={styles.footerContent}>
+      <Flex color={"white"} fontSize="23px" fontWeight="800">
         <p>고객센터</p>
         <p>서비스 안내</p>
-      </div>
+      </Flex>
       <div className={styles.footerSns}>
         <h1>더욱 다양한 최애인을 만나보세요!</h1>
         <div className={styles.footerSns_image}>

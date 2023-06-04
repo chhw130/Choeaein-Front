@@ -49,14 +49,20 @@ const UserLogin = () => {
           className={styles.mainImg}
         />
         <Input
-          className={styles.logInInput}
+          w={"90%"}
+          h={"70px"}
+          fontSize={"1rem"}
+          margin={2}
           placeholder="UserEmail"
           {...register("email", {
             required: "ID를 입력해주세요.",
           })}
         />
         <Input
-          className={styles.logInInput}
+          w={"90%"}
+          h={"70px"}
+          fontSize={"1rem"}
+          margin={2}
           placeholder="Password"
           type="password"
           autoComplete="off"

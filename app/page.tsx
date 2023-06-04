@@ -4,7 +4,6 @@ import MainVideo from "@/component/mainPage/MainVideo";
 import RandomSchedule from "@/component/mainPage/RandomSchedule";
 import { getIdolList, getIdolSchedules } from "@/utils/axios/AxiosSetting";
 import { Metadata } from "next";
-import { ColorModeScript, theme } from "@chakra-ui/react";
 
 export const metadata: Metadata = {
   title: "Myfavor",

@@ -1,25 +1,7 @@
 // span {
 //   font-family: NanumSquareRound;
 // }
-.footer {
-  width: 100%;
-  height: 35rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: linear-gradient(#fccec0, #f89598);
-  overflow: hidden;
-}
-.footerCell {
-  width: 100%;
-}
-.footerHeader {
-  width: 100vw;
-  img {
-    height: 35px;
-    margin-bottom: 5vh;
-  }
-}
+
 .footerContain {
   padding: 0 5vw;
   width: 100vw;

@@ -100,7 +100,7 @@ const RandomSchedule = ({ schedulesData }: any) => {
               <Flex
                 flexDir="column"
                 h={"140px"}
-                w="280px"
+                w={["200px", "200px", "280px"]}
                 transition="transform 0.5s"
                 boxShadow="5.1px 6.1px 17px 0 rgba(243,97,166,0.23)"
                 cursor="pointer"
@@ -110,23 +110,19 @@ const RandomSchedule = ({ schedulesData }: any) => {
                   <div>
                     <span>{dateFormat}</span>
                   </div>
-                  <div className={styles.slideMid}>
+                  <Box h={"80%"}>
                     <FontAwesomeIcon
                       icon={faBroadcastTower}
                       // icon={scheduleIcon}
                       // color={scheduleIconColor}
                       color="red"
                     />
-                    <span className={styles.contentTitle}>
-                      {data.ScheduleTitle}
-                    </span>
-                  </div>
-                  <div className={styles.slideBot}>
+                    {data.ScheduleTitle}
+                  </Box>
+                  <Box position="absolute" bottom={3}>
                     <FontAwesomeIcon icon={faMicrophone} />
-                    <span className={styles.nameTitle}>
-                      {data.participant[0].idol_name_kr}
-                    </span>
-                  </div>
+                    &nbsp;{data.participant[0]?.idol_name_kr}
+                  </Box>
                 </Box>
               </Flex>
             </Box>
@@ -162,7 +158,7 @@ const RandomSchedule = ({ schedulesData }: any) => {
               <Flex
                 flexDir="column"
                 h={"140px"}
-                w="280px"
+                w={["200px", "200px", "280px"]}
                 transition="transform 0.5s"
                 boxShadow="5.1px 6.1px 17px 0 rgba(243,97,166,0.23)"
                 cursor="pointer"
@@ -172,23 +168,19 @@ const RandomSchedule = ({ schedulesData }: any) => {
                   <div>
                     <span>{dateFormat}</span>
                   </div>
-                  <div className={styles.slideMid}>
+                  <Box h={"80%"}>
                     <FontAwesomeIcon
                       icon={faBroadcastTower}
                       // icon={scheduleIcon}
                       // color={scheduleIconColor}
                       color="red"
                     />
-                    <span className={styles.contentTitle}>
-                      {data.ScheduleTitle}
-                    </span>
-                  </div>
-                  <div className={styles.slideBot}>
+                    {data.ScheduleTitle}
+                  </Box>
+                  <Box position="absolute" bottom={3}>
                     <FontAwesomeIcon icon={faMicrophone} />
-                    <span className={styles.nameTitle}>
-                      {data.participant[0].idol_name_kr}
-                    </span>
-                  </div>
+                    &nbsp;{data.participant[0]?.idol_name_kr}
+                  </Box>
                 </Box>
               </Flex>
             </Box>

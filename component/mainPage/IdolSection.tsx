@@ -4,7 +4,7 @@ import styles from "../../app/page.module.scss";
 import Link from "next/link";
 import { IdolData } from "@/app/admin/[category]/interface";
 import Image from "next/image";
-import { Box, Text, VStack } from "@chakra-ui/react";
+import { Box, Flex, Text, VStack } from "@chakra-ui/react";
 
 interface IdolSectionProps {
   idolData: IdolData[];
@@ -15,7 +15,7 @@ const IdolSection = ({ idolData }: IdolSectionProps) => {
 
   return (
     <>
-      <Box w="90%" maxW="950px" margin="0 auto">
+      <Box w={["98%", "98%", "90%"]} maxW="950px" margin="0 auto">
         <VStack textAlign={"center"} marginTop={50}>
           <Box fontSize={"3vw"}>
             <Text>60팀의 아티스트를</Text>
@@ -26,9 +26,14 @@ const IdolSection = ({ idolData }: IdolSectionProps) => {
             <Text>스케줄을 확인해서 나만의 스케줄을 만들어보세요</Text>
           </Box>
         </VStack>
-        <Box className={styles.artistImageWrapper}>
+        <Flex width="100%" flexWrap={"wrap"} justifyContent="space-around">
           {slideImage?.map((data: any) => (
-            <Box key={data.pk} textAlign="center" margin="30px 0">
+            <Box
+              key={data.pk}
+              textAlign="center"
+              margin="30px 0"
+              w={["24%", "24%", "23%"]}
+            >
               <Link href={`calendar/${data.pk}`}>
                 <Image
                   className={styles.artistImage}
@@ -42,7 +47,7 @@ const IdolSection = ({ idolData }: IdolSectionProps) => {
                   fontFamily="fantasy"
                   paddingTop={"20px"}
                   margin={0}
-                  fontSize="1.4rem"
+                  fontSize="1.6vw"
                   letterSpacing="-0.19px"
                   cursor={"pointer"}
                 >
@@ -50,7 +55,7 @@ const IdolSection = ({ idolData }: IdolSectionProps) => {
                 </Text>
                 <Text
                   margin={0}
-                  fontSize={"1.2rem"}
+                  fontSize="1.6vw"
                   letterSpacing="-0.19px"
                   color={"#888888"}
                 >
@@ -59,7 +64,7 @@ const IdolSection = ({ idolData }: IdolSectionProps) => {
               </Link>
             </Box>
           ))}
-        </Box>
+        </Flex>
       </Box>
     </>
   );

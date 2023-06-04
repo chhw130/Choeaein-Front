@@ -1,13 +1,8 @@
 // @import url("https://fonts.googleapis.com/css2?family=Jua&display=swap");
 
-.home {
-  width: 100%;
-  background: white;
-}
-
 .mainVideo {
   width: 100vw;
-  height: 500px;
+  height: 530px;
   object-fit: cover;
   // position: sticky;
   top: 0;
@@ -22,70 +17,26 @@
   }
 }
 
-// .slide {
-//   height: 150px;
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   justify-content: center;
-//   margin-right: 20px; // Add margin to create a gap between divs
-//   perspective: 100px;
-// }
-
-.slideBot {
-  display: flex;
-  justify-content: flex-end;
-  padding-top: 30px;
-}
-
-// change
-
 /* artistSection */
 
 .artistImage {
-  width: 200px;
-  height: 200px;
-  border-radius: 50px;
+  width: 90%;
+  height: auto;
+  max-width: 200px;
+  max-height: 200px;
+  border-radius: 20%;
   object-fit: cover;
+  margin: 0 auto;
   object-position: center;
   cursor: pointer;
 }
 
-.artistImageWrapper {
-  width: 100%;
-  padding: 0;
-  display: flex;
-  justify-content: space-between;
-  flex-direction: row;
-  flex-wrap: wrap;
-  margin-top: 4rem;
-}
-
 @media (max-width: 768px) {
-  .subTitle {
-    margin-top: 2.5vw;
-  }
-  .mainTitle {
-    margin-top: 4vh;
-    width: 100%;
-    p {
-      font-family: Cafe24Ssurround;
-      font-size: 4.5vw;
-      margin: 20px 0;
-      text-align: center;
-      line-height: 2.5vh;
-      letter-spacing: -1.55px;
-    }
-  }
   .artistFontWrapper {
     margin-top: 2.5vw;
   }
-  .artistImageWrapper {
-    margin-top: 2rem;
-  }
+
   .artistImage {
-    width: 16vw;
-    height: 16vw;
   }
   .artistName {
     padding: 0;
@@ -95,7 +46,10 @@
   .artistFont {
     font-size: 2.2vw;
   }
-  .articleContents {
-    width: 70vw;
+  .artistImage {
+    max-width: 150px;
+    max-height: 150px;
+    height: 65%;
+    width: 85%;
   }
 }
