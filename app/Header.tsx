@@ -6,13 +6,18 @@ import {
   Button,
   Drawer,
   DrawerContent,
+  Flex,
+  HStack,
+  Icon,
   Input,
   InputGroup,
   InputRightAddon,
   Text,
+  VStack,
   useColorMode,
   useDisclosure,
 } from "@chakra-ui/react";
+import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 import { GoSearch } from "react-icons/go";
 import Link from "next/link";
 import HeaderBtn from "@/component/header/HeaderBtn";
@@ -20,30 +25,18 @@ import { MobileNav, SidebarContent } from "@/component/adminPage/Sidebar";
 
 const Header = () => {
   const { colorMode, toggleColorMode } = useColorMode();
-  const [navSize, setnavSize] = useState("6rem");
-  const [navColor, setnavColor] = useState("transparent");
   const { isOpen, onOpen, onClose } = useDisclosure();
-
-  const listenScrollEvent = () => {
-    window.scrollY > 10 ? setnavColor("#ffff") : setnavColor("transparent");
-    window.scrollY > 10 ? setnavSize("3rem") : setnavSize("5rem");
-  };
-  useEffect(() => {
-    window.addEventListener("scroll", listenScrollEvent);
-    return () => {
-      window.removeEventListener("scroll", listenScrollEvent);
-    };
-  }, []);
 
   return (
     <>
-      <div
-        className="header"
-        style={{
-          backgroundColor: navColor,
-          height: navSize,
-          transition: "all 1s",
-        }}
+      <Flex
+        as="nav"
+        position="fixed"
+        w="100%"
+        justifyContent="center"
+        zIndex={20}
+        bg={colorMode === "light" ? "white" : "#171923"}
+        height="4rem"
       >
         <div className="headerNav">
           <div className="navItems">
@@ -58,7 +51,7 @@ const Header = () => {
             </div>
           </div>
 
-          <div className="navItems">
+          <HStack>
             <InputGroup marginRight="10px">
               <Input placeholder="아이돌을 검색해보세요." fontSize="0.9rem" />
               <InputRightAddon children={<GoSearch />} padding="0px 8px" />
@@ -67,14 +60,14 @@ const Header = () => {
               onClick={toggleColorMode}
               color={colorMode === "light" ? "black" : "black"}
             >
-              {colorMode === "light" ? "다크" : "화이트"}모드
+              {colorMode === "light" ? <MoonIcon /> : <SunIcon />}
             </Button>
             <div className="navItem">
               <HeaderBtn />
             </div>
-          </div>
+          </HStack>
         </div>
-      </div>
+      </Flex>
 
       <MobileNav onOpen={onOpen} />
       <Drawer
