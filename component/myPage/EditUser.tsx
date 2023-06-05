@@ -13,6 +13,7 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import ModifyPassword from "./UI/ModifyPassword";
+import ModifyPick from "./UI/ModifyPick";
 
 const EditUser = () => {
   return (
@@ -29,17 +30,7 @@ const EditUser = () => {
           fontSize={["12px", "13px", "15px"]}
           spacing={6}
         >
-          <Flex justifyContent="space-between" width="80%" height="100px">
-            <HStack spacing={5}>
-              <Text w="60px" fontWeight={"bold"}>
-                최애
-              </Text>
-              <Avatar
-                size={"xl"}
-                src="https://a-static.besthdwallpaper.com/karina-from-aespa-life-s-too-short-mv-photoshoot-girls-album-wallpaper-1920x1080-100897_48.jpg"
-              />
-            </HStack>
-          </Flex>
+          <ModifyPick />
           <Flex justifyContent="space-between" width="80%" height="40px">
             <HStack spacing={5}>
               <Text w="60px">아이디</Text>

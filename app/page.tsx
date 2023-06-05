@@ -25,7 +25,7 @@ export default async function Home() {
   );
 }
 
-async function getData() {
+export async function getData() {
   const schedulesData = await getIdolSchedules();
   const idolData = await getIdolList();
 

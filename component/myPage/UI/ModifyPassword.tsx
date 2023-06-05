@@ -29,7 +29,7 @@ const ModifyPassword = () => {
     getValues,
   } = useForm();
 
-  const ModifyPassword = (data: any) => {
+  const modifyPasswordHandler = (data: any) => {
     console.log(data);
   };
 
@@ -40,7 +40,7 @@ const ModifyPassword = () => {
         <ModalContent>
           <ModalHeader>비밀번호 수정하기</ModalHeader>
           <ModalCloseButton />
-          <form onSubmit={handleSubmit(ModifyPassword)}>
+          <form onSubmit={handleSubmit(modifyPasswordHandler)}>
             <ModalBody>
               <FormLabel margin={0} htmlFor="password">
                 기존 비밀번호
