@@ -1,6 +1,6 @@
 import UserLogin from "@/component/loginPage/UserLogin";
 
-const LoginPage = async () => {
+const LoginPage = () => {
   return (
     <>
       <UserLogin />

@@ -96,7 +96,7 @@ const RandomSchedule = ({ schedulesData }: any) => {
           // }[scheduleType];
 
           return (
-            <Box key={`${data.id}-${i}`}>
+            <Box key={`${data.id}-${i}`} margin={"0 10px"}>
               <Flex
                 flexDir="column"
                 h={"140px"}
@@ -153,8 +153,7 @@ const RandomSchedule = ({ schedulesData }: any) => {
           // }[scheduleType];
 
           return (
-            // 인덱스인 i, 그리고 문자열 -duplicate를 결합하여 중복 슬라이드 요소에 대한 고유한 키를 생성
-            <Box key={`${data.id}-${i}`}>
+            <Box key={`${data.id}-${i}`} margin={"0 10px"}>
               <Flex
                 flexDir="column"
                 h={"140px"}
