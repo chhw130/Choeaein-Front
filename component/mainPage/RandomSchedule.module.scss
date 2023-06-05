@@ -1,0 +1,6 @@
+.slideBox {
+  display: flex;
+  &:hover {
+    animation-play-state: paused;
+  }
+}

@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-import styles from "../../app/page.module.scss";
+import styles from "./MainVideo.module.scss";
 
 const MainVideo = () => {
   return (
     <video autoPlay loop muted className={styles.mainVideo}>
       <source src="/videos/darkHeart.mov" type="video/mp4"></source>
-      {/* <source src="/videos/heartRain.mov" type="video/mp4"></source> */}
     </video>
   );
 };

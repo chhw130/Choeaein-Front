@@ -1,6 +1,6 @@
+import Footer from "@/UI/Footer/Footer";
+import Header from "@/UI/Headar/Header";
 import React, { Children } from "react";
-import Header from "./Header";
-import Footer from "./Footer";
 
 const DefaultLayout = ({ children }: { children: React.ReactNode }) => {
   return (

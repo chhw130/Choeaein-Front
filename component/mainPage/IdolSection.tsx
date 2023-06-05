@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import styles from "../../app/page.module.scss";
+import styles from "./IdolSection.module.scss";
 import Link from "next/link";
 import { IdolData } from "@/app/admin/[category]/interface";
 import Image from "next/image";

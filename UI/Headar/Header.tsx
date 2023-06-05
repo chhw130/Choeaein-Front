@@ -10,7 +10,6 @@ import {
   Input,
   InputGroup,
   InputRightAddon,
-  Text,
   useColorMode,
   useDisclosure,
 } from "@chakra-ui/react";
@@ -19,7 +18,7 @@ import { GoSearch } from "react-icons/go";
 import Link from "next/link";
 import HeaderBtn from "@/component/header/HeaderBtn";
 import { MobileNav, SidebarContent } from "@/component/adminPage/Sidebar";
-import logo from "../public/img/logo_main.png";
+import logo from "../../public/img/logo_main.png";
 import Image from "next/image";
 
 const Header = () => {
