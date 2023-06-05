@@ -3,6 +3,7 @@
 import { useForm } from "react-hook-form";
 import styles from "./EditUser.module.scss";
 import EditUserImg from "./EditUserImg";
+import { Box, Button, Flex, HStack, Text, VStack } from "@chakra-ui/react";
 
 const EditUser = () => {
   const {
@@ -21,109 +22,59 @@ const EditUser = () => {
   };
 
   return (
-    <div>
-      <h1 className={styles.title}>회원정보 수정</h1>
-      <div className={styles.signUp}>
+    <Box w="90%" paddingTop="100px" margin="0 auto">
+      <Text fontSize="2vw" fontWeight="800">
+        회원정보 수정
+      </Text>
+      <Box>
         <EditUserImg />
         <hr />
-        <form className={styles.editForm} onSubmit={handleSubmit(onSubmit)}>
-          <div className={styles.typeAbsoluteDiv}>
-            <label>아이디</label>
+        <VStack
+          as="form"
+          onSubmit={handleSubmit(onSubmit)}
+          padding="30px 0"
+          margin=" 0 auto"
+        >
+          <HStack spacing={5} width="80%">
+            <Text w="15%">아이디</Text>
             <div className={styles.absoluteInform}>{"email"}</div>
-          </div>
-          <div className={styles.typeDiv}>
-            <label>비밀번호</label>
-            <input
-              autoComplete="off"
-              type="password"
-              placeholder="기존 비밀번호를 입력해야 비밀번호 변경이 가능합니다!!"
-              {...register("oldPassword", {
-                required: {
-                  value: true,
-                  message: "비밀번호를 입력하세요.",
-                },
-                minLength: {
-                  value: 8,
-                  message: "비밀번호는 8자 이상 입력하세요.",
-                },
-                maxLength: {
-                  value: 16,
-                  message: "비밀번호는 16자 이하로 입력하세요.",
-                },
-              })}
-            />
-          </div>
-          <div className={styles.errorMessage}>
-            {/* {errors.password && <p>{errors.password.message}</p>} */}
-          </div>
-          <div className={styles.typeDiv}>
-            <label>새 비밀번호</label>
-            <input
-              type="password"
-              autoComplete="off"
-              placeholder="새로운 비밀번호"
-              {...register("newPassword", {
-                required: {
-                  value: true,
-                  message: "비밀번호를 입력하세요.",
-                },
-                minLength: {
-                  value: 8,
-                  message: "비밀번호는 8자 이상 입력하세요.",
-                },
-                maxLength: {
-                  value: 16,
-                  message: "비밀번호는 16자 이하로 입력하세요.",
-                },
-                pattern: {
-                  // eslint-disable-next-line
-                  value: /[\{\}\[\]\/?.,;:|\)*~`!^\-_+<>@\#$%&\\\=\(\'\"]/g,
-                  message: "비밀번호에 특수문자 1개 이상 넣어주세요.",
-                },
-              })}
-            />
-          </div>
-          <div className={styles.errorMessage}>
-            {/* {errors.password && <p>{errors.password.message}</p>} */}
-          </div>
-
-          <div className={styles.typeDiv}>
-            <label>새 비밀번호 확인</label>
-            <input
-              type="password"
-              autoComplete="off"
-              placeholder="비밀번호 확인"
-              {...register("passwordConfirm", {
-                required: true,
-                validate: {
-                  check: (val) => {
-                    if (getValues("newPassword") !== val) {
-                      return "비밀번호가 일치하지 않습니다.";
-                    }
+          </HStack>
+          <Flex justifyContent="space-between" width="80%">
+            <HStack spacing={5}>
+              <label>비밀번호</label>
+              <input
+                autoComplete="off"
+                type="password"
+                placeholder="기존 비밀번호를 입력해야 비밀번호 변경이 가능합니다!!"
+                {...register("oldPassword", {
+                  required: {
+                    value: true,
+                    message: "비밀번호를 입력하세요.",
                   },
-                },
-              })}
-            />
-          </div>
-          <div className={styles.errorMessage}>
-            {/* {errors.passwordConfirm && errors.passwordConfirm.type === true && (
-              <p>비밀번호를 입력하세요</p>
-            )} */}
-            {errors.passwordConfirm && <p>비밀번호가 다릅니다!!</p>}
-          </div>
+                  minLength: {
+                    value: 8,
+                    message: "비밀번호는 8자 이상 입력하세요.",
+                  },
+                  maxLength: {
+                    value: 16,
+                    message: "비밀번호는 16자 이하로 입력하세요.",
+                  },
+                })}
+              />
+            </HStack>
+            <Button>수정</Button>
+          </Flex>
 
-          <div className={styles.typeAbsoluteDiv}>
-            <label>별명</label>
-            <div className={styles.absoluteInform}>{"nickname"}</div>
-          </div>
+          <label>별명</label>
+          <div className={styles.absoluteInform}>{"nickname"}</div>
 
           <div className={styles.buttonDiv}>
             <button type="button">이전</button>
             <button>수정하기</button>
           </div>
-        </form>
-      </div>
-    </div>
+        </VStack>
+      </Box>
+    </Box>
   );
 };
 
