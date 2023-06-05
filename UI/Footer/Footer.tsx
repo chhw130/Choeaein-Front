@@ -14,7 +14,7 @@ const Footer = () => {
 
   return (
     <VStack
-      padding="90px"
+      padding="80px"
       bg={
         colorMode === "light" ? "linear-gradient(#fccec0, #f89598)" : "#171923"
       }
@@ -25,8 +25,8 @@ const Footer = () => {
       <Image
         src="https://velog.velcdn.com/images/view_coding/post/b0d48523-f2f5-4319-be6f-1784d4457a54/image.png"
         alt="logo"
-        width={300}
-        height={300}
+        width={280}
+        height={280}
       />
       <Flex color={"white"} fontSize="23px" fontWeight="800">
         <p>고객센터</p>
@@ -61,20 +61,7 @@ const Footer = () => {
           </span>
         </div>
       </div>
-      <div className={styles.footerMade}>
-        <div className={styles.footerCompany}>
-          <span>운영사: 김이박 최고</span>
-
-          <span>|</span>
-
-          <span>개발사: 최애인(주)</span>
-        </div>
-        <div className={styles.footerEmail}>
-          <span>https://ozcodingschool.com</span>
-          <span>|</span>
-          <span>https://ozcodingschool.com</span>
-        </div>
-      </div>
+      <div className={styles.footerMade}></div>
     </VStack>
   );
 };

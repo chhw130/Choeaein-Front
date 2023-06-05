@@ -32,6 +32,7 @@ const Header = () => {
         position="fixed"
         w="100%"
         justifyContent="center"
+        display={["none", "none", "flex"]}
         zIndex={20}
         bg={colorMode === "light" ? "white" : "#171923"}
         height="4rem"
