@@ -26,6 +26,7 @@ import {
   Table,
   Tbody,
   Td,
+  Text,
   Th,
   Thead,
   Tr,
@@ -36,14 +37,7 @@ import { specificIdolSchedule } from "@/utils/axios/AxiosSetting";
 
 const days = ["일", "월", "화", "수", "목", "금", "토"];
 
-const Calendar = ({
-  todayDate,
-  setSidebarOpen,
-  prevDate,
-  nextDate,
-  idolData,
-  params,
-}: any) => {
+const Calendar = ({ setSidebarOpen, idolData, params }: any) => {
   const idolId = params.params.idolID;
   const { data: newIdolSchedule = [], isLoading } = useQuery(
     ["idolSchedule", idolId],
@@ -112,19 +106,6 @@ const Calendar = ({
       : ["broadcast", "event", "release", "congrats", "buy"];
 
   const [activeButtons, setActiveButtons] = useState(initActiveButtons);
-
-  /**이번달 데이터 */
-  // const [newIdolSchedule, setNewIdolSchedule] = useState([]);
-  /**이번달 데이터와 클릭한 일자 데이터 */
-  const [newIdolDateSchedule, setNewIdolDateSchedule] = useState([]);
-
-  const [prevIdolDateSchedule, setPrevIdolDateSchedule] = useState([]);
-  const [nextIdolDateSchedule, setNextIdolDateSchedule] = useState([]);
-
-  const newSelectedDay = selectedDay.format("YYYY/MM/DD");
-
-  const prevSelectedDay = prevsSelectedDay.format("YYYY/MM/DD");
-  const nextSelectedDay = nextsSelectedDay.format("YYYY/MM/DD");
 
   /**클릭한 버튼 toggle 함수 */
   const handleClick = (buttonPk: string) => {
@@ -282,7 +263,13 @@ const Calendar = ({
             >
               <FontAwesomeIcon icon={faChevronLeft} size="lg" />
             </button>
-            <div className={styles.title}>{today.format("YYYY.MM")}</div>
+            <Text
+              margin="auto 10px"
+              width={["75px", "130px", "150px"]}
+              textAlign={"center"}
+            >
+              {today.format("YYYY.MM")}
+            </Text>
             <button
               className={styles.nextBtn}
               onClick={() => {

@@ -1,6 +1,5 @@
 "use client";
-import { Flex, HStack, Text } from "@chakra-ui/react";
-import styles from "../calendarPage/Calendar.module.scss";
+import { HStack, Text } from "@chakra-ui/react";
 
 const IdolInform = ({ idolData }: any) => {
   return (
