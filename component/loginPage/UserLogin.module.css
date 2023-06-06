@@ -1,0 +1,49 @@
+.logInDiv {
+  height: 100vh;
+  display: flex;
+}
+.logInDiv .logInForm {
+  margin: 30px auto;
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .logInDiv {
+    display: flex;
+  }
+  .logInDiv .logInInput {
+    width: 90%;
+    margin-bottom: 13px;
+  }
+  .logInDiv h1 {
+    margin-bottom: 40px;
+    padding: 0;
+  }
+  .logInDiv .errorMessage {
+    width: 310px;
+  }
+}
+@media (max-width: 376px) {
+  .mainImg {
+    width: 50%;
+    height: 30px;
+    margin: 40px;
+  }
+  .logInDiv {
+    height: 100vh;
+    display: flex;
+  }
+  .logInDiv .logInInput {
+    margin-bottom: 13px;
+    height: 65px;
+  }
+  .logInDiv h1 {
+    margin-bottom: 40px;
+    padding: 0;
+  }
+}/*# sourceMappingURL=UserLogin.module.css.map */

@@ -1,0 +1,98 @@
+.footerContain {
+  padding: 0 5vw;
+  width: 100vw;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.footerContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.footerContent p {
+  color: white;
+  font-size: 23px;
+  font-weight: 800;
+  margin: 0;
+  cursor: pointer;
+}
+
+.footerSns h1 {
+  font-size: 25px;
+  font-weight: 100;
+  color: white;
+  padding: 0;
+  display: inline-block;
+  margin-bottom: 1.5vw;
+  font-family: "NanumSquareRound";
+}
+
+.footerSns_image span:nth-child(2), .footerSns_image span:nth-child(3) {
+  margin-left: 20px;
+}
+.footerSns_image img {
+  width: 30px;
+}
+
+.footerCompany {
+  color: white;
+  font-size: 15px;
+}
+.footerCompany span {
+  padding: 0 5px;
+}
+
+.footerEmail {
+  padding: 5px 0 0;
+  line-height: 15px;
+  font-size: 10px;
+}
+.footerEmail span {
+  color: white;
+}
+.footerEmail span:nth-child(2) {
+  padding: 0 5px;
+}
+
+.footerMade {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 376px) {
+  .footerContent p {
+    font-size: 13px;
+  }
+  .footerHeader img {
+    height: 20px;
+  }
+  .footerContain {
+    height: 200px;
+  }
+  .footerSns h1 {
+    font-size: 15px;
+  }
+  .footerSns_image img {
+    width: 15px;
+  }
+  .footer {
+    height: 25rem;
+  }
+}
+@media (max-width: 768px) {
+  .footerContent p {
+    font-size: 17px;
+  }
+  .footerContent .footerSns h1 {
+    font-size: 20px;
+  }
+  .footerContent .footerSns_image img {
+    width: 25px;
+  }
+  .footerContent .footer {
+    height: 30rem;
+  }
+}/*# sourceMappingURL=Footer.module.css.map */

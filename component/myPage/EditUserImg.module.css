@@ -1,0 +1,19 @@
+.profileDiv button {
+  background-color: #4856ff;
+  border: 0;
+  margin: 3px;
+  color: white;
+  width: 140px;
+  height: 30px;
+  font-weight: bold;
+}
+.profileDiv form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.profileDiv p {
+  font-size: 0.8rem;
+  color: red;
+  font-weight: bold;
+}/*# sourceMappingURL=EditUserImg.module.css.map */

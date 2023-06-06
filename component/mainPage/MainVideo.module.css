@@ -1,0 +1,7 @@
+.mainVideo {
+  width: 100vw;
+  height: 530px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  top: 0;
+}/*# sourceMappingURL=MainVideo.module.css.map */
