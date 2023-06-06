@@ -7,6 +7,7 @@ declare global {
       NEXT_PUBLIC_KAKAO_SECRET: string;
       NEXT_PUBLIC_NAVER_ID: string;
       NEXT_PUBLIC_NAVER_SECRET: string;
+      NEXT_PUBLIC_BASE_URL: string;
       NODE_ENV: "development" | "production";
     }
   }

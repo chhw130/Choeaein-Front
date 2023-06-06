@@ -1,5 +1,5 @@
 import ReactQueryProvider from "./ReactQueryProvider";
-import DefaultLayout from "./DefaultLayout";
+import DefaultLayout from "../UI/Footer/DefaultLayout";
 import { Providers } from "./ChakraUIProvider";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
