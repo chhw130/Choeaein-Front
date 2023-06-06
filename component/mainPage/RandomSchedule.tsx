@@ -1,5 +1,4 @@
 "use client";
-
 import {
   Box,
   Container,
@@ -18,7 +17,7 @@ const RandomSchedule = ({ schedulesData }: any) => {
   const prefersReducedMotion = usePrefersReducedMotion();
   const animation = prefersReducedMotion
     ? undefined
-    : `${loop} 14s linear infinite`;
+    : `${loop} 34s linear infinite`;
   const slideBanner = schedulesData?.slice(0, 10);
 
   return (

@@ -36,11 +36,21 @@ const IdolSection = ({ idolData }: IdolSectionProps) => {
             >
               <Link href={`calendar/${data.pk}`}>
                 <Image
-                  className={styles.artistImage}
                   src={data?.idol_profile}
                   alt="아티스트 이미지"
                   width={200}
                   height={200}
+                  style={{
+                    width: "90%",
+                    height: "auto",
+                    maxWidth: "200px",
+                    maxHeight: "200px",
+                    borderRadius: "20%",
+                    objectFit: "cover",
+                    margin: "0 auto",
+                    objectPosition: "center",
+                    cursor: "pointer",
+                  }}
                   loading="lazy"
                 />
                 <Text
