@@ -99,18 +99,17 @@ const RandomSchedule = ({ schedulesData }: any) => {
             <Box key={`${data.id}-${i}`} margin={"0 10px"}>
               <Flex
                 flexDir="column"
-                h={"140px"}
                 w={["200px", "200px", "280px"]}
                 transition="transform 0.5s"
                 boxShadow="5.1px 6.1px 17px 0 rgba(243,97,166,0.23)"
                 cursor="pointer"
                 borderRadius="10px"
               >
-                <Box padding="20px" fontSize={"0.9rem"}>
+                <Box padding="20px" fontSize={["10px", "12px", "15px"]}>
                   <div>
                     <span>{dateFormat}</span>
                   </div>
-                  <Box h={"80%"}>
+                  <Box h={"57px"} overflow="hidden" textOverflow="ellipsis">
                     <FontAwesomeIcon
                       icon={faBroadcastTower}
                       // icon={scheduleIcon}
@@ -119,7 +118,7 @@ const RandomSchedule = ({ schedulesData }: any) => {
                     />
                     {data.ScheduleTitle}
                   </Box>
-                  <Box position="absolute" bottom={3}>
+                  <Box position="static" bottom={1} right={10}>
                     <FontAwesomeIcon icon={faMicrophone} />
                     &nbsp;{data.participant[0]?.idol_name_kr}
                   </Box>
@@ -152,38 +151,38 @@ const RandomSchedule = ({ schedulesData }: any) => {
           //   buy: "#609966",
           // }[scheduleType];
 
-          return (
-            <Box key={`${data.id}-${i}`} margin={"0 10px"}>
-              <Flex
-                flexDir="column"
-                h={"140px"}
-                w={["200px", "200px", "280px"]}
-                transition="transform 0.5s"
-                boxShadow="5.1px 6.1px 17px 0 rgba(243,97,166,0.23)"
-                cursor="pointer"
-                borderRadius="10px"
-              >
-                <Box padding="20px" fontSize={"0.9rem"}>
-                  <div>
-                    <span>{dateFormat}</span>
-                  </div>
-                  <Box h={"80%"}>
-                    <FontAwesomeIcon
-                      icon={faBroadcastTower}
-                      // icon={scheduleIcon}
-                      // color={scheduleIconColor}
-                      color="red"
-                    />
-                    {data.ScheduleTitle}
-                  </Box>
-                  <Box position="absolute" bottom={3}>
-                    <FontAwesomeIcon icon={faMicrophone} />
-                    &nbsp;{data.participant[0]?.idol_name_kr}
-                  </Box>
-                </Box>
-              </Flex>
-            </Box>
-          );
+          // return (
+          // <Box key={`${data.id}-${i}`} margin={"0 10px"}>
+          //   <Flex
+          //     flexDir="column"
+          //     h={"140px"}
+          //     w={["200px", "200px", "280px"]}
+          //     transition="transform 0.5s"
+          //     boxShadow="5.1px 6.1px 17px 0 rgba(243,97,166,0.23)"
+          //     cursor="pointer"
+          //     borderRadius="10px"
+          //   >
+          //     <Box padding="20px" fontSize={"0.9rem"}>
+          //       <div>
+          //         <span>{dateFormat}</span>
+          //       </div>
+          //       <Box h={"80%"}>
+          //         <FontAwesomeIcon
+          //           icon={faBroadcastTower}
+          //           // icon={scheduleIcon}
+          //           // color={scheduleIconColor}
+          //           color="red"
+          //         />
+          //         {data.ScheduleTitle}
+          //       </Box>
+          //       <Box position="absolute" bottom={3}>
+          //         <FontAwesomeIcon icon={faMicrophone} />
+          //         &nbsp;{data.participant[0]?.idol_name_kr}
+          //       </Box>
+          //     </Box>
+          //   </Flex>
+          // </Box>
+          // );
         })}
       </div>
     </Flex>

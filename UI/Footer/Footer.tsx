@@ -25,8 +25,9 @@ const Footer = () => {
       <Image
         src="https://velog.velcdn.com/images/view_coding/post/b0d48523-f2f5-4319-be6f-1784d4457a54/image.png"
         alt="logo"
-        width={280}
-        height={280}
+        width={200}
+        height={200}
+        style={{ width: "auto", height: "auto" }}
       />
       <Flex color={"white"} fontSize="23px" fontWeight="800">
         <p>고객센터</p>
