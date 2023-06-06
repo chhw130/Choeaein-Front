@@ -17,9 +17,10 @@ import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 import { GoSearch } from "react-icons/go";
 import Link from "next/link";
 import HeaderBtn from "@/component/header/HeaderBtn";
-import { MobileNav, SidebarContent } from "@/component/adminPage/Sidebar";
+import { SidebarContent } from "@/UI/Headar/Sidebar";
 import logo from "../../public/img/logo_main.png";
 import Image from "next/image";
+import { MobileNav } from "./MobileNav";
 
 const Header = () => {
   const { colorMode, toggleColorMode } = useColorMode();

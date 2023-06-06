@@ -1,7 +1,6 @@
 "use client";
 import React, { ReactNode } from "react";
 import {
-  IconButton,
   Box,
   CloseButton,
   Flex,
@@ -9,17 +8,20 @@ import {
   useColorModeValue,
   Drawer,
   DrawerContent,
-  Text,
   useDisclosure,
   BoxProps,
   FlexProps,
+  Text,
+  HStack,
 } from "@chakra-ui/react";
 import { FiHome, FiTrendingUp, FiCompass, FiMenu } from "react-icons/fi";
 import { IconType } from "react-icons";
-import UserInform from "./UserInform";
+import UserInform from "../../component/adminPage/UserInform";
 import Link from "next/link";
-import HeaderBtn from "../header/HeaderBtn";
 import Image from "next/image";
+import { MobileNav } from "./MobileNav";
+import logoImage from "../../public/img/logo_main.png";
+
 interface LinkItemProps {
   name: string;
   icon: IconType;
@@ -81,15 +83,16 @@ export const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
       {...rest}
     >
       <Flex h="20" alignItems="center" mx="8" justifyContent="space-between">
-        <Image
-          src={
-            "https://velog.velcdn.com/images/view_coding/post/6e4d7220-8bc8-4e88-9d4b-f3dd9e09b523/image.png"
-          }
-          width={150}
-          height={100}
-          alt="myfavor"
-          priority={true}
-        />
+        <HStack>
+          <Image
+            src={logoImage}
+            width={20}
+            height={20}
+            alt="myfavor"
+            priority={true}
+          />
+          <Text>CHOEAEIN</Text>
+        </HStack>
         <CloseButton display={{ base: "flex", md: "none" }} onClick={onClose} />
       </Flex>
       <UserInform />
@@ -140,48 +143,5 @@ const NavItem = ({ icon, children, link, ...rest }: NavItemProps) => {
         {children}
       </Flex>
     </Link>
-  );
-};
-
-interface MobileProps extends FlexProps {
-  onOpen: () => void;
-}
-export const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
-  return (
-    <Flex
-      ml={{ base: 0, md: 60 }}
-      display={{ base: "flex", md: "none" }}
-      position="fixed"
-      width="100%"
-      zIndex={100}
-      px={{ base: 4, md: 4 }}
-      height="65px"
-      alignItems="center"
-      bg={useColorModeValue("white", "gray.900")}
-      borderBottomWidth="1px"
-      borderBottomColor={useColorModeValue("gray.200", "gray.700")}
-      justifyContent={{ base: "space-between", md: "flex-end" }}
-      {...rest}
-    >
-      <IconButton
-        display={{ base: "flex", md: "none" }}
-        onClick={onOpen}
-        variant="outline"
-        aria-label="open menu"
-        icon={<FiMenu />}
-      />
-
-      <Link href={"/"}>
-        <Text
-          display={{ base: "flex", md: "none" }}
-          fontSize="2xl"
-          fontFamily="monospace"
-          fontWeight="bold"
-        >
-          CHOEAEIN
-        </Text>
-      </Link>
-      <HeaderBtn />
-    </Flex>
   );
 };

@@ -18,6 +18,7 @@ import { LoginData } from "@/app/login/interface";
 import { useMutation } from "@tanstack/react-query";
 import { OAuthButtonGroup } from "./OAuthButtonGroup";
 import Image from "next/image";
+import logo from "../../public/img/logo_main.png";
 
 const UserLogin = () => {
   const {
@@ -40,14 +41,18 @@ const UserLogin = () => {
   return (
     <div className={styles.logInDiv}>
       <form onSubmit={handleSubmit(onSubmit)} className={styles.logInForm}>
-        <Image
-          src="https://velog.velcdn.com/images/view_coding/post/6e4d7220-8bc8-4e88-9d4b-f3dd9e09b523/image.png"
-          alt="최애돌"
-          width={300}
-          height={80}
-          priority={true}
-          className={styles.mainImg}
-        />
+        <HStack margin={"30px"}>
+          <Image
+            src={logo}
+            alt="최애돌"
+            width={50}
+            height={50}
+            priority={true}
+          />
+          <Text fontSize="50px" fontWeight="bold">
+            CHOEAEIN
+          </Text>
+        </HStack>
         <Input
           w={"90%"}
           h={"70px"}

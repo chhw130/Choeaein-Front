@@ -1,12 +1,15 @@
 "use Client";
 import { Button, ButtonGroup, VisuallyHidden } from "@chakra-ui/react";
-import { GitHubIcon, KaKaoIcon, NaverIcon } from "./UI/ProviderIcons";
 import { signIn } from "next-auth/react";
+import Image from "next/image";
+import kakao from "../../public/img/sns/Kakao.png";
+import naver from "../../public/img/sns/Naver.png";
+import github from "../../public/img/sns/Github.png";
 
 const providers = [
-  { name: "naver", icon: <NaverIcon boxSize="5" />, rgb: "#2DB400" },
-  { name: "kakao", icon: <KaKaoIcon boxSize="5" />, rgb: "#F7E600" },
-  { name: "github", icon: <GitHubIcon boxSize="5" />, rgb: "white" },
+  { name: "naver", icon: naver, rgb: "#2DB400" },
+  { name: "kakao", icon: kakao, rgb: "#F7E600" },
+  { name: "github", icon: github, rgb: "white" },
 ];
 
 export const OAuthButtonGroup = () => (
@@ -19,7 +22,7 @@ export const OAuthButtonGroup = () => (
         bgColor={rgb}
       >
         <VisuallyHidden>Sign in with {name}</VisuallyHidden>
-        {icon}
+        <Image alt={name} width={30} height={30} src={icon} />
       </Button>
     ))}
   </ButtonGroup>

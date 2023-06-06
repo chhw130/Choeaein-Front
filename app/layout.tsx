@@ -3,7 +3,6 @@ import DefaultLayout from "../UI/Footer/DefaultLayout";
 import { Providers } from "./ChakraUIProvider";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
-import "../app/global.scss";
 import { Metadata } from "next";
 config.autoAddCss = false;
 
