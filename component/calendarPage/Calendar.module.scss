@@ -45,8 +45,8 @@
 }
 
 .inactive {
-  // opacity: 0.5;
   background-color: #ececec;
+  color: black;
 }
 
 .buttonss {
@@ -232,6 +232,7 @@
   border-radius: 40%;
   background-color: rgb(184, 213, 88);
   z-index: -1;
+  cursor: pointer;
 }
 
 /* 모바일 가로, 테블릿 세로 (해상도 ~ 479px)*/

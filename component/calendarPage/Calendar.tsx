@@ -13,7 +13,6 @@ import { faBroadcastTower } from "@fortawesome/free-solid-svg-icons/faBroadcastT
 import { faCompactDisc } from "@fortawesome/free-solid-svg-icons/faCompactDisc";
 import { faStore } from "@fortawesome/free-solid-svg-icons/faStore";
 import { faCalendarCheck } from "@fortawesome/free-solid-svg-icons/faCalendarCheck";
-
 import { ShowEvent } from "./ShowEvent";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import IdolInform from "./IdolInform";
@@ -21,15 +20,6 @@ import {
   Box,
   Button,
   Flex,
-  FormLabel,
-  Modal,
-  ModalBody,
-  ModalCloseButton,
-  ModalContent,
-  ModalFooter,
-  ModalHeader,
-  ModalOverlay,
-  Select,
   Spinner,
   Table,
   Tbody,
@@ -39,10 +29,13 @@ import {
   Thead,
   Tr,
   useDisclosure,
-  useToast,
 } from "@chakra-ui/react";
 import { useQuery } from "@tanstack/react-query";
 import { specificIdolSchedule } from "@/utils/axios/AxiosSetting";
+import dynamic from "next/dynamic";
+const ViewDayCalendarModal = dynamic(
+  () => import("@/UI/Modal/ViewDayCalendarModal")
+);
 
 const days = ["일", "월", "화", "수", "목", "금", "토"];
 
@@ -167,7 +160,7 @@ const Calendar = ({ idolData, params }: any) => {
                       setSelectedDay(days);
                       onOpen();
                     }}
-                    className={styles.today}
+                    cursor={"pointer"}
                   >
                     <div
                       className={
@@ -217,6 +210,7 @@ const Calendar = ({ idolData, params }: any) => {
                       setSelectedDay(days);
                       onOpen();
                     }}
+                    cursor={"pointer"}
                   >
                     <div
                       className={
@@ -251,20 +245,11 @@ const Calendar = ({ idolData, params }: any) => {
 
   return (
     <>
-      <Modal isOpen={isOpen} onClose={onClose} isCentered size={"xl"}>
-        <ModalOverlay />
-        <ModalContent bg="rgb(91, 91, 232)">
-          <ModalHeader>
-            <Text color={"white"}>{selectedDay.format("YYYY년 M월 D일")}</Text>
-            <Text color={"white"}>스케줄을 놓치지마세요!</Text>
-          </ModalHeader>
-          <ModalCloseButton />
-          <ModalBody></ModalBody>
-          <ModalFooter>
-            <Button type="submit">수정하기</Button>
-          </ModalFooter>
-        </ModalContent>
-      </Modal>
+      <ViewDayCalendarModal
+        selectedDay={selectedDay}
+        isOpen={isOpen}
+        onClose={onClose}
+      />
       <div className={styles.calendarContainer}>
         <Flex justifyContent="space-between" padding="10px 20px">
           <IdolInform idolData={idolData} />
