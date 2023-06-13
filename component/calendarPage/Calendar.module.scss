@@ -87,11 +87,6 @@
     padding: auto 10px;
   }
 
-  .today {
-    text-decoration: underline;
-    font-weight: 700;
-    z-index: 2;
-  }
   .prevBtn {
     background: none;
     border: none;
@@ -100,15 +95,6 @@
   .nextBtn {
     background: none;
     border: none;
-  }
-
-  .todayBtn {
-    width: 40px;
-    height: 40px;
-    font-family: "Jua", sans-serif;
-    border-radius: 50%;
-    border: none;
-    margin: auto 0;
   }
 
   .categoryContainer {
