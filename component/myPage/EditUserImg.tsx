@@ -1,6 +1,5 @@
 "use client";
 import { useForm } from "react-hook-form";
-import styles from "./EditUserImg.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCamera } from "@fortawesome/free-solid-svg-icons/faCamera";
 import { Avatar, Box, Input, VStack } from "@chakra-ui/react";
@@ -14,12 +13,7 @@ const EditUserImg = () => {
     <VStack spacing={5}>
       <h2>프로필 정보</h2>
       <Avatar src="" size="2xl" />
-      <Box
-        as="form"
-        className={styles.uploadForm}
-        onSubmit={handleSubmit(imgSubmit)}
-        cursor="pointer"
-      >
+      <Box as="form" onSubmit={handleSubmit(imgSubmit)} cursor="pointer">
         <Box
           position="relative"
           top="-60px"

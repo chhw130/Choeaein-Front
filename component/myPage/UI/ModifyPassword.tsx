@@ -2,7 +2,6 @@
 import {
   Button,
   Flex,
-  FormControl,
   FormLabel,
   HStack,
   Input,
@@ -26,7 +25,6 @@ const ModifyPassword = () => {
     register,
     formState: { errors },
     handleSubmit,
-    getValues,
   } = useForm();
 
   const modifyPasswordHandler = (data: any) => {
