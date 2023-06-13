@@ -5,7 +5,6 @@ import {
   Flex,
   FormLabel,
   HStack,
-  Modal,
   ModalBody,
   ModalCloseButton,
   ModalContent,
@@ -14,9 +13,12 @@ import {
   ModalOverlay,
   Select,
   Text,
+  Modal,
   useDisclosure,
 } from "@chakra-ui/react";
+
 import { useForm } from "react-hook-form";
+
 const ModifyPick = () => {
   const { isOpen, onClose, onOpen } = useDisclosure();
 

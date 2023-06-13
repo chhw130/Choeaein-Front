@@ -1,9 +1,9 @@
-import EditUser from "@/component/myPage/EditUser";
+import EditUserContainer from "@/component/myPage/EditUserContainer";
 
 const MyPage = () => {
   return (
     <>
-      <EditUser />
+      <EditUserContainer />
     </>
   );
 };
