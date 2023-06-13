@@ -30,7 +30,6 @@ const RandomSchedule = ({ schedulesData }: any) => {
     >
       <Container
         display="flex"
-        // justifyContent="center"
         alignItems="center"
         animation={animation}
         margin={0}

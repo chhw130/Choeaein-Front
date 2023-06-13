@@ -1,20 +1,19 @@
 "use client";
 import styles from "./Calendar.module.scss";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import moment from "moment";
 import "moment/locale/ko";
 
-import {
-  faUser,
-  faRotateRight,
-  faChevronRight,
-  faChevronLeft,
-  faBroadcastTower,
-  faCompactDisc,
-  faStore,
-  faGift,
-  faCalendarCheck,
-} from "@fortawesome/free-solid-svg-icons";
+import { faGift } from "@fortawesome/free-solid-svg-icons/faGift";
+import { faUser } from "@fortawesome/free-solid-svg-icons/faUser";
+import { faChevronRight } from "@fortawesome/free-solid-svg-icons/faChevronRight";
+import { faRotateRight } from "@fortawesome/free-solid-svg-icons/faRotateRight";
+import { faChevronLeft } from "@fortawesome/free-solid-svg-icons/faChevronLeft";
+import { faBroadcastTower } from "@fortawesome/free-solid-svg-icons/faBroadcastTower";
+import { faCompactDisc } from "@fortawesome/free-solid-svg-icons/faCompactDisc";
+import { faStore } from "@fortawesome/free-solid-svg-icons/faStore";
+import { faCalendarCheck } from "@fortawesome/free-solid-svg-icons/faCalendarCheck";
+
 import { ShowEvent } from "./ShowEvent";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import IdolInform from "./IdolInform";

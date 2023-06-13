@@ -12,11 +12,11 @@ import {
 } from "@chakra-ui/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPhone } from "@fortawesome/free-solid-svg-icons";
-import { postSignUp } from "@/utils/axios/AxiosSetting";
+import { CertificatePhone, postSignUp } from "@/utils/axios/AxiosSetting";
 import { useRouter } from "next/navigation";
 import { SignUpData } from "@/app/signup/interface";
 import IdolOption from "./IdolOption";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 
 const SignUp = () => {
   /**회원가입 확인 모달창 */
@@ -32,6 +32,10 @@ const SignUp = () => {
   const { mutateAsync: signUpHandler } = useMutation(
     (signUpInform: SignUpData) => postSignUp(signUpInform)
   );
+
+  const { data } = useQuery(["number"], () => CertificatePhone());
+
+  console.log(data);
 
   /**회원가입 form 제출시 */
   const onSubmit = async (data: SignUpData) => {
@@ -187,6 +191,9 @@ const SignUp = () => {
                 placeholder="전화번호를 입력하세요."
                 {...register("phone_number")}
               />
+              <Button h="50px" onClick={() => CertificatePhone}>
+                인증하기
+              </Button>
             </InputGroup>
             {errors?.phone_number && <p>{errors.phone_number?.message}</p>}
           </div>

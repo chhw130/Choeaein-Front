@@ -1,17 +1,7 @@
 "use client";
 
-import { useForm } from "react-hook-form";
-import styles from "./EditUser.module.scss";
 import EditUserImg from "./EditUserImg";
-import {
-  Avatar,
-  Box,
-  Button,
-  Flex,
-  HStack,
-  Text,
-  VStack,
-} from "@chakra-ui/react";
+import { Box, Button, Flex, HStack, Text, VStack } from "@chakra-ui/react";
 import ModifyPassword from "./UI/ModifyPassword";
 import ModifyPick from "./UI/ModifyPick";
 

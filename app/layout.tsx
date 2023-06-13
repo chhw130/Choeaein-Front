@@ -1,10 +1,8 @@
 import ReactQueryProvider from "./ReactQueryProvider";
 import DefaultLayout from "../UI/Footer/DefaultLayout";
 import { Providers } from "./ChakraUIProvider";
-import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { Metadata } from "next";
-config.autoAddCss = false;
 
 export const metadata: Metadata = {
   title: "Myfavor",

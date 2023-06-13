@@ -1,8 +1,6 @@
 import { Box, Flex } from "@chakra-ui/react";
-import {
-  faBroadcastTower,
-  faMicrophone,
-} from "@fortawesome/free-solid-svg-icons";
+import { faBroadcastTower } from "@fortawesome/free-solid-svg-icons/faBroadcastTower";
+import { faMicrophone } from "@fortawesome/free-solid-svg-icons/faMicrophone";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 
