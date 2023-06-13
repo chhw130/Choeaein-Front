@@ -13,6 +13,11 @@ import {
   FlexProps,
   Text,
   HStack,
+  Button,
+  useColorMode,
+  InputGroup,
+  Input,
+  InputRightAddon,
 } from "@chakra-ui/react";
 import { FiHome, FiTrendingUp, FiCompass, FiMenu } from "react-icons/fi";
 import { IconType } from "react-icons";
@@ -21,6 +26,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { MobileNav } from "./MobileNav";
 import logoImage from "../../public/img/logo_main.png";
+import { MoonIcon, SunIcon } from "@chakra-ui/icons";
+import { GoSearch } from "react-icons/go";
 
 interface LinkItemProps {
   name: string;
@@ -71,6 +78,8 @@ interface SidebarProps extends BoxProps {
 }
 
 export const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
+  const { colorMode, toggleColorMode } = useColorMode();
+
   return (
     <Box
       transition="3s ease"
@@ -93,9 +102,24 @@ export const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
           />
           <Text>CHOEAEIN</Text>
         </HStack>
-        <CloseButton display={{ base: "flex", md: "none" }} onClick={onClose} />
+        <HStack>
+          <Button
+            onClick={toggleColorMode}
+            color={colorMode === "light" ? "black" : "white"}
+          >
+            {colorMode === "light" ? <MoonIcon /> : <SunIcon />}
+          </Button>
+          <CloseButton
+            display={{ base: "flex", md: "none" }}
+            onClick={onClose}
+          />
+        </HStack>
       </Flex>
       <UserInform />
+      <InputGroup margin="0px 16px" padding="16px">
+        <Input placeholder="아이돌을 검색하세요." fontSize="0.7rem" w="50%" />
+        <InputRightAddon children={<GoSearch />} padding="0px 8px" />
+      </InputGroup>
       {LinkItems.map((link) => (
         <NavItem
           key={link.name}

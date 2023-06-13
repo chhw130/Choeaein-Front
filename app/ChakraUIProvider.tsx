@@ -9,8 +9,8 @@ const ChakraProvider = dynamic(() =>
 
 export function Providers({ children }: { children: React.ReactNode }) {
   return (
-    <CacheProvider>
-      <ChakraProvider theme={theme}>{children}</ChakraProvider>
-    </CacheProvider>
+    <ChakraProvider theme={theme}>
+      <CacheProvider>{children}</CacheProvider>
+    </ChakraProvider>
   );
 }

@@ -1,15 +1,4 @@
-import {
-  Heading,
-  Avatar,
-  Box,
-  Center,
-  Image,
-  Flex,
-  Text,
-  Stack,
-  Button,
-  useColorModeValue,
-} from "@chakra-ui/react";
+import { Avatar, Box, Center, Flex, Text, Stack } from "@chakra-ui/react";
 
 export default function UserInform() {
   return (
@@ -27,8 +16,8 @@ export default function UserInform() {
           />
         </Flex>
 
-        <Box p={6}>
-          <Stack spacing={0} align={"center"} mb={5}>
+        <Box p={2}>
+          <Stack spacing={0} align={"center"}>
             <Text color={"gray.500"}>Admin1</Text>
           </Stack>
         </Box>

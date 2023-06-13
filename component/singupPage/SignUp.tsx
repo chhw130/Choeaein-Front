@@ -4,11 +4,12 @@ import { useForm } from "react-hook-form";
 import {
   Button,
   ButtonGroup,
-  Image,
+  HStack,
   Input,
   InputGroup,
   InputLeftAddon,
   Select,
+  Text,
 } from "@chakra-ui/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPhone } from "@fortawesome/free-solid-svg-icons";
@@ -16,8 +17,9 @@ import { CertificatePhone, postSignUp, test } from "@/utils/axios/AxiosSetting";
 import { useRouter } from "next/navigation";
 import { SignUpData } from "@/app/signup/interface";
 import IdolOption from "./IdolOption";
-import { useMutation, useQuery } from "@tanstack/react-query";
-import sendMessageCode from "@/utils/phone/SendPhoneMessage";
+import { useMutation } from "@tanstack/react-query";
+import logo from "../../public/img/logo_main.png";
+import Image from "next/image";
 
 const SignUp = () => {
   /**회원가입 확인 모달창 */
@@ -58,14 +60,19 @@ const SignUp = () => {
   return (
     <>
       <div className={styles.signUp}>
-        <Image
-          w="300px"
-          margin="0 auto"
-          padding="30px"
-          alt=""
-          src="https://velog.velcdn.com/images/view_coding/post/6e4d7220-8bc8-4e88-9d4b-f3dd9e09b523/image.png"
-        />
         <form onSubmit={handleSubmit(onSubmit)}>
+          <HStack margin={"30px"}>
+            <Image
+              src={logo}
+              alt="최애돌"
+              width={50}
+              height={50}
+              priority={true}
+            />
+            <Text fontSize="40px" fontWeight="bold">
+              CHOEAEIN
+            </Text>
+          </HStack>
           <div className={styles.typeDiv}>
             <label htmlFor="username">아이디(Email)</label>
             <Input
