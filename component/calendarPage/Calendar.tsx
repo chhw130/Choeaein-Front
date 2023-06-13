@@ -21,6 +21,15 @@ import {
   Box,
   Button,
   Flex,
+  FormLabel,
+  Modal,
+  ModalBody,
+  ModalCloseButton,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  ModalOverlay,
+  Select,
   Spinner,
   Table,
   Tbody,
@@ -29,6 +38,7 @@ import {
   Th,
   Thead,
   Tr,
+  useDisclosure,
   useToast,
 } from "@chakra-ui/react";
 import { useQuery } from "@tanstack/react-query";
@@ -36,22 +46,19 @@ import { specificIdolSchedule } from "@/utils/axios/AxiosSetting";
 
 const days = ["일", "월", "화", "수", "목", "금", "토"];
 
-const Calendar = ({ setSidebarOpen, idolData, params }: any) => {
+const Calendar = ({ idolData, params }: any) => {
   const idolId = params.params.idolID;
   const { data: newIdolSchedule = [], isLoading } = useQuery(
     ["idolSchedule", idolId],
     () => specificIdolSchedule(idolId)
   );
 
+  /**모달 */
+  const { isOpen, onClose, onOpen } = useDisclosure();
+
   /**선택한 날 */
   const userPick = 1;
   const [selectedDay, setSelectedDay] = useState(moment());
-  const [prevsSelectedDay, setPrevsSelectedDay] = useState(
-    moment().subtract(1, "day")
-  );
-  const [nextsSelectedDay, setNextsSelectedDay] = useState(
-    moment().add(1, "day")
-  );
 
   /**현재 보여주는 달의 날짜들 */
   const [getMoment, setMoment] = useState(moment());
@@ -158,10 +165,7 @@ const Calendar = ({ setSidebarOpen, idolData, params }: any) => {
                     key={index}
                     onClick={() => {
                       setSelectedDay(days);
-                      setPrevsSelectedDay(moment(days).subtract(1, "days"));
-                      setNextsSelectedDay(moment(days).add(1, "days"));
-
-                      setSidebarOpen(true);
+                      onOpen();
                     }}
                     className={styles.today}
                   >
@@ -211,9 +215,7 @@ const Calendar = ({ setSidebarOpen, idolData, params }: any) => {
                     key={index}
                     onClick={(e) => {
                       setSelectedDay(days);
-                      setPrevsSelectedDay(moment(days).subtract(1, "days"));
-                      setNextsSelectedDay(moment(days).add(1, "days"));
-                      setSidebarOpen(true);
+                      onOpen();
                     }}
                   >
                     <div
@@ -249,6 +251,20 @@ const Calendar = ({ setSidebarOpen, idolData, params }: any) => {
 
   return (
     <>
+      <Modal isOpen={isOpen} onClose={onClose} isCentered size={"xl"}>
+        <ModalOverlay />
+        <ModalContent bg="rgb(91, 91, 232)">
+          <ModalHeader>
+            <Text color={"white"}>{selectedDay.format("YYYY년 M월 D일")}</Text>
+            <Text color={"white"}>스케줄을 놓치지마세요!</Text>
+          </ModalHeader>
+          <ModalCloseButton />
+          <ModalBody></ModalBody>
+          <ModalFooter>
+            <Button type="submit">수정하기</Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
       <div className={styles.calendarContainer}>
         <Flex justifyContent="space-between" padding="10px 20px">
           <IdolInform idolData={idolData} />

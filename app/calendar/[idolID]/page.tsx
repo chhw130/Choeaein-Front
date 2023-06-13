@@ -9,9 +9,6 @@ async function CalendarPage(params: any) {
   const idolId = params.params.idolID;
   const idolData = await getData(idolId);
 
-  /**사이드바 */
-  /**아이돌 day데이터 */
-
   return (
     <div className={styles.calendarContainer}>
       <div className={styles.calendar}>
