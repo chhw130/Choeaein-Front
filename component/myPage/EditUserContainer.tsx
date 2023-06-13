@@ -2,6 +2,7 @@
 
 import { Box, Center, Skeleton, Spinner, Text } from "@chakra-ui/react";
 import dynamic from "next/dynamic";
+
 const EditUser = dynamic(() => import("./EditUser"), {
   loading: () => (
     <Skeleton h="600px">
