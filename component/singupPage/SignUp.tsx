@@ -12,11 +12,12 @@ import {
 } from "@chakra-ui/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPhone } from "@fortawesome/free-solid-svg-icons";
-import { CertificatePhone, postSignUp } from "@/utils/axios/AxiosSetting";
+import { CertificatePhone, postSignUp, test } from "@/utils/axios/AxiosSetting";
 import { useRouter } from "next/navigation";
 import { SignUpData } from "@/app/signup/interface";
 import IdolOption from "./IdolOption";
 import { useMutation, useQuery } from "@tanstack/react-query";
+import sendMessageCode from "@/utils/phone/SendPhoneMessage";
 
 const SignUp = () => {
   /**회원가입 확인 모달창 */
@@ -26,16 +27,15 @@ const SignUp = () => {
     handleSubmit,
     getValues,
   } = useForm<SignUpData>();
-
   const router = useRouter();
+
+  const { data: number, mutateAsync: CertificatePhoneHandler } = useMutation(
+    () => CertificatePhone()
+  );
 
   const { mutateAsync: signUpHandler } = useMutation(
     (signUpInform: SignUpData) => postSignUp(signUpInform)
   );
-
-  const { data } = useQuery(["number"], () => CertificatePhone());
-
-  console.log(data);
 
   /**회원가입 form 제출시 */
   const onSubmit = async (data: SignUpData) => {
@@ -191,7 +191,7 @@ const SignUp = () => {
                 placeholder="전화번호를 입력하세요."
                 {...register("phone_number")}
               />
-              <Button h="50px" onClick={() => CertificatePhone}>
+              <Button h="50px" onClick={() => CertificatePhoneHandler()}>
                 인증하기
               </Button>
             </InputGroup>

@@ -36,7 +36,9 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "component/calendarPage/Sidebar.jsx"
+    "component/calendarPage/Sidebar.jsx",
+    "pages/api/test.jsx",
+    "utils/phone/SendPhoneMessage.js"
   ],
   "exclude": ["node_modules"]
 }

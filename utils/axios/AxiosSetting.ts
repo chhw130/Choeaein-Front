@@ -15,8 +15,10 @@ export const instance = axios.create({
 export const postSignUp = (signUpInform: any) =>
   instance.post(`/users/`, signUpInform).then((res) => res.data);
 
+export const test = () => axios.get("/api/test").then((res) => res.data);
+
 export const CertificatePhone = () =>
-  axios.get("/api/test").then((res) => res.data);
+  axios.post("/api/test").then((res) => res.data);
 
 /**로그인 */
 export const postLogin = (loginInform: any) =>

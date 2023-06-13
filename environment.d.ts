@@ -1,6 +1,9 @@
 declare global {
   namespace NodeJS {
     interface ProcessEnv {
+      NEXT_PUBLIC_SERVICE_ID: string;
+      NEXT_PUBLIC_ACCESS_KEY: string;
+      NEXT_PUBLIC_SECRET_KEY: string;
       NEXT_PUBLIC_GITHUB_ID: string;
       NEXT_PUBLIC_GITHUB_SECRET: string;
       NEXT_PUBLIC_KAKAO_ID: string;
