@@ -3,9 +3,13 @@
 import styles from "./UserLogin.module.scss";
 import { useForm } from "react-hook-form";
 import {
+  Box,
   Button,
   ButtonGroup,
+  Container,
   Divider,
+  Flex,
+  FormControl,
   HStack,
   Input,
   Stack,
@@ -39,8 +43,17 @@ const UserLogin = () => {
   };
 
   return (
-    <div className={styles.logInDiv}>
-      <form onSubmit={handleSubmit(onSubmit)} className={styles.logInForm}>
+    <Flex height="100vh">
+      <Flex
+        as="form"
+        onSubmit={handleSubmit(onSubmit)}
+        width={"100%"}
+        maxW={"500px"}
+        flexDir={"column"}
+        justifyContent={"center"}
+        alignItems={"center"}
+        margin={"30px auto"}
+      >
         <HStack margin={"30px"}>
           <Image
             src={logo}
@@ -75,12 +88,14 @@ const UserLogin = () => {
             required: "Password를 입력해주세요.",
           })}
         />
-        <div className={styles.errorMessage}>
-          {(errors.email && <p>{errors.email.message}</p>) ||
-            (errors.password && <p>{errors.password.message}</p>)}
-        </div>
 
         <Stack spacing="6" w="90%" maxW="450px" marginTop={5}>
+          {(errors.email && (
+            <Text color={"#bf1650"} _before={{ display: "inline" }}>
+              ⚠ {errors.email.message}
+            </Text>
+          )) ||
+            (errors.password && <Text>⚠{errors.password.message}</Text>)}
           <ButtonGroup marginTop="10px" justifyContent="center" w="100%">
             <Button
               w="50%"
@@ -116,8 +131,8 @@ const UserLogin = () => {
           </HStack>
           <OAuthButtonGroup />
         </Stack>
-      </form>
-    </div>
+      </Flex>
+    </Flex>
   );
 };
 

@@ -39,7 +39,13 @@ const RandomScheduleSlider = ({ slideBanner }: any) => {
                 <div>
                   <span>{dateFormat}</span>
                 </div>
-                <Box h={"57px"} overflow="hidden" textOverflow="ellipsis">
+                <Box
+                  h={"57px"}
+                  overflow="hidden"
+                  lineHeight={1.4}
+                  textOverflow="ellipsis"
+                  // whiteSpace={"nowrap"}
+                >
                   <FontAwesomeIcon icon={faBroadcastTower} color="red" />
                   &nbsp;{data.ScheduleTitle}
                 </Box>
