@@ -13,24 +13,6 @@ const RandomScheduleSlider = ({ slideBanner }: any) => {
           10
         )}일`;
 
-        const { type: scheduleType } = data.ScheduleType;
-
-        // const scheduleIcon = {
-        //   broadcast: faBroadcastTower,
-        //   event: faCalendarCheck,
-        //   release: faCompactDisc,
-        //   congrats: faGift,
-        //   buy: faStore,
-        // }[scheduleType];
-
-        // const scheduleIconColor = {
-        //   broadcast: "#443c68",
-        //   event: "#537fe7",
-        //   release: "#f16767",
-        //   congrats: "#e7b10a",
-        //   buy: "#609966",
-        // }[scheduleType];
-
         return (
           <Box
             key={`${data.id}-${i}`}
@@ -41,23 +23,27 @@ const RandomScheduleSlider = ({ slideBanner }: any) => {
               transform: "scale(1.1)",
               transition: "transform 0.3s ease",
             }}
+            borderRadius={"10px"}
           >
             <Flex
               flexDir="column"
-              w={["200px", "200px", "280px"]}
+              w={["210px", "230px", "280px"]}
               transition="transform 0.5s"
               cursor="pointer"
               borderRadius="10px"
             >
-              <Box padding="20px" fontSize={["10px", "12px", "15px"]}>
+              <Box
+                padding={["13px", "15px", "20px"]}
+                fontSize={["11px", "13px", "15px"]}
+              >
                 <div>
                   <span>{dateFormat}</span>
                 </div>
                 <Box h={"57px"} overflow="hidden" textOverflow="ellipsis">
                   <FontAwesomeIcon icon={faBroadcastTower} color="red" />
-                  {data.ScheduleTitle}
+                  &nbsp;{data.ScheduleTitle}
                 </Box>
-                <Box position="static" bottom={1} right={10}>
+                <Box position="static" marginTop={[1, 2, 3]} right={10}>
                   <FontAwesomeIcon icon={faMicrophone} />
                   &nbsp;{data.participant[0]?.idol_name_kr}
                 </Box>

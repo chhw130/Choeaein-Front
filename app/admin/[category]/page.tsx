@@ -1,8 +1,13 @@
 "use client";
 import React from "react";
-import IdolList from "@/component/adminPage/contents/IdolList";
-import ReportSchedule from "@/component/adminPage/contents/ReportSchedule";
 import { Box } from "@chakra-ui/react";
+import dynamic from "next/dynamic";
+const IdolList = dynamic(
+  () => import("@/component/adminPage/contents/IdolList")
+);
+const ReportSchedule = dynamic(
+  () => import("@/component/adminPage/contents/ReportSchedule")
+);
 
 const AdminPage = async (params: any) => {
   const path = params.params.category;

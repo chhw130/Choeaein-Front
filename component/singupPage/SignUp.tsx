@@ -13,7 +13,7 @@ import {
 } from "@chakra-ui/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPhone } from "@fortawesome/free-solid-svg-icons";
-import { CertificatePhone, postSignUp, test } from "@/utils/axios/AxiosSetting";
+import { postSignUp } from "@/utils/axios/AxiosSetting";
 import { useRouter } from "next/navigation";
 import { SignUpData } from "@/app/signup/interface";
 import IdolOption from "./IdolOption";
@@ -30,10 +30,6 @@ const SignUp = () => {
     getValues,
   } = useForm<SignUpData>();
   const router = useRouter();
-
-  const { data: number, mutateAsync: CertificatePhoneHandler } = useMutation(
-    () => CertificatePhone()
-  );
 
   const { mutateAsync: signUpHandler } = useMutation(
     (signUpInform: SignUpData) => postSignUp(signUpInform)
@@ -119,8 +115,6 @@ const SignUp = () => {
                   value:
                     // eslint-disable-next-line
                     /^[A-Za-z0-9`~!@#\$%\^&\*\(\)\{\}\[\]\-_=\+\\|;:'"<>,\./\?]{8,20}$/,
-                  // eslint-disable-next-line
-
                   message: "특수문자 1개 이상 넣어주세요.",
                 },
               })}
@@ -198,9 +192,6 @@ const SignUp = () => {
                 placeholder="전화번호를 입력하세요."
                 {...register("phone_number")}
               />
-              <Button h="50px" onClick={() => CertificatePhoneHandler()}>
-                인증하기
-              </Button>
             </InputGroup>
             {errors?.phone_number && <p>{errors.phone_number?.message}</p>}
           </div>

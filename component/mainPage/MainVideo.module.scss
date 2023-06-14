@@ -4,3 +4,8 @@
   object-fit: cover;
   top: 0;
 }
+@media (max-width: 767px) {
+  .mainVideo {
+    height: 400px;
+  }
+}
