@@ -33,14 +33,19 @@ import {
 import { useQuery } from "@tanstack/react-query";
 import { specificIdolSchedule } from "@/utils/axios/AxiosSetting";
 import dynamic from "next/dynamic";
+import { CalendarPageProps } from "@/app/calendar/[idolID]/page";
 const ViewDayCalendarModal = dynamic(
   () => import("@/UI/Modal/ViewDayCalendarModal")
 );
 
+interface CalendarProps extends CalendarPageProps {
+  idolData: any;
+}
+
 const days = ["일", "월", "화", "수", "목", "금", "토"];
 
-const Calendar = ({ idolData, params }: any) => {
-  const idolId = params.params.idolID;
+const Calendar = ({ idolData, params }: CalendarProps) => {
+  const idolId = params.idolID;
   const { data: newIdolSchedule = [], isLoading } = useQuery(
     ["idolSchedule", idolId],
     () => specificIdolSchedule(idolId)
@@ -71,7 +76,6 @@ const Calendar = ({ idolData, params }: any) => {
   // 반복문을 사용하여 해당 달의 총주의 수만큼 반복문을 실행하고 테이블의 내용을 배열에 추가
   // 길이가 7인 arr를 생성 후 index를 기반으로 day을 표기
 
-  /**스케줄 불러오기 */
   const buttons =
     Number(idolId) === userPick
       ? [
@@ -123,9 +127,8 @@ const Calendar = ({ idolData, params }: any) => {
     }
   };
 
-  /** */
   const calendarArr = () => {
-    let result: any[] = []; // 이번달 배열
+    let result: any[] = [];
     let week = firstWeek;
 
     for (week; week <= lastWeek; week++) {
@@ -241,8 +244,6 @@ const Calendar = ({ idolData, params }: any) => {
     return result;
   };
 
-  // 카테고리 배열
-
   return (
     <>
       <ViewDayCalendarModal
@@ -257,7 +258,6 @@ const Calendar = ({ idolData, params }: any) => {
             <button
               className={styles.prevBtn}
               onClick={() => {
-                // clone() 은 기존의 moment가 아닌 새로운 객체를 반환했다는 의미
                 setMoment(getMoment.clone().subtract(1, "month"));
               }}
             >
@@ -289,7 +289,6 @@ const Calendar = ({ idolData, params }: any) => {
           </Flex>
         </Flex>
 
-        {/* 버튼 */}
         <div className={styles.categoryContainer}>
           {buttons.map((btn) => (
             <Button

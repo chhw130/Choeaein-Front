@@ -31,7 +31,7 @@ const Header = () => {
 
   const submitHandler = (e: React.FormEvent<HTMLFormElement> | any) => {
     e.preventDefault();
-    router.push(`/search/${keyword}`);
+    router.push(`/search?keyword=${keyword}`);
   };
 
   return (

@@ -6,7 +6,7 @@ import React from "react";
 const IdolCard = ({ data }: any) => {
   return (
     <Box textAlign="center" margin="30px 0" w={["24%", "24%", "23%"]}>
-      <Link href={`calendar/${data.pk}`}>
+      <Link href={`calendar/${data.pk}`} prefetch={false}>
         <Image
           src={data?.idol_profile}
           alt="아티스트 이미지"

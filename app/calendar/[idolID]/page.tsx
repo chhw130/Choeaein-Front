@@ -5,8 +5,13 @@ const Calendar = dynamic(() => import("@/component/calendarPage/Calendar"));
 const ComingSchedule = dynamic(
   () => import("@/component/calendarPage/ComingSchedule")
 );
-async function CalendarPage(params: any) {
-  const idolId = params.params.idolID;
+
+export interface CalendarPageProps {
+  params: { idolID: string };
+}
+
+async function CalendarPage({ params }: CalendarPageProps) {
+  const idolId = params.idolID;
   const idolData = await getData(idolId);
 
   return (

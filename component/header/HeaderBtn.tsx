@@ -53,7 +53,7 @@ const HeaderBtn = () => {
         <MenuList>
           {true
             ? loginMenu.map((menu, index) => (
-                <Link href={menu.link} key={index}>
+                <Link href={menu.link} key={index} prefetch={false}>
                   <MenuItem>{menu.title}</MenuItem>
                 </Link>
               ))
@@ -67,7 +67,7 @@ const HeaderBtn = () => {
                 }
                 return (
                   <>
-                    <Link href={menu.link} key={index}>
+                    <Link href={menu.link} key={index} prefetch={false}>
                       <MenuItem>{menu.title}</MenuItem>
                     </Link>
                   </>

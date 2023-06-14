@@ -2,10 +2,9 @@
 import { Container } from "@chakra-ui/react";
 import React from "react";
 import PageTitle from "./PageTitle";
-import { SearchPageParams } from "@/app/search/[keyword]/page";
 import SearchPageContents from "./SearchPageContents";
 
-const SearchPageContainer = ({ params }: SearchPageParams) => {
+const SearchPageContainer = () => {
   return (
     <Container
       h="100vh"
@@ -14,7 +13,7 @@ const SearchPageContainer = ({ params }: SearchPageParams) => {
       paddingTop={100}
       margin={"0 100px"}
     >
-      <PageTitle params={params} />
+      <PageTitle />
       <SearchPageContents />
     </Container>
   );

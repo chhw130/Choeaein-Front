@@ -4,10 +4,10 @@ export interface SearchPageParams {
   params: { keyword: string };
 }
 
-const SearchPage = ({ params }: SearchPageParams) => {
+const SearchPage = () => {
   return (
     <>
-      <SearchPageContainer params={params} />
+      <SearchPageContainer />
     </>
   );
 };
