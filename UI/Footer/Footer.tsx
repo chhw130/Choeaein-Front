@@ -14,6 +14,7 @@ const Footer = () => {
 
   return (
     <VStack
+      pos={"absolute"}
       padding="80px"
       bg={
         colorMode === "light" ? "linear-gradient(#fccec0, #f89598)" : "#171923"
