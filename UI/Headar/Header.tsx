@@ -9,7 +9,6 @@ import {
   HStack,
   Input,
   InputGroup,
-  InputRightAddon,
   useColorMode,
   useDisclosure,
 } from "@chakra-ui/react";
@@ -21,10 +20,19 @@ import { SidebarContent } from "@/UI/Headar/Sidebar";
 import logo from "../../public/img/logo_main.png";
 import Image from "next/image";
 import { MobileNav } from "./MobileNav";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 const Header = () => {
+  const router = useRouter();
   const { colorMode, toggleColorMode } = useColorMode();
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const [keyword, setKeyword] = useState<string | number>("");
+
+  const submitHandler = (e: React.FormEvent<HTMLFormElement> | any) => {
+    e.preventDefault();
+    router.push(`/search/${keyword}`);
+  };
 
   return (
     <>
@@ -49,9 +57,22 @@ const Header = () => {
           </Link>
 
           <HStack>
-            <InputGroup marginRight="10px">
-              <Input placeholder="아이돌을 검색해보세요." fontSize="0.9rem" />
-              <InputRightAddon children={<GoSearch />} padding="0px 8px" />
+            <InputGroup
+              as="form"
+              marginRight="10px"
+              onSubmit={(e) => submitHandler(e)}
+            >
+              <Input
+                placeholder="아이돌을 검색해보세요."
+                fontSize="0.9rem"
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                  const keyword = e.target.value;
+                  setKeyword(keyword);
+                }}
+              />
+              <Button type="submit">
+                <GoSearch />
+              </Button>
             </InputGroup>
             <Button
               onClick={toggleColorMode}

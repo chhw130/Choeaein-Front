@@ -3,20 +3,6 @@
   display: flex;
   align-items: center;
 }
-.navBtn {
-  background-color: white;
-  border-radius: 20px;
-  padding: 5px 7.5px;
-  border: none;
-  width: 78px;
-}
-
-.navImg {
-  width: 150px;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-}
 
 @media (max-width: 769px) {
   .header {
