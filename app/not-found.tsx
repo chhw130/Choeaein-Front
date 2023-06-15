@@ -3,10 +3,7 @@ import {
   Button,
   Heading,
   HStack,
-  Image,
-  keyframes,
   useColorMode,
-  usePrefersReducedMotion,
   VStack,
 } from "@chakra-ui/react";
 import { useRouter } from "next/navigation";
@@ -15,14 +12,6 @@ export default function NotFound() {
   const color = useColorMode().colorMode;
   const router = useRouter();
 
-  const spin = keyframes`
-        from { transform: rotate(0deg); }
-        to { transform: rotate(360deg); }
-      `;
-  const prefersReducedMotion = usePrefersReducedMotion();
-  const animation = prefersReducedMotion
-    ? undefined
-    : `${spin} infinite 15s linear`;
   return (
     <HStack
       bg="white"
