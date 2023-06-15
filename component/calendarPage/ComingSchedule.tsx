@@ -1,9 +1,8 @@
 "use client";
 import React from "react";
-import { Card, Center, Text, VStack, useToast } from "@chakra-ui/react";
+import { Card, Center, Text, VStack } from "@chakra-ui/react";
 
 const ComingSchedule = () => {
-  const toast = useToast();
   const nextDay: string[] = ["schedule1", "schedule2", "schedule3"];
   return (
     <Center flexDir="column" margin={30}>

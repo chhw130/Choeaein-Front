@@ -246,7 +246,7 @@ const Calendar = ({ idolData, params }: CalendarProps) => {
           <Box w="100%" h={"500px"}>
             <Spinner
               position="absolute"
-              top="40%"
+              top="45%"
               left="47.5%"
               thickness="4px"
               speed="0.65s"

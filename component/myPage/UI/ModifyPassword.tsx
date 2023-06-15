@@ -11,7 +11,9 @@ const ModifyPassword = () => {
       <ModifyPasswordModal isOpen={isOpen} onClose={onClose} />
       <Flex justifyContent="space-between" width="80%" height="40px">
         <HStack spacing={5}>
-          <Text w={"60px"}>비밀번호</Text>
+          <Text w={"60px"} fontWeight={"bold"}>
+            비밀번호
+          </Text>
           <Text>***********</Text>
         </HStack>
         <Button onClick={onOpen}>수정</Button>

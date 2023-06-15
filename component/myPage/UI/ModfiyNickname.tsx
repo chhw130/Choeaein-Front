@@ -10,7 +10,9 @@ const ModifyNickname = () => {
       <ModifyNicknameModal isOpen={isOpen} onClose={onClose} />
       <Flex justifyContent="space-between" width="80%" height="40px">
         <HStack spacing={5}>
-          <Text w={"60px"}>별명</Text>
+          <Text w={"60px"} fontWeight={"bold"}>
+            별명
+          </Text>
           <Text>nickname</Text>
         </HStack>
         <Button onClick={onOpen}>수정</Button>
