@@ -10,21 +10,16 @@ import {
   ModalHeader,
   ModalOverlay,
   Text,
-  useDisclosure,
 } from "@chakra-ui/react";
 import React from "react";
 
-interface ViewDayCalendarModal {
+export interface ModalProps {
   isOpen: boolean;
-  selectedDay: any;
+  selectedDay?: any;
   onClose: any;
 }
 
-const ViewDayCalendarModal = ({
-  isOpen,
-  selectedDay,
-  onClose,
-}: ViewDayCalendarModal) => {
+const ViewDayCalendarModal = ({ isOpen, selectedDay, onClose }: ModalProps) => {
   const selectDay = selectedDay.format("YYYY년 M월 D일");
 
   return (

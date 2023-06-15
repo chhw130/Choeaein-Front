@@ -1,18 +1,10 @@
 "use client";
 import React from "react";
-import {
-  Box,
-  Button,
-  Center,
-  Flex,
-  HStack,
-  Spinner,
-  Text,
-  VStack,
-} from "@chakra-ui/react";
+import { Box, Button, Flex, HStack, Text, VStack } from "@chakra-ui/react";
 import EditUserImg from "./EditUserImg";
 import ModifyPick from "./UI/ModifyPick";
 import ModifyPassword from "./UI/ModifyPassword";
+import ModifyNickname from "./UI/ModfiyNickname";
 
 const EditUser = () => {
   return (
@@ -33,13 +25,7 @@ const EditUser = () => {
           </HStack>
         </Flex>
         <ModifyPassword />
-        <Flex justifyContent="space-between" width="80%" height="40px">
-          <HStack spacing={5}>
-            <Text w={"60px"}>별명</Text>
-            <Text>{"nickname"}</Text>
-          </HStack>
-          <Button>수정</Button>
-        </Flex>
+        <ModifyNickname />
       </VStack>
     </Box>
   );

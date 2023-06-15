@@ -23,7 +23,6 @@ import { MobileNav } from "./MobileNav";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import { useToast } from "../Toast/useToast";
 
 const Header = () => {
@@ -54,7 +53,7 @@ const Header = () => {
         height="4rem"
       >
         <Flex w={"96%"} justifyContent={"space-between"} alignItems={"center"}>
-          <Link href="/">
+          <Link href="/" prefetch={false}>
             <HStack>
               <Image src={logo} height={20} width={20} alt="choe" />
               <Box fontSize={20} fontWeight={"bold"}>

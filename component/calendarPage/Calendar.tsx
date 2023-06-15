@@ -24,17 +24,12 @@ import { useQuery } from "@tanstack/react-query";
 import { specificIdolSchedule } from "@/utils/axios/AxiosSetting";
 import { CalendarPageProps } from "@/app/calendar/[idolID]/page";
 import {
-  faBroadcastTower,
-  faCalendarCheck,
   faChevronLeft,
   faChevronRight,
-  faCompactDisc,
-  faGift,
   faRotateRight,
-  faStore,
-  faUser,
 } from "@fortawesome/free-solid-svg-icons";
 import dynamic from "next/dynamic";
+import CategoryBtn from "./CategoryBtn";
 const ViewDayCalendarModal = dynamic(
   () => import("@/UI/Modal/ViewDayCalendarModal")
 );
@@ -52,16 +47,13 @@ const Calendar = ({ idolData, params }: CalendarProps) => {
     () => specificIdolSchedule(idolId)
   );
 
-  /**모달 */
   const { isOpen, onClose, onOpen } = useDisclosure();
 
   /**선택한 날 */
-  const userPick = 1;
   const [selectedDay, setSelectedDay] = useState(moment());
 
   /**현재 보여주는 달의 날짜들 */
   const [getMoment, setMoment] = useState(moment());
-
   const today = getMoment;
 
   // 그 달의 시작하는 week() 주
@@ -73,60 +65,6 @@ const Calendar = ({ idolData, params }: CalendarProps) => {
     today.clone().endOf("month").week() === 1
       ? 53
       : today.clone().endOf("month").week();
-
-  // 반복문을 사용하여 해당 달의 총주의 수만큼 반복문을 실행하고 테이블의 내용을 배열에 추가
-  // 길이가 7인 arr를 생성 후 index를 기반으로 day을 표기
-
-  const buttons =
-    Number(idolId) === userPick
-      ? [
-          {
-            pk: 1,
-            category: "broadcast",
-            content: "방송",
-            icon: faBroadcastTower,
-          },
-          { pk: 2, category: "event", content: "행사", icon: faCalendarCheck },
-          { pk: 3, category: "release", content: "발매", icon: faCompactDisc },
-          { pk: 4, category: "congrats", content: "축하", icon: faGift },
-          { pk: 5, category: "buy", content: "구매", icon: faStore },
-          { pk: 6, category: "my", content: "My", icon: faUser },
-        ]
-      : [
-          {
-            pk: 1,
-            category: "broadcast",
-            content: "방송",
-            icon: faBroadcastTower,
-          },
-          { pk: 2, category: "event", content: "행사", icon: faCalendarCheck },
-          { pk: 3, category: "release", content: "발매", icon: faCompactDisc },
-          { pk: 4, category: "congrats", content: "축하", icon: faGift },
-          { pk: 5, category: "buy", content: "구매", icon: faStore },
-        ];
-  const initActiveButtons =
-    Number(idolId) === userPick
-      ? ["broadcast", "event", "release", "congrats", "buy", "my"]
-      : ["broadcast", "event", "release", "congrats", "buy"];
-
-  const [activeButtons, setActiveButtons] = useState(initActiveButtons);
-
-  /**클릭한 버튼 toggle 함수 */
-  const handleClick = (buttonPk: string) => {
-    if (activeButtons.length === 1 && activeButtons.includes(buttonPk)) {
-      return;
-    }
-    const index = activeButtons.indexOf(buttonPk);
-
-    if (index === -1) {
-      setActiveButtons([...activeButtons, buttonPk]);
-    } else {
-      setActiveButtons([
-        ...activeButtons.slice(0, index),
-        ...activeButtons.slice(index + 1),
-      ]);
-    }
-  };
 
   const calendarArr = () => {
     let result: any[] = [];
@@ -180,7 +118,6 @@ const Calendar = ({ idolData, params }: CalendarProps) => {
 
                     <div className={styles.eventContent}>
                       <ShowEvent
-                        buttons={buttons}
                         days={days}
                         newIdolSchedule={newIdolSchedule}
                       />
@@ -227,10 +164,8 @@ const Calendar = ({ idolData, params }: CalendarProps) => {
                     >
                       {days.format("D")}
                     </div>
-
                     <div className={styles.eventContent}>
                       <ShowEvent
-                        buttons={buttons}
                         days={days}
                         newIdolSchedule={newIdolSchedule}
                       />
@@ -255,62 +190,38 @@ const Calendar = ({ idolData, params }: CalendarProps) => {
       <div className={styles.calendarContainer}>
         <Flex justifyContent="space-between" padding="10px 20px">
           <IdolInform idolData={idolData} />
-          <Flex fontSize={[20, 30, 30]}>
-            <button
-              className={styles.prevBtn}
+          <Flex fontSize={[20, 25, 30]} margin={"auto 0"}>
+            <Button
               onClick={() => {
                 setMoment(getMoment.clone().subtract(1, "month"));
               }}
             >
               <FontAwesomeIcon icon={faChevronLeft} size="lg" />
-            </button>
+            </Button>
             <Text
-              margin="auto 10px"
+              margin="auto 5px"
               width={["75px", "130px", "150px"]}
               textAlign={"center"}
             >
               {today.format("YYYY.MM")}
             </Text>
-            <button
-              className={styles.nextBtn}
+            <Button
               onClick={() => {
                 setMoment(getMoment.clone().add(1, "month"));
               }}
             >
               <FontAwesomeIcon icon={faChevronRight} size="lg" />
-            </button>
-            <button
-              className={styles.todayBtn}
+            </Button>
+            <Button
               onClick={() => {
                 setMoment(moment());
               }}
             >
               <FontAwesomeIcon icon={faRotateRight} />
-            </button>
+            </Button>
           </Flex>
         </Flex>
-
-        <div className={styles.categoryContainer}>
-          {buttons.map((btn) => (
-            <Button
-              fontSize={[11, 13, 15]}
-              w={[40, 80, 150]}
-              h={[10, 14, 16]}
-              className={`${
-                activeButtons.includes(btn.category)
-                  ? styles.active
-                  : styles.inactive
-              } 
-             ${styles.buttonss}
-            `}
-              key={btn.category}
-              onClick={() => handleClick(btn.category)}
-            >
-              <FontAwesomeIcon className={styles.icons} icon={btn.icon} />
-              {btn.content}
-            </Button>
-          ))}
-        </div>
+        <CategoryBtn idolId={idolId} />
         {!isLoading ? (
           <Table h={"500px"} w="100%">
             <Thead>
@@ -335,7 +246,7 @@ const Calendar = ({ idolData, params }: CalendarProps) => {
           <Box w="100%" h={"500px"}>
             <Spinner
               position="absolute"
-              top="30%"
+              top="40%"
               left="47.5%"
               thickness="4px"
               speed="0.65s"

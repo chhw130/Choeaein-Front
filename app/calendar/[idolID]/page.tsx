@@ -1,10 +1,6 @@
+import CalnedarContainer from "@/component/calendarPage/CalnedarContainer";
 import { specificIdolInform } from "@/utils/axios/AxiosSetting";
-import styles from "./CalendarPage.module.scss";
 import dynamic from "next/dynamic";
-const Calendar = dynamic(() => import("@/component/calendarPage/Calendar"));
-const ComingSchedule = dynamic(
-  () => import("@/component/calendarPage/ComingSchedule")
-);
 
 export interface CalendarPageProps {
   params: { idolID: string };
@@ -15,14 +11,9 @@ async function CalendarPage({ params }: CalendarPageProps) {
   const idolData = await getData(idolId);
 
   return (
-    <div className={styles.calendarContainer}>
-      <div className={styles.calendar}>
-        <div className={styles.calendarWrap}>
-          <Calendar idolData={idolData} params={params} />
-        </div>
-      </div>
-      <ComingSchedule />
-    </div>
+    <>
+      <CalnedarContainer params={params} idolData={idolData} />
+    </>
   );
 }
 
