@@ -35,14 +35,14 @@ const Header = () => {
   const submitHandler = (e: React.FormEvent<HTMLFormElement> | any) => {
     e.preventDefault();
     if (keyword.trim() === "") {
-      return useToast("공백 없이 입력해주세요!");
+      return useToast("공백 없이 입력해주세요!", colorMode, "error");
     }
     router.push(`/search?keyword=${keyword}`);
   };
 
   return (
     <>
-      <ToastContainer />
+      <ToastContainer position="top-center" />
       <Flex
         as="nav"
         position="fixed"

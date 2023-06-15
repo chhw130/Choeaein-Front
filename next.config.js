@@ -9,7 +9,11 @@ const nextConfig = {
     // optimizeFonts: true,
   },
   images: {
-    domains: ["image.kpopmap.com", "velog.velcdn.com"],
+    domains: [
+      "image.kpopmap.com",
+      "velog.velcdn.com",
+      "images8.alphacoders.com",
+    ],
   },
 };
 

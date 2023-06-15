@@ -1,11 +1,5 @@
 "use client";
-import {
-  Box,
-  Flex,
-  VStack,
-  useColorMode,
-  useColorModeValue,
-} from "@chakra-ui/react";
+import { Box, Flex, VStack, useColorMode } from "@chakra-ui/react";
 import styles from "./Footer.module.scss";
 import Image from "next/image";
 

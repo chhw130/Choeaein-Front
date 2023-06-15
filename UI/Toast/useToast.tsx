@@ -1,12 +1,21 @@
 import React from "react";
 import { toast } from "react-toastify";
 
-export const useToast = (contents: string) => {
-  const customToast = toast.dark(contents, {
-    position: toast.POSITION.TOP_CENTER,
-    className: "foo-bar",
-    toastId: "id",
-  });
+export const useToast = (
+  contents: string,
+  colorMode: string,
+  status: string
+) => {
+  const customToast =
+    colorMode !== "light"
+      ? toast.dark(contents, {
+          toastId: "id",
+          type: status,
+        })
+      : toast(contents, {
+          toastId: "id",
+          type: status,
+        });
 
   return customToast;
 };

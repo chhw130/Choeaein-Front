@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { Button, Card, Center, Text, VStack, useToast } from "@chakra-ui/react";
+import { Card, Center, Text, VStack, useToast } from "@chakra-ui/react";
 
 const ComingSchedule = () => {
   const toast = useToast();
@@ -17,16 +17,6 @@ const ComingSchedule = () => {
           </Card>
         ))}
       </VStack>
-      <Button
-        onClick={() =>
-          toast({
-            title: "게시글을 업로드했습니다.",
-            status: "success",
-            duration: 3000,
-            isClosable: true,
-          })
-        }
-      ></Button>
     </Center>
   );
 };
