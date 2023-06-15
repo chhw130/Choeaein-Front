@@ -1,8 +1,9 @@
 "use client";
 import React from "react";
-import { Card, Center, Text, VStack } from "@chakra-ui/react";
+import { Button, Card, Center, Text, VStack, useToast } from "@chakra-ui/react";
 
 const ComingSchedule = () => {
+  const toast = useToast();
   const nextDay: string[] = ["schedule1", "schedule2", "schedule3"];
   return (
     <Center flexDir="column" margin={30}>
@@ -16,6 +17,16 @@ const ComingSchedule = () => {
           </Card>
         ))}
       </VStack>
+      <Button
+        onClick={() =>
+          toast({
+            title: "게시글을 업로드했습니다.",
+            status: "success",
+            duration: 3000,
+            isClosable: true,
+          })
+        }
+      ></Button>
     </Center>
   );
 };

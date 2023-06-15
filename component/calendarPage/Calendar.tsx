@@ -3,16 +3,6 @@ import styles from "./Calendar.module.scss";
 import { useState } from "react";
 import moment from "moment";
 import "moment/locale/ko";
-
-import { faGift } from "@fortawesome/free-solid-svg-icons/faGift";
-import { faUser } from "@fortawesome/free-solid-svg-icons/faUser";
-import { faChevronRight } from "@fortawesome/free-solid-svg-icons/faChevronRight";
-import { faRotateRight } from "@fortawesome/free-solid-svg-icons/faRotateRight";
-import { faChevronLeft } from "@fortawesome/free-solid-svg-icons/faChevronLeft";
-import { faBroadcastTower } from "@fortawesome/free-solid-svg-icons/faBroadcastTower";
-import { faCompactDisc } from "@fortawesome/free-solid-svg-icons/faCompactDisc";
-import { faStore } from "@fortawesome/free-solid-svg-icons/faStore";
-import { faCalendarCheck } from "@fortawesome/free-solid-svg-icons/faCalendarCheck";
 import { ShowEvent } from "./ShowEvent";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import IdolInform from "./IdolInform";
@@ -32,8 +22,19 @@ import {
 } from "@chakra-ui/react";
 import { useQuery } from "@tanstack/react-query";
 import { specificIdolSchedule } from "@/utils/axios/AxiosSetting";
-import dynamic from "next/dynamic";
 import { CalendarPageProps } from "@/app/calendar/[idolID]/page";
+import {
+  faBroadcastTower,
+  faCalendarCheck,
+  faChevronLeft,
+  faChevronRight,
+  faCompactDisc,
+  faGift,
+  faRotateRight,
+  faStore,
+  faUser,
+} from "@fortawesome/free-solid-svg-icons";
+import dynamic from "next/dynamic";
 const ViewDayCalendarModal = dynamic(
   () => import("@/UI/Modal/ViewDayCalendarModal")
 );

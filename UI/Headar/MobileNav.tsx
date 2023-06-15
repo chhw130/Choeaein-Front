@@ -1,4 +1,4 @@
-import HeaderBtn from "@/component/header/HeaderBtn";
+import HeaderBtn from "@/UI/Headar/HeaderBtn";
 import {
   Flex,
   FlexProps,

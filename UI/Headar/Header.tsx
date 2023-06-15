@@ -15,7 +15,7 @@ import {
 import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 import { GoSearch } from "react-icons/go";
 import Link from "next/link";
-import HeaderBtn from "@/component/header/HeaderBtn";
+import HeaderBtn from "@/UI/Headar/HeaderBtn";
 import { SidebarContent } from "@/UI/Headar/Sidebar";
 import logo from "../../public/img/logo_main.png";
 import Image from "next/image";
@@ -27,10 +27,13 @@ const Header = () => {
   const router = useRouter();
   const { colorMode, toggleColorMode } = useColorMode();
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [keyword, setKeyword] = useState<string | number>("");
+  const [keyword, setKeyword] = useState<string>("");
 
   const submitHandler = (e: React.FormEvent<HTMLFormElement> | any) => {
     e.preventDefault();
+    if (keyword.trim() === "") {
+    }
+
     router.push(`/search?keyword=${keyword}`);
   };
 
@@ -80,6 +83,7 @@ const Header = () => {
             >
               {colorMode === "light" ? <MoonIcon /> : <SunIcon />}
             </Button>
+
             <div className="navItem">
               <HeaderBtn />
             </div>
