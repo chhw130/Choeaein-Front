@@ -22,6 +22,9 @@ import Image from "next/image";
 import { MobileNav } from "./MobileNav";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useToast } from "../Toast/useToast";
 
 const Header = () => {
   const router = useRouter();
@@ -32,13 +35,14 @@ const Header = () => {
   const submitHandler = (e: React.FormEvent<HTMLFormElement> | any) => {
     e.preventDefault();
     if (keyword.trim() === "") {
+      return useToast("공백 없이 입력해주세요!");
     }
-
     router.push(`/search?keyword=${keyword}`);
   };
 
   return (
     <>
+      <ToastContainer />
       <Flex
         as="nav"
         position="fixed"
