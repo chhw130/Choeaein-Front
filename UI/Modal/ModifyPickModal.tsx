@@ -23,22 +23,19 @@ const ModifyPickModal = ({ isOpen, onClose }: ModalProps) => {
     handleSubmit,
   } = useForm();
   return (
-    <Modal isOpen={isOpen} onClose={onClose}>
+    <Modal isOpen={isOpen} onClose={onClose} isCentered>
       <ModalOverlay />
       <ModalContent>
-        <ModalHeader>비밀번호 수정하기</ModalHeader>
+        <ModalHeader>최애 변경하기</ModalHeader>
         <ModalCloseButton />
         <form onSubmit={handleSubmit(modifyPickHandler)}>
           <ModalBody>
-            <FormLabel margin={0} htmlFor="password">
-              아이돌
-            </FormLabel>
-            <Select>
+            <Select placeholder="최애를 선택해주세요.">
               <IdolOption />
             </Select>
           </ModalBody>
           <ModalFooter>
-            <Button type="submit">수정하기</Button>
+            <Button type="submit">변경하기</Button>
           </ModalFooter>
         </form>
       </ModalContent>

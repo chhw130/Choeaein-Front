@@ -29,7 +29,7 @@ const ModifyNicknameModal = ({ isOpen, onClose }: ModalProps) => {
     <Modal isOpen={isOpen} onClose={onClose}>
       <ModalOverlay />
       <ModalContent>
-        <ModalHeader>비밀번호 수정하기</ModalHeader>
+        <ModalHeader>닉네임 변경하기</ModalHeader>
         <ModalCloseButton />
         <form onSubmit={handleSubmit(modifyPasswordHandler)}>
           <ModalBody>
@@ -49,7 +49,7 @@ const ModifyNicknameModal = ({ isOpen, onClose }: ModalProps) => {
             />
           </ModalBody>
           <ModalFooter>
-            <Button type="submit">수정하기</Button>
+            <Button type="submit">변경하기</Button>
           </ModalFooter>
         </form>
       </ModalContent>

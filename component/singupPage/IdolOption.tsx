@@ -5,8 +5,6 @@ import { useQuery } from "@tanstack/react-query";
 const IdolOption = () => {
   const { data: idolList } = useQuery(["idol"], () => getIdolList());
 
-  /**최애 옵션 */
-
   return (
     <>
       {idolList?.map((data: any) => (
