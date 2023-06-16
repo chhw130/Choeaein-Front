@@ -20,8 +20,8 @@ const GroupMemeberContainer = () => {
           <Image
             src={"https://images8.alphacoders.com/118/1183043.jpg"}
             alt="아티스트 이미지"
-            width={1000}
-            height={1000}
+            width={100000}
+            height={100000}
             style={{
               borderRadius: "20%",
               objectFit: "cover",
@@ -43,6 +43,7 @@ const GroupMemeberContainer = () => {
           >
             {group}
           </Text>
+          {/* <MemberSection /> */}
         </Center>
       </Box>
     </Flex>
