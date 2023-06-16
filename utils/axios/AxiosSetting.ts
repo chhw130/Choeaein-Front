@@ -7,7 +7,7 @@ export const instance = axios.create({
   baseURL:
     process.env.NODE_ENV === "development"
       ? process.env.NEXT_PUBLIC_DEV_BASE_URL
-      : process.env.NEXT_PUBLIC_BASE_URL,
+      : process.env.NEXT_PUBLIC_DEV_BASE_URL,
   headers: {
     "X-CSRFToken": Cookies.get("csrftoken") || "",
   },
@@ -29,9 +29,6 @@ export const getUserInform = () =>
 
 export const getIdolGroups = async () =>
   instance.get(`/groups/`).then((res) => res.data);
-
-export const getIdolSchedules = async () =>
-  instance.get("/idols/schedules/").then((res) => res.data);
 
 export const getIdolList = () =>
   instance.get(`/idols/`).then((res) => res.data);

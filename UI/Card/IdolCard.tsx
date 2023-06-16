@@ -9,8 +9,6 @@ interface IdolCardProps {
 }
 
 const IdolCard = ({ data }: IdolCardProps) => {
-  console.log(data.grou);
-
   return (
     <Box textAlign="center" margin="30px 0" w={["24%", "24%", "23%"]}>
       <Link href={`calendar/1`} prefetch={false}>

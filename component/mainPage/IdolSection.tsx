@@ -1,7 +1,4 @@
 "use client";
-import Link from "next/link";
-import { IdolData } from "@/app/admin/[category]/interface";
-import Image from "next/image";
 import { Box, Flex, Text, VStack } from "@chakra-ui/react";
 import IdolCard from "@/UI/Card/IdolCard";
 import { IdolGroup } from "@/app/page";

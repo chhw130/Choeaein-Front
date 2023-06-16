@@ -8,7 +8,6 @@ import dynamic from "next/dynamic";
 const ComingSchedule = dynamic(() => import("./ComingSchedule"));
 
 const CalnedarContainer = ({ idolData, params }: any) => {
-  console.log(idolData);
   return (
     <div className={styles.calendarContainer}>
       <div className={styles.calendar}>
