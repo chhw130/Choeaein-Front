@@ -3,7 +3,11 @@ import axios from "axios";
 import Cookies from "js-cookie";
 
 export const instance = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_BASE_URL,
+  // baseURL: process.env.NEXT_PUBLIC_BASE_URL,
+  baseURL:
+    process.env.NODE_ENV === "development"
+      ? process.env.NEXT_PUBLIC_DEV_BASE_URL
+      : process.env.NEXT_PUBLIC_BASE_URL,
   headers: {
     "X-CSRFToken": Cookies.get("csrftoken") || "",
   },
@@ -11,44 +15,32 @@ export const instance = axios.create({
 });
 
 /**회원가입 */
-
 export const postSignUp = (signUpInform: any) =>
   instance.post(`/users/`, signUpInform).then((res) => res.data);
 
-export const test = () => axios.get("/api/test").then((res) => res.data);
-
-export const CertificatePhone = () =>
-  axios.post("/api/test").then((res) => res.data);
-
 /**로그인 */
 export const postLogin = (loginInform: any) =>
-  instance.post(`/users/login/`, loginInform).then((res) => res.data);
+  instance.post(`/oauth/login/`, loginInform).then((res) => res.data);
 
 /**메인 페이지 */
-export const getIdolSchedules = async () => {
-  const res = await fetch(
-    `https://backend.myfavor.site/api/v1/idols/schedules/`
-  );
-  const data = await res.json();
-  return data;
-};
+
+export const getIdolGroups = async () =>
+  instance.get(`/groups/`).then((res) => res.data);
+
+export const getIdolSchedules = async () =>
+  instance.get("/idols/schedules/").then((res) => res.data);
 
 export const getIdolList = () =>
-  instance.get(`/idols/`).then((response) => response.data);
+  instance.get(`/idols/`).then((res) => res.data);
 
 /**캘린더페이지 */
-export const specificIdolInform = async (idolId: any) => {
-  const res = await fetch(
-    `https://backend.myfavor.site/api/v1/idols/${idolId}/`
-  );
-  const data = await res.json();
-  return data;
-};
+export const specificIdolInform = async (idolId: any) =>
+  instance.get(`/idols/${idolId}/`).then((res) => res.data);
 
 export const specificIdolSchedule = (idolId: string) =>
   instance
     .get(`/idols/${idolId}/schedules/event/2023/4/`)
-    .then((response) => response.data);
+    .then((res) => res.data);
 
 /**사진을 업로드 할 url 가져오는 함수. */
 export const getUploadUrl = async (img: any) => {

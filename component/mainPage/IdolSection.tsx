@@ -4,14 +4,13 @@ import { IdolData } from "@/app/admin/[category]/interface";
 import Image from "next/image";
 import { Box, Flex, Text, VStack } from "@chakra-ui/react";
 import IdolCard from "@/UI/Card/IdolCard";
+import { IdolGroup } from "@/app/page";
 
 interface IdolSectionProps {
-  idolData: IdolData[];
+  idolGroupData: IdolGroup[];
 }
 
-const IdolSection = ({ idolData }: IdolSectionProps) => {
-  const slideImage = idolData?.slice(0, 30);
-
+const IdolSection = ({ idolGroupData }: IdolSectionProps) => {
   return (
     <>
       <Box w={["98%", "98%", "90%"]} maxW="950px" margin="0 auto">
@@ -30,8 +29,8 @@ const IdolSection = ({ idolData }: IdolSectionProps) => {
           </Box>
         </VStack>
         <Flex width="100%" flexWrap={"wrap"} justifyContent="space-around">
-          {slideImage?.map((data: any) => (
-            <IdolCard data={data} key={data.pk} />
+          {idolGroupData?.map((data: IdolGroup, index) => (
+            <IdolCard data={data} key={index} />
           ))}
         </Flex>
       </Box>

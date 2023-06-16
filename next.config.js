@@ -13,6 +13,8 @@ const nextConfig = {
       "image.kpopmap.com",
       "velog.velcdn.com",
       "images8.alphacoders.com",
+      "talkimg.imbc.com",
+      "i.namu.wiki",
     ],
   },
 };
