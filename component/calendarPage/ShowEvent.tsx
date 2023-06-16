@@ -8,8 +8,10 @@ export function ShowEvent({ days, newIdolSchedule }: any) {
     <>
       <Flex padding={1}>
         {newIdolSchedule?.map((item: any, i: number) => {
-          // eslint-disable-next-line
-          if (days?.format("D") == moment(item.day)) {
+          if (
+            days?.format("YYYYMMDD") == moment(item.when).format("YYYYMMDD")
+          ) {
+            console.log(1);
             return (
               <div
                 key={i}

@@ -1,6 +1,5 @@
 import CalnedarContainer from "@/component/calendarPage/CalnedarContainer";
 import { specificIdolInform } from "@/utils/axios/AxiosSetting";
-import dynamic from "next/dynamic";
 
 export interface CalendarPageProps {
   params: { idolID: string };

@@ -22,6 +22,9 @@ export const postSignUp = (signUpInform: any) =>
 export const postLogin = (loginInform: any) =>
   instance.post(`/oauth/login/`, loginInform).then((res) => res.data);
 
+export const getUserInform = () =>
+  instance.get("/users/me/").then((res) => res.data);
+
 /**메인 페이지 */
 
 export const getIdolGroups = async () =>
@@ -35,12 +38,10 @@ export const getIdolList = () =>
 
 /**캘린더페이지 */
 export const specificIdolInform = async (idolId: any) =>
-  instance.get(`/idols/${idolId}/`).then((res) => res.data);
+  instance.get(`/idols/닝닝/`).then((res) => res.data);
 
 export const specificIdolSchedule = (idolId: string) =>
-  instance
-    .get(`/idols/${idolId}/schedules/event/2023/4/`)
-    .then((res) => res.data);
+  instance.get(`/idols/닝닝/schedules/`).then((res) => res.data);
 
 /**사진을 업로드 할 url 가져오는 함수. */
 export const getUploadUrl = async (img: any) => {

@@ -140,8 +140,8 @@ const ReportSchedule = () => {
         justifyContent="center"
         alignItems="center"
         display="flex"
+        margin="30px auto"
         flexDir="column"
-        margin="0 auto"
         w="100%"
       >
         <HStack display="flex" flexDir="row" spacing={3}>

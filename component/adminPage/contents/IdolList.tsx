@@ -151,7 +151,7 @@ const IdolList = () => {
         alignItems="center"
         display="flex"
         flexDir="column"
-        margin="0 auto"
+        margin="30px auto"
         w="100%"
       >
         <HStack display="flex" flexDir="row" spacing={3}>

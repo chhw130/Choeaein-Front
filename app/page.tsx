@@ -10,7 +10,7 @@ export interface IdolGroup {
 }
 
 export default async function Home() {
-  const schedulesData = await getIdolSchedules();
+  const schedulesData: [] = [];
   const idolGroupData: IdolGroup[] = await getIdolGroups();
 
   console.log(process.env.NEXT_PUBLIC_DEV_BASE_URL);

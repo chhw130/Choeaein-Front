@@ -25,7 +25,7 @@ const IdolCard = ({ data }: IdolCardProps) => {
             maxWidth: "200px",
             maxHeight: "200px",
             borderRadius: "20%",
-            objectFit: "contain",
+            objectFit: "cover",
             margin: "0 auto",
             objectPosition: "center",
             cursor: "pointer",
