@@ -19,13 +19,12 @@ const IdolCard = ({ data }: IdolCardProps) => {
           height={1000}
           style={{
             width: "90%",
-            height: "200px",
+            aspectRatio: "1/1",
             maxWidth: "200px",
             maxHeight: "200px",
             borderRadius: "20%",
             objectFit: "cover",
             margin: "0 auto",
-            objectPosition: "center",
             cursor: "pointer",
           }}
           loading="lazy"

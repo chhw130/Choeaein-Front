@@ -5,6 +5,10 @@ import { getUserInform } from "@/utils/axios/AxiosSetting";
 import { useQuery } from "@tanstack/react-query";
 
 const DefaultLayout = ({ children }: { children: React.ReactNode }) => {
+  const { data: userData } = useQuery(["me"], () => getUserInform());
+
+  console.log(userData);
+
   return (
     <>
       {true ? (

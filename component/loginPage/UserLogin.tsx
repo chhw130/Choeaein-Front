@@ -33,18 +33,18 @@ const UserLogin = () => {
 
   const router = useRouter();
 
-  const {
-    mutateAsync: loginHandler,
-    isLoading: loginLoading,
-    isError,
-  } = useMutation((loginData: LoginData) => postLogin(loginData), {
-    onError: () => {
-      useToast("ID또는 Password가 틀렸습니다.", colorMode, "error");
-    },
-    onSuccess: () => {
-      router.push("/");
-    },
-  });
+  const { mutateAsync: loginHandler, isLoading: loginLoading } = useMutation(
+    (loginData: LoginData) => postLogin(loginData),
+    {
+      onError: () => {
+        useToast("ID또는 Password가 틀렸습니다.", colorMode, "error");
+      },
+      onSuccess: () => {
+        router.push("/");
+        useToast("로그인 성공!!", colorMode, "info");
+      },
+    }
+  );
 
   /**로그인 form을 제출했을 때*/
   const onSubmit = async (loginData: LoginData) => {
