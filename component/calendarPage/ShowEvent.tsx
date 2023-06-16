@@ -11,7 +11,6 @@ export function ShowEvent({ days, newIdolSchedule }: any) {
           if (
             days?.format("YYYYMMDD") == moment(item.when).format("YYYYMMDD")
           ) {
-            console.log(1);
             return (
               <div
                 key={i}

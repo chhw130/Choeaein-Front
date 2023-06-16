@@ -2,7 +2,6 @@
 import React from "react";
 import styles from "./CalendarPage.module.scss";
 import Calendar from "./Calendar";
-// import ComingSchedule from "./ComingSchedule";
 import dynamic from "next/dynamic";
 
 const ComingSchedule = dynamic(() => import("./ComingSchedule"));

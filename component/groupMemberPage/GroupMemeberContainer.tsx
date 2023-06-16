@@ -1,9 +1,12 @@
 "use client";
 import { Box, Center, Flex, Text } from "@chakra-ui/react";
 import Image from "next/image";
+import { useSearchParams } from "next/navigation";
 import React from "react";
 
 const GroupMemeberContainer = () => {
+  const search = useSearchParams();
+  const group = search?.get("group");
   return (
     <Flex
       h="100vh"
@@ -38,7 +41,7 @@ const GroupMemeberContainer = () => {
             cursor={"pointer"}
             fontWeight={"bold"}
           >
-            에스파
+            {group}
           </Text>
         </Center>
       </Box>
