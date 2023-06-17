@@ -4,6 +4,8 @@ import { useForm } from "react-hook-form";
 import {
   Button,
   ButtonGroup,
+  FormControl,
+  FormLabel,
   HStack,
   Input,
   InputGroup,
@@ -69,31 +71,57 @@ const SignUp = () => {
               CHOEAEIN
             </Text>
           </HStack>
-          <div className={styles.typeDiv}>
-            <label htmlFor="username">아이디(Email)</label>
+          <FormControl marginBottom={3}>
+            <FormLabel
+              fontWeight={"semibold"}
+              htmlFor="username"
+              _after={{ content: `"*"`, color: "red" }}
+            >
+              아이디(Email)
+            </FormLabel>
+            <InputGroup>
+              <Input
+                h={"50px"}
+                id="username"
+                placeholder="Id를 입력하세요."
+                {...register("username", {
+                  required: {
+                    value: true,
+                    message: "필수 정보입니다.",
+                  },
+                  maxLength: {
+                    value: 15,
+                    message: "15자까지 입력가능합니다.",
+                  },
+                  minLength: {
+                    value: 3,
+                    message: "2자 이상 입력하세요.",
+                  },
+                })}
+              />
+            </InputGroup>
+            {errors.username && (
+              <Text
+                textAlign={"end"}
+                color={"red"}
+                fontSize={"0.9rem"}
+                _before={{ content: `"⚠"` }}
+              >
+                {errors.username.message}
+              </Text>
+            )}
+          </FormControl>
+
+          <FormControl marginBottom={3}>
+            <FormLabel
+              fontWeight={"semibold"}
+              htmlFor="password"
+              _after={{ content: `"*"`, color: "red" }}
+            >
+              비밀번호
+            </FormLabel>
             <Input
-              id="username"
-              placeholder="Id를 입력하세요."
-              {...register("username", {
-                required: {
-                  value: true,
-                  message: "필수 정보입니다.",
-                },
-                maxLength: {
-                  value: 15,
-                  message: "15자까지 입력가능합니다.",
-                },
-                minLength: {
-                  value: 3,
-                  message: "2자 이상 입력하세요.",
-                },
-              })}
-            />
-            {errors.username && <p>{errors.username.message}</p>}
-          </div>
-          <div className={styles.typeDiv}>
-            <label htmlFor="password">비밀번호</label>
-            <Input
+              h={"50px"}
               id="password"
               type="password"
               placeholder="비밀번호"
@@ -119,11 +147,27 @@ const SignUp = () => {
                 },
               })}
             />
-            {errors.password && <p>{errors.password.message}</p>}
-          </div>
-          <div className={styles.typeDiv}>
-            <label htmlFor="passwordConfirm">비밀번호 확인</label>
+            {errors.password && (
+              <Text
+                textAlign={"end"}
+                color={"red"}
+                fontSize={"0.9rem"}
+                _before={{ content: `"⚠"` }}
+              >
+                {errors.password.message}
+              </Text>
+            )}
+          </FormControl>
+          <FormControl marginBottom={3}>
+            <FormLabel
+              fontWeight={"semibold"}
+              htmlFor="passwordConfirm"
+              _after={{ content: `"*"`, color: "red" }}
+            >
+              비밀번호
+            </FormLabel>
             <Input
+              h={"50px"}
               id="passwordConfirm"
               type="password"
               placeholder="비밀번호 확인"
@@ -142,11 +186,27 @@ const SignUp = () => {
                 },
               })}
             />
-            {errors.passwordConfirm && <p>{errors.passwordConfirm.message}</p>}
-          </div>
-          <div className={styles.typeDiv}>
-            <label htmlFor="name">성명</label>
+            {errors.passwordConfirm && (
+              <Text
+                textAlign={"end"}
+                color={"red"}
+                fontSize={"0.9rem"}
+                _before={{ content: `"⚠"` }}
+              >
+                {errors.passwordConfirm.message}
+              </Text>
+            )}
+          </FormControl>
+          <FormControl marginBottom={3}>
+            <FormLabel
+              fontWeight={"semibold"}
+              htmlFor="name"
+              _after={{ content: `"*"`, color: "red" }}
+            >
+              이름
+            </FormLabel>
             <Input
+              h={"50px"}
               id="name"
               placeholder="이름을 입력하세요"
               {...register("name", {
@@ -160,12 +220,30 @@ const SignUp = () => {
                 },
               })}
             />
-            {errors.name && <p>{errors.name.message}</p>}
-          </div>
-          <div className={styles.typeDiv}>
-            <label>생년월일</label>
+            {errors.name && (
+              <Text
+                textAlign={"end"}
+                color={"red"}
+                fontSize={"0.9rem"}
+                _before={{ content: `"⚠"` }}
+              >
+                {errors.name.message}
+              </Text>
+            )}
+          </FormControl>
+
+          <FormControl marginBottom={3}>
+            <FormLabel
+              fontWeight={"semibold"}
+              htmlFor="birth"
+              _after={{ content: `"*"`, color: "red" }}
+            >
+              생년월일
+            </FormLabel>
             <Input
+              h={"50px"}
               type="date"
+              id="birth"
               {...register("birth", {
                 validate: {
                   check: (val) => {
@@ -176,10 +254,26 @@ const SignUp = () => {
                 },
               })}
             />
-            {errors.birth && <p>{errors.birth.message}</p>}
-          </div>
-          <div className={styles.typeDiv}>
-            <label htmlFor="number">전화번호</label>
+            {errors.birth && (
+              <Text
+                textAlign={"end"}
+                color={"red"}
+                fontSize={"0.9rem"}
+                _before={{ content: `"⚠"` }}
+              >
+                {errors.birth.message}
+              </Text>
+            )}
+          </FormControl>
+
+          <FormControl marginBottom={3}>
+            <FormLabel
+              fontWeight={"semibold"}
+              htmlFor="number"
+              _after={{ content: `"*"`, color: "red" }}
+            >
+              전화번호
+            </FormLabel>
             <InputGroup>
               <InputLeftAddon
                 pointerEvents="none"
@@ -187,18 +281,35 @@ const SignUp = () => {
                 height="50px"
               />
               <Input
+                h={"50px"}
                 id="number"
                 type="number"
                 placeholder="전화번호를 입력하세요."
                 {...register("phone_number")}
               />
             </InputGroup>
-            {errors?.phone_number && <p>{errors.phone_number?.message}</p>}
-          </div>
+            {errors?.phone_number && (
+              <Text
+                textAlign={"end"}
+                color={"red"}
+                fontSize={"0.9rem"}
+                _before={{ content: `"⚠"` }}
+              >
+                {errors.phone_number?.message}
+              </Text>
+            )}
+          </FormControl>
 
-          <div className={styles.typeDiv}>
-            <label htmlFor="email">닉네임</label>
+          <FormControl marginBottom={3}>
+            <FormLabel
+              fontWeight={"semibold"}
+              htmlFor="nickname"
+              _after={{ content: `"*"`, color: "red" }}
+            >
+              전화번호
+            </FormLabel>
             <Input
+              h={"50px"}
               id="nickname"
               placeholder="이메일을 입력하세요"
               {...register("nickname", {
@@ -220,11 +331,28 @@ const SignUp = () => {
                 },
               })}
             />
-            {errors.nickname && <p>{errors.nickname.message}</p>}
-          </div>
-          <div className={styles.typeDiv}>
-            <label>최애 등록</label>
+            {errors.nickname && (
+              <Text
+                textAlign={"end"}
+                color={"red"}
+                fontSize={"0.9rem"}
+                _before={{ content: `"⚠"` }}
+              >
+                {errors.nickname.message}
+              </Text>
+            )}
+          </FormControl>
+          <FormControl marginBottom={10}>
+            <FormLabel
+              fontWeight={"semibold"}
+              htmlFor="pick"
+              _after={{ content: `"*"`, color: "red" }}
+            >
+              최애 선택
+            </FormLabel>
             <Select
+              h={"50px"}
+              id="pick"
               placeholder="당신의 최애를 알려주세요."
               {...register("pick", {
                 required: "필수 입니다.",
@@ -232,7 +360,7 @@ const SignUp = () => {
             >
               <IdolOption />
             </Select>
-          </div>
+          </FormControl>
           <ButtonGroup>
             <Button
               w="150px"
