@@ -27,6 +27,7 @@ const IdolCard = ({ data }: IdolCardProps) => {
         alt="아티스트 이미지"
         width={1000}
         height={1000}
+        loading="lazy"
         style={{
           width: "90%",
           aspectRatio: "1/1",
@@ -37,7 +38,6 @@ const IdolCard = ({ data }: IdolCardProps) => {
           margin: "0 auto",
           cursor: "pointer",
         }}
-        loading="lazy"
       />
       <Text
         fontFamily="fantasy"

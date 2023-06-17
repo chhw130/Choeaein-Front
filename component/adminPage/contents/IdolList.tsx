@@ -1,5 +1,4 @@
 "use client";
-import styles from "./ReportTable.module.scss";
 import { useQuery } from "@tanstack/react-query";
 import { useMemo } from "react";
 import { useTable, usePagination } from "react-table";
@@ -20,6 +19,7 @@ import {
 import Image from "next/image";
 import { getIdolList } from "@/utils/axios/AxiosSetting";
 import SkeletonUI from "../UI/SkeletonUI";
+import PageBtn from "../UI/PageBtn";
 
 const IdolList = () => {
   const { data: idolData = [], isLoading } = useQuery(["idolData"], () =>
@@ -27,6 +27,8 @@ const IdolList = () => {
   );
 
   const data = useMemo(() => idolData, [idolData]);
+
+  console.log(data);
   const COLUMS = [
     {
       Header: "idol",
@@ -41,12 +43,16 @@ const IdolList = () => {
           <>
             <Box width={140} position="static" key={value}>
               <Image
-                className={styles.idolImage}
                 src={value}
-                width={300}
-                height={300}
+                width={1000}
+                height={1000}
                 alt="아이돌"
                 priority={true}
+                // loading="lazy"
+                style={{
+                  width: "100%",
+                  aspectRatio: "1/1",
+                }}
               />
             </Box>
           </>
@@ -57,17 +63,17 @@ const IdolList = () => {
       Header: "Idol_name_kr",
       accessor: "idol_name_kr",
     },
-    {
-      Header: "Idol_name_en",
-      accessor: "idol_name_en",
-    },
+    // {
+    //   Header: "Idol_name_en",
+    //   accessor: "idol_name_en",
+    // },
     {
       Header: "Girl_group",
       accessor: "Girl_group",
     },
     {
-      Header: "Boy_group",
-      accessor: "Boy_group",
+      Header: "idol_birthday",
+      accessor: "idol_birthday",
     },
   ];
   const columns = useMemo(() => COLUMS, []);
@@ -146,51 +152,16 @@ const IdolList = () => {
           )}
         </Table>
       </TableContainer>
-      <ButtonGroup
-        justifyContent="center"
-        alignItems="center"
-        display="flex"
-        flexDir="column"
-        margin="30px auto"
-        w="100%"
-      >
-        <HStack display="flex" flexDir="row" spacing={3}>
-          <Button
-            onClick={() => gotoPage(0)}
-            borderRadius={10}
-            border={"1px solid black"}
-          >
-            {"<<"}
-          </Button>
-          <Button
-            onClick={() => previousPage()}
-            colorScheme="cyan"
-            disabled={!canPreviousPage}
-          >
-            이전
-          </Button>
-          <Text w={10} textAlign="center">
-            {pageIndex + 1}
-          </Text>
-          <Button
-            onClick={() => nextPage()}
-            colorScheme="twitter"
-            disabled={!canNextPage}
-          >
-            다음
-          </Button>
-          <Button
-            onClick={() => gotoPage(pageCount - 1)}
-            borderRadius={10}
-            border={"1px solid black"}
-          >
-            {">>"}
-          </Button>
-        </HStack>
-        <Box paddingTop={4}>
-          Page {pageIndex + 1} / {pageOptions.length}
-        </Box>
-      </ButtonGroup>
+      <PageBtn
+        gotoPage={gotoPage}
+        previousPage={previousPage}
+        canPreviousPage={canPreviousPage}
+        pageIndex={pageIndex}
+        canNextPage={canNextPage}
+        nextPage={nextPage}
+        pageCount={pageCount}
+        pageOptions={pageOptions}
+      />
     </>
   );
 };

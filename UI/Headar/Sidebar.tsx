@@ -45,6 +45,7 @@ export default function SidebarWithHeader({
   children: ReactNode;
 }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const { colorMode } = useColorMode();
   return (
     <Box minH="100vh" bg={useColorModeValue("gray.100", "gray.900")} zIndex="1">
       <SidebarContent
@@ -66,7 +67,15 @@ export default function SidebarWithHeader({
       </Drawer>
       {/* mobilenav */}
       <MobileNav onOpen={onOpen} />
-      <Box ml={{ base: 0, md: 60 }} p="4">
+      <Box
+        ml={{ base: 0, md: 60 }}
+        p="4"
+        bg={
+          colorMode === "dark"
+            ? "var(--chakra-colors-chakra-body-bg)"
+            : "var(--chakra-colors-chakra-border-color)"
+        }
+      >
         {children}
       </Box>
     </Box>
