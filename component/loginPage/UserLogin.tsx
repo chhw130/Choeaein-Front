@@ -135,7 +135,7 @@ const UserLogin = () => {
                   <Text>아이디 찾기</Text>
                 </Link>
                 <Text color={"gray.300"}>|</Text>
-                <Link href="/findPassword">비밀번호 찾기</Link>
+                <Link href="/findpassword">비밀번호 찾기</Link>
                 <Text color={"gray.300"}>|</Text>
                 <Link href={"/signup"}>회원가입</Link>
               </HStack>

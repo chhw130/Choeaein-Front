@@ -7,7 +7,6 @@ import {
   FormControl,
   FormLabel,
   HStack,
-  Heading,
   Input,
   InputGroup,
   InputLeftAddon,
@@ -20,6 +19,7 @@ import Image from "next/image";
 import { useForm } from "react-hook-form";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPhone } from "@fortawesome/free-solid-svg-icons";
+import FindButton from "@/UI/Button/FindButton";
 
 const FindID = () => {
   const { register } = useForm();
@@ -39,8 +39,8 @@ const FindID = () => {
           </Text>
         </HStack>
 
-        <Box as="form" w={"100%"} maxW={"360px"}>
-          <VStack spacing={8}>
+        <Box as="form" w={"100%"}>
+          <VStack spacing={7} maxW="500px" margin="0 auto">
             <FormControl id="name">
               <FormLabel fontWeight="semibold">이름</FormLabel>
               <Input
@@ -76,24 +76,16 @@ const FindID = () => {
                 />
               </InputGroup>
             </FormControl>
-            <Button
-              type="submit"
-              w={"100%"}
-              bg="#f89598"
-              color="white"
-              _hover={{ bg: "#e0797b" }}
-            >
-              아이디 찾기
-            </Button>
-            {/* {id ? (
-          <Flex flexDir="row" fontSize="2xl">
-            아이디는 &nbsp;
-            <Box color="red" fontWeight="bold">
-              "{id}"
-            </Box>
-            &nbsp;입니다.
-          </Flex>
-        ) : null} */}
+            <FindButton />
+            {true ? (
+              <Flex flexDir="row" fontSize="2xl">
+                아이디는 &nbsp;
+                <Box color="red" fontWeight="bold">
+                  {/* "{id}" */}" fqw "
+                </Box>
+                &nbsp;입니다.
+              </Flex>
+            ) : null}
           </VStack>
         </Box>
       </Center>

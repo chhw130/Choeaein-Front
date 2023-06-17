@@ -1,11 +1,12 @@
+import FindPassword from "@/component/findPage/findPassword/FindPassword";
 import React from "react";
 
-const page = () => {
+const findPasswordPage = () => {
   return (
     <div>
-      <p>find</p>
+      <FindPassword />
     </div>
   );
 };
 
-export default page;
+export default findPasswordPage;

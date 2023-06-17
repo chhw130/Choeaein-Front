@@ -1,8 +1,163 @@
-import { Container } from "@chakra-ui/react";
+"use client";
+import {
+  Box,
+  Button,
+  Center,
+  Flex,
+  HStack,
+  Heading,
+  Input,
+  InputGroup,
+  InputLeftAddon,
+  InputRightAddon,
+  Text,
+  VStack,
+} from "@chakra-ui/react";
+import Image from "next/image";
 import React from "react";
+import logo from "../../../public/img/logo_main.png";
+import { useForm } from "react-hook-form";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faEnvelope,
+  faIdCard,
+  faLock,
+  faPhone,
+  faUser,
+} from "@fortawesome/free-solid-svg-icons";
+import FindButton from "@/UI/Button/FindButton";
 
 const FindPassword = () => {
-  return <Container></Container>;
+  const { register } = useForm();
+  return (
+    <>
+      <Flex height={"100vh"}>
+        <Center margin={"30px"} width={"100%"} flexDir={"column"}>
+          <HStack margin={"30px"}>
+            <Image
+              src={logo}
+              alt="최애돌"
+              width={50}
+              height={50}
+              priority={true}
+            />
+            <Text fontSize="50px" fontWeight="bold">
+              CHOEAEIN
+            </Text>
+          </HStack>
+          <Box
+            as="form"
+            // onSubmit={handleSubmit(onSubmit)}
+            marginTop="55px"
+            width="100%"
+          >
+            <VStack spacing={7} maxW="500px" margin="0 auto">
+              <InputGroup>
+                <InputLeftAddon
+                  h="50px"
+                  children={<FontAwesomeIcon icon={faEnvelope} />}
+                />
+                <Input
+                  //   isDisabled={password}
+                  h="50px"
+                  type="text"
+                  {...register("username", { required: true })}
+                  placeholder="아이디을 입력하세요"
+                />
+              </InputGroup>
+
+              <InputGroup>
+                <InputLeftAddon
+                  children={<FontAwesomeIcon icon={faUser} />}
+                  h="50px"
+                />
+                <Input
+                  //   isDisabled={password}
+                  h="50px"
+                  type="text"
+                  {...register("name", { required: true })}
+                  placeholder="이름을 입력하세요"
+                />
+              </InputGroup>
+
+              <InputGroup>
+                <InputLeftAddon
+                  children={<FontAwesomeIcon icon={faPhone} />}
+                  h="50px"
+                />
+
+                <Input
+                  h="50px"
+                  //   isDisabled={password}
+                  type="number"
+                  {...register("phone_number", { required: true })}
+                  placeholder="전화번호를 입력하세요"
+                />
+              </InputGroup>
+              {true ? (
+                <VStack w={"100%"}>
+                  <FindButton />
+                </VStack>
+              ) : (
+                <VStack spacing={"6"} w={"100%"} alignItems="flex-start">
+                  <InputGroup>
+                    <InputLeftAddon children={<Box>1</Box>} />
+                    <Input
+                      {...register("password", { required: true })}
+                      //   type={firstVisible ? "text" : "password"}
+                      placeholder="비밀번호를 재설정하세요"
+                    />
+                    <InputRightAddon
+                      children={
+                        <Box
+                          color="gray.500"
+                          cursor={"pointer"}
+                          //   onClick={() => setFirstVisible(!firstVisible)}
+                        >
+                          1
+                        </Box>
+                      }
+                    />
+                  </InputGroup>
+                  <InputGroup>
+                    <InputLeftAddon
+                      children={<FontAwesomeIcon icon={faLock} />}
+                    />
+                    <Input
+                      {...register("check_password", { required: true })}
+                      //   type={secondVisible ? "text" : "password"}
+                      placeholder="비밀번호를 확인"
+                    />
+                    <InputRightAddon
+                      children={
+                        <Box
+                          color="gray.500"
+                          cursor={"pointer"}
+                          //   onClick={() => setSecondVisible(!secondVisible)}
+                        >
+                          1
+                        </Box>
+                      }
+                    />
+                  </InputGroup>
+                  <Button
+                    type="submit"
+                    w={"100%"}
+                    backgroundColor="#ff404c"
+                    color="white"
+                    //   isLoading={newPasswordMutation.isLoading}
+                  >
+                    비밀번호 재설정
+                  </Button>
+                  {/* {error ? <Text>{error}</Text> : null} */}
+                </VStack>
+              )}
+            </VStack>
+          </Box>
+        </Center>
+      </Flex>
+    </>
+  );
 };
 
 export default FindPassword;
