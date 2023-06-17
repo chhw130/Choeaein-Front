@@ -26,6 +26,7 @@ import {
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
 import FindButton from "@/UI/Button/FindButton";
+import MainLogo from "@/UI/Logo/MainLogo";
 
 const FindPassword = () => {
   const { register } = useForm();
@@ -33,18 +34,7 @@ const FindPassword = () => {
     <>
       <Flex height={"100vh"}>
         <Center margin={"30px"} width={"100%"} flexDir={"column"}>
-          <HStack margin={"30px"}>
-            <Image
-              src={logo}
-              alt="최애돌"
-              width={50}
-              height={50}
-              priority={true}
-            />
-            <Text fontSize="50px" fontWeight="bold">
-              CHOEAEIN
-            </Text>
-          </HStack>
+          <MainLogo />
           <Box
             as="form"
             // onSubmit={handleSubmit(onSubmit)}

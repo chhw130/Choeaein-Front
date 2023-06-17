@@ -6,7 +6,6 @@ import {
   ButtonGroup,
   FormControl,
   FormLabel,
-  HStack,
   Input,
   InputGroup,
   InputLeftAddon,
@@ -20,8 +19,7 @@ import { useRouter } from "next/navigation";
 import { SignUpData } from "@/app/signup/interface";
 import IdolOption from "./IdolOption";
 import { useMutation } from "@tanstack/react-query";
-import logo from "../../public/img/logo_main.png";
-import Image from "next/image";
+import MainLogo from "@/UI/Logo/MainLogo";
 
 const SignUp = () => {
   /**회원가입 확인 모달창 */
@@ -59,18 +57,7 @@ const SignUp = () => {
     <>
       <div className={styles.signUp}>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <HStack margin={"30px"}>
-            <Image
-              src={logo}
-              alt="최애돌"
-              width={50}
-              height={50}
-              priority={true}
-            />
-            <Text fontSize="40px" fontWeight="bold">
-              CHOEAEIN
-            </Text>
-          </HStack>
+          <MainLogo />
           <FormControl marginBottom={3}>
             <FormLabel
               fontWeight={"semibold"}

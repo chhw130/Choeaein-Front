@@ -21,6 +21,7 @@ import { OAuthButtonGroup } from "./OAuthButtonGroup";
 import Image from "next/image";
 import logo from "../../public/img/logo_main.png";
 import { useToast } from "@/UI/Toast/useToast";
+import MainLogo from "@/UI/Logo/MainLogo";
 
 const UserLogin = () => {
   const {
@@ -64,18 +65,7 @@ const UserLogin = () => {
           alignItems={"center"}
           margin={"30px auto"}
         >
-          <HStack margin={"30px"}>
-            <Image
-              src={logo}
-              alt="최애돌"
-              width={50}
-              height={50}
-              priority={true}
-            />
-            <Text fontSize="50px" fontWeight="bold">
-              CHOEAEIN
-            </Text>
-          </HStack>
+          <MainLogo />
           <Input
             w={"90%"}
             h={"70px"}
