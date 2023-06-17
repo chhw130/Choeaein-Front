@@ -101,7 +101,7 @@ const UserLogin = () => {
                 w="50%"
                 h="50px"
                 onClick={() => {
-                  router.back();
+                  router.push("/");
                 }}
                 type="button"
               >

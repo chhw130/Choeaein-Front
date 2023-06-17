@@ -1,5 +1,15 @@
 "use client";
-import { Box, Flex, Text, VStack } from "@chakra-ui/react";
+import {
+  Box,
+  Flex,
+  Tab,
+  TabList,
+  TabPanel,
+  TabPanels,
+  Tabs,
+  Text,
+  VStack,
+} from "@chakra-ui/react";
 import IdolCard from "@/UI/Card/IdolCard";
 import { IdolGroup } from "@/app/page";
 
@@ -25,11 +35,43 @@ const IdolSection = ({ idolGroupData }: IdolSectionProps) => {
             <Text>스케줄을 확인해서 나만의 스케줄을 만들어보세요</Text>
           </Box>
         </VStack>
-        <Flex width="100%" flexWrap={"wrap"} justifyContent="space-around">
-          {idolGroupData?.map((data: IdolGroup, index) => (
-            <IdolCard data={data} key={index} />
-          ))}
-        </Flex>
+
+        <Tabs>
+          <TabList>
+            <Tab
+              w={"50%"}
+              _selected={{ color: "white", bg: "#fccec0" }}
+              borderTopRadius={"lg"}
+              fontWeight={"extrabold"}
+              fontSize={"20px"}
+            >
+              그룹
+            </Tab>
+            <Tab
+              w={"50%"}
+              _selected={{ color: "white", bg: "#fccec0" }}
+              borderTopRadius={"lg"}
+              fontWeight={"extrabold"}
+              fontSize={"20px"}
+            >
+              솔로
+            </Tab>
+          </TabList>
+          <TabPanels>
+            <TabPanel>
+              <Flex
+                width="100%"
+                flexWrap={"wrap"}
+                justifyContent="space-around"
+              >
+                {idolGroupData?.map((data: IdolGroup, index) => (
+                  <IdolCard data={data} key={index} />
+                ))}
+              </Flex>
+            </TabPanel>
+            <TabPanel>solo</TabPanel>
+          </TabPanels>
+        </Tabs>
       </Box>
     </>
   );
