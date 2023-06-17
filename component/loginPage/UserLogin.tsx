@@ -101,11 +101,11 @@ const UserLogin = () => {
 
           <Stack spacing="6" w="90%" maxW="450px" marginTop={5}>
             {(errors.email && (
-              <Text color={"#bf1650"} _before={{ display: "inline" }}>
-                ⚠ {errors.email.message}
-              </Text>
+              <Text color={"#bf1650"}>⚠ {errors.email.message}</Text>
             )) ||
-              (errors.password && <Text>⚠{errors.password.message}</Text>)}
+              (errors.password && (
+                <Text color={"#bf1650"}>⚠ {errors.password.message}</Text>
+              ))}
             <ButtonGroup marginTop="10px" justifyContent="center" w="100%">
               <Button
                 w="50%"
@@ -124,18 +124,18 @@ const UserLogin = () => {
                 color="white"
                 bg="#f89598"
                 isLoading={loginLoading}
-                _hover={{ bg: "#f89598" }}
+                _hover={{ bg: "#e0797b" }}
               >
                 로그인
               </Button>
             </ButtonGroup>
             <HStack fontSize={"sm"} w={"100%"}>
               <HStack w="100%" justifyContent={"center"}>
-                <Link href="user/findId">
+                <Link href="/findID">
                   <Text>아이디 찾기</Text>
                 </Link>
                 <Text color={"gray.300"}>|</Text>
-                <Link href="user/findPassword">비밀번호 찾기</Link>
+                <Link href="/findPassword">비밀번호 찾기</Link>
                 <Text color={"gray.300"}>|</Text>
                 <Link href={"/signup"}>회원가입</Link>
               </HStack>

@@ -1,11 +1,12 @@
+import FindID from "@/component/findPage/findId/FindID";
 import React from "react";
 
-const page = () => {
+const findIDPage = () => {
   return (
-    <div>
-      <p>find</p>
-    </div>
+    <>
+      <FindID />
+    </>
   );
 };
 
-export default page;
+export default findIDPage;
