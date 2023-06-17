@@ -20,18 +20,17 @@ const GroupMemeberContainer = () => {
           <Image
             src={"https://images8.alphacoders.com/118/1183043.jpg"}
             alt="아티스트 이미지"
-            width={100000}
-            height={100000}
+            width={1000}
+            height={1000}
             style={{
               borderRadius: "20%",
               objectFit: "cover",
-              height: "250px",
+              aspectRatio: "1/1",
               width: "250px",
               margin: "0 auto",
               objectPosition: "center",
               cursor: "pointer",
             }}
-            loading="lazy"
           />
           <Text
             paddingTop={"20px"}

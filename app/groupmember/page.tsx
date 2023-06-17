@@ -2,8 +2,6 @@ import GroupMemeberContainer from "@/component/groupMemberPage/GroupMemeberConta
 import React from "react";
 
 const GroupMemberPage = async () => {
-  // const groupIdolData =
-
   return (
     <>
       <GroupMemeberContainer />
