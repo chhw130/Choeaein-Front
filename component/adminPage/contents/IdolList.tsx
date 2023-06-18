@@ -47,11 +47,11 @@ const IdolList = () => {
                 width={1000}
                 height={1000}
                 alt="아이돌"
-                priority={true}
-                // loading="lazy"
+                loading="lazy"
                 style={{
-                  width: "100%",
+                  width: "60%",
                   aspectRatio: "1/1",
+                  objectFit: "cover",
                 }}
               />
             </Box>

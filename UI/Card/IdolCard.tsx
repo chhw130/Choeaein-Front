@@ -57,7 +57,6 @@ const IdolCard = ({ data }: IdolCardProps) => {
       >
         {data.idol_name_en}
       </Text>
-      {/* </Link> */}
     </Box>
   );
 };

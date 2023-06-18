@@ -18,8 +18,6 @@ import Link from "next/link";
 import { LoginData } from "@/app/login/interface";
 import { useMutation } from "@tanstack/react-query";
 import { OAuthButtonGroup } from "./OAuthButtonGroup";
-import Image from "next/image";
-import logo from "../../public/img/logo_main.png";
 import { useToast } from "@/UI/Toast/useToast";
 import MainLogo from "@/UI/Logo/MainLogo";
 

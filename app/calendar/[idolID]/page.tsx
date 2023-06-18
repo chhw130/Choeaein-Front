@@ -6,7 +6,6 @@ export interface CalendarPageProps {
 }
 
 async function CalendarPage({ params }: CalendarPageProps) {
-  console.log(params);
   const idolId = params.idolID;
   const idolData = await specificIdolInform(idolId);
 

@@ -30,6 +30,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import dynamic from "next/dynamic";
 import CategoryBtn from "./CategoryBtn";
+import ReportBtn from "@/UI/Button/ReportBtn";
 const ViewDayCalendarModal = dynamic(
   () => import("@/UI/Modal/ViewDayCalendarModal")
 );
@@ -256,6 +257,7 @@ const Calendar = ({ idolData, params }: CalendarProps) => {
             />
           </Box>
         )}
+        <ReportBtn />
       </div>
     </>
   );
