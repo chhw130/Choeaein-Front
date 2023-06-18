@@ -2,6 +2,7 @@ import {
   Button,
   Container,
   FormLabel,
+  HStack,
   Input,
   Modal,
   ModalBody,
@@ -10,16 +11,41 @@ import {
   ModalFooter,
   ModalHeader,
   ModalOverlay,
+  useRadioGroup,
 } from "@chakra-ui/react";
 import React from "react";
 import { useForm } from "react-hook-form";
 import { ModalProps } from "./ViewDayCalendarModal";
+import RadioCard from "../Card/RadioCard";
+
+interface ReportForm {
+  title: string;
+  location: string;
+  startDate: string;
+  content: string;
+}
 
 const ReportModal = ({ isOpen, onClose }: ModalProps) => {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit } = useForm<ReportForm>();
+  const categorys = ["방송", "발매", "구매", "축하", "행사"];
 
-  const submitHandler = () => {
-    console.log("submit");
+  const { getRootProps, getRadioProps, value } = useRadioGroup({
+    name: "category",
+    defaultValue: "방송",
+  });
+
+  const group = getRootProps();
+
+  const submitHandler = (formData: ReportForm) => {
+    const data = {
+      category: value,
+      title: formData.title,
+      location: formData.location,
+      startDate: formData.startDate,
+      content: formData.content,
+    };
+
+    console.log(data);
   };
 
   return (
@@ -30,21 +56,20 @@ const ReportModal = ({ isOpen, onClose }: ModalProps) => {
         <ModalCloseButton />
         <Container as={"form"} onSubmit={handleSubmit(submitHandler)}>
           <ModalBody>
-            {/* <FormLabel margin={0} htmlFor="category">
+            <FormLabel margin={0} htmlFor="category">
               카테고리
             </FormLabel>
-            <Input
-              id="category"
-
-              autoComplete="off"
-              margin="10px 0"
-              {...register("password", {
-                required: {
-                  value: true,
-                  message: "필수 정보입니다.",
-                },
+            <HStack {...group}>
+              {categorys.map((value) => {
+                const radio = getRadioProps({ value });
+                return (
+                  <RadioCard key={value} {...radio}>
+                    {value}
+                  </RadioCard>
+                );
               })}
-            /> */}
+            </HStack>
+
             <FormLabel margin={0} htmlFor="title">
               일정 이름
             </FormLabel>
@@ -80,6 +105,7 @@ const ReportModal = ({ isOpen, onClose }: ModalProps) => {
               id="startDate"
               margin="10px 0"
               autoComplete="off"
+              type="date"
               {...register("startDate", {
                 required: {
                   value: true,
