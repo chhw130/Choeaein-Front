@@ -10,6 +10,7 @@ import {
   Input,
   InputGroup,
   useColorMode,
+  useColorModeValue,
   useDisclosure,
 } from "@chakra-ui/react";
 import { MoonIcon, SunIcon } from "@chakra-ui/icons";
@@ -24,17 +25,17 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { ToastContainer } from "react-toastify";
 import { useToast } from "../Toast/useToast";
+import ThemeBtn from "../theme/ThemeBtn";
 
 const Header = () => {
   const router = useRouter();
-  const { colorMode, toggleColorMode } = useColorMode();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [keyword, setKeyword] = useState<string>("");
 
   const submitHandler = (e: React.FormEvent<HTMLFormElement> | any) => {
     e.preventDefault();
     if (keyword.trim() === "") {
-      return useToast("공백 없이 입력해주세요!", colorMode, "error");
+      return useToast("공백 없이 입력해주세요!", "black", "error");
     }
     router.push(`/search?keyword=${keyword}`);
   };
@@ -49,7 +50,6 @@ const Header = () => {
         justifyContent="center"
         display={["none", "none", "flex"]}
         zIndex={20}
-        bg={colorMode === "light" ? "white" : "#171923"}
         height="4rem"
       >
         <Flex w={"96%"} justifyContent={"space-between"} alignItems={"center"}>
@@ -80,12 +80,8 @@ const Header = () => {
                 <GoSearch />
               </Button>
             </InputGroup>
-            <Button
-              onClick={toggleColorMode}
-              color={colorMode === "light" ? "black" : "white"}
-            >
-              {colorMode === "light" ? <MoonIcon /> : <SunIcon />}
-            </Button>
+
+            <ThemeBtn />
 
             <div className="navItem">
               <HeaderBtn />

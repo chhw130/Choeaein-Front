@@ -4,23 +4,17 @@ import {
   Button,
   Center,
   Flex,
-  HStack,
-  Heading,
   Input,
   InputGroup,
   InputLeftAddon,
   InputRightAddon,
-  Text,
   VStack,
 } from "@chakra-ui/react";
-import Image from "next/image";
 import React from "react";
-import logo from "../../../public/img/logo_main.png";
 import { useForm } from "react-hook-form";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faEnvelope,
-  faIdCard,
   faLock,
   faPhone,
   faUser,

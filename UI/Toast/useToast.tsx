@@ -2,7 +2,7 @@ import { toast } from "react-toastify";
 
 export const useToast = (
   contents: string,
-  colorMode: string,
+  colorMode: string | null,
   status: string
 ) => {
   const customToast =

@@ -13,8 +13,6 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import React from "react";
-import logo from "../../../public/img/logo_main.png";
-import Image from "next/image";
 import { useForm } from "react-hook-form";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPhone } from "@fortawesome/free-solid-svg-icons";
