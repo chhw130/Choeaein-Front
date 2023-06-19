@@ -1,5 +1,4 @@
 import EditUserContainer from "@/component/myPage/EditUserContainer";
-
 const MyPage = () => {
   return (
     <>
