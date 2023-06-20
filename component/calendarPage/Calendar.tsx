@@ -104,6 +104,12 @@ const Calendar = ({ idolData, params }: CalendarProps) => {
                       onOpen();
                     }}
                     cursor={"pointer"}
+                    bg={
+                      selectedDay &&
+                      selectedDay.format("YYYYMMDD") === days.format("YYYYMMDD")
+                        ? "red"
+                        : undefined
+                    }
                   >
                     <div
                       className={
@@ -153,24 +159,22 @@ const Calendar = ({ idolData, params }: CalendarProps) => {
                       onOpen();
                     }}
                     cursor={"pointer"}
+                    border={
+                      selectedDay &&
+                      selectedDay.format("YYYYMMDD") === days.format("YYYYMMDD")
+                        ? "3px solid  rgb(184, 213, 88)"
+                        : undefined
+                    }
                   >
-                    <div
-                      className={
-                        selectedDay &&
-                        selectedDay.format("YYYYMMDD") ===
-                          days.format("YYYYMMDD")
-                          ? styles.selectedDay
-                          : undefined
-                      }
-                    >
-                      {days.format("D")}
-                    </div>
-                    <div className={styles.eventContent}>
-                      <ShowEvent
-                        days={days}
-                        newIdolSchedule={newIdolSchedule}
-                      />
-                    </div>
+                    <Box>
+                      <div>{days.format("D")}</div>
+                      <div className={styles.eventContent}>
+                        <ShowEvent
+                          days={days}
+                          newIdolSchedule={newIdolSchedule}
+                        />
+                      </div>
+                    </Box>
                   </Td>
                 );
               }
