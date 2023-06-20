@@ -4,7 +4,6 @@ import Cookies from "js-cookie";
 
 export const instance = axios.create({
   baseURL: process.env.NEXT_PUBLIC_DEV_BASE_URL,
-
   headers: {
     "X-CSRFToken": Cookies.get("csrftoken") || "",
   },
@@ -20,7 +19,14 @@ export const postLogin = (loginInform: any) =>
   instance.post(`/oauth/login/`, loginInform).then((res) => res.data);
 
 export const getUserInform = () =>
-  instance.get("/users/me/").then((res) => res.data);
+  axios
+    .get("/users/me/", {
+      headers: {
+        "X-CSRFToken": Cookies.get("csrftoken") || "",
+      },
+      withCredentials: true,
+    })
+    .then((res) => res.data);
 
 /**메인 페이지 */
 
