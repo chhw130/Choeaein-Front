@@ -23,19 +23,10 @@ import { useRouter } from "next/navigation";
 import { ToastContainer } from "react-toastify";
 import { useToast } from "../Toast/useToast";
 import ThemeBtn from "../theme/ThemeBtn";
+import SearchBar from "./SearchBar";
 
 const Header = () => {
-  const router = useRouter();
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [keyword, setKeyword] = useState<string>("");
-
-  const submitHandler = (e: React.FormEvent<HTMLFormElement> | any) => {
-    e.preventDefault();
-    if (keyword.trim() === "") {
-      return useToast("공백 없이 입력해주세요!", "black", "error");
-    }
-    router.push(`/search?keyword=${keyword}`);
-  };
 
   const { colorMode } = useColorMode();
 
@@ -63,23 +54,7 @@ const Header = () => {
           </Link>
 
           <HStack>
-            <InputGroup
-              as="form"
-              marginRight="10px"
-              onSubmit={(e) => submitHandler(e)}
-            >
-              <Input
-                placeholder="아이돌을 검색해보세요."
-                fontSize="0.9rem"
-                onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                  const keyword = e.target.value;
-                  setKeyword(keyword);
-                }}
-              />
-              <Button type="submit">
-                <GoSearch />
-              </Button>
-            </InputGroup>
+            <SearchBar />
 
             <ThemeBtn />
 
