@@ -1,0 +1,29 @@
+.signUp {
+  margin: 0 auto;
+  width: auto;
+  max-width: 560px;
+  padding: 70px 30px;
+  border-radius: 20px;
+}
+.signUp form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .signUp {
+    width: auto;
+    max-width: 485px;
+  }
+}
+@media (max-width: 376px) {
+  .signUp {
+    width: auto;
+    max-width: 560px;
+    padding: 20px 15px 20px 15px;
+    border-radius: 20px;
+  }
+}

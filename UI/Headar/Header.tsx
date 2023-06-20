@@ -1,5 +1,4 @@
 "use client";
-import "./Header.scss";
 import {
   Box,
   Button,
@@ -9,11 +8,8 @@ import {
   HStack,
   Input,
   InputGroup,
-  useColorMode,
-  useColorModeValue,
   useDisclosure,
 } from "@chakra-ui/react";
-import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 import { GoSearch } from "react-icons/go";
 import Link from "next/link";
 import HeaderBtn from "@/UI/Headar/HeaderBtn";
@@ -26,6 +22,7 @@ import { useRouter } from "next/navigation";
 import { ToastContainer } from "react-toastify";
 import { useToast } from "../Toast/useToast";
 import ThemeBtn from "../theme/ThemeBtn";
+import styles from "./Header.module.scss";
 
 const Header = () => {
   const router = useRouter();
