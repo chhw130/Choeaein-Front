@@ -8,6 +8,7 @@ import {
   HStack,
   Input,
   InputGroup,
+  useColorMode,
   useDisclosure,
 } from "@chakra-ui/react";
 import { GoSearch } from "react-icons/go";
@@ -22,7 +23,6 @@ import { useRouter } from "next/navigation";
 import { ToastContainer } from "react-toastify";
 import { useToast } from "../Toast/useToast";
 import ThemeBtn from "../theme/ThemeBtn";
-import styles from "./Header.module.scss";
 
 const Header = () => {
   const router = useRouter();
@@ -37,6 +37,8 @@ const Header = () => {
     router.push(`/search?keyword=${keyword}`);
   };
 
+  const { colorMode } = useColorMode();
+
   return (
     <>
       <ToastContainer position="top-center" />
@@ -48,6 +50,7 @@ const Header = () => {
         display={["none", "none", "flex"]}
         zIndex={20}
         height="4rem"
+        bg={colorMode !== "dark" ? "white" : "black"}
       >
         <Flex w={"96%"} justifyContent={"space-between"} alignItems={"center"}>
           <Link href="/" prefetch={false}>
