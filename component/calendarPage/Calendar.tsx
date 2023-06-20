@@ -104,24 +104,14 @@ const Calendar = ({ idolData, params }: CalendarProps) => {
                       onOpen();
                     }}
                     cursor={"pointer"}
-                    bg={
+                    border={
                       selectedDay &&
                       selectedDay.format("YYYYMMDD") === days.format("YYYYMMDD")
-                        ? "red"
+                        ? "3px solid  rgb(184, 213, 88)"
                         : undefined
                     }
                   >
-                    <div
-                      className={
-                        selectedDay &&
-                        selectedDay.format("YYYYMMDD") ===
-                          days.format("YYYYMMDD")
-                          ? styles.selectedDay
-                          : undefined
-                      }
-                    >
-                      {days.format("D")}
-                    </div>
+                    <div>{days.format("D")}</div>
 
                     <div className={styles.eventContent}>
                       <ShowEvent
@@ -220,6 +210,7 @@ const Calendar = ({ idolData, params }: CalendarProps) => {
             <Button
               onClick={() => {
                 setMoment(moment());
+                setSelectedDay(moment());
               }}
             >
               <FontAwesomeIcon icon={faRotateRight} />
