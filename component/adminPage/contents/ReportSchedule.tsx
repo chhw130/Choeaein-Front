@@ -17,10 +17,13 @@ import SkeletonUI from "../UI/SkeletonUI";
 import PageBtn from "../UI/PageBtn";
 
 const ReportSchedule = () => {
-  const { data: scheduleData = [], isLoading } = useQuery(
-    ["userReportSchedule"],
-    () => getUserReportSchedule()
-  );
+  // const { data: scheduleData = [], isLoading } = useQuery(
+  //   ["userReportSchedule"],
+  //   () => getUserReportSchedule()
+  // );
+
+  const scheduleData: any = [];
+  const isLoading = true;
 
   const data = useMemo(() => scheduleData, [scheduleData]);
   const COLUMS = [

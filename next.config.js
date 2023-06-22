@@ -1,9 +1,22 @@
+const { redirect } = require("next/dist/server/api-utils");
+
 /** @type {import('next').NextConfig} */
 const withBundleAnalyzer = require("@next/bundle-analyzer")({
   enabled: process.env.ANALYZE === "true",
 });
 
 const nextConfig = {
+  async rewrites() {
+    return {
+      fallback: [
+        {
+          source: "/:path*",
+          destination: "https://v2-myfavor-back-seed-db.onrender.com/:path*",
+        },
+      ],
+    };
+  },
+
   experimental: {
     appDir: true,
     // optimizeFonts: true,
