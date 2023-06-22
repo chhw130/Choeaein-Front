@@ -3,7 +3,7 @@ import styles from "./Calendar.module.scss";
 import { useState } from "react";
 import moment from "moment";
 import "moment/locale/ko";
-import { ShowEvent } from "./ShowEvent";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import IdolInform from "./IdolInform";
 import {
@@ -30,6 +30,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import dynamic from "next/dynamic";
 import CategoryBtn from "./CategoryBtn";
+import { ShowEvent } from "./ShowEvent";
 const ViewDayCalendarModal = dynamic(
   () => import("@/UI/Modal/ViewDayCalendarModal")
 );
@@ -81,8 +82,7 @@ const Calendar = ({ idolData, params }: CalendarProps) => {
         >
           {Array(7)
             .fill(0)
-            // eslint-disable-next-line
-            .map((data: any, index: number) => {
+            .map((data: [], index: number) => {
               let days = today
                 .clone()
                 .startOf("year")
@@ -90,7 +90,6 @@ const Calendar = ({ idolData, params }: CalendarProps) => {
                 .startOf("week")
                 .add(index, "day");
 
-              // 오늘 날짜에 today style 적용
               if (moment().format("YYYYMMDD") === days.format("YYYYMMDD")) {
                 return (
                   <Td
@@ -104,18 +103,14 @@ const Calendar = ({ idolData, params }: CalendarProps) => {
                       onOpen();
                     }}
                     cursor={"pointer"}
+                    border={
+                      selectedDay &&
+                      selectedDay.format("YYYYMMDD") === days.format("YYYYMMDD")
+                        ? "3px solid  rgb(184, 213, 88)"
+                        : undefined
+                    }
                   >
-                    <div
-                      className={
-                        selectedDay &&
-                        selectedDay.format("YYYYMMDD") ===
-                          days.format("YYYYMMDD")
-                          ? styles.selectedDay
-                          : undefined
-                      }
-                    >
-                      {days.format("D")}
-                    </div>
+                    <div>{days.format("D")}</div>
 
                     <div className={styles.eventContent}>
                       <ShowEvent
@@ -153,24 +148,22 @@ const Calendar = ({ idolData, params }: CalendarProps) => {
                       onOpen();
                     }}
                     cursor={"pointer"}
+                    border={
+                      selectedDay &&
+                      selectedDay.format("YYYYMMDD") === days.format("YYYYMMDD")
+                        ? "3px solid  rgb(184, 213, 88)"
+                        : undefined
+                    }
                   >
-                    <div
-                      className={
-                        selectedDay &&
-                        selectedDay.format("YYYYMMDD") ===
-                          days.format("YYYYMMDD")
-                          ? styles.selectedDay
-                          : undefined
-                      }
-                    >
-                      {days.format("D")}
-                    </div>
-                    <div className={styles.eventContent}>
-                      <ShowEvent
-                        days={days}
-                        newIdolSchedule={newIdolSchedule}
-                      />
-                    </div>
+                    <Box>
+                      <div>{days.format("D")}</div>
+                      <div className={styles.eventContent}>
+                        <ShowEvent
+                          days={days}
+                          newIdolSchedule={newIdolSchedule}
+                        />
+                      </div>
+                    </Box>
                   </Td>
                 );
               }
@@ -216,6 +209,7 @@ const Calendar = ({ idolData, params }: CalendarProps) => {
             <Button
               onClick={() => {
                 setMoment(moment());
+                setSelectedDay(moment());
               }}
             >
               <FontAwesomeIcon icon={faRotateRight} />
