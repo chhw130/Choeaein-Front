@@ -16,7 +16,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPhone } from "@fortawesome/free-solid-svg-icons";
 import { postSignUp } from "@/utils/axios/AxiosSetting";
 import { useRouter } from "next/navigation";
-import { SignUpData } from "@/app/signup/interface";
+import { SignUpData } from "@/utils/interface/interface";
 import IdolOption from "./IdolOption";
 import { useMutation } from "@tanstack/react-query";
 import MainLogo from "@/UI/Logo/MainLogo";
