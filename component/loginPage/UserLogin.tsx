@@ -15,14 +15,12 @@ import {
 import { postLogin } from "@/utils/axios/AxiosSetting";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { LoginData } from "@/app/login/interface";
+
 import { useMutation } from "@tanstack/react-query";
 import { OAuthButtonGroup } from "./OAuthButtonGroup";
-
 import { useToast } from "@/UI/Toast/useToast";
-
 import MainLogo from "@/UI/Logo/MainLogo";
-import dynamic from "next/dynamic";
+import { LoginData } from "@/utils/interface/interface";
 
 const UserLogin = () => {
   const {

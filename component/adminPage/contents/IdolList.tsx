@@ -4,14 +4,10 @@ import { useMemo } from "react";
 import { useTable, usePagination } from "react-table";
 import {
   Box,
-  Button,
-  ButtonGroup,
-  HStack,
   Table,
   TableContainer,
   Tbody,
   Td,
-  Text,
   Th,
   Thead,
   Tr,

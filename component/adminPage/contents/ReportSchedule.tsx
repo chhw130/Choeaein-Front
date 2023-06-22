@@ -22,6 +22,9 @@ const ReportSchedule = () => {
     () => getUserReportSchedule()
   );
 
+  // const scheduleData: any = [];
+  // const isLoading = true;
+
   const data = useMemo(() => scheduleData, [scheduleData]);
   const COLUMS = [
     {
