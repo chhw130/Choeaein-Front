@@ -6,16 +6,16 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({
 });
 
 const nextConfig = {
-  async rewrites() {
-    return {
-      fallback: [
-        {
-          source: "/:path*",
-          destination: "https://v2-myfavor-back-seed-db.onrender.com/:path*",
-        },
-      ],
-    };
-  },
+  // async rewrites() {
+  //   return {
+  //     fallback: [
+  //       {
+  //         source: "/:path*",
+  //         destination: "https://v2-myfavor-back-seed-db.onrender.com/:path*",
+  //       },
+  //     ],
+  //   };
+  // },
 
   experimental: {
     appDir: true,

@@ -14,6 +14,8 @@ export default async function Home() {
   const schedulesData: [] = [];
   const idolGroupData: IdolGroup[] = await getIdolGroups();
 
+  console.log(idolGroupData);
+
   return (
     <>
       <MainVideo />

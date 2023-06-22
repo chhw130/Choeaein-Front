@@ -1,8 +1,19 @@
 "use client";
 
-import useIdol from "@/utils/hook/useIdol";
-import { Box, Center, Skeleton, Spinner, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Center,
+  Skeleton,
+  Spinner,
+  Tab,
+  TabList,
+  TabPanel,
+  TabPanels,
+  Tabs,
+  Text,
+} from "@chakra-ui/react";
 import dynamic from "next/dynamic";
+import MyReportSchedule from "./MyReportSchedule";
 
 const EditUser = dynamic(() => import("./EditUser"), {
   loading: () => (
@@ -15,16 +26,26 @@ const EditUser = dynamic(() => import("./EditUser"), {
 });
 
 const EditUserContainer = () => {
-  const { idolData } = useIdol();
-
-  console.log(idolData);
-
   return (
     <Box w={["95%", "80%", "50%"]} padding="100px 0" margin="0 auto">
       <Text fontSize={["20px", "25px", "30px"]} fontWeight="800" margin="10px">
-        회원정보 수정
+        마이페이지
       </Text>
-      <EditUser />
+
+      <Tabs isFitted variant="enclosed">
+        <TabList mb="1em">
+          <Tab>내정보</Tab>
+          <Tab>제보한 일정</Tab>
+        </TabList>
+        <TabPanels>
+          <TabPanel>
+            <EditUser />
+          </TabPanel>
+          <TabPanel>
+            <MyReportSchedule />
+          </TabPanel>
+        </TabPanels>
+      </Tabs>
     </Box>
   );
 };
