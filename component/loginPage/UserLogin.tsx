@@ -18,8 +18,11 @@ import Link from "next/link";
 import { LoginData } from "@/app/login/interface";
 import { useMutation } from "@tanstack/react-query";
 import { OAuthButtonGroup } from "./OAuthButtonGroup";
+
 import { useToast } from "@/UI/Toast/useToast";
+
 import MainLogo from "@/UI/Logo/MainLogo";
+import dynamic from "next/dynamic";
 
 const UserLogin = () => {
   const {

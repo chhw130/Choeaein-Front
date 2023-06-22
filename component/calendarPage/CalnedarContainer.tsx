@@ -1,10 +1,11 @@
 "use client";
 import React from "react";
 import styles from "./CalendarPage.module.scss";
-import Calendar from "./Calendar";
+// import Calendar from "./Calendar";
 import dynamic from "next/dynamic";
 
 const ComingSchedule = dynamic(() => import("./ComingSchedule"));
+const Calendar = dynamic(() => import("./Calendar"));
 
 const CalnedarContainer = ({ idolData, params }: any) => {
   return (

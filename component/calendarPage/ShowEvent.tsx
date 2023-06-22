@@ -1,4 +1,4 @@
-import { Box, Flex } from "@chakra-ui/react";
+import { Flex } from "@chakra-ui/react";
 import styles from "./Calendar.module.scss";
 import moment from "moment";
 import "moment/locale/ko";
