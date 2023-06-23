@@ -1,5 +1,3 @@
-const { redirect } = require("next/dist/server/api-utils");
-
 /** @type {import('next').NextConfig} */
 const withBundleAnalyzer = require("@next/bundle-analyzer")({
   enabled: process.env.ANALYZE === "true",
@@ -9,12 +7,17 @@ const nextConfig = {
   async rewrites() {
     return [
       {
-        source: "/api/v2/:path*",
-        destination:
-          "https://v2-myfavor-back-seed-db.onrender.com/api/v2/:path*",
+        // source: "/api/v1/:path*/",
+        // destination: "https://dev.curb.site/api/v1/:path*/",
+        source: "/api/v2/:path*/",
+        // destination:
+        // "https://v2-myfavor-back-seed-db.onrender.com/api/v2/:path*/",
+
+        destination: `${process.env.NEXT_PUBLIC_DEV_BASE_URL}/:path*/`,
       },
     ];
   },
+  trailingSlash: true,
 
   experimental: {
     appDir: true,

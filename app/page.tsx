@@ -12,9 +12,9 @@ export interface IdolGroup {
 
 export default async function Home() {
   const schedulesData: [] = [];
-  const idolGroupData: IdolGroup[] = await getIdolGroups();
-
-  console.log(idolGroupData);
+  // const idolGroupData: IdolGroup[] = await getIdolGroups();
+  const idolGroupData: [] = [];
+  // console.log(idolGroupData);
 
   return (
     <>

@@ -1,5 +1,6 @@
 export interface LoginData {
-  email: string;
+  username: string;
+  // email?: string;
   password: string;
 }
 
