@@ -11,6 +11,14 @@ export const instance = axios.create({
   withCredentials: true,
 });
 
+export const devInstance = axios.create({
+  baseURL: process.env.NEXT_PUBLIC_DEV_BASE_URL,
+  headers: {
+    "X-CSRFToken": Cookies.get("csrftoken") || "",
+  },
+  withCredentials: true,
+});
+
 /**회원가입 */
 export const postSignUp = (signUpInform: any) =>
   instance.post(`/users/`, signUpInform).then((res) => res.data);
@@ -32,7 +40,7 @@ export const getUserInform = () =>
 /**메인 페이지 */
 
 export const getIdolGroups = async () =>
-  axios.get(`/groups/`).then((res) => res.data);
+  devInstance.get(`/groups/`).then((res) => res.data);
 
 export const getIdolList = () =>
   instance.get(`/idols/`).then((res) => res.data);

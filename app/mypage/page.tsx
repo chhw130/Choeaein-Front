@@ -1,5 +1,9 @@
 import EditUserContainer from "@/component/myPage/EditUserContainer";
-const MyPage = () => {
+import { getIdolGroups } from "@/utils/axios/AxiosSetting";
+import { IdolGroup } from "../page";
+const MyPage = async () => {
+  const idolGroupData: IdolGroup[] = await getIdolGroups();
+
   return (
     <>
       <EditUserContainer />
