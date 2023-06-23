@@ -10,7 +10,8 @@ const nextConfig = {
     return [
       {
         source: "/api/v2/:path*",
-        destination: "https://v2-myfavor-back-seed-db.onrender.com/:path*",
+        destination:
+          "https://v2-myfavor-back-seed-db.onrender.com/api/v2/:path*",
       },
     ];
   },
