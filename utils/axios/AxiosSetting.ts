@@ -3,8 +3,8 @@ import axios from "axios";
 import Cookies from "js-cookie";
 
 export const instance = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_DEV_BASE_URL,
-  // baseURL: "/api/v2/",
+  // baseURL: process.env.NEXT_PUBLIC_DEV_BASE_URL,
+  baseURL: "/api/v2/",
   headers: {
     "X-CSRFToken": Cookies.get("csrftoken") || "",
   },
@@ -32,10 +32,10 @@ export const getUserInform = () =>
 /**메인 페이지 */
 
 export const getIdolGroups = async () =>
-  instance.get(`/groups/`).then((res) => res.data);
+  axios.get(`/groups/`).then((res) => res.data);
 
 export const getIdolList = () =>
-  axios.get(`/api/v2/idols/`).then((res) => res.data);
+  instance.get(`/idols/`).then((res) => res.data);
 
 /**캘린더페이지 */
 export const specificIdolInform = async (idolId: any) =>

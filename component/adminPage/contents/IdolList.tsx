@@ -24,7 +24,6 @@ const IdolList = () => {
 
   const data = useMemo(() => idolData, [idolData]);
 
-  console.log(data);
   const COLUMS = [
     {
       Header: "idol",
@@ -100,6 +99,7 @@ const IdolList = () => {
     {
       // @ts-ignore
       columns,
+      // @ts-ignore
       data,
     },
     usePagination

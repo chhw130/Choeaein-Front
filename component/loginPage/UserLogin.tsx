@@ -27,7 +27,8 @@ const UserLogin = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<LoginData>();
+  } = useForm();
+  // <LoginData>
 
   const { colorMode } = useColorMode();
 
@@ -89,12 +90,12 @@ const UserLogin = () => {
           />
 
           <Stack spacing="6" w="90%" maxW="450px" marginTop={5}>
-            {(errors.email && (
+            {/* {(errors.email && (
               <Text color={"#bf1650"}>⚠ {errors.email.message}</Text>
             )) ||
               (errors.password && (
                 <Text color={"#bf1650"}>⚠ {errors.password.message}</Text>
-              ))}
+              ))} */}
             <ButtonGroup marginTop="10px" justifyContent="center" w="100%">
               <Button
                 w="50%"

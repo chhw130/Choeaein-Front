@@ -1,7 +1,7 @@
 import IdolSection from "@/component/mainPage/IdolSection";
 import MainVideo from "@/component/mainPage/MainVideo";
 import RandomSchedule from "@/component/mainPage/RandomSchedule";
-import { getIdolGroups } from "@/utils/axios/AxiosSetting";
+import { getIdolGroups, getIdolList } from "@/utils/axios/AxiosSetting";
 import useIdolGroups from "@/utils/hook/useIdolGroups";
 
 export interface IdolGroup {
@@ -14,7 +14,7 @@ export default async function Home() {
   const schedulesData: [] = [];
   const idolGroupData: IdolGroup[] = await getIdolGroups();
 
-  console.log(idolGroupData);
+  // console.log(idolGroupData);
 
   return (
     <>
