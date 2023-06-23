@@ -32,7 +32,7 @@ export const getUserInform = () =>
 /**메인 페이지 */
 
 export const getIdolGroups = async () =>
-  instance.get(`/groups/`).then((res) => res.data);
+  axios.get(`/groups/`).then((res) => res.data);
 
 export const getIdolList = () =>
   instance.get(`/idols/`).then((res) => res.data);
