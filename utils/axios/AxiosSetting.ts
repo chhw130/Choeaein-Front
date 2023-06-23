@@ -34,8 +34,7 @@ export const getUserInform = () =>
 export const getIdolGroups = async () =>
   instance.get(`/groups/`).then((res) => res.data);
 
-export const getIdolList = () =>
-  axios.get(`/api/v2/idols/`).then((res) => res.data);
+export const getIdolList = () => instance.get(`/idols/`).then((res) => res);
 
 /**캘린더페이지 */
 export const specificIdolInform = async (idolId: any) =>
