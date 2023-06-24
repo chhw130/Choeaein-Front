@@ -11,7 +11,7 @@ export const instance = axios.create({
   withCredentials: true,
 });
 
-export const devInstance = axios.create({
+export const SSRInstance = axios.create({
   baseURL: process.env.NEXT_PUBLIC_DEV_BASE_URL,
   headers: {
     "X-CSRFToken": Cookies.get("csrftoken") || "",
@@ -28,7 +28,7 @@ export const postLogin = (loginInform: any) =>
   instance.post(`/oauth/login/`, loginInform).then((res) => res.data);
 
 export const getUserInform = () =>
-  axios
+  instance
     .get("/users/me/", {
       headers: {
         "X-CSRFToken": Cookies.get("csrftoken") || "",
@@ -40,7 +40,7 @@ export const getUserInform = () =>
 /**메인 페이지 */
 
 export const getIdolGroups = async () =>
-  devInstance.get(`/groups/`).then((res) => res.data);
+  SSRInstance.get(`/groups/`).then((res) => res.data);
 
 export const getIdolList = () =>
   instance.get(`/idols/`).then((res) => res.data);

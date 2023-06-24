@@ -13,20 +13,13 @@ export interface IdolGroup {
 
 export default async function Home() {
   const schedulesData: [] = [];
-  // const idolGroupData: IdolGroup[] = await getIdolGroups();
-  // const idolGroupData: [] = [];
-  // console.log(idolGroupData);
+  const idolGroupData: IdolGroup[] = await getIdolGroups();
 
-  // const { idolGroupData } = await getData();
-
-  // console.log(idolGroupData);
   return (
     <>
       <MainVideo />
       <RandomSchedule schedulesData={schedulesData} />
-      <IdolSection
-      // idolGroupData={idolGroupData}
-      />
+      <IdolSection idolGroupData={idolGroupData} />
     </>
   );
 }

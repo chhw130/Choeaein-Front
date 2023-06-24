@@ -6,9 +6,9 @@ import { useQuery } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
 
 const DefaultLayout = ({ children }: { children: React.ReactNode }) => {
-  // const { data: userData } = useQuery(["me"], () => getUserInform());
+  const { data: userData = {} } = useQuery(["me"], () => getUserInform());
 
-  // console.log(userData);
+  console.log(userData);
 
   const [mount, setMount] = useState(false);
 
