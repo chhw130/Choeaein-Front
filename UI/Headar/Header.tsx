@@ -1,13 +1,10 @@
 "use client";
 import {
   Box,
-  Button,
   Drawer,
   DrawerContent,
   Flex,
   HStack,
-  Input,
-  InputGroup,
   useColorMode,
   useDisclosure,
 } from "@chakra-ui/react";
@@ -18,16 +15,12 @@ import { SidebarContent } from "@/UI/Headar/Sidebar";
 import logo from "../../public/img/logo_main.png";
 import Image from "next/image";
 import { MobileNav } from "./MobileNav";
-import { useState } from "react";
-import { useRouter } from "next/navigation";
 import { ToastContainer } from "react-toastify";
-import { useToast } from "../Toast/useToast";
 import ThemeBtn from "../theme/ThemeBtn";
 import SearchBar from "./SearchBar";
 
 const Header = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-
   const { colorMode } = useColorMode();
 
   return (

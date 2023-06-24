@@ -14,6 +14,7 @@ export default function NotFound() {
 
   return (
     <HStack
+      as={"section"}
       bg="white"
       justifyContent="space-evenly"
       minH="100vh"

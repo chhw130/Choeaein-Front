@@ -16,23 +16,34 @@ import { postLogin } from "@/utils/axios/AxiosSetting";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 
-import { useMutation } from "@tanstack/react-query";
+import {
+  QueryClient,
+  useMutation,
+  useQueryClient,
+} from "@tanstack/react-query";
 import { OAuthButtonGroup } from "./OAuthButtonGroup";
 import { useToast } from "@/UI/Toast/useToast";
 import MainLogo from "@/UI/Logo/MainLogo";
 import { LoginData } from "@/utils/interface/interface";
+import useUser from "@/utils/hook/useUser";
+import { useEffect } from "react";
 
 const UserLogin = () => {
+  const router = useRouter();
+  const { colorMode } = useColorMode();
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
-  // <LoginData>
+  } = useForm<LoginData>();
 
-  const { colorMode } = useColorMode();
+  const { isLoading, isLogin, userData } = useUser();
+  const queryClient = useQueryClient();
 
-  const router = useRouter();
+  /**로그인 되어있으면 home으로 라우팅 */
+  useEffect(() => {
+    if (!isLoading && isLogin) router.push("/");
+  }, [isLoading, isLogin, userData]);
 
   const { mutateAsync: loginHandler, isLoading: loginLoading } = useMutation(
     (loginData: LoginData) => postLogin(loginData),
@@ -42,6 +53,7 @@ const UserLogin = () => {
       },
       onSuccess: () => {
         router.push("/");
+        queryClient.invalidateQueries(["me"]);
         useToast("로그인 성공!!", colorMode, "info");
       },
     }
@@ -54,7 +66,7 @@ const UserLogin = () => {
 
   return (
     <>
-      <Flex height="100vh">
+      <Flex as={"section"} height="100vh">
         <Flex
           as="form"
           onSubmit={handleSubmit(onSubmit)}
@@ -90,12 +102,12 @@ const UserLogin = () => {
           />
 
           <Stack spacing="6" w="90%" maxW="450px" marginTop={5}>
-            {/* {(errors.email && (
+            {(errors.email && (
               <Text color={"#bf1650"}>⚠ {errors.email.message}</Text>
             )) ||
               (errors.password && (
                 <Text color={"#bf1650"}>⚠ {errors.password.message}</Text>
-              ))} */}
+              ))}
             <ButtonGroup marginTop="10px" justifyContent="center" w="100%">
               <Button
                 w="50%"

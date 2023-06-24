@@ -1,7 +1,15 @@
 export interface LoginData {
-  username: string;
-  // email?: string;
+  email: string;
   password: string;
+}
+
+export interface UserData {
+  email: string;
+  is_admin: boolean;
+  nickname: string;
+  pick: number;
+  pk: number;
+  profileImg: string;
 }
 
 export interface SignUpData {
