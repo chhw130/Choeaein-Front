@@ -16,7 +16,11 @@ import { postLogin } from "@/utils/axios/AxiosSetting";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 
-import { useMutation } from "@tanstack/react-query";
+import {
+  QueryClient,
+  useMutation,
+  useQueryClient,
+} from "@tanstack/react-query";
 import { OAuthButtonGroup } from "./OAuthButtonGroup";
 import { useToast } from "@/UI/Toast/useToast";
 import MainLogo from "@/UI/Logo/MainLogo";
@@ -34,6 +38,7 @@ const UserLogin = () => {
   } = useForm<LoginData>();
 
   const { isLoading, isLogin, userData } = useUser();
+  const queryClient = useQueryClient();
 
   useEffect(() => {
     if (!isLoading && isLogin) router.push("/");
@@ -47,6 +52,7 @@ const UserLogin = () => {
       },
       onSuccess: () => {
         router.push("/");
+        queryClient.invalidateQueries(["me"]);
         useToast("로그인 성공!!", colorMode, "info");
       },
     }

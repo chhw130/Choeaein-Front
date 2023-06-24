@@ -26,6 +26,20 @@ export const postSignUp = (signUpInform: any) =>
 export const postLogin = (loginInform: any) =>
   instance.post(`/oauth/login/`, loginInform).then((res) => res.data);
 
+export const postLogout = () =>
+  instance
+    .post(
+      "/oauth/logout/",
+      {},
+      {
+        headers: {
+          "X-CSRFToken": Cookies.get("csrftoken") || "",
+        },
+        withCredentials: true,
+      }
+    )
+    .then((res) => res.data);
+
 export const getUserInform = () =>
   instance
     .get("/users/me/", {

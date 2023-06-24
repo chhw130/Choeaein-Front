@@ -1,9 +1,11 @@
 "use client";
+import { postLogout } from "@/utils/axios/AxiosSetting";
+import useUser from "@/utils/hook/useUser";
 import { Avatar, Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/react";
-import { signOut } from "next-auth/react";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useToast } from "../Toast/useToast";
 
 const loginMenu = [
   {
@@ -32,13 +34,20 @@ const logoutMenu = [
 ];
 
 const HeaderBtn = () => {
-  // let session = useSession();
-  // if (session.data?.user) {
-  //   console.log(session);
-  // }
+  const { isLoading, isLogin, userData } = useUser();
+
+  const queryClient = useQueryClient();
+  const { mutateAsync: logoutHandler } = useMutation(() => postLogout(), {
+    onSuccess: () => {
+      queryClient.removeQueries(["me"]);
+
+      useToast("로그아웃 되었습니다.", "black", "success");
+    },
+  });
 
   const signOutHandler = async () => {
-    await signOut();
+    // await signOut();
+    await logoutHandler();
   };
 
   return (
@@ -51,10 +60,10 @@ const HeaderBtn = () => {
       </MenuButton>
       {
         <MenuList>
-          {true
+          {!userData
             ? loginMenu.map((menu, index) => (
-                <Link href={menu.link} key={index} prefetch={false}>
-                  <MenuItem>{menu.title}</MenuItem>
+                <Link href={menu.link} prefetch={false}>
+                  <MenuItem key={index}>{menu.title}</MenuItem>
                 </Link>
               ))
             : logoutMenu.map((menu, index) => {
@@ -66,11 +75,9 @@ const HeaderBtn = () => {
                   );
                 }
                 return (
-                  <>
-                    <Link href={menu.link} key={index} prefetch={false}>
-                      <MenuItem>{menu.title}</MenuItem>
-                    </Link>
-                  </>
+                  <Link href={menu.link} key={index} prefetch={false}>
+                    <MenuItem>{menu.title}</MenuItem>
+                  </Link>
                 );
               })}
         </MenuList>
