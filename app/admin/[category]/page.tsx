@@ -13,7 +13,7 @@ const AdminPage = async (params: any) => {
   const path = params.params.category;
 
   return (
-    <Box margin="70px 0">
+    <Box as="section" margin="70px 0">
       {path === "idols" ? (
         <IdolList />
       ) : path === "schedules" ? (

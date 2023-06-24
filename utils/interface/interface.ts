@@ -3,6 +3,15 @@ export interface LoginData {
   password: string;
 }
 
+export interface UserData {
+  email: string;
+  is_admin: boolean;
+  nickname: string;
+  pick: number;
+  pk: number;
+  profileImg: string;
+}
+
 export interface SignUpData {
   username?: string;
   password: string;

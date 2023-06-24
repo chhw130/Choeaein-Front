@@ -40,6 +40,7 @@ const UserLogin = () => {
   const { isLoading, isLogin, userData } = useUser();
   const queryClient = useQueryClient();
 
+  /**로그인 되어있으면 home으로 라우팅 */
   useEffect(() => {
     if (!isLoading && isLogin) router.push("/");
   }, [isLoading, isLogin, userData]);

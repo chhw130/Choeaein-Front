@@ -43,9 +43,6 @@ export const postLogout = () =>
 export const getUserInform = () =>
   instance
     .get("/users/me/", {
-      headers: {
-        "X-CSRFToken": Cookies.get("csrftoken") || "",
-      },
       withCredentials: true,
     })
     .then((res) => res.data);

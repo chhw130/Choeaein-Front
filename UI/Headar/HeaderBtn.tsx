@@ -4,7 +4,6 @@ import useUser from "@/utils/hook/useUser";
 import { Avatar, Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
 import { useToast } from "../Toast/useToast";
 
 const loginMenu = [
@@ -60,9 +59,10 @@ const HeaderBtn = () => {
       </MenuButton>
       {
         <MenuList>
+          {userData?.is_admin && <MenuItem>관리자페이지</MenuItem>}
           {!userData
             ? loginMenu.map((menu, index) => (
-                <Link href={menu.link} prefetch={false}>
+                <Link href={menu.link} prefetch={false} key={index}>
                   <MenuItem key={index}>{menu.title}</MenuItem>
                 </Link>
               ))
