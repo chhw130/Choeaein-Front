@@ -18,10 +18,13 @@ import { MobileNav } from "./MobileNav";
 import { ToastContainer } from "react-toastify";
 import ThemeBtn from "../theme/ThemeBtn";
 import SearchBar from "./SearchBar";
+import { useEffect } from "react";
+import { usePathname } from "next/navigation";
+import { useRouter } from "next/navigation";
+import useUser from "@/utils/hook/useUser";
 
 const Header = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-
   const { colorMode } = useColorMode();
 
   return (

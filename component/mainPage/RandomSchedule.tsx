@@ -22,6 +22,7 @@ const RandomSchedule = ({ schedulesData }: any) => {
 
   return (
     <Box
+      as="section"
       position="relative"
       overflow="hidden"
       display="flex"

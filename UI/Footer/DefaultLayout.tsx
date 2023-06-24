@@ -1,14 +1,11 @@
 "use client";
 import Footer from "@/UI/Footer/Footer";
 import Header from "@/UI/Headar/Header";
-import { getUserInform } from "@/utils/axios/AxiosSetting";
-import { useQuery } from "@tanstack/react-query";
+import useUser from "@/utils/hook/useUser";
 import { useEffect, useState } from "react";
 
 const DefaultLayout = ({ children }: { children: React.ReactNode }) => {
-  const { data: userData = {} } = useQuery(["me"], () => getUserInform());
-
-  console.log(userData);
+  const {} = useUser();
 
   const [mount, setMount] = useState(false);
 

@@ -27,12 +27,17 @@ const EditUser = dynamic(() => import("./EditUser"), {
 
 const EditUserContainer = () => {
   return (
-    <Box w={["95%", "80%", "50%"]} padding="100px 0" margin="0 auto">
+    <Box
+      as="section"
+      w={["95%", "80%", "50%"]}
+      padding="100px 0"
+      margin="0 auto"
+    >
       <Text fontSize={["20px", "25px", "30px"]} fontWeight="800" margin="10px">
         마이페이지
       </Text>
 
-      <Tabs isFitted variant="enclosed">
+      <Tabs as={"section"} isFitted variant="enclosed">
         <TabList mb="1em">
           <Tab>내정보</Tab>
           <Tab>제보한 일정</Tab>

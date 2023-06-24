@@ -20,7 +20,7 @@ interface IdolSectionProps {
 const IdolSection = ({ idolGroupData }: IdolSectionProps) => {
   return (
     <>
-      <Box w={["98%", "98%", "90%"]} maxW="950px" margin="0 auto">
+      <Box as="section" w={["98%", "98%", "90%"]} maxW="950px" margin="0 auto">
         <VStack textAlign={"center"} margin={"50px 0"} spacing={50}>
           <Box fontSize={["15px", "30px", "50px"]} fontWeight={"bold"}>
             <Text>60팀의 아티스트를</Text>

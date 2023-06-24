@@ -3,7 +3,6 @@ import axios from "axios";
 import Cookies from "js-cookie";
 
 export const instance = axios.create({
-  // baseURL: process.env.NEXT_PUBLIC_DEV_BASE_URL,
   baseURL: "/api/v2/",
   headers: {
     "X-CSRFToken": Cookies.get("csrftoken") || "",
