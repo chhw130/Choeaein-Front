@@ -55,6 +55,11 @@ export const getIdolGroups = async () =>
 export const getIdolList = () =>
   instance.get(`/idols/`).then((res) => res.data);
 
+/**아이돌 그룹멤버 페이지 */
+
+export const getIdolMember = async (group: string | null | undefined) =>
+  SSRInstance.get(`/groups/${group}`).then((res) => res.data);
+
 /**캘린더페이지 */
 export const specificIdolInform = async (idolId: any) =>
   instance.get(`/idols/닝닝/`).then((res) => res.data);

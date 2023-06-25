@@ -3,9 +3,9 @@ import React from "react";
 
 const GroupMemberPage = async () => {
   return (
-    <>
+    <main>
       <GroupMemeberContainer />
-    </>
+    </main>
   );
 };
 

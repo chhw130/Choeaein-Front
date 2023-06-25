@@ -1,5 +1,6 @@
 "use client";
 import DescriptionCard from "@/UI/Card/DescriptionCard";
+import useGroupMember from "@/utils/hook/useGroupMember";
 import { Center, Flex } from "@chakra-ui/react";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
@@ -8,6 +9,9 @@ import React from "react";
 const GroupMemeberContainer = () => {
   const search = useSearchParams();
   const group = search?.get("group");
+
+  const { isLoading, groupMemberData } = useGroupMember(group);
+
   return (
     <Flex
       h="100vh"
@@ -18,7 +22,7 @@ const GroupMemeberContainer = () => {
     >
       <Center padding={10}>
         <Image
-          src={"https://images8.alphacoders.com/118/1183043.jpg"}
+          src={groupMemberData.group_profile}
           alt="아티스트 이미지"
           width={1000}
           height={1000}
