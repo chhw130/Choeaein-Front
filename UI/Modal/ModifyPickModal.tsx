@@ -13,7 +13,7 @@ import {
 } from "@chakra-ui/react";
 import { useForm } from "react-hook-form";
 import { ModalProps } from "./ViewDayCalendarModal";
-import IdolOption from "@/component/singupPage/IdolOption";
+import IdolOption from "@/UI/Select/IdolOption";
 
 const ModifyPickModal = ({ isOpen, onClose }: ModalProps) => {
   const modifyPickHandler = () => {};

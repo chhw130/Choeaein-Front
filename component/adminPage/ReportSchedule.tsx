@@ -13,17 +13,14 @@ import {
   Tr,
 } from "@chakra-ui/react";
 import { getUserReportSchedule } from "@/utils/axios/AxiosSetting";
-import SkeletonUI from "../UI/SkeletonUI";
-import PageBtn from "../UI/PageBtn";
+import SkeletonUI from "../../UI/Skeleton/SkeletonUI";
+import PageBtn from "../../UI/Button/PageBtn";
 
 const ReportSchedule = () => {
   const { data: scheduleData = [], isLoading } = useQuery(
     ["userReportSchedule"],
     () => getUserReportSchedule()
   );
-
-  // const scheduleData: any = [];
-  // const isLoading = true;
 
   const data = useMemo(() => scheduleData, [scheduleData]);
   const COLUMS = [

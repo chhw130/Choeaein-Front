@@ -14,8 +14,8 @@ import {
 } from "@chakra-ui/react";
 import Image from "next/image";
 import { getIdolList } from "@/utils/axios/AxiosSetting";
-import SkeletonUI from "../UI/SkeletonUI";
-import PageBtn from "../UI/PageBtn";
+import SkeletonUI from "../../UI/Skeleton/SkeletonUI";
+import PageBtn from "../../UI/Button/PageBtn";
 
 const IdolList = () => {
   const { data: idolData = [], isLoading } = useQuery(["idolData"], () =>

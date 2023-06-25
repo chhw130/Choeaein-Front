@@ -1,6 +1,6 @@
 "use client";
 import DescriptionCard from "@/UI/Card/DescriptionCard";
-import { Box, Center, Flex, Text } from "@chakra-ui/react";
+import { Center, Flex } from "@chakra-ui/react";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 import React from "react";

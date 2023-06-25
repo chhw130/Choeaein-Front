@@ -1,13 +1,4 @@
-import {
-  Table,
-  TableContainer,
-  Tbody,
-  Th,
-  Thead,
-  Tr,
-  Skeleton,
-  SkeletonText,
-} from "@chakra-ui/react";
+import { Tbody, Th, Thead, Tr, Skeleton, SkeletonText } from "@chakra-ui/react";
 import React from "react";
 
 interface SkeletonUIProps {

@@ -1,4 +1,11 @@
-import { Card, CardBody, CardHeader, Stack, Text } from "@chakra-ui/react";
+import {
+  Card,
+  CardBody,
+  CardHeader,
+  Heading,
+  Stack,
+  Text,
+} from "@chakra-ui/react";
 import React from "react";
 
 const DescriptionCard = () => {
@@ -13,7 +20,7 @@ const DescriptionCard = () => {
     >
       <CardHeader>
         <Text>(소속사)</Text>
-        <Text>이름</Text>
+        <Heading size="lg">이름</Heading>
       </CardHeader>
       <CardBody>
         <Stack spacing={2}>
