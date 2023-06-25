@@ -3,7 +3,7 @@ import { Box, Flex, HStack, Text } from "@chakra-ui/react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React from "react";
-import styles from "./DescriptionCard.module.scss";
+import styles from "./IdolCard.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInstagram, faYoutube } from "@fortawesome/free-brands-svg-icons";
 
