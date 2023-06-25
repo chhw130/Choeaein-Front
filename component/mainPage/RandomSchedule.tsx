@@ -5,7 +5,7 @@ import {
   keyframes,
   usePrefersReducedMotion,
 } from "@chakra-ui/react";
-import RandomScheduleSlider from "./UI/RandomScheduleSlider";
+import RandomScheduleSlider from "./RandomScheduleSlider";
 
 const loop = keyframes`
 100% {

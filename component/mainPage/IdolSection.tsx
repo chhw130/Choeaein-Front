@@ -22,9 +22,9 @@ const IdolSection = ({ idolGroupData }: IdolSectionProps) => {
     <>
       <Box as="section" w={["98%", "98%", "90%"]} maxW="950px" margin="0 auto">
         <VStack textAlign={"center"} margin={"50px 0"} spacing={50}>
-          <Box fontSize={["15px", "30px", "50px"]} fontWeight={"bold"}>
-            <Text>60팀의 아티스트를</Text>
-            <Text>최애인에서 만나볼 수 있어요</Text>
+          <Box fontSize={["15px", "30px", "50px"]}>
+            <Text>다양한 아티스트들의 스케줄을</Text>
+            <Text>최애인에서 확인하세요.</Text>
           </Box>
           <Box
             color={"#888888"}

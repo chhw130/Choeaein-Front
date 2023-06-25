@@ -13,6 +13,18 @@ const ChakraProvider = dynamic(() =>
   import("@chakra-ui/provider").then((mod) => mod.ChakraProvider)
 );
 
+import localFont from "next/font/local";
+
+const BMJUA = localFont({
+  src: [
+    {
+      path: "./font/BMJUA_ttf.ttf",
+      weight: "normal",
+      style: "normal",
+    },
+  ],
+});
+
 export function Providers({ children }: { children: React.ReactNode }) {
   const [mount, setMounted] = useState<boolean>(false);
 
@@ -27,7 +39,12 @@ export function Providers({ children }: { children: React.ReactNode }) {
     useSystemColorMode: false,
   };
 
-  const theme = extendTheme({ config });
+  const theme = extendTheme({
+    config,
+    fonts: {
+      body: BMJUA.style.fontFamily,
+    },
+  });
 
   return (
     <ChakraProvider theme={theme}>

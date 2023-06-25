@@ -2,11 +2,9 @@
 import React from "react";
 import { Box } from "@chakra-ui/react";
 import dynamic from "next/dynamic";
-const IdolList = dynamic(
-  () => import("@/component/adminPage/contents/IdolList")
-);
+const IdolList = dynamic(() => import("@/component/adminPage/IdolList"));
 const ReportSchedule = dynamic(
-  () => import("@/component/adminPage/contents/ReportSchedule")
+  () => import("@/component/adminPage/ReportSchedule")
 );
 
 const AdminPage = async (params: any) => {
