@@ -1,8 +1,11 @@
 import { IdolGroup } from "@/app/page";
-import { Box, Text } from "@chakra-ui/react";
+import { Box, Flex, HStack, Text } from "@chakra-ui/react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React from "react";
+import styles from "./DescriptionCard.module.scss";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faInstagram, faYoutube } from "@fortawesome/free-brands-svg-icons";
 
 interface IdolCardProps {
   data: IdolGroup | any;
@@ -20,25 +23,42 @@ const IdolCard = ({ data }: IdolCardProps) => {
       textAlign="center"
       margin="30px 0"
       w={["24%", "24%", "23%"]}
+      className={styles.idolBox}
+      pos={"relative"}
     >
-      {/* <Link href={`calendar/${data.groupname}`} prefetch={false}> */}
       <Image
         src={data?.idol_profile || data?.group_profile}
         alt="아티스트 이미지"
         width={1000}
         height={1000}
         loading="lazy"
-        style={{
-          width: "90%",
-          aspectRatio: "1/1",
-          maxWidth: "200px",
-          maxHeight: "200px",
-          borderRadius: "20%",
-          objectFit: "cover",
-          margin: "0 auto",
-          cursor: "pointer",
-        }}
+        className={styles.groupImg}
       />
+      <Box
+        className={styles.textBox}
+        pos={"absolute"}
+        top={0}
+        aspectRatio={1 / 1}
+        bg={"black"}
+        margin={"0 auto"}
+        visibility={"hidden"}
+        width={"100%"}
+        opacity={".8"}
+        justifyContent={"center"}
+        display={"flex"}
+        flexDir={"column"}
+        alignItems={"center"}
+        borderRadius={"20%"}
+        fontSize={"1.2rem"}
+        cursor={"pointer"}
+        color={"white"}
+      >
+        <Text>자세히 보러가기</Text>
+        <HStack spacing={3} marginTop={3}>
+          <FontAwesomeIcon icon={faInstagram} />
+          <FontAwesomeIcon icon={faYoutube} />
+        </HStack>
+      </Box>
       <Text
         fontFamily="fantasy"
         paddingTop={"20px"}
