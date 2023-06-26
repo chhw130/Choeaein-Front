@@ -12,7 +12,7 @@ import {
   Text,
   useColorMode,
 } from "@chakra-ui/react";
-import { postLogin } from "@/utils/axios/AxiosSetting";
+import { postLogin } from "@/utils/API/CSRSetting";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 

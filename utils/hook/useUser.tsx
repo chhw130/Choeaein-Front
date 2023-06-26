@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { getUserInform } from "../axios/AxiosSetting";
+import { getUserInform } from "../API/CSRSetting";
 import { useRouter } from "next/navigation";
 import { UserData } from "../interface/interface";
 

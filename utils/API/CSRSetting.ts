@@ -26,6 +26,7 @@ export const postSignUp = (signUpInform: any) =>
 export const postLogin = (loginInform: any) =>
   instance.post(`/oauth/login/`, loginInform).then((res) => res.data);
 
+/**로그아웃 */
 export const postLogout = () =>
   instance
     .post(
@@ -40,6 +41,7 @@ export const postLogout = () =>
     )
     .then((res) => res.data);
 
+/**유저정보*/
 export const getUserInform = () =>
   instance
     .get("/users/me/", {
@@ -47,25 +49,9 @@ export const getUserInform = () =>
     })
     .then((res) => res.data);
 
-/**메인 페이지 */
-
-export const getIdolGroups = async () =>
-  SSRInstance.get(`/groups/`).then((res) => res.data);
-
-export const getIdolList = () =>
-  instance.get(`/idols/`).then((res) => res.data);
-
-/**아이돌 그룹멤버 페이지 */
-
-export const getIdolMember = async (group: string | null | undefined) =>
-  SSRInstance.get(`/groups/${group}`).then((res) => res.data);
-
-/**캘린더페이지 */
-export const specificIdolInform = async (idolId: any) =>
-  instance.get(`/idols/닝닝/`).then((res) => res.data);
-
+/**특정 아이돌 스케줄 */
 export const specificIdolSchedule = (idolId: string) =>
-  instance.get(`/idols/닝닝/schedules/`).then((res) => res.data);
+  instance.get(`/idols/${idolId}/schedules/`).then((res) => res.data);
 
 /**사진을 업로드 할 url 가져오는 함수. */
 export const getUploadUrl = async (img: any) => {

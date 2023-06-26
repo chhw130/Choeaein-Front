@@ -12,7 +12,7 @@ import {
   Thead,
   Tr,
 } from "@chakra-ui/react";
-import { getUserReportSchedule } from "@/utils/axios/AxiosSetting";
+import { getUserReportSchedule } from "@/utils/API/CSRSetting";
 import SkeletonUI from "../../UI/Skeleton/SkeletonUI";
 import PageBtn from "../../UI/Button/PageBtn";
 

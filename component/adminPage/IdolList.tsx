@@ -13,7 +13,7 @@ import {
   Tr,
 } from "@chakra-ui/react";
 import Image from "next/image";
-import { getIdolList } from "@/utils/axios/AxiosSetting";
+import { getIdolList } from "@/utils/API/CSRSetting";
 import SkeletonUI from "../../UI/Skeleton/SkeletonUI";
 import PageBtn from "../../UI/Button/PageBtn";
 

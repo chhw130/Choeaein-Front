@@ -1,6 +1,6 @@
 "use client";
 import { useQuery } from "@tanstack/react-query";
-import { getIdolGroups } from "../axios/AxiosSetting";
+import { getIdolGroups } from "../API/CSRSetting";
 
 interface getIdolGroup {
   idolGroupData: any;

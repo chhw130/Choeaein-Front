@@ -1,5 +1,5 @@
 "use client";
-import { postLogout } from "@/utils/axios/AxiosSetting";
+import { postLogout } from "@/utils/API/CSRSetting";
 import useUser from "@/utils/hook/useUser";
 import { Avatar, Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
