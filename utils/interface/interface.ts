@@ -25,13 +25,13 @@ export interface SignUpData {
   email: string;
 }
 
-export interface Member {
+export interface MemberType {
   idol_name_kr: string;
   idol_name_en: string;
   idol_profile: string;
   idol_birthday: string;
 }
-export interface Group {
+export interface GroupType {
   pk: number;
   enter: string;
   groupname: string;
@@ -39,5 +39,5 @@ export interface Group {
   group_debut: string;
   group_insta: string;
   group_youtube: string;
-  member: Member[];
+  member: MemberType[];
 }

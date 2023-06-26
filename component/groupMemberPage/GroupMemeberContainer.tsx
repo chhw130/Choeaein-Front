@@ -1,17 +1,15 @@
 "use client";
 import DescriptionCard from "@/UI/Card/DescriptionCard";
-import useGroupMember from "@/utils/hook/useGroupMember";
+import { GroupType } from "@/utils/interface/interface";
 import { Center, Flex } from "@chakra-ui/react";
 import Image from "next/image";
-import { useSearchParams } from "next/navigation";
 import React from "react";
 
-const GroupMemeberContainer = () => {
-  const search = useSearchParams();
-  const group = search?.get("group");
-
-  const { isLoading, groupMemberData } = useGroupMember(group);
-
+const GroupMemeberContainer = ({
+  groupMemberData,
+}: {
+  groupMemberData: GroupType;
+}) => {
   return (
     <Flex
       h="100vh"

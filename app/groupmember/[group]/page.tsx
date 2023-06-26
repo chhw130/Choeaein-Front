@@ -1,9 +1,10 @@
 import GroupMemeberContainer from "@/component/groupMemberPage/GroupMemeberContainer";
 import { getIdolMember } from "@/utils/API/SSGSetting";
+import { GroupType } from "@/utils/interface/interface";
 import React from "react";
 
 const getData = async (groupName: string) => {
-  const groupMemberData = await getIdolMember(groupName);
+  const groupMemberData: GroupType = await getIdolMember(groupName);
   return { groupMemberData };
 };
 
@@ -11,9 +12,11 @@ const GroupMemberPage = async ({ params }: any) => {
   const groupName = params?.group;
   const { groupMemberData } = await getData(groupName);
 
-  console.log(groupMemberData);
-
-  return <main>{/* <GroupMemeberContainer /> */}</main>;
+  return (
+    <main>
+      <GroupMemeberContainer groupMemberData={groupMemberData} />
+    </main>
+  );
 };
 
 export default GroupMemberPage;
