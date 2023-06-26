@@ -9,9 +9,15 @@ export interface IdolGroup {
   groupname: string;
 }
 
+const fetchData = async () => {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_DEV_BASE_URL}/groups/`);
+  const idolGroupData: IdolGroup[] = await res.json();
+  return { idolGroupData };
+};
+
 export default async function Home() {
   const schedulesData: [] = [];
-  const idolGroupData: IdolGroup[] = await getIdolGroups();
+  const { idolGroupData } = await fetchData();
 
   return (
     <main>

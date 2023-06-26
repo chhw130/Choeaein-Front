@@ -21,20 +21,22 @@ const GroupMemeberContainer = () => {
       margin={"0 auto"}
     >
       <Center padding={10}>
-        <Image
-          src={groupMemberData.group_profile}
-          alt="아티스트 이미지"
-          width={1000}
-          height={1000}
-          style={{
-            objectFit: "cover",
-            aspectRatio: "2.5/2",
-            width: "40%",
-            margin: "0 50px",
-            objectPosition: "center",
-            cursor: "pointer",
-          }}
-        />
+        {groupMemberData?.group_profile && (
+          <Image
+            src={groupMemberData?.group_profile}
+            alt="아티스트 이미지"
+            width={1000}
+            height={1000}
+            style={{
+              objectFit: "cover",
+              aspectRatio: "2.5/2",
+              width: "40%",
+              margin: "0 50px",
+              objectPosition: "center",
+              cursor: "pointer",
+            }}
+          />
+        )}
         <DescriptionCard />
       </Center>
     </Flex>
