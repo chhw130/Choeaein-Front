@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { getIdolMember } from "../axios/AxiosSetting";
+import { getIdolMember } from "../API/CSRSetting";
 import { Group } from "../interface/interface";
 
 interface GroupMemberHook {

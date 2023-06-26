@@ -21,7 +21,7 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 import { useQuery } from "@tanstack/react-query";
-import { specificIdolSchedule } from "@/utils/axios/AxiosSetting";
+import { specificIdolSchedule } from "@/utils/API/CSRSetting";
 import { CalendarPageProps } from "@/app/calendar/[idolID]/page";
 import {
   faChevronLeft,

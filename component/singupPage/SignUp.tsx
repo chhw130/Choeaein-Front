@@ -14,7 +14,7 @@ import {
 } from "@chakra-ui/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPhone } from "@fortawesome/free-solid-svg-icons";
-import { postSignUp } from "@/utils/axios/AxiosSetting";
+import { postSignUp } from "@/utils/API/CSRSetting";
 import { useRouter } from "next/navigation";
 import { SignUpData } from "@/utils/interface/interface";
 import IdolOption from "../../UI/Select/IdolOption";

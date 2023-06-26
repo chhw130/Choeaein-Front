@@ -1,5 +1,5 @@
 "use client";
-import { getIdolList } from "@/utils/axios/AxiosSetting";
+import { getIdolList } from "@/utils/API/SSGSetting";
 import { useQuery } from "@tanstack/react-query";
 
 const IdolOption = () => {

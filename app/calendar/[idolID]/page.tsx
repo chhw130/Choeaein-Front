@@ -1,5 +1,5 @@
 import CalnedarContainer from "@/component/calendarPage/CalnedarContainer";
-import { specificIdolInform } from "@/utils/axios/AxiosSetting";
+import { specificIdolInform } from "@/utils/API/CSRSetting";
 
 export interface CalendarPageProps {
   params: { idolID: string };

@@ -1,7 +1,7 @@
 import IdolSection from "@/component/mainPage/IdolSection";
 import MainVideo from "@/component/mainPage/MainVideo";
 import RandomSchedule from "@/component/mainPage/RandomSchedule";
-import { getIdolGroups } from "@/utils/axios/AxiosSetting";
+import { getIdolGroups } from "@/utils/API/SSGSetting";
 
 export interface IdolGroup {
   enter: string;
@@ -10,8 +10,7 @@ export interface IdolGroup {
 }
 
 const fetchData = async () => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_DEV_BASE_URL}/groups/`);
-  const idolGroupData: IdolGroup[] = await res.json();
+  const idolGroupData: IdolGroup[] = await getIdolGroups();
   return { idolGroupData };
 };
 
