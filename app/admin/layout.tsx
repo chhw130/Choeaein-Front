@@ -15,7 +15,7 @@ const AdminLayout = ({ children }: { children: React.ReactNode }) => {
         router.push("/");
       }
     }
-  }, [userData]);
+  }, [userData, isLoading, isLogin]);
 
   return (
     <>

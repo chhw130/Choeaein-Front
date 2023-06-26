@@ -45,19 +45,15 @@ const Header = () => {
               </Box>
             </HStack>
           </Link>
-
           <HStack>
             <SearchBar />
-
             <ThemeBtn />
-
             <div className="navItem">
               <HeaderBtn />
             </div>
           </HStack>
         </Flex>
       </Flex>
-
       <MobileNav onOpen={onOpen} />
       <Drawer
         autoFocus={false}

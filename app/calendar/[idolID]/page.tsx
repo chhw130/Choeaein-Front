@@ -1,5 +1,5 @@
 import CalnedarContainer from "@/component/calendarPage/CalnedarContainer";
-import { specificIdolInform } from "@/utils/API/CSRSetting";
+import { getIdolInform } from "@/utils/API/SSGSetting";
 
 export interface CalendarPageProps {
   params: { idolID: string };
@@ -7,7 +7,7 @@ export interface CalendarPageProps {
 
 async function CalendarPage({ params }: CalendarPageProps) {
   const idolId = params.idolID;
-  const idolData = await specificIdolInform(idolId);
+  const idolData = await getIdolInform(idolId);
 
   return (
     <>

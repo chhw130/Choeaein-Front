@@ -55,7 +55,7 @@ const SignUp = () => {
 
   return (
     <>
-      <div className={styles.signUp}>
+      <section className={styles.signUp}>
         <form onSubmit={handleSubmit(onSubmit)}>
           <MainLogo />
           <FormControl marginBottom={3}>
@@ -363,7 +363,7 @@ const SignUp = () => {
             </Button>
           </ButtonGroup>
         </form>
-      </div>
+      </section>
     </>
   );
 };

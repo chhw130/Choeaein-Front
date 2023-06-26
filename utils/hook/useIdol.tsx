@@ -1,6 +1,6 @@
 "use client";
 import { useQuery } from "@tanstack/react-query";
-import { getIdolList } from "../API/CSRSetting";
+import { getIdolList } from "../API/SSGSetting";
 
 interface IdolHook {
   idolData: any;

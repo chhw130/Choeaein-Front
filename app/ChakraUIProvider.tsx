@@ -10,7 +10,7 @@ import {
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
 const ChakraProvider = dynamic(() =>
-  import("@chakra-ui/provider").then((mod) => mod.ChakraProvider)
+  import("@chakra-ui/react").then((mod) => mod.ChakraProvider)
 );
 
 import localFont from "next/font/local";
@@ -19,6 +19,16 @@ const BMJUA = localFont({
   src: [
     {
       path: "./font/BMJUA_ttf.ttf",
+      weight: "normal",
+      style: "normal",
+    },
+  ],
+});
+
+const godoRound = localFont({
+  src: [
+    {
+      path: "./font/godoRounded L.ttf",
       weight: "normal",
       style: "normal",
     },

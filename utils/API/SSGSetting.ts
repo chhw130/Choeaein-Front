@@ -19,7 +19,7 @@ export const getIdolMember = async (group: string | null | undefined) => {
 };
 
 /**특정 아이돌 정보 */
-export const specificIdolInform = async (idolId: any) => {
+export const getIdolInform = async (idolId: any) => {
   const res = await fetch(`${url}/idols/${idolId}/`);
   return res.json();
 };

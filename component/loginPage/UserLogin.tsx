@@ -16,11 +16,7 @@ import { postLogin } from "@/utils/API/CSRSetting";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 
-import {
-  QueryClient,
-  useMutation,
-  useQueryClient,
-} from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { OAuthButtonGroup } from "./OAuthButtonGroup";
 import { useToast } from "@/UI/Toast/useToast";
 import MainLogo from "@/UI/Logo/MainLogo";
@@ -76,9 +72,11 @@ const UserLogin = () => {
           justifyContent={"center"}
           alignItems={"center"}
           margin={"30px auto"}
+          fontFamily={"inherit"}
         >
           <MainLogo />
           <Input
+            fontFamily={"heading"}
             w={"90%"}
             h={"70px"}
             fontSize={"1rem"}
@@ -89,6 +87,7 @@ const UserLogin = () => {
             })}
           />
           <Input
+            fontFamily={"heading"}
             w={"90%"}
             h={"70px"}
             fontSize={"1rem"}

@@ -1,7 +1,6 @@
 import GroupMemeberContainer from "@/component/groupMemberPage/GroupMemeberContainer";
 import { getIdolMember } from "@/utils/API/SSGSetting";
 import { GroupType } from "@/utils/interface/interface";
-import { notFound } from "next/navigation";
 import React from "react";
 
 const getData = async (groupName: string) => {
