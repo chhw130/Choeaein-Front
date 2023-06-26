@@ -5,11 +5,9 @@ import {
   Flex,
   FormControl,
   FormLabel,
-  HStack,
   Input,
   InputGroup,
   InputLeftAddon,
-  Text,
   VStack,
 } from "@chakra-ui/react";
 import React from "react";

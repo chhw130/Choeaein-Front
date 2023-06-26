@@ -13,9 +13,9 @@ import {
   Tr,
 } from "@chakra-ui/react";
 import Image from "next/image";
-import { getIdolList } from "@/utils/API/CSRSetting";
 import SkeletonUI from "../../UI/Skeleton/SkeletonUI";
 import PageBtn from "../../UI/Button/PageBtn";
+import { getIdolList } from "@/utils/API/SSGSetting";
 
 const IdolList = () => {
   const { data: idolData = [], isLoading } = useQuery(["idolData"], () =>

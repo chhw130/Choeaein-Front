@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { Box, Button, Flex, HStack, Text, VStack } from "@chakra-ui/react";
+import { Box, Flex, HStack, Text, VStack } from "@chakra-ui/react";
 import EditUserImg from "./EditUserImg";
 import ModifyPick from "./UI/ModifyPick";
 import ModifyPassword from "./UI/ModifyPassword";
