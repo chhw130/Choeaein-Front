@@ -3,6 +3,7 @@ import DescriptionCard from "@/UI/Card/DescriptionCard";
 import { GroupType } from "@/utils/interface/interface";
 import { Center, Flex } from "@chakra-ui/react";
 import Image from "next/image";
+import { notFound } from "next/navigation";
 import React from "react";
 
 const GroupMemeberContainer = ({
@@ -10,6 +11,8 @@ const GroupMemeberContainer = ({
 }: {
   groupMemberData: GroupType;
 }) => {
+  if (!groupMemberData.pk) return notFound();
+
   return (
     <Flex
       h="100vh"
