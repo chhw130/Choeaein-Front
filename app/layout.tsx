@@ -5,7 +5,6 @@ import "@fortawesome/fontawesome-svg-core/styles.css";
 import "react-toastify/dist/ReactToastify.css";
 import { Metadata } from "next";
 import "../app/global.scss";
-import Provider from "./SessionProvider";
 
 export const metadata: Metadata = {
   title: "Myfavor",
@@ -25,11 +24,9 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body suppressHydrationWarning>
         <ReactQueryProvider>
-          <Provider>
-            <Providers>
-              <DefaultLayout>{children}</DefaultLayout>
-            </Providers>
-          </Provider>
+          <Providers>
+            <DefaultLayout>{children}</DefaultLayout>
+          </Providers>
         </ReactQueryProvider>
       </body>
     </html>

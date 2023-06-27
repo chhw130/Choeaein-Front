@@ -20,6 +20,7 @@ const GroupMemeberContainer = ({
       flexDir={"column"}
       width={"100%"}
       margin={"0 auto"}
+      as={"section"}
     >
       <Center padding={10}>
         {groupMemberData?.group_profile && (

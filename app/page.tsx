@@ -2,6 +2,7 @@ import IdolSection from "@/component/mainPage/IdolSection";
 import MainVideo from "@/component/mainPage/MainVideo";
 import RandomSchedule from "@/component/mainPage/RandomSchedule";
 import { getIdolGroups } from "@/utils/API/SSGSetting";
+import { Box } from "@chakra-ui/react";
 
 export interface IdolGroup {
   enter: string;
