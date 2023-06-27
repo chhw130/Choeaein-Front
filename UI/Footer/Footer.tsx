@@ -16,6 +16,7 @@ const Footer = () => {
       w="100%"
       spacing={2}
       alignItems="flex-start"
+      as={"footer"}
     >
       <Image
         src="https://velog.velcdn.com/images/view_coding/post/b0d48523-f2f5-4319-be6f-1784d4457a54/image.png"
@@ -57,7 +58,6 @@ const Footer = () => {
           </span>
         </div>
       </div>
-      <div className={styles.footerMade}></div>
     </VStack>
   );
 };
