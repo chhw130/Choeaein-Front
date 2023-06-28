@@ -1,0 +1,204 @@
+@charset "UTF-8";
+.testDiv {
+  /* border: 1px solid black; */
+  display: flex;
+  list-style: none;
+}
+
+.listItem {
+  padding: 30px;
+  font-size: 16px;
+  list-style: none;
+}
+
+.active:nth-child(1) {
+  background-color: #443c68;
+  color: white;
+}
+.active:nth-child(2) {
+  background-color: #537fe7;
+  color: white;
+}
+.active:nth-child(3) {
+  background-color: #f16767;
+  color: white;
+}
+.active:nth-child(4) {
+  background-color: #e7b10a;
+  color: white;
+}
+.active:nth-child(5) {
+  background-color: #609966;
+  color: white;
+}
+.active:nth-child(6) {
+  background-color: rgb(12, 163, 35);
+  color: white;
+}
+
+.inactive {
+  background-color: #ececec;
+  color: black;
+}
+
+.buttonss {
+  font-family: "Jua", sans-serif;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.icons {
+  margin-bottom: 5px;
+}
+
+.calendarContainer {
+  margin: 10px;
+  height: 90%;
+  width: 75%;
+  font-family: "Jua", sans-serif;
+  font-size: 1.3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+}
+.calendarContainer .controlContainer {
+  margin: auto 5vw;
+  display: flex;
+  align-content: center;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.calendarContainer .title {
+  margin: auto 10px;
+  width: 130px;
+  padding: auto 10px;
+}
+.calendarContainer .categoryContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.calendarContainer .categoryBtn {
+  color: white;
+  background: none;
+  font-family: "Jua", sans-serif;
+  font-size: medium;
+  border: none;
+}
+.calendarContainer .categoryBtn:nth-child(1) {
+  background-color: #443c68;
+}
+.calendarContainer .categoryBtn:nth-child(2) {
+  background-color: #f16767;
+}
+.calendarContainer .categoryBtn:nth-child(3) {
+  background-color: #609966;
+}
+.calendarContainer .categoryBtn:nth-child(4) {
+  background-color: #e7b10a;
+}
+.calendarContainer .categoryBtn:nth-child(5) {
+  background-color: #537fe7;
+}
+.calendarContainer .categoryBtn:nth-child(6) {
+  background-color: black;
+  color: white;
+}
+.calendarContainer .week {
+  height: 5rem;
+  color: #7f7f7f;
+  font-size: 1.5rem;
+  vertical-align: middle;
+}
+.calendarContainer span {
+  font-weight: 600;
+}
+
+.eventContent {
+  display: flex;
+  height: 16px;
+  justify-content: center;
+}
+
+/* 방송  */
+.broadcast {
+  font-size: 30px;
+  background: #443c68;
+  color: white;
+  border-radius: 5px;
+  padding: 5px;
+  flex-direction: row;
+  align-items: center;
+  display: flex;
+}
+
+/* 발매 */
+.release {
+  font-size: 30px;
+  background: #f16767;
+  color: white;
+  border-radius: 5px;
+  padding: 5px;
+  flex-direction: row;
+  align-items: center;
+  display: flex;
+}
+
+/* 구매 */
+.buy {
+  font-size: 30px;
+  background: #609966;
+  color: white;
+  border-radius: 5px;
+  padding: 5px;
+  flex-direction: row;
+  align-items: center;
+  display: flex;
+}
+
+/* 축하 */
+.congrats {
+  font-size: 30px;
+  background: #e7b10a;
+  color: white;
+  border-radius: 5px;
+  padding: 5px;
+  flex-direction: row;
+  align-items: center;
+  display: flex;
+}
+
+/* 행사 */
+.event {
+  font-size: 30px;
+  background: #537fe7;
+  color: white;
+  border-radius: 5px;
+  padding: 5px;
+  flex-direction: row;
+  align-items: center;
+  display: flex;
+}
+
+/* my */
+.my {
+  font-size: 30px;
+  background: black;
+  color: white;
+  border-radius: 5px;
+  padding: 5px;
+  flex-direction: row;
+  align-items: center;
+  display: flex;
+}
+
+/* 모바일 가로, 테블릿 세로 (해상도 ~ 479px)*/
+@media (max-width: 768px) {
+  .calendarContainer {
+    width: 100%;
+  }
+}

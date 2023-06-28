@@ -1,3 +1,4 @@
+"use client";
 import HeaderBtn from "@/UI/Headar/HeaderBtn";
 import {
   Flex,

@@ -16,7 +16,6 @@ const Footer = () => {
       w="100%"
       spacing={2}
       alignItems="flex-start"
-      as={"footer"}
     >
       <Image
         src="https://velog.velcdn.com/images/view_coding/post/b0d48523-f2f5-4319-be6f-1784d4457a54/image.png"
@@ -25,10 +24,7 @@ const Footer = () => {
         height={200}
         style={{ width: "auto", height: "auto" }}
       />
-      <Flex color={"white"} fontSize="23px" fontWeight="800">
-        <p>고객센터</p>
-        <p>서비스 안내</p>
-      </Flex>
+
       <div className={styles.footerSns}>
         <h1>더욱 다양한 최애인을 만나보세요!</h1>
         <div className={styles.footerSns_image}>
@@ -58,6 +54,7 @@ const Footer = () => {
           </span>
         </div>
       </div>
+      <div className={styles.footerMade}></div>
     </VStack>
   );
 };

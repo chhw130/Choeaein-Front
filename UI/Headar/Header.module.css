@@ -1,0 +1,11 @@
+.navItem_span {
+  padding-left: 10px;
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 769px) {
+  .header {
+    display: none;
+  }
+}

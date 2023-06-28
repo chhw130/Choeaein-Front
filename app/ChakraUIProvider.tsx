@@ -13,6 +13,7 @@ const ChakraProvider = dynamic(() =>
 );
 
 import localFont from "next/font/local";
+import { useEffect, useState } from "react";
 
 const BMJUA = localFont({
   src: [
@@ -31,6 +32,16 @@ export function Providers({ children }: { children: React.ReactNode }) {
     initialColorMode: colorMode,
     useSystemColorMode: false,
   };
+
+  const [mount, setMount] = useState(false);
+
+  useEffect(() => {
+    setMount(true);
+  }, []);
+
+  if (!mount) {
+    return <></>;
+  }
 
   const theme = extendTheme({
     config,
