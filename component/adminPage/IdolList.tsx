@@ -4,6 +4,7 @@ import { useMemo } from "react";
 import { useTable, usePagination } from "react-table";
 import {
   Box,
+  Center,
   Table,
   TableContainer,
   Tbody,
@@ -112,42 +113,48 @@ const IdolList = () => {
 
   return (
     <>
-      <TableContainer>
-        <Table {...getTableProps()}>
-          <Thead overscroll="auto" key={page.id}>
-            {headerGroups.map((headergroup, index) => (
-              <Tr {...headergroup.getHeaderGroupProps()} key={index}>
-                {headergroup.headers.map((column, index) => (
-                  <Th {...column.getHeaderProps()} key={index}>
-                    {column.render("Header")}
-                  </Th>
-                ))}
-              </Tr>
-            ))}
-          </Thead>
-          {!isLoading ? (
-            <Tbody {...getTableBodyProps()} textAlign="center" key={page.id}>
-              {page?.map((row: any, index: number) => {
-                prepareRow(row);
-                return (
-                  <Tr {...row.getRowProps()} key={index}>
-                    {row.cells.map((cell: any) => {
-                      const { key, ...restCellProps } = cell.getCellProps();
-                      return (
-                        <Td {...restCellProps} key={key}>
-                          {cell.render("Cell")}
-                        </Td>
-                      );
-                    })}
-                  </Tr>
-                );
-              })}
-            </Tbody>
-          ) : (
-            <SkeletonUI columnLength={COLUMS} />
-          )}
-        </Table>
-      </TableContainer>
+      {data.length === 0 ? (
+        <Center h="450px" fontSize={"28px"}>
+          등록된 아이돌이 없습니다.
+        </Center>
+      ) : (
+        <TableContainer>
+          <Table {...getTableProps()}>
+            <Thead overscroll="auto" key={page.id}>
+              {headerGroups.map((headergroup, index) => (
+                <Tr {...headergroup.getHeaderGroupProps()} key={index}>
+                  {headergroup.headers.map((column, index) => (
+                    <Th {...column.getHeaderProps()} key={index}>
+                      {column.render("Header")}
+                    </Th>
+                  ))}
+                </Tr>
+              ))}
+            </Thead>
+            {!isLoading ? (
+              <Tbody {...getTableBodyProps()} textAlign="center" key={page.id}>
+                {page?.map((row: any, index: number) => {
+                  prepareRow(row);
+                  return (
+                    <Tr {...row.getRowProps()} key={index}>
+                      {row.cells.map((cell: any) => {
+                        const { key, ...restCellProps } = cell.getCellProps();
+                        return (
+                          <Td {...restCellProps} key={key}>
+                            {cell.render("Cell")}
+                          </Td>
+                        );
+                      })}
+                    </Tr>
+                  );
+                })}
+              </Tbody>
+            ) : (
+              <SkeletonUI columnLength={COLUMS} />
+            )}
+          </Table>
+        </TableContainer>
+      )}
       <PageBtn
         gotoPage={gotoPage}
         previousPage={previousPage}

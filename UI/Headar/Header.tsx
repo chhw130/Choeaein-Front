@@ -8,7 +8,6 @@ import {
   useColorMode,
   useDisclosure,
 } from "@chakra-ui/react";
-import { GoSearch } from "react-icons/go";
 import Link from "next/link";
 import HeaderBtn from "@/UI/Headar/HeaderBtn";
 import { SidebarContent } from "@/UI/Headar/Sidebar";
