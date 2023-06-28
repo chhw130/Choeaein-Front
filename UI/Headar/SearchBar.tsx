@@ -1,21 +1,28 @@
 "use client";
-import { Button, Input, InputGroup } from "@chakra-ui/react";
+import { Button, Input, InputGroup, useColorMode } from "@chakra-ui/react";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
-import { useToast } from "../Toast/useToast";
 import { GoSearch } from "react-icons/go";
+import { toast } from "react-toastify";
 
 const SearchBar = () => {
   const router = useRouter();
   const [keyword, setKeyword] = useState<string>("");
+  const { colorMode } = useColorMode();
 
   const submitHandler = (e: React.FormEvent<HTMLFormElement> | any) => {
     e.preventDefault();
     if (keyword.trim() === "") {
-      return useToast("공백 없이 입력해주세요!", "black", "error");
+      return toast("공백 없이 입력해주세요!", {
+        type: "error",
+        theme: colorMode,
+        autoClose: 2000,
+        toastId: 1,
+      });
     }
     router.push(`/search?keyword=${keyword}`);
   };
+
   return (
     <InputGroup as="form" marginRight="10px" onSubmit={(e) => submitHandler(e)}>
       <Input

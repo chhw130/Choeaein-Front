@@ -1,8 +1,7 @@
 import IdolSection from "@/component/mainPage/IdolSection";
 import MainVideo from "@/component/mainPage/MainVideo";
 import RandomSchedule from "@/component/mainPage/RandomSchedule";
-import { getIdolGroups } from "@/utils/API/SSGSetting";
-import { Box } from "@chakra-ui/react";
+import { getIdolGroups, getIdolSolos } from "@/utils/API/SSGSetting";
 
 export interface IdolGroup {
   enter: string;
@@ -12,18 +11,20 @@ export interface IdolGroup {
 
 const fetchData = async () => {
   const idolGroupData: IdolGroup[] = await getIdolGroups();
-  return { idolGroupData };
+  const idolSoloData = await getIdolSolos();
+
+  return { idolGroupData, idolSoloData };
 };
 
 export default async function Home() {
   const schedulesData: [] = [];
-  const { idolGroupData } = await fetchData();
+  const { idolGroupData, idolSoloData } = await fetchData();
 
   return (
     <main>
       <MainVideo />
       <RandomSchedule schedulesData={schedulesData} />
-      <IdolSection idolGroupData={idolGroupData} />
+      <IdolSection idolGroupData={idolGroupData} idolSoloData={idolSoloData} />
     </main>
   );
 }

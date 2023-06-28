@@ -1,10 +1,17 @@
 "use client";
 import { postLogout } from "@/utils/API/CSRSetting";
 import useUser from "@/utils/hook/useUser";
-import { Avatar, Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/react";
+import {
+  Avatar,
+  Menu,
+  MenuButton,
+  MenuItem,
+  MenuList,
+  useColorMode,
+} from "@chakra-ui/react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import Link from "next/link";
-import { useToast } from "../Toast/useToast";
+import { toast } from "react-toastify";
 
 const loginMenu = [
   {
@@ -33,14 +40,15 @@ const logoutMenu = [
 ];
 
 const HeaderBtn = () => {
-  const { isLoading, isLogin, userData } = useUser();
+  const { userData } = useUser();
+  const { colorMode } = useColorMode();
 
   const queryClient = useQueryClient();
   const { mutateAsync: logoutHandler } = useMutation(() => postLogout(), {
     onSuccess: () => {
       queryClient.removeQueries(["me"]);
 
-      useToast("로그아웃 되었습니다.", "black", "success");
+      toast("로그아웃 되엇습니다.", { theme: colorMode, type: "success" });
     },
   });
 
