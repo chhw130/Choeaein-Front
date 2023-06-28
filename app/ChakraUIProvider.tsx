@@ -9,7 +9,7 @@ import {
 } from "@chakra-ui/react";
 import dynamic from "next/dynamic";
 const ChakraProvider = dynamic(() =>
-  import("@chakra-ui/provider").then((mod) => mod.ChakraProvider)
+  import("@chakra-ui/react").then((mod) => mod.ChakraProvider)
 );
 
 import localFont from "next/font/local";
