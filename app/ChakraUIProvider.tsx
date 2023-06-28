@@ -8,9 +8,8 @@ import {
   useColorMode,
 } from "@chakra-ui/react";
 import dynamic from "next/dynamic";
-import { useEffect, useState } from "react";
 const ChakraProvider = dynamic(() =>
-  import("@chakra-ui/react").then((mod) => mod.ChakraProvider)
+  import("@chakra-ui/provider").then((mod) => mod.ChakraProvider)
 );
 
 import localFont from "next/font/local";
@@ -25,24 +24,8 @@ const BMJUA = localFont({
   ],
 });
 
-const godoRound = localFont({
-  src: [
-    {
-      path: "./font/godoRounded L.ttf",
-      weight: "normal",
-      style: "normal",
-    },
-  ],
-});
-
 export function Providers({ children }: { children: React.ReactNode }) {
-  const [mount, setMounted] = useState<boolean>(false);
-
   const { colorMode } = useColorMode();
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   const config: ThemeConfig = {
     initialColorMode: colorMode,
