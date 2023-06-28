@@ -24,10 +24,7 @@ const Footer = () => {
         height={200}
         style={{ width: "auto", height: "auto" }}
       />
-      <Flex color={"white"} fontSize="23px" fontWeight="800">
-        <p>고객센터</p>
-        <p>서비스 안내</p>
-      </Flex>
+
       <div className={styles.footerSns}>
         <h1>더욱 다양한 최애인을 만나보세요!</h1>
         <div className={styles.footerSns_image}>
