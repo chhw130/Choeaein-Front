@@ -10,6 +10,7 @@ import {
   Input,
   Stack,
   Text,
+  theme,
   useColorMode,
 } from "@chakra-ui/react";
 import { postLogin } from "@/utils/API/CSRSetting";
@@ -18,11 +19,11 @@ import Link from "next/link";
 
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { OAuthButtonGroup } from "./OAuthButtonGroup";
-import { useToast } from "@/UI/Toast/useToast";
 import MainLogo from "@/UI/Logo/MainLogo";
 import { LoginData } from "@/utils/interface/interface";
 import useUser from "@/utils/hook/useUser";
 import { useEffect } from "react";
+import { toast } from "react-toastify";
 
 const UserLogin = () => {
   const router = useRouter();
@@ -45,12 +46,18 @@ const UserLogin = () => {
     (loginData: LoginData) => postLogin(loginData),
     {
       onError: () => {
-        useToast("ID또는 Password가 틀렸습니다.", colorMode, "error");
+        toast("ID또는 Password가 틀렸습니다.", {
+          type: "error",
+          theme: colorMode,
+        });
       },
       onSuccess: () => {
         router.push("/");
         queryClient.invalidateQueries(["me"]);
-        useToast("로그인 성공!!", colorMode, "info");
+        toast("로그인 성공!!", {
+          type: "info",
+          theme: colorMode,
+        });
       },
     }
   );

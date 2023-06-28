@@ -17,6 +17,9 @@ const useUser = (): UseUserType => {
   } = useQuery(["me"], () => getUserInform(), {
     retry: false,
     refetchOnWindowFocus: false,
+    onError: () => {
+      null;
+    },
   });
 
   return { userData, isLogin: !isError, isLoading };

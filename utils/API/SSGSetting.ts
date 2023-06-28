@@ -1,3 +1,5 @@
+import axios from "axios";
+
 const url = process.env.NEXT_PUBLIC_DEV_BASE_URL;
 
 /**아이돌 목록*/
@@ -9,6 +11,11 @@ export const getIdolList = async () => {
 /**아이돌 그룹*/
 export const getIdolGroups = async () => {
   const res = await fetch(`${url}/groups/`);
+  return res.json();
+};
+
+export const getIdolSolos = async () => {
+  const res = await fetch(`${url}/solos/`);
   return res.json();
 };
 

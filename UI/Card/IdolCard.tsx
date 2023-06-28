@@ -27,10 +27,10 @@ const IdolCard = ({ data }: IdolCardProps) => {
       pos={"relative"}
     >
       <Image
-        src={data?.idol_profile || data?.group_profile}
+        src={data?.idol_profile || data?.group_profile || data.solo_profile}
         alt="아티스트 이미지"
-        width={1000}
-        height={1000}
+        width={10000}
+        height={10000}
         loading="lazy"
         className={styles.groupImg}
       />
