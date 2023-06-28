@@ -1,9 +1,9 @@
-import { toast } from "react-toastify";
+import { TypeOptions, toast } from "react-toastify";
 
 export const useToast = (
   contents: string,
   colorMode: string | null,
-  status: string
+  status: TypeOptions
 ) => {
   const customToast =
     colorMode !== "light"

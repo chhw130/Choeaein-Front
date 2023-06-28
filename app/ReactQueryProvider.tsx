@@ -1,8 +1,13 @@
 "use client";
 
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { QueryClient } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import dynamic from "next/dynamic";
 import { PropsWithChildren, useState } from "react";
+
+const QueryClientProvider = dynamic(() =>
+  import("@tanstack/react-query").then((mod) => mod.QueryClientProvider)
+);
 
 export default function ReactQueryProvider({ children }: PropsWithChildren) {
   const [queryClient] = useState(

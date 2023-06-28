@@ -29,6 +29,7 @@ const SignUp = () => {
     handleSubmit,
     getValues,
   } = useForm<SignUpData>();
+
   const router = useRouter();
 
   const { mutateAsync: signUpHandler } = useMutation(
