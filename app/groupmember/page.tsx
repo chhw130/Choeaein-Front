@@ -8,9 +8,13 @@ const getData = async (groupName: string) => {
   return { groupMemberData };
 };
 
-const GroupMemberPage = async ({ params }: any) => {
-  const groupName = params?.group;
-  const { groupMemberData } = await getData(groupName);
+const GroupMemberPage = async ({ searchParams }: any) => {
+  const groupName = searchParams;
+
+  // const { groupMemberData } = await getData(groupName);
+  const groupMemberData: any = [];
+
+  console.log(groupName);
 
   return (
     <main>

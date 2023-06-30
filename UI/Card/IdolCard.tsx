@@ -15,11 +15,12 @@ const IdolCard = ({ data }: IdolCardProps) => {
   const router = useRouter();
 
   const idolCardHandler = (groupName: string) => {
+    console.log(groupName);
     router.push(`/groupmember?group=${groupName}`);
   };
   return (
     <Box
-      onClick={() => idolCardHandler(data.groupname)}
+      onClick={() => idolCardHandler(data.groupname || data.idol_name_kr)}
       textAlign="center"
       margin="30px 0"
       w={["24%", "24%", "23%"]}
