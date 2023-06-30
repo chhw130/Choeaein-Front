@@ -1,5 +1,5 @@
-import { IdolGroup } from "@/app/page";
-import { Box, Flex, HStack, Text } from "@chakra-ui/react";
+import { IdolGroup, IdolSolo } from "@/app/page";
+import { Box, HStack, Text } from "@chakra-ui/react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React from "react";
@@ -27,7 +27,7 @@ const IdolCard = ({ data }: IdolCardProps) => {
       pos={"relative"}
     >
       <Image
-        src={data?.idol_profile || data?.group_profile || data.solo_profile}
+        src={data?.group_profile || data.solo_profile}
         alt="아티스트 이미지"
         width={10000}
         height={10000}

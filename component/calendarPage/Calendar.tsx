@@ -25,11 +25,11 @@ import {
 import dynamic from "next/dynamic";
 import CategoryBtn from "./CategoryBtn";
 import { ShowEvent } from "./ShowEvent";
-import CalendarTable from "./CalendarTable";
 import { getIdolSchedule } from "@/utils/API/CSRSetting";
 const ViewDayCalendarModal = dynamic(
   () => import("@/UI/Modal/ViewDayCalendarModal")
 );
+const CalendarTable = dynamic(() => import("./CalendarTable"));
 const ReportBtn = dynamic(() => import("@/UI/Button/ReportBtn"));
 interface CalendarProps extends CalendarPageProps {
   idolData: any;
@@ -219,11 +219,14 @@ const Calendar = ({ idolData, params }: CalendarProps) => {
           </Flex>
         </Flex>
         <CategoryBtn idolId={idolId} />
-        <CalendarTable
-          days={days}
-          calendarArr={calendarArr}
-          isLoading={isLoading}
-        />
+
+        <Box h={"500px"} pos={"relative"}>
+          <CalendarTable
+            days={days}
+            calendarArr={calendarArr}
+            isLoading={isLoading}
+          />
+        </Box>
         <ReportBtn />
       </article>
     </>

@@ -9,6 +9,13 @@ export interface IdolGroup {
   groupname: string;
 }
 
+export interface IdolSolo {
+  enter: string;
+  idol_name_en: string;
+  idol_name_kr: string;
+  solo_profile: string;
+}
+
 const fetchData = async () => {
   const idolGroupData: IdolGroup[] = await getIdolGroups();
   const idolSoloData = await getIdolSolos();
