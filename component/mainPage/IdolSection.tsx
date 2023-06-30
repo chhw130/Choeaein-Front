@@ -11,11 +11,11 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import IdolCard from "@/UI/Card/IdolCard";
-import { IdolGroupType, IdolSolo } from "@/utils/interface/interface";
+import { IdolGroupType, IdolSoloType } from "@/utils/interface/interface";
 
 interface IdolSectionProps {
   idolGroupData: IdolGroupType[];
-  idolSoloData: IdolSolo[];
+  idolSoloData: IdolSoloType[];
 }
 
 const IdolSection = ({ idolGroupData, idolSoloData }: IdolSectionProps) => {
@@ -78,7 +78,7 @@ const IdolSection = ({ idolGroupData, idolSoloData }: IdolSectionProps) => {
                 flexWrap={"wrap"}
                 justifyContent="space-around"
               >
-                {idolSoloData?.map((data: IdolSolo, index) => (
+                {idolSoloData?.map((data: IdolSoloType, index) => (
                   <IdolCard data={data} key={index}></IdolCard>
                 ))}
               </Flex>

@@ -33,7 +33,7 @@ interface IdolType {
   idol_name_kr: string;
 }
 
-export interface IdolSolo extends IdolType {
+export interface IdolSoloType extends IdolType {
   enter: string;
   solo_profile: string;
 }
