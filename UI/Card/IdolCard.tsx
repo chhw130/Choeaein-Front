@@ -1,4 +1,3 @@
-import { IdolGroup, IdolSolo } from "@/app/page";
 import { Box, HStack, Text } from "@chakra-ui/react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -6,16 +5,16 @@ import React from "react";
 import styles from "./IdolCard.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInstagram, faYoutube } from "@fortawesome/free-brands-svg-icons";
+import { IdolGroupType } from "@/utils/interface/interface";
 
 interface IdolCardProps {
-  data: IdolGroup | any;
+  data: IdolGroupType | any;
 }
 
 const IdolCard = ({ data }: IdolCardProps) => {
   const router = useRouter();
 
   const idolCardHandler = (groupName: string) => {
-    console.log(groupName);
     router.push(`/groupmember?group=${groupName}`);
   };
   return (

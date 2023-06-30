@@ -1,18 +1,23 @@
-export interface LoginData {
+/**유저 정보 */
+interface UserType {
   email: string;
+}
+interface UserDataType extends UserType {
+  pick: string | number;
+  nickname: string;
+}
+
+export interface LoginData extends UserType {
   password: string;
 }
 
-export interface UserData {
-  email: string;
+export interface UserData extends UserDataType {
   is_admin: boolean;
-  nickname: string;
-  pick: number;
   pk: number;
   profileImg: string;
 }
 
-export interface SignUpData {
+export interface SignUpData extends UserDataType {
   username?: string;
   password: string;
   passwordConfirm?: string;
@@ -20,22 +25,31 @@ export interface SignUpData {
   birth?: string;
   age?: number;
   phone_number?: string;
-  nickname: string;
-  pick: string | number;
-  email: string;
 }
 
-export interface MemberType {
-  idol_name_kr: string;
+/**아이돌 타입 */
+interface IdolType {
   idol_name_en: string;
+  idol_name_kr: string;
+}
+
+export interface IdolSolo extends IdolType {
+  enter: string;
+  solo_profile: string;
+}
+export interface MemberType extends IdolType {
   idol_profile: string;
   idol_birthday: string;
 }
-export interface GroupType {
-  pk: number;
+
+export interface IdolGroupType {
   enter: string;
-  groupname: string;
   group_profile: string;
+  groupname: string;
+}
+
+export interface GroupType extends IdolGroupType {
+  pk: number;
   group_debut: string;
   group_insta: string;
   group_youtube: string;
