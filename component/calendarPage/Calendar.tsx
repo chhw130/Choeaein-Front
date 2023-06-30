@@ -10,18 +10,12 @@ import {
   Box,
   Button,
   Flex,
-  Spinner,
-  Table,
-  Tbody,
   Td,
   Text,
-  Th,
-  Thead,
   Tr,
   useDisclosure,
 } from "@chakra-ui/react";
 import { useQuery } from "@tanstack/react-query";
-import { specificIdolSchedule } from "@/utils/API/CSRSetting";
 import { CalendarPageProps } from "@/app/calendar/[idolID]/page";
 import {
   faChevronLeft,
@@ -31,11 +25,12 @@ import {
 import dynamic from "next/dynamic";
 import CategoryBtn from "./CategoryBtn";
 import { ShowEvent } from "./ShowEvent";
+import { getIdolSchedule } from "@/utils/API/CSRSetting";
 const ViewDayCalendarModal = dynamic(
   () => import("@/UI/Modal/ViewDayCalendarModal")
 );
+const CalendarTable = dynamic(() => import("./CalendarTable"));
 const ReportBtn = dynamic(() => import("@/UI/Button/ReportBtn"));
-
 interface CalendarProps extends CalendarPageProps {
   idolData: any;
 }
@@ -44,9 +39,10 @@ const days = ["일", "월", "화", "수", "목", "금", "토"];
 
 const Calendar = ({ idolData, params }: CalendarProps) => {
   const idolId = params.idolID;
+
   const { data: newIdolSchedule = [], isLoading } = useQuery(
     ["idolSchedule", idolId],
-    () => specificIdolSchedule(idolId)
+    () => getIdolSchedule(idolId)
   );
 
   const { isOpen, onClose, onOpen } = useDisclosure();
@@ -143,7 +139,7 @@ const Calendar = ({ idolData, params }: CalendarProps) => {
                     padding={[2, 3, 4]}
                     textAlign="center"
                     key={index}
-                    onClick={(e) => {
+                    onClick={() => {
                       setSelectedDay(days);
                       onOpen();
                     }}
@@ -181,11 +177,13 @@ const Calendar = ({ idolData, params }: CalendarProps) => {
         isOpen={isOpen}
         onClose={onClose}
       />
-      <div className={styles.calendarContainer}>
+      <article className={styles.calendarContainer}>
         <Flex justifyContent="space-between" padding="10px 20px">
           <IdolInform idolData={idolData} />
-          <Flex fontSize={[20, 25, 30]} margin={"auto 0"}>
+          <Flex fontSize={[15, 18, 26]} margin={"auto 0"}>
             <Button
+              margin={"auto 0"}
+              size={["sm", "sm", "md"]}
               onClick={() => {
                 setMoment(getMoment.clone().subtract(1, "month"));
               }}
@@ -200,6 +198,8 @@ const Calendar = ({ idolData, params }: CalendarProps) => {
               {today.format("YYYY.MM")}
             </Text>
             <Button
+              size={["sm", "sm", "md"]}
+              margin={"auto 0"}
               onClick={() => {
                 setMoment(getMoment.clone().add(1, "month"));
               }}
@@ -207,6 +207,8 @@ const Calendar = ({ idolData, params }: CalendarProps) => {
               <FontAwesomeIcon icon={faChevronRight} size="lg" />
             </Button>
             <Button
+              size={["sm", "sm", "md"]}
+              margin={"auto 0"}
               onClick={() => {
                 setMoment(moment());
                 setSelectedDay(moment());
@@ -217,42 +219,16 @@ const Calendar = ({ idolData, params }: CalendarProps) => {
           </Flex>
         </Flex>
         <CategoryBtn idolId={idolId} />
-        {!isLoading ? (
-          <Table h={"500px"} w="100%">
-            <Thead>
-              <Tr>
-                {days.map((day, index) => {
-                  return (
-                    <Th
-                      key={index}
-                      textAlign="center"
-                      fontSize={[15, 18, 20]}
-                      padding={[3, 4, 5]}
-                    >
-                      {day}
-                    </Th>
-                  );
-                })}
-              </Tr>
-            </Thead>
-            <Tbody className={styles.calendarTbody}>{calendarArr()}</Tbody>
-          </Table>
-        ) : (
-          <Box w="100%" h={"500px"}>
-            <Spinner
-              position="absolute"
-              top="45%"
-              left="47.5%"
-              thickness="4px"
-              speed="0.65s"
-              emptyColor="gray.200"
-              color="#f89598"
-              size="xl"
-            />
-          </Box>
-        )}
+
+        <Box h={"500px"} pos={"relative"}>
+          <CalendarTable
+            days={days}
+            calendarArr={calendarArr}
+            isLoading={isLoading}
+          />
+        </Box>
         <ReportBtn />
-      </div>
+      </article>
     </>
   );
 };

@@ -10,9 +10,9 @@ async function CalendarPage({ params }: CalendarPageProps) {
   const idolData = await getIdolInform(idolId);
 
   return (
-    <>
+    <main>
       <CalnedarContainer params={params} idolData={idolData} />
-    </>
+    </main>
   );
 }
 

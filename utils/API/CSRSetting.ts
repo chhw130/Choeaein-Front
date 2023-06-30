@@ -50,7 +50,7 @@ export const getUserInform = () =>
     .then((res) => res.data);
 
 /**특정 아이돌 스케줄 */
-export const specificIdolSchedule = (idolId: string) =>
+export const getIdolSchedule = (idolId: string) =>
   instance.get(`/idols/${idolId}/schedules/`).then((res) => res.data);
 
 /**사진을 업로드 할 url 가져오는 함수. */

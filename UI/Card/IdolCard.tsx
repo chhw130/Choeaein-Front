@@ -1,14 +1,14 @@
-import { IdolGroup } from "@/app/page";
-import { Box, Flex, HStack, Text } from "@chakra-ui/react";
+import { Box, HStack, Text } from "@chakra-ui/react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React from "react";
 import styles from "./IdolCard.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInstagram, faYoutube } from "@fortawesome/free-brands-svg-icons";
+import { IdolGroupType } from "@/utils/interface/interface";
 
 interface IdolCardProps {
-  data: IdolGroup | any;
+  data: IdolGroupType | any;
 }
 
 const IdolCard = ({ data }: IdolCardProps) => {
@@ -19,7 +19,7 @@ const IdolCard = ({ data }: IdolCardProps) => {
   };
   return (
     <Box
-      onClick={() => idolCardHandler(data.groupname)}
+      onClick={() => idolCardHandler(data.groupname || data.idol_name_kr)}
       textAlign="center"
       margin="30px 0"
       w={["24%", "24%", "23%"]}
@@ -27,7 +27,7 @@ const IdolCard = ({ data }: IdolCardProps) => {
       pos={"relative"}
     >
       <Image
-        src={data?.idol_profile || data?.group_profile || data.solo_profile}
+        src={data?.group_profile || data.solo_profile}
         alt="아티스트 이미지"
         width={10000}
         height={10000}

@@ -11,17 +11,14 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import IdolCard from "@/UI/Card/IdolCard";
-import { IdolGroup } from "@/app/page";
-import { useEffect } from "react";
-import { getIdolGroups } from "@/utils/API/SSGSetting";
+import { IdolGroupType, IdolSoloType } from "@/utils/interface/interface";
 
 interface IdolSectionProps {
-  idolGroupData: IdolGroup[];
-  idolSoloData: any;
+  idolGroupData: IdolGroupType[];
+  idolSoloData: IdolSoloType[];
 }
 
 const IdolSection = ({ idolGroupData, idolSoloData }: IdolSectionProps) => {
-  console.log(idolGroupData, idolSoloData);
   return (
     <>
       <Box as="section" w={["98%", "98%", "90%"]} maxW="950px" margin="0 auto">
@@ -70,7 +67,7 @@ const IdolSection = ({ idolGroupData, idolSoloData }: IdolSectionProps) => {
                 flexWrap={"wrap"}
                 justifyContent="space-around"
               >
-                {idolGroupData?.map((data: IdolGroup, index) => (
+                {idolGroupData?.map((data: IdolGroupType, index) => (
                   <IdolCard data={data} key={index} />
                 ))}
               </Flex>
@@ -81,7 +78,7 @@ const IdolSection = ({ idolGroupData, idolSoloData }: IdolSectionProps) => {
                 flexWrap={"wrap"}
                 justifyContent="space-around"
               >
-                {idolSoloData?.map((data: any, index: number) => (
+                {idolSoloData?.map((data: IdolSoloType, index) => (
                   <IdolCard data={data} key={index}></IdolCard>
                 ))}
               </Flex>

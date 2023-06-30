@@ -1,17 +1,11 @@
 "use client";
 
 import { CacheProvider } from "@chakra-ui/next-js";
-import {
-  ColorModeScript,
-  ThemeConfig,
-  extendTheme,
-  useColorMode,
-} from "@chakra-ui/react";
+import { ColorModeScript, ThemeConfig, extendTheme } from "@chakra-ui/react";
 import dynamic from "next/dynamic";
 const ChakraProvider = dynamic(() =>
   import("@chakra-ui/provider").then((mod) => mod.ChakraProvider)
 );
-
 import localFont from "next/font/local";
 import { useEffect, useState } from "react";
 
@@ -26,10 +20,8 @@ const BMJUA = localFont({
 });
 
 export function Providers({ children }: { children: React.ReactNode }) {
-  const { colorMode } = useColorMode();
-
   const config: ThemeConfig = {
-    initialColorMode: colorMode,
+    initialColorMode: "light",
     useSystemColorMode: false,
   };
 

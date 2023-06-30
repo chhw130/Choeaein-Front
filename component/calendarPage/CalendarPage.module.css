@@ -6,25 +6,6 @@
   justify-content: center;
 }
 
-.box {
-  width: 100px;
-  height: 100px;
-  background-color: red;
-  transform: translateY(0);
-}
-
-.box.animated {
-  animation: example 1s linear;
-}
-
-@keyframes example {
-  from {
-    transform: translateY(0);
-  }
-  to {
-    transform: translateY(200px);
-  }
-}
 .calendar {
   display: flex;
   flex-direction: column;
@@ -34,6 +15,7 @@
 .calendarWrap {
   width: 100vw;
   padding-top: 75px;
+  height: 800px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -53,6 +35,18 @@
   color: grey;
 }
 
+.box.animated {
+  animation: example 1s linear;
+}
+
+@keyframes example {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(200px);
+  }
+}
 .nextSchedule {
   display: flex;
   flex-direction: column;

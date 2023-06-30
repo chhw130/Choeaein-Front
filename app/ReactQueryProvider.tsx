@@ -8,8 +8,7 @@ import { toast } from "react-toastify";
 const queryErrorHandler = (error: unknown) => {
   const title =
     error instanceof Error ? error.message : "error connecting to server";
-
-  toast(title, { toastId: 1, theme: "dark" });
+  toast(title, { toastId: 1, theme: "dark", type: "error" });
 };
 
 export default function ReactQueryProvider({ children }: PropsWithChildren) {
@@ -29,10 +28,12 @@ export default function ReactQueryProvider({ children }: PropsWithChildren) {
       })
   );
 
+  const product = process.env.NODE_ENV === "development";
+
   return (
     <QueryClientProvider client={queryClient}>
       {children}
-      <ReactQueryDevtools initialIsOpen={false} />
+      {product && <ReactQueryDevtools initialIsOpen={false} />}
     </QueryClientProvider>
   );
 }
