@@ -10,10 +10,8 @@ const ComingSchedule = dynamic(() => import("./ComingSchedule"));
 const CalnedarContainer = ({ idolData, params }: any) => {
   return (
     <section className={styles.calendarContainer}>
-      <div className={styles.calendar}>
-        <div className={styles.calendarWrap}>
-          <Calendar idolData={idolData} params={params} />
-        </div>
+      <div className={styles.calendarWrap}>
+        <Calendar idolData={idolData} params={params} />
       </div>
       <ComingSchedule />
     </section>

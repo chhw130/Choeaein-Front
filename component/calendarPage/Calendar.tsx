@@ -16,7 +16,6 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 import { useQuery } from "@tanstack/react-query";
-import { specificIdolSchedule } from "@/utils/API/CSRSetting";
 import { CalendarPageProps } from "@/app/calendar/[idolID]/page";
 import {
   faChevronLeft,
@@ -27,6 +26,7 @@ import dynamic from "next/dynamic";
 import CategoryBtn from "./CategoryBtn";
 import { ShowEvent } from "./ShowEvent";
 import CalendarTable from "./CalendarTable";
+import { getIdolSchedule } from "@/utils/API/CSRSetting";
 const ViewDayCalendarModal = dynamic(
   () => import("@/UI/Modal/ViewDayCalendarModal")
 );
@@ -39,9 +39,10 @@ const days = ["일", "월", "화", "수", "목", "금", "토"];
 
 const Calendar = ({ idolData, params }: CalendarProps) => {
   const idolId = params.idolID;
+
   const { data: newIdolSchedule = [], isLoading } = useQuery(
     ["idolSchedule", idolId],
-    () => specificIdolSchedule(idolId)
+    () => getIdolSchedule(idolId)
   );
 
   const { isOpen, onClose, onOpen } = useDisclosure();
@@ -138,7 +139,7 @@ const Calendar = ({ idolData, params }: CalendarProps) => {
                     padding={[2, 3, 4]}
                     textAlign="center"
                     key={index}
-                    onClick={(e) => {
+                    onClick={() => {
                       setSelectedDay(days);
                       onOpen();
                     }}
@@ -176,11 +177,13 @@ const Calendar = ({ idolData, params }: CalendarProps) => {
         isOpen={isOpen}
         onClose={onClose}
       />
-      <div className={styles.calendarContainer}>
+      <article className={styles.calendarContainer}>
         <Flex justifyContent="space-between" padding="10px 20px">
           <IdolInform idolData={idolData} />
-          <Flex fontSize={[20, 25, 30]} margin={"auto 0"}>
+          <Flex fontSize={[15, 18, 26]} margin={"auto 0"}>
             <Button
+              margin={"auto 0"}
+              size={["sm", "sm", "md"]}
               onClick={() => {
                 setMoment(getMoment.clone().subtract(1, "month"));
               }}
@@ -195,6 +198,8 @@ const Calendar = ({ idolData, params }: CalendarProps) => {
               {today.format("YYYY.MM")}
             </Text>
             <Button
+              size={["sm", "sm", "md"]}
+              margin={"auto 0"}
               onClick={() => {
                 setMoment(getMoment.clone().add(1, "month"));
               }}
@@ -202,6 +207,8 @@ const Calendar = ({ idolData, params }: CalendarProps) => {
               <FontAwesomeIcon icon={faChevronRight} size="lg" />
             </Button>
             <Button
+              size={["sm", "sm", "md"]}
+              margin={"auto 0"}
               onClick={() => {
                 setMoment(moment());
                 setSelectedDay(moment());
@@ -218,7 +225,7 @@ const Calendar = ({ idolData, params }: CalendarProps) => {
           isLoading={isLoading}
         />
         <ReportBtn />
-      </div>
+      </article>
     </>
   );
 };
