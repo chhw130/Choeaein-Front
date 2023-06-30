@@ -16,12 +16,13 @@ export const getIdolGroups = async () => {
 
 export const getIdolSolos = async () => {
   const res = await fetch(`${url}/solos/`);
+  // return res;
   return res.json();
 };
 
 /**특정 아이돌 그룹 정보 */
 export const getIdolMember = async (group: string | null | undefined) => {
-  const res = await fetch(`${url}/groups/${group}`);
+  const res = await fetch(`${url}/groups/${group}/`);
   return res.json();
 };
 

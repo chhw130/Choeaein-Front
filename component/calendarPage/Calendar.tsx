@@ -10,13 +10,8 @@ import {
   Box,
   Button,
   Flex,
-  Spinner,
-  Table,
-  Tbody,
   Td,
   Text,
-  Th,
-  Thead,
   Tr,
   useDisclosure,
 } from "@chakra-ui/react";
@@ -31,11 +26,11 @@ import {
 import dynamic from "next/dynamic";
 import CategoryBtn from "./CategoryBtn";
 import { ShowEvent } from "./ShowEvent";
+import CalendarTable from "./CalendarTable";
 const ViewDayCalendarModal = dynamic(
   () => import("@/UI/Modal/ViewDayCalendarModal")
 );
 const ReportBtn = dynamic(() => import("@/UI/Button/ReportBtn"));
-
 interface CalendarProps extends CalendarPageProps {
   idolData: any;
 }
@@ -217,40 +212,7 @@ const Calendar = ({ idolData, params }: CalendarProps) => {
           </Flex>
         </Flex>
         <CategoryBtn idolId={idolId} />
-        {!isLoading ? (
-          <Table h={"500px"} w="100%">
-            <Thead>
-              <Tr>
-                {days.map((day, index) => {
-                  return (
-                    <Th
-                      key={index}
-                      textAlign="center"
-                      fontSize={[15, 18, 20]}
-                      padding={[3, 4, 5]}
-                    >
-                      {day}
-                    </Th>
-                  );
-                })}
-              </Tr>
-            </Thead>
-            <Tbody className={styles.calendarTbody}>{calendarArr()}</Tbody>
-          </Table>
-        ) : (
-          <Box w="100%" h={"500px"}>
-            <Spinner
-              position="absolute"
-              top="45%"
-              left="47.5%"
-              thickness="4px"
-              speed="0.65s"
-              emptyColor="gray.200"
-              color="#f89598"
-              size="xl"
-            />
-          </Box>
-        )}
+        <CalendarTable days={days} calendarArr={calendarArr} />
         <ReportBtn />
       </div>
     </>
