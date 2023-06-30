@@ -212,7 +212,11 @@ const Calendar = ({ idolData, params }: CalendarProps) => {
           </Flex>
         </Flex>
         <CategoryBtn idolId={idolId} />
-        <CalendarTable days={days} calendarArr={calendarArr} />
+        <CalendarTable
+          days={days}
+          calendarArr={calendarArr}
+          isLoading={isLoading}
+        />
         <ReportBtn />
       </div>
     </>
