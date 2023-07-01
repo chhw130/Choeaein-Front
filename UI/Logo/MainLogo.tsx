@@ -7,9 +7,9 @@ import logo from "../../public/img/logo_main.png";
 const MainLogo = () => {
   return (
     <Link href={"/"} prefetch={false} scroll={false}>
-      <HStack margin={"30px"}>
-        <Image src={logo} alt="최애돌" width={50} height={50} priority={true} />
-        <Text fontSize="50px" fontWeight="bold">
+      <HStack margin={"20px"}>
+        <Image src={logo} alt="최애돌" width={40} height={40} priority={true} />
+        <Text fontSize={["30px", "40px", "40px"]} fontWeight="bold">
           CHOEAEIN
         </Text>
       </HStack>

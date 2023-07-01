@@ -55,3 +55,6 @@ export interface GroupType extends IdolGroupType {
   group_youtube: string;
   member: MemberType[];
 }
+
+/**아이돌 스케줄 */
+export interface RandomIdolSchedule {}
