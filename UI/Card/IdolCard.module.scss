@@ -1,5 +1,7 @@
 .idolBox:hover .textBox {
   visibility: visible;
+  background-color: black;
+  transition: all 0.35s;
 }
 
 .groupImg {
