@@ -10,7 +10,6 @@ import {
   Input,
   Stack,
   Text,
-  theme,
   useColorMode,
 } from "@chakra-ui/react";
 import { postLogin } from "@/utils/API/CSRSetting";

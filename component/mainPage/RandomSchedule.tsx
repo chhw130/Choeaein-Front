@@ -6,6 +6,7 @@ import {
   usePrefersReducedMotion,
 } from "@chakra-ui/react";
 import RandomScheduleSlider from "./RandomScheduleSlider";
+import { RandomIdolSchedule } from "@/utils/interface/interface";
 
 const loop = keyframes`
 100% {
@@ -13,12 +14,15 @@ const loop = keyframes`
 }
 `;
 
-const RandomSchedule = ({ schedulesData }: any) => {
+interface RandomScheduleProps {
+  schedulesData: RandomIdolSchedule[];
+}
+
+const RandomSchedule = ({ schedulesData }: RandomScheduleProps) => {
   const prefersReducedMotion = usePrefersReducedMotion();
   const animation = prefersReducedMotion
     ? undefined
     : `${loop} 34s linear infinite`;
-  const slideBanner = schedulesData?.slice(0, 10);
 
   return (
     <Box
@@ -39,8 +43,8 @@ const RandomSchedule = ({ schedulesData }: any) => {
           animationPlayState: "paused",
         }}
       >
-        <RandomScheduleSlider slideBanner={slideBanner} />
-        <RandomScheduleSlider slideBanner={slideBanner} />
+        <RandomScheduleSlider schedulesData={schedulesData} />
+        <RandomScheduleSlider schedulesData={schedulesData} />
       </Container>
     </Box>
   );

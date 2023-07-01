@@ -1,13 +1,20 @@
+import { RandomIdolSchedule } from "@/utils/interface/interface";
 import { Box, Flex } from "@chakra-ui/react";
 import { faBroadcastTower } from "@fortawesome/free-solid-svg-icons/faBroadcastTower";
 import { faMicrophone } from "@fortawesome/free-solid-svg-icons/faMicrophone";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 
-const RandomScheduleSlider = ({ slideBanner }: any) => {
+interface RandomSchedulesSilderProps {
+  schedulesData: RandomIdolSchedule[];
+}
+
+const RandomScheduleSlider = ({
+  schedulesData,
+}: RandomSchedulesSilderProps) => {
   return (
     <>
-      {slideBanner?.map((data: any, i: number) => {
+      {schedulesData?.map((data: any, i: number) => {
         const dateFormat = `${data.when.slice(5, 7)}월 ${data.when.slice(
           8,
           10

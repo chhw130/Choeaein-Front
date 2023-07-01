@@ -2,8 +2,10 @@
 import styles from "./SignUp.module.scss";
 import { useForm } from "react-hook-form";
 import {
+  Box,
   Button,
   ButtonGroup,
+  Flex,
   FormControl,
   FormLabel,
   Input,
@@ -33,7 +35,15 @@ const SignUp = () => {
   const router = useRouter();
 
   const { mutateAsync: signUpHandler } = useMutation(
-    (signUpInform: SignUpData) => postSignUp(signUpInform)
+    (signUpInform: SignUpData) => postSignUp(signUpInform),
+    {
+      onSuccess: () => {
+        console.log(1);
+      },
+      onError: () => {
+        "error";
+      },
+    }
   );
 
   /**회원가입 form 제출시 */
@@ -56,12 +66,20 @@ const SignUp = () => {
 
   return (
     <>
-      <section className={styles.signUp}>
-        <form onSubmit={handleSubmit(onSubmit)}>
+      <Box maxW={"560px"} margin={"0 auto"} padding={"80px 30px"}>
+        <Flex
+          as="form"
+          onSubmit={handleSubmit(onSubmit)}
+          width={"100%"}
+          alignItems={"center"}
+          justifyContent={"center"}
+          flexDir={"column"}
+        >
           <MainLogo />
           <FormControl marginBottom={3}>
             <FormLabel
               fontWeight={"semibold"}
+              fontSize={["12px", "13px", "15px"]}
               htmlFor="username"
               _after={{ content: `"*"`, color: "red" }}
             >
@@ -71,6 +89,7 @@ const SignUp = () => {
               <Input
                 h={"50px"}
                 id="username"
+                fontFamily={"heading"}
                 placeholder="Id를 입력하세요."
                 {...register("username", {
                   required: {
@@ -104,6 +123,7 @@ const SignUp = () => {
             <FormLabel
               fontWeight={"semibold"}
               htmlFor="password"
+              fontSize={["12px", "13px", "15px"]}
               _after={{ content: `"*"`, color: "red" }}
             >
               비밀번호
@@ -112,6 +132,7 @@ const SignUp = () => {
               h={"50px"}
               id="password"
               type="password"
+              fontFamily={"heading"}
               placeholder="비밀번호"
               autoComplete="off"
               {...register("password", {
@@ -149,6 +170,7 @@ const SignUp = () => {
           <FormControl marginBottom={3}>
             <FormLabel
               fontWeight={"semibold"}
+              fontSize={["12px", "13px", "15px"]}
               htmlFor="passwordConfirm"
               _after={{ content: `"*"`, color: "red" }}
             >
@@ -158,6 +180,7 @@ const SignUp = () => {
               h={"50px"}
               id="passwordConfirm"
               type="password"
+              fontFamily={"heading"}
               placeholder="비밀번호 확인"
               autoComplete="off"
               {...register("passwordConfirm", {
@@ -188,12 +211,14 @@ const SignUp = () => {
           <FormControl marginBottom={3}>
             <FormLabel
               fontWeight={"semibold"}
+              fontSize={["12px", "13px", "15px"]}
               htmlFor="name"
               _after={{ content: `"*"`, color: "red" }}
             >
               이름
             </FormLabel>
             <Input
+              fontFamily={"heading"}
               h={"50px"}
               id="name"
               placeholder="이름을 입력하세요"
@@ -223,6 +248,7 @@ const SignUp = () => {
           <FormControl marginBottom={3}>
             <FormLabel
               fontWeight={"semibold"}
+              fontSize={["12px", "13px", "15px"]}
               htmlFor="birth"
               _after={{ content: `"*"`, color: "red" }}
             >
@@ -230,6 +256,7 @@ const SignUp = () => {
             </FormLabel>
             <Input
               h={"50px"}
+              fontFamily={"heading"}
               type="date"
               id="birth"
               {...register("birth", {
@@ -257,6 +284,7 @@ const SignUp = () => {
           <FormControl marginBottom={3}>
             <FormLabel
               fontWeight={"semibold"}
+              fontSize={["12px", "13px", "15px"]}
               htmlFor="number"
               _after={{ content: `"*"`, color: "red" }}
             >
@@ -270,6 +298,7 @@ const SignUp = () => {
               />
               <Input
                 h={"50px"}
+                fontFamily={"heading"}
                 id="number"
                 type="number"
                 placeholder="전화번호를 입력하세요."
@@ -291,6 +320,7 @@ const SignUp = () => {
           <FormControl marginBottom={3}>
             <FormLabel
               fontWeight={"semibold"}
+              fontSize={["12px", "13px", "15px"]}
               htmlFor="nickname"
               _after={{ content: `"*"`, color: "red" }}
             >
@@ -298,6 +328,7 @@ const SignUp = () => {
             </FormLabel>
             <Input
               h={"50px"}
+              fontFamily={"heading"}
               id="nickname"
               placeholder="이메일을 입력하세요"
               {...register("nickname", {
@@ -333,14 +364,15 @@ const SignUp = () => {
           <FormControl marginBottom={10}>
             <FormLabel
               fontWeight={"semibold"}
+              fontSize={["12px", "13px", "15px"]}
               htmlFor="pick"
-              _after={{ content: `"*"`, color: "red" }}
             >
               최애 선택
             </FormLabel>
             <Select
               h={"50px"}
               id="pick"
+              fontFamily={"heading"}
               placeholder="당신의 최애를 알려주세요."
               {...register("pick", {
                 required: "필수 입니다.",
@@ -363,8 +395,8 @@ const SignUp = () => {
               제출
             </Button>
           </ButtonGroup>
-        </form>
-      </section>
+        </Flex>
+      </Box>
     </>
   );
 };
