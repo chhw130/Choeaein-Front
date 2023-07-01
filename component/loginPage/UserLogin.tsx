@@ -16,7 +16,11 @@ import { postLogin } from "@/utils/API/CSRSetting";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+import {
+  QueryClient,
+  useMutation,
+  useQueryClient,
+} from "@tanstack/react-query";
 import { OAuthButtonGroup } from "./OAuthButtonGroup";
 import MainLogo from "@/UI/Logo/MainLogo";
 import { LoginData } from "@/utils/interface/interface";
@@ -32,9 +36,8 @@ const UserLogin = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<LoginData>();
-
   const { isLoading, isLogin, userData } = useUser();
-  const queryClient = useQueryClient();
+  const queryClient: QueryClient = useQueryClient();
 
   /**로그인 되어있으면 home으로 라우팅 */
   useEffect(() => {

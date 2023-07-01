@@ -1,12 +1,12 @@
 "use client";
 import { Container } from "@chakra-ui/react";
-import React, { useEffect } from "react";
 import PageTitle from "./PageTitle";
 import SearchPageContents from "./SearchPageContents";
 
 const SearchPageContainer = () => {
   return (
     <Container
+      as={"section"}
       h="100vh"
       display={"flex"}
       flexDir={"column"}

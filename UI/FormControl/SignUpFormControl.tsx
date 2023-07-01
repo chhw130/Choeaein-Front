@@ -71,7 +71,6 @@ const SignUpFormControl = ({
                 height="50px"
               />
             )}
-
             <Input
               id={inputId}
               type={

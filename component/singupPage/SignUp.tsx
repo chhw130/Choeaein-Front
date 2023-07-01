@@ -25,9 +25,6 @@ const SignUp = () => {
       onSuccess: () => {
         console.log(1);
       },
-      onError: () => {
-        "error";
-      },
     }
   );
 
@@ -45,8 +42,6 @@ const SignUp = () => {
       age: age,
       pick: Number(data.pick),
     };
-
-    console.log(data);
 
     await signUpHandler(signUpInform);
   };
@@ -177,7 +172,12 @@ const SignUp = () => {
             label={"전화번호"}
             inputId={"phone_number"}
             register={{
-              ...register("phone_number"),
+              ...register("phone_number", {
+                required: {
+                  value: true,
+                  message: "필수 정보입니다.",
+                },
+              }),
             }}
             errorMessage={errors.phone_number}
           />
@@ -186,9 +186,9 @@ const SignUp = () => {
             label={"최애 선택"}
             inputId={"pick"}
             register={{
-              ...register("phone_number"),
+              ...register("pick"),
             }}
-            errorMessage={errors.phone_number}
+            errorMessage={errors.pick}
           />
 
           <ButtonGroup>

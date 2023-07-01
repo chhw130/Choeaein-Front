@@ -39,11 +39,10 @@ const IdolCard = ({ data }: IdolCardProps) => {
         pos={"absolute"}
         top={0}
         aspectRatio={1 / 1}
-        bg={"black"}
         margin={"0 auto"}
         visibility={"hidden"}
         width={"100%"}
-        opacity={".8"}
+        opacity={".6"}
         justifyContent={"center"}
         display={"flex"}
         flexDir={"column"}

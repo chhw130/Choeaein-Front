@@ -6,9 +6,9 @@ export interface SearchPageParams {
 
 const SearchPage = () => {
   return (
-    <>
+    <main>
       <SearchPageContainer />
-    </>
+    </main>
   );
 };
 
