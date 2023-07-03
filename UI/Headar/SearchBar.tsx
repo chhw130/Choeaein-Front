@@ -1,5 +1,5 @@
 "use client";
-import { Button, Input, InputGroup, useColorMode } from "@chakra-ui/react";
+import { Box, Button, Input, InputGroup, useColorMode } from "@chakra-ui/react";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { GoSearch } from "react-icons/go";
@@ -26,6 +26,7 @@ const SearchBar = () => {
   return (
     <InputGroup as="form" marginRight="10px" onSubmit={(e) => submitHandler(e)}>
       <Input
+        list="searchData"
         placeholder="아이돌을 검색해보세요."
         fontSize="0.9rem"
         onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
@@ -33,6 +34,11 @@ const SearchBar = () => {
           setKeyword(keyword);
         }}
       />
+      <Box as="datalist" id="searchData">
+        <Box as="option" value={"fe"} width={"30"}>
+          data
+        </Box>
+      </Box>
       <Button type="submit">
         <GoSearch />
       </Button>
