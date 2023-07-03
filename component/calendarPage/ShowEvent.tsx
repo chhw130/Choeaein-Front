@@ -3,7 +3,7 @@ import styles from "./Calendar.module.scss";
 import moment from "moment";
 import "moment/locale/ko";
 
-export function ShowEvent({ days, newIdolSchedule }: any) {
+const ShowEvent = ({ days, newIdolSchedule }: any) => {
   return (
     <>
       <Flex padding={1}>
@@ -27,4 +27,6 @@ export function ShowEvent({ days, newIdolSchedule }: any) {
       </Flex>
     </>
   );
-}
+};
+
+export default ShowEvent;

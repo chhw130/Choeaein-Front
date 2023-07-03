@@ -12,7 +12,6 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 import styles from "./Calendar.module.scss";
-import dynamic from "next/dynamic";
 
 interface CalendarTableProps {
   calendarArr: Function;
