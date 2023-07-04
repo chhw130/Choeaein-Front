@@ -22,6 +22,8 @@ const Header = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { colorMode } = useColorMode();
 
+  console.log(1);
+
   return (
     <>
       <ToastContainer position="top-center" />
