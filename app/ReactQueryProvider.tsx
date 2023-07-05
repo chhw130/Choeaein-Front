@@ -23,6 +23,7 @@ export default function ReactQueryProvider({ children }: PropsWithChildren) {
           },
           mutations: {
             onError: queryErrorHandler,
+            retry: false,
           },
         },
       })
