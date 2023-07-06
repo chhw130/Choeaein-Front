@@ -28,7 +28,7 @@ const DescriptionCard = ({
       borderRadius={0}
       variant={"outline"}
       flexDir={["column", "column", "row"]}
-      justifyContent={"space-around"}
+      justifyContent={"space-between"}
     >
       {groupMemberData?.group_profile && (
         <Image
@@ -37,6 +37,7 @@ const DescriptionCard = ({
           alt="아티스트 이미지"
           width={1000}
           height={1000}
+          priority
         />
       )}
       <Stack w={["100%", "100%", "45%"]}>

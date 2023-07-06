@@ -3,15 +3,17 @@ import { getIdolInform } from "@/utils/API/SSGSetting";
 
 export interface CalendarPageProps {
   params: { idolID: string };
+  searchParams: { idol: string };
 }
 
-async function CalendarPage({ params }: CalendarPageProps) {
-  const idolId = params.idolID;
-  const idolData = await getIdolInform(idolId);
+async function CalendarPage({ searchParams }: any) {
+  const idolName = searchParams.idol;
+
+  const idolData = await getIdolInform(idolName);
 
   return (
     <main>
-      <CalnedarContainer params={params} idolData={idolData} />
+      <CalnedarContainer idolData={idolData} />
     </main>
   );
 }

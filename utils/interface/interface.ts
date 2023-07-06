@@ -57,5 +57,10 @@ export interface GroupType extends IdolGroupType {
   member: MemberType[];
 }
 
+export interface GroupMember extends IdolType {
+  idol_birthday: string;
+  idol_profile: string;
+}
+
 /**아이돌 스케줄 */
 export interface RandomIdolSchedule {}

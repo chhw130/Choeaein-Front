@@ -42,7 +42,6 @@ const IdolCard = ({ data }: IdolCardProps) => {
         margin={"0 auto"}
         visibility={"hidden"}
         width={"100%"}
-        opacity={".6"}
         justifyContent={"center"}
         display={"flex"}
         flexDir={"column"}

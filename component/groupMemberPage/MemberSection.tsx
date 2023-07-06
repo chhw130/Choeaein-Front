@@ -8,23 +8,12 @@ const MemberSection = ({ groupMemberData }: { groupMemberData: GroupType }) => {
   const member = groupMemberData.member;
 
   return (
-    <Center
-      as="section"
-      w={"90%"}
-      flexDir={"column"}
-      margin={"0 auto"}
-      marginTop={"30px"}
-    >
+    <Center as="section" w={"80%"} flexDir={"column"} margin={"30px auto"}>
       <Text fontSize={["xl", "2xl", "3xl"]} margin={"50px 0"}>
         아이돌 스케줄 보러가기
       </Text>
 
-      <HStack
-        flexDir={"row"}
-        margin={"0 auto"}
-        wrap={"wrap"}
-        justifyContent={"space-around"}
-      >
+      <HStack margin={"0 auto"} wrap={"wrap"} justifyContent={"space-around"}>
         {member.map((data) => {
           return <MemberCard data={data} key={data.idol_name_kr} />;
         })}

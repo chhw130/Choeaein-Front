@@ -1,5 +1,7 @@
 "use client";
 import { HStack, Text } from "@chakra-ui/react";
+import { useSearchParams } from "next/navigation";
+import { useRouter } from "next/router";
 
 const IdolInform = ({ idolData }: any) => {
   return (
