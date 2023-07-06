@@ -22,9 +22,7 @@ const SignUp = () => {
   const { mutateAsync: signUpHandler } = useMutation(
     (signUpInform: SignUpData) => postSignUp(signUpInform),
     {
-      onSuccess: () => {
-        console.log(1);
-      },
+      onSuccess: () => {},
     }
   );
 
@@ -60,16 +58,16 @@ const SignUp = () => {
           <MainLogo />
           <SignUpFormControl
             label={"아이디(Email)"}
-            inputId={"username"}
+            inputId={"email"}
             register={{
-              ...register("username", {
+              ...register("email", {
                 required: {
                   value: true,
                   message: "필수 정보입니다.",
                 },
                 maxLength: {
-                  value: 15,
-                  message: "15자까지 입력가능합니다.",
+                  value: 30,
+                  message: "30자까지 입력가능합니다.",
                 },
                 minLength: {
                   value: 3,
@@ -78,7 +76,7 @@ const SignUp = () => {
               }),
             }}
             defaultText={"Id를 입력하세요."}
-            errorMessage={errors.username}
+            errorMessage={errors.email}
           />
 
           <SignUpFormControl
@@ -156,6 +154,22 @@ const SignUp = () => {
             inputId={"birth"}
             register={{
               ...register("birth", {
+                validate: {
+                  check: (val) => {
+                    if (!val) {
+                      return "필수 정보입니다.";
+                    }
+                  },
+                },
+              }),
+            }}
+            errorMessage={errors.birth}
+          />
+          <SignUpFormControl
+            label={"닉네임"}
+            inputId={"nickname"}
+            register={{
+              ...register("nickname", {
                 validate: {
                   check: (val) => {
                     if (!val) {

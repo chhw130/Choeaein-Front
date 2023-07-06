@@ -6,7 +6,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import React from "react";
 
-const GroupMemeberContainer = ({
+const GroupContainer = ({
   groupMemberData,
 }: {
   groupMemberData: GroupType;
@@ -15,7 +15,6 @@ const GroupMemeberContainer = ({
 
   return (
     <Flex
-      h="100vh"
       padding={"3rem"}
       flexDir={"column"}
       width={"100%"}
@@ -27,8 +26,8 @@ const GroupMemeberContainer = ({
           <Image
             src={groupMemberData?.group_profile}
             alt="아티스트 이미지"
-            width={1000}
-            height={1000}
+            width={10000}
+            height={10000}
             style={{
               objectFit: "cover",
               aspectRatio: "2.5/2",
@@ -39,10 +38,10 @@ const GroupMemeberContainer = ({
             }}
           />
         )}
-        <DescriptionCard />
+        <DescriptionCard groupMemberData={groupMemberData} />
       </Center>
     </Flex>
   );
 };
 
-export default GroupMemeberContainer;
+export default GroupContainer;

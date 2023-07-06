@@ -14,6 +14,8 @@ interface IdolCardProps {
 const IdolCard = ({ data }: IdolCardProps) => {
   const router = useRouter();
 
+  console.log(data.idol_profile);
+
   const idolCardHandler = (groupName: string) => {
     router.push(`/groupmember?group=${groupName}`);
   };
@@ -27,7 +29,7 @@ const IdolCard = ({ data }: IdolCardProps) => {
       pos={"relative"}
     >
       <Image
-        src={data?.group_profile || data.solo_profile}
+        src={data?.group_profile || data?.solo_profile || data?.idol_profile}
         alt="아티스트 이미지"
         width={10000}
         height={10000}
