@@ -27,7 +27,7 @@ const IdolCard = ({ data }: IdolCardProps) => {
       pos={"relative"}
     >
       <Image
-        src={data?.group_profile || data.solo_profile}
+        src={data?.group_profile || data?.solo_profile || data?.idol_profile}
         alt="아티스트 이미지"
         width={10000}
         height={10000}
@@ -42,7 +42,6 @@ const IdolCard = ({ data }: IdolCardProps) => {
         margin={"0 auto"}
         visibility={"hidden"}
         width={"100%"}
-        opacity={".6"}
         justifyContent={"center"}
         display={"flex"}
         flexDir={"column"}

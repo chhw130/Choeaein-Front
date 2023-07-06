@@ -10,24 +10,23 @@ export const getIdolList = async () => {
 
 /**아이돌 그룹*/
 export const getIdolGroups = async () => {
-  const res = await fetch(`${url}/groups/`);
+  const res = await fetch(`${url}/groups/`, { cache: "no-cache" });
   return res.json();
 };
 
 export const getIdolSolos = async () => {
-  const res = await fetch(`${url}/solos/`);
-  // return res;
+  const res = await fetch(`${url}/solos/`, { cache: "no-cache" });
   return res.json();
 };
 
 /**특정 아이돌 그룹 정보 */
 export const getIdolMember = async (group: string | null | undefined) => {
-  const res = await fetch(`${url}/groups/${group}/`);
+  const res = await fetch(`${url}/groups/${group}`);
   return res.json();
 };
 
 /**특정 아이돌 정보 */
-export const getIdolInform = async (idolId: any) => {
-  const res = await fetch(`${url}/idols/${idolId}/`);
+export const getIdolInform = async (idolName: string) => {
+  const res = await fetch(`${url}/idols/${idolName}/`);
   return res.json();
 };

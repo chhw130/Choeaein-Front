@@ -15,7 +15,7 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 import { useQuery } from "@tanstack/react-query";
-import { CalendarPageProps } from "@/app/calendar/[idolID]/page";
+import { CalendarPageProps } from "@/app/calendar/page";
 import {
   faChevronLeft,
   faChevronRight,
@@ -30,18 +30,16 @@ const ViewDayCalendarModal = dynamic(
 );
 const CalendarTable = dynamic(() => import("./CalendarTable"));
 const ReportBtn = dynamic(() => import("@/UI/Button/ReportBtn"));
-interface CalendarProps extends CalendarPageProps {
-  idolData: any;
-}
+
+interface CalendarProps extends CalendarPageProps {}
 
 const days = ["일", "월", "화", "수", "목", "금", "토"];
 
-const Calendar = ({ idolData, params }: CalendarProps) => {
-  const idolId = params.idolID;
-
+const Calendar = ({ idolData }: any) => {
+  const idolName = "";
   const { data: newIdolSchedule = [], isLoading } = useQuery(
-    ["idolSchedule", idolId],
-    () => getIdolSchedule(idolId)
+    ["idolSchedule", idolName],
+    () => getIdolSchedule(idolName)
   );
 
   const { isOpen, onClose, onOpen } = useDisclosure();
@@ -219,7 +217,7 @@ const Calendar = ({ idolData, params }: CalendarProps) => {
             </Button>
           </Flex>
         </Flex>
-        <CategoryBtn idolId={idolId} />
+        <CategoryBtn idolId={idolName} />
 
         <Box h={"500px"} pos={"relative"}>
           <CalendarTable

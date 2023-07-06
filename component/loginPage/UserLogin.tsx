@@ -51,6 +51,7 @@ const UserLogin = () => {
         toast("ID또는 Password가 틀렸습니다.", {
           type: "error",
           theme: colorMode,
+          toastId: "login",
         });
       },
       onSuccess: () => {
@@ -59,6 +60,7 @@ const UserLogin = () => {
         toast("로그인 성공!!", {
           type: "info",
           theme: colorMode,
+          toastId: "login",
         });
       },
     }
