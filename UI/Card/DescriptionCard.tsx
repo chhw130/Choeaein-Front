@@ -1,8 +1,17 @@
 import { GroupType } from "@/utils/interface/interface";
-import { Card, CardBody, CardHeader, Stack, Text } from "@chakra-ui/react";
+import {
+  Card,
+  CardBody,
+  CardHeader,
+  Flex,
+  Stack,
+  Text,
+} from "@chakra-ui/react";
 import { faInstagram, faYoutube } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Image from "next/image";
 import React from "react";
+import styles from "./DescriptionCard.module.scss";
 
 const DescriptionCard = ({
   groupMemberData,
@@ -12,27 +21,53 @@ const DescriptionCard = ({
   return (
     <Card
       as="article"
-      w={"400px"}
+      w={["100%", "100%", "90%"]}
       h={"100%"}
       padding={5}
       borderLeft={"8px solid black"}
       borderRadius={0}
+      variant={"outline"}
+      flexDir={["column", "column", "row"]}
+      justifyContent={"space-around"}
     >
-      <CardHeader>
-        <Text>{groupMemberData.enter}</Text>
-        <Text fontSize={"5xl"}>{groupMemberData.groupname}</Text>
-      </CardHeader>
-      <CardBody>
-        <Stack spacing={2}>
-          <Text>데뷔 : {groupMemberData.group_debut}</Text>
-          <a href={groupMemberData.group_insta} target="_blank">
-            <FontAwesomeIcon icon={faInstagram} />
-          </a>
-          <a href={groupMemberData.group_youtube} target="_blank">
-            <FontAwesomeIcon icon={faYoutube} />
-          </a>
-        </Stack>
-      </CardBody>
+      {groupMemberData?.group_profile && (
+        <Image
+          src={groupMemberData?.group_profile}
+          className={styles.groupImg}
+          alt="아티스트 이미지"
+          width={1000}
+          height={1000}
+        />
+      )}
+      <Stack w={["100%", "100%", "45%"]}>
+        <CardHeader>
+          <Text fontSize={"2xl"}>{groupMemberData.enter}</Text>
+          <Text fontSize={"4xl"}>{groupMemberData.groupname}</Text>
+        </CardHeader>
+        <CardBody>
+          <Stack spacing={2}>
+            <Text>데뷔 : {groupMemberData.group_debut}</Text>
+            <Flex>
+              <Text
+                as={"a"}
+                href={groupMemberData.group_insta}
+                target="_blank"
+                width={"40px"}
+              >
+                <FontAwesomeIcon icon={faInstagram} size="2xl" />
+              </Text>
+              <Text
+                as={"a"}
+                href={groupMemberData.group_youtube}
+                target="_blank"
+                width={"40px"}
+              >
+                <FontAwesomeIcon icon={faYoutube} size="2xl" />
+              </Text>
+            </Flex>
+          </Stack>
+        </CardBody>
+      </Stack>
     </Card>
   );
 };

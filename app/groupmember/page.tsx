@@ -6,7 +6,6 @@ import React from "react";
 
 const getData = async (groupName: string) => {
   const groupMemberData: GroupType = await getIdolMember(groupName);
-  console.log(groupMemberData);
   return { groupMemberData };
 };
 
