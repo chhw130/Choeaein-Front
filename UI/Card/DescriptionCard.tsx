@@ -41,8 +41,10 @@ const DescriptionCard = ({
       )}
       <Stack w={["100%", "100%", "45%"]}>
         <CardHeader>
-          <Text fontSize={"2xl"}>{groupMemberData.enter}</Text>
-          <Text fontSize={"4xl"}>{groupMemberData.groupname}</Text>
+          <Text fontSize={["md", "xl", "2xl"]}>{groupMemberData.enter}</Text>
+          <Text fontSize={["xl", "2xl", "4xl"]}>
+            {groupMemberData.groupname}
+          </Text>
         </CardHeader>
         <CardBody>
           <Stack spacing={2}>

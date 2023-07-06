@@ -14,8 +14,6 @@ interface IdolCardProps {
 const IdolCard = ({ data }: IdolCardProps) => {
   const router = useRouter();
 
-  console.log(data.idol_profile);
-
   const idolCardHandler = (groupName: string) => {
     router.push(`/groupmember?group=${groupName}`);
   };

@@ -1,4 +1,4 @@
-import { Box, HStack, Text } from "@chakra-ui/react";
+import { Box, Center, HStack, Text } from "@chakra-ui/react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React from "react";
@@ -20,8 +20,7 @@ const MemberCard = ({ data }: IdolCardProps) => {
   return (
     <Box
       textAlign="center"
-      margin="30px 0"
-      w={["40%", "30%", "20%"]}
+      w={["40%", "30%", "22%"]}
       className={styles.idolBox}
       pos={"relative"}
     >
@@ -33,12 +32,11 @@ const MemberCard = ({ data }: IdolCardProps) => {
         loading="lazy"
         className={styles.groupImg}
       />
-      <Box
+      <Center
         className={styles.textBox}
         pos={"absolute"}
         top={0}
         aspectRatio={1 / 1}
-        margin={"0 auto"}
         visibility={"hidden"}
         width={"100%"}
         opacity={".6"}
@@ -56,7 +54,7 @@ const MemberCard = ({ data }: IdolCardProps) => {
           <FontAwesomeIcon icon={faInstagram} />
           <FontAwesomeIcon icon={faYoutube} />
         </HStack>
-      </Box>
+      </Center>
       <Text
         paddingTop={"20px"}
         margin={0}

@@ -15,7 +15,9 @@ const MemberSection = ({ groupMemberData }: { groupMemberData: GroupType }) => {
       margin={"0 auto"}
       marginTop={"30px"}
     >
-      <Text fontSize={"3xl"}>아이돌 스케줄 보러가기</Text>
+      <Text fontSize={["xl", "2xl", "3xl"]} margin={"50px 0"}>
+        아이돌 스케줄 보러가기
+      </Text>
 
       <HStack
         flexDir={"row"}
