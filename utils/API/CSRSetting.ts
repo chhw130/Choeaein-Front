@@ -26,6 +26,10 @@ export const postSignUp = (signUpInform: any) =>
 export const postLogin = (loginInform: any) =>
   instance.post(`/oauth/login/`, loginInform).then((res) => res.data);
 
+/**ID찾기 */
+export const findID = (data: any) =>
+  instance.post(`/oauth/findID`, data).then((res) => res.data);
+
 /**로그아웃 */
 export const postLogout = () =>
   instance

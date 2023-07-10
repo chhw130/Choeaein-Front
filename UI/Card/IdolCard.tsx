@@ -16,6 +16,7 @@ const IdolCard = ({ data }: IdolCardProps) => {
 
   const idolCardHandler = (groupName: string) => {
     router.push(`/groupmember?group=${groupName}`);
+    router.prefetch(`/groupmember?group=${groupName}`);
   };
   return (
     <Box

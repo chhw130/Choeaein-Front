@@ -10,12 +10,12 @@ export const getIdolList = async () => {
 
 /**아이돌 그룹*/
 export const getIdolGroups = async () => {
-  const res = await fetch(`${url}/groups/`, { cache: "no-cache" });
+  const res = await fetch(`${url}/groups/`);
   return res.json();
 };
 
 export const getIdolSolos = async () => {
-  const res = await fetch(`${url}/solos/`, { cache: "no-cache" });
+  const res = await fetch(`${url}/solos/`);
   return res.json();
 };
 
