@@ -16,36 +16,40 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPhone } from "@fortawesome/free-solid-svg-icons";
 import FindButton from "@/UI/Button/FindButton";
 import MainLogo from "@/UI/Logo/MainLogo";
+import { useMutation } from "@tanstack/react-query";
+import { findID } from "@/utils/API/CSRSetting";
 
 const FindID = () => {
-  const { register } = useForm();
+  const { register, handleSubmit } = useForm();
+
+  const { mutateAsync: findIdHandler, data: idData } = useMutation(
+    (data: any) => findID(data)
+  );
+
+  const submitHandler = async (data: any) => {
+    await findIdHandler(data);
+  };
+
+  console.log(idData);
+
   return (
     <Flex height={"100vh"}>
       <Center margin={"30px"} width={"100%"} flexDir={"column"}>
         <MainLogo />
 
-        <Box as="form" w={"100%"}>
+        <Box as="form" w={"100%"} onSubmit={handleSubmit(submitHandler)}>
           <VStack spacing={7} maxW="500px" margin="0 auto">
-            <FormControl id="name">
+            <FormControl id="nickname">
               <FormLabel fontWeight="semibold">이름</FormLabel>
               <Input
                 h="50px"
                 type="text"
-                {...register("name", { required: true })}
+                {...register("nickname", { required: true })}
                 placeholder="이름을 입력하세요"
               />
             </FormControl>
-            <FormControl id="email">
-              <FormLabel fontWeight="semibold">이메일</FormLabel>
-              <Input
-                h="50px"
-                type="email"
-                {...register("email", { required: true })}
-                placeholder="이메일을 입력하세요"
-              />
-            </FormControl>
 
-            <FormControl id="phone_number">
+            <FormControl id="phone">
               <FormLabel fontWeight="semibold">전화번호</FormLabel>
               <InputGroup>
                 <InputLeftAddon
@@ -55,18 +59,18 @@ const FindID = () => {
                 />
                 <Input
                   h="50px"
-                  type="number"
-                  {...register("phone_number", { required: true })}
+                  type="phone"
+                  {...register("phone", { required: true })}
                   placeholder="전화번호를 입력하세요"
                 />
               </InputGroup>
             </FormControl>
             <FindButton />
-            {true ? (
+            {idData ? (
               <Flex flexDir="row" fontSize="2xl">
                 아이디는 &nbsp;
                 <Box color="red" fontWeight="bold">
-                  {/* "{id}" */}" fqw "
+                  " {idData.ID} "
                 </Box>
                 &nbsp;입니다.
               </Flex>

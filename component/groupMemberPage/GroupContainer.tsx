@@ -5,11 +5,15 @@ import { Center, Flex } from "@chakra-ui/react";
 import { notFound } from "next/navigation";
 import React from "react";
 
+export interface GroupContainerProps {
+  groupMemberData: GroupType;
+  albumData: any;
+}
+
 const GroupContainer = ({
   groupMemberData,
-}: {
-  groupMemberData: GroupType;
-}) => {
+  albumData,
+}: GroupContainerProps) => {
   if (!groupMemberData.pk) return notFound();
 
   return (
@@ -20,7 +24,10 @@ const GroupContainer = ({
       as={"section"}
     >
       <Center paddingTop={10} flexDir={["column", "column", "row"]}>
-        <DescriptionCard groupMemberData={groupMemberData} />
+        <DescriptionCard
+          groupMemberData={groupMemberData}
+          albumData={albumData}
+        />
       </Center>
     </Flex>
   );

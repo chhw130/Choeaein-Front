@@ -4,8 +4,6 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({
 });
 
 const nextConfig = {
-  // reactStrictMode: false,
-
   async rewrites() {
     return [
       {
@@ -21,12 +19,14 @@ const nextConfig = {
     // optimizeFonts: true,
   },
   images: {
+    minimumCacheTTL: 60,
     domains: [
       "image.kpopmap.com",
       "velog.velcdn.com",
       "images8.alphacoders.com",
       "talkimg.imbc.com",
       "i.namu.wiki",
+      "a5.mzstatic.com",
     ],
   },
 };

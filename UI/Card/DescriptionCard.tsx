@@ -1,4 +1,3 @@
-import { GroupType } from "@/utils/interface/interface";
 import {
   Card,
   CardBody,
@@ -12,12 +11,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
 import React from "react";
 import styles from "./DescriptionCard.module.scss";
+import { GroupContainerProps } from "@/component/groupMemberPage/GroupContainer";
+import AlbumCarousel from "../Carousel/AlbumCarousel";
 
 const DescriptionCard = ({
   groupMemberData,
-}: {
-  groupMemberData: GroupType;
-}) => {
+  albumData,
+}: GroupContainerProps) => {
   return (
     <Card
       as="article"
@@ -40,7 +40,7 @@ const DescriptionCard = ({
           priority
         />
       )}
-      <Stack w={["100%", "100%", "45%"]}>
+      <Stack w={["100%", "100%", "50%"]}>
         <CardHeader>
           <Text fontSize={["md", "xl", "2xl"]}>{groupMemberData.enter}</Text>
           <Text fontSize={["xl", "2xl", "4xl"]}>
@@ -48,7 +48,7 @@ const DescriptionCard = ({
           </Text>
         </CardHeader>
         <CardBody>
-          <Stack spacing={2}>
+          <Stack>
             <Text>데뷔 : {groupMemberData.group_debut}</Text>
             <Flex>
               <Text
@@ -69,6 +69,7 @@ const DescriptionCard = ({
               </Text>
             </Flex>
           </Stack>
+          <AlbumCarousel albumData={albumData} />
         </CardBody>
       </Stack>
     </Card>
