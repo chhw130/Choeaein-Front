@@ -25,6 +25,11 @@ export const getIdolMember = async (group: string | null | undefined) => {
   return res.json();
 };
 
+export const getIdolMemberAlbum = async (group: string) => {
+  const res = await fetch(`${url}/albums/${group}`);
+  return res.json();
+};
+
 /**특정 아이돌 정보 */
 export const getIdolInform = async (idolName: string) => {
   const res = await fetch(`${url}/idols/${idolName}/`);
