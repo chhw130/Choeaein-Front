@@ -1,5 +1,4 @@
 import {
-  Box,
   Card,
   CardBody,
   CardHeader,
@@ -13,12 +12,12 @@ import Image from "next/image";
 import React from "react";
 import styles from "./DescriptionCard.module.scss";
 import { GroupContainerProps } from "@/component/groupMemberPage/GroupContainer";
+import AlbumCarousel from "../Carousel/AlbumCarousel";
 
 const DescriptionCard = ({
   groupMemberData,
   albumData,
 }: GroupContainerProps) => {
-  const album = albumData.albums;
   return (
     <Card
       as="article"
@@ -41,7 +40,7 @@ const DescriptionCard = ({
           priority
         />
       )}
-      <Stack w={["100%", "100%", "45%"]}>
+      <Stack w={["100%", "100%", "50%"]}>
         <CardHeader>
           <Text fontSize={["md", "xl", "2xl"]}>{groupMemberData.enter}</Text>
           <Text fontSize={["xl", "2xl", "4xl"]}>
@@ -70,23 +69,7 @@ const DescriptionCard = ({
               </Text>
             </Flex>
           </Stack>
-
-          <Flex width={"300px"} height={"100px"} pos={"relative"}>
-            {album.map((data: any) => {
-              return (
-                <Box width={"400px"}>
-                  <Image
-                    key={data.pk}
-                    src={data.album_cover}
-                    alt="아티스트 이미지"
-                    layout="responsive"
-                    width={500}
-                    height={500}
-                  />
-                </Box>
-              );
-            })}
-          </Flex>
+          <AlbumCarousel albumData={albumData} />
         </CardBody>
       </Stack>
     </Card>
