@@ -6,7 +6,7 @@ import dynamic from "next/dynamic";
 const ComingSchedule = dynamic(() => import("./ComingSchedule"));
 const Calendar = dynamic(() => import("./Calendar"));
 
-const CalnedarContainer = ({ idolData }: any) => {
+const CalendarContainer = ({ idolData }: any) => {
   return (
     <section className={styles.calendarContainer}>
       <div className={styles.calendarWrap}>
@@ -17,4 +17,4 @@ const CalnedarContainer = ({ idolData }: any) => {
   );
 };
 
-export default CalnedarContainer;
+export default CalendarContainer;

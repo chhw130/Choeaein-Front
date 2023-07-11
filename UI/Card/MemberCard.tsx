@@ -4,7 +4,6 @@ import { useRouter } from "next/navigation";
 import React from "react";
 import styles from "./IdolCard.module.scss";
 import { GroupMember } from "@/utils/interface/interface";
-import Link from "next/link";
 
 interface IdolCardProps {
   data: GroupMember;
@@ -20,13 +19,13 @@ const MemberCard = ({ data }: IdolCardProps) => {
         w={["40%", "30%", "20%"]}
         className={styles.idolBox}
         pos={"relative"}
-        onClick={() => router.push(`/calendar?idol=${data.idol_name_en}`)}
+        onClick={() => router.push(`/calendar?idol=${data.idol_name_kr}`)}
       >
         <Image
           src={data?.idol_profile}
           alt="아티스트 이미지"
-          width={10000}
-          height={10000}
+          width={1000}
+          height={1000}
           loading="lazy"
           className={styles.groupImg}
         />
@@ -49,9 +48,9 @@ const MemberCard = ({ data }: IdolCardProps) => {
           <Text>스케줄 보러가기</Text>
         </Center>
         <Text
-          paddingTop={"20px"}
+          paddingTop={"10px"}
           margin={0}
-          fontSize={["lg", "xl", "2xl"]}
+          fontSize={["lg", "lg", "2xl"]}
           letterSpacing="-0.19px"
           cursor={"pointer"}
         >
@@ -59,7 +58,7 @@ const MemberCard = ({ data }: IdolCardProps) => {
         </Text>
         <Text
           margin={0}
-          fontSize={["lg", "xl", "2xl"]}
+          fontSize={["smaller", "sm", "lg"]}
           letterSpacing="-0.19px"
           color={"#888888"}
         >

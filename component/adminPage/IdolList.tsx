@@ -44,11 +44,11 @@ const IdolList = () => {
                 height={1000}
                 alt="아이돌"
                 loading="lazy"
-                style={{
-                  width: "60%",
-                  aspectRatio: "1/1",
-                  objectFit: "cover",
-                }}
+                // style={{
+                //   width: "60%",
+                //   aspectRatio: "1/1",
+                //   objectFit: "cover",
+                // }}
               />
             </Box>
           </>
@@ -113,7 +113,7 @@ const IdolList = () => {
 
   return (
     <>
-      {data.length === 0 ? (
+      {!isLoading && data.length === 0 ? (
         <Center h="450px" fontSize={"28px"}>
           등록된 아이돌이 없습니다.
         </Center>

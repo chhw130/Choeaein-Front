@@ -1,17 +1,14 @@
 "use client";
-import { HStack, Text } from "@chakra-ui/react";
-import { useSearchParams } from "next/navigation";
-import { useRouter } from "next/router";
+import { Avatar, HStack, Text } from "@chakra-ui/react";
+import { memo } from "react";
 
 const IdolInform = ({ idolData }: any) => {
   return (
     <HStack spacing={2}>
+      <Avatar src={idolData.idol_profile} />
       <Text fontSize={[30, 30, 40]}>{idolData?.idol_name_kr}</Text>
-      <Text lineHeight={2} fontSize={[10, 20, 25]}>
-        {idolData?.group}
-      </Text>
     </HStack>
   );
 };
 
-export default IdolInform;
+export default memo(IdolInform);

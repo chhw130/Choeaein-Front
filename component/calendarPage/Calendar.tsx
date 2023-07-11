@@ -76,14 +76,12 @@ const Calendar = ({ idolData }: any) => {
           {Array(7)
             .fill(0)
             .map((data: [], index: number) => {
-              const days = useMemo(() => {
-                return today
-                  .clone()
-                  .startOf("year")
-                  .week(week)
-                  .startOf("week")
-                  .add(index, "day");
-              }, []);
+              const days = today
+                .clone()
+                .startOf("year")
+                .week(week)
+                .startOf("week")
+                .add(index, "day");
 
               if (moment().format("YYYYMMDD") === days.format("YYYYMMDD")) {
                 return (
