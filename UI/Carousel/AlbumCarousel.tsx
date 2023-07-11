@@ -45,6 +45,7 @@ const AlbumCarousel = ({ albumData }: AlbumCaruoselProps) => {
                 alt="아티스트 이미지"
                 width={180}
                 height={180}
+                priority
               />
             </Box>
           );

@@ -20,6 +20,12 @@ interface DescriptionCardProps {
 }
 
 const DescriptionCard = ({ albumData, idolData }: DescriptionCardProps) => {
+  const idolImg = idolData?.group_profile || idolData.solo_profile;
+  const name = idolData?.groupname || idolData.idol_name_kr;
+  const debut = idolData.group_debut || idolData.solo_debut;
+  const instaLink = idolData.group_insta || idolData.solo_insta;
+  const youtubeLink = idolData.group_youtube || idolData.solo_youtube;
+
   return (
     <Card
       as="article"
@@ -30,43 +36,32 @@ const DescriptionCard = ({ albumData, idolData }: DescriptionCardProps) => {
       flexDir={["column", "column", "row"]}
       justifyContent={"space-around"}
     >
-      {groupMemberData?.group_profile && (
+      {idolImg && (
         <Image
-          src={groupMemberData?.group_profile}
+          src={idolImg}
           className={styles.groupImg}
           alt="아티스트 이미지"
           width={1000}
           height={1000}
           priority
+          blurDataURL="blur"
         />
       )}
       <Stack w={["100%", "100%", "50%"]}>
         <CardHeader>
           <Flex justifyContent={"space-between"}>
-            <Text fontSize={["xl", "2xl", "4xl"]}>
-              {groupMemberData.groupname}
-            </Text>
+            <Text fontSize={["xl", "2xl", "4xl"]}>{name}</Text>
             <Flex>
-              <Text
-                as={"a"}
-                href={groupMemberData.group_insta}
-                target="_blank"
-                width={"40px"}
-              >
+              <Text as={"a"} href={instaLink} target="_blank" width={"40px"}>
                 <FontAwesomeIcon icon={faInstagram} size="2xl" />
               </Text>
-              <Text
-                as={"a"}
-                href={groupMemberData.group_youtube}
-                target="_blank"
-                width={"40px"}
-              >
+              <Text as={"a"} href={youtubeLink} target="_blank" width={"40px"}>
                 <FontAwesomeIcon icon={faYoutube} size="2xl" />
               </Text>
             </Flex>
           </Flex>
-          <Text fontSize={["md", "xl", "2xl"]}>{groupMemberData.enter}</Text>
-          <Text>Debut : {groupMemberData.group_debut}</Text>
+          <Text fontSize={["md", "xl", "2xl"]}>{idolData.enter}</Text>
+          <Text>Debut : {debut}</Text>
         </CardHeader>
         <CardBody>
           <AlbumCarousel albumData={albumData} />

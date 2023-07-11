@@ -11,18 +11,15 @@ import React from "react";
 
 export interface GroupContainerProps {
   albumData: IdolAlbumType;
-  groupMemberData?: GroupType;
-  soloData?: SoloType;
+  idolData: any;
 }
 
-const GroupContainer = ({ albumData, ...rest }: GroupContainerProps) => {
-  const idolData = rest?.groupMemberData || rest?.soloData;
-
-  if (idolData?.pk) return notFound();
+const GroupContainer = ({ albumData, idolData }: GroupContainerProps) => {
+  if (!idolData?.pk) return notFound();
 
   return (
     <Flex
-      paddingTop={"3rem"}
+      padding={!idolData?.member ? "7rem 0" : "3rem 0 1rem 0"}
       flexDir={"column"}
       margin={"0 auto"}
       as={"section"}

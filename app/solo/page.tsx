@@ -15,7 +15,7 @@ const SoloPage = async ({ searchParams }: SoloPageProps) => {
 
   return (
     <main>
-      <GroupContainer soloData={soloData} albumData={albumData} />
+      <GroupContainer idolData={soloData} albumData={albumData} />
     </main>
   );
 };

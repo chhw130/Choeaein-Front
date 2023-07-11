@@ -20,6 +20,7 @@ const IdolCard = ({ data }: IdolCardProps) => {
       ? `/groupmember?group=${idol}`
       : `/solo?idol=${idol}`;
     router.push(url);
+    router.prefetch(url);
   };
   return (
     <Box

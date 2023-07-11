@@ -1,4 +1,4 @@
-import CalnedarContainer from "@/component/calendarPage/CalnedarContainer";
+import CalnedarContainer from "@/component/calendarPage/CalendarContainer";
 import { getIdolInform } from "@/utils/API/SSGSetting";
 
 export interface CalendarPageProps {

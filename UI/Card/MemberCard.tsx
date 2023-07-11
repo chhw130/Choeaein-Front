@@ -4,7 +4,6 @@ import { useRouter } from "next/navigation";
 import React from "react";
 import styles from "./IdolCard.module.scss";
 import { GroupMember } from "@/utils/interface/interface";
-import Link from "next/link";
 
 interface IdolCardProps {
   data: GroupMember;
@@ -20,7 +19,7 @@ const MemberCard = ({ data }: IdolCardProps) => {
         w={["40%", "30%", "20%"]}
         className={styles.idolBox}
         pos={"relative"}
-        onClick={() => router.push(`/calendar?idol=${data.idol_name_en}`)}
+        onClick={() => router.push(`/calendar?idol=${data.idol_name_kr}`)}
       >
         <Image
           src={data?.idol_profile}
