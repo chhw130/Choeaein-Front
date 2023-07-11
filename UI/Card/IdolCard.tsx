@@ -14,13 +14,16 @@ interface IdolCardProps {
 const IdolCard = ({ data }: IdolCardProps) => {
   const router = useRouter();
 
-  const idolCardHandler = (groupName: string) => {
-    router.push(`/groupmember?group=${groupName}`);
-    router.prefetch(`/groupmember?group=${groupName}`);
+  const idolCardHandler = () => {
+    const idol = data.groupname || data.idol_name_kr;
+    const url = data.groupname
+      ? `/groupmember?group=${idol}`
+      : `/solo?idol=${idol}`;
+    router.push(url);
   };
   return (
     <Box
-      onClick={() => idolCardHandler(data.groupname || data.idol_name_kr)}
+      onClick={() => idolCardHandler()}
       textAlign="center"
       margin="30px 0"
       w={["24%", "24%", "23%"]}

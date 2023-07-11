@@ -3,15 +3,15 @@ import React from "react";
 
 interface AlbumCarouselType {
   slickEvent: any;
-  type: string;
+  left?: string;
+  right?: string;
 }
 
-const AlbumCarouselBtn = ({ slickEvent, ...rest }: any) => {
-  console.log(rest);
+const AlbumCarouselBtn = ({ slickEvent, ...rest }: AlbumCarouselType) => {
   return (
     <Button
       pos={"absolute"}
-      top={"38%"}
+      top={"50%"}
       size={"xs"}
       {...rest}
       onClick={() => {

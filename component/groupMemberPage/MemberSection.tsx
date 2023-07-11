@@ -5,7 +5,7 @@ import { Box, Center, HStack, Text } from "@chakra-ui/react";
 import React from "react";
 
 const MemberSection = ({ groupMemberData }: { groupMemberData: GroupType }) => {
-  const member = groupMemberData.member;
+  const member = groupMemberData?.member;
 
   return (
     <Center as="section" w={"80%"} flexDir={"column"} margin={"30px auto"}>
@@ -14,7 +14,7 @@ const MemberSection = ({ groupMemberData }: { groupMemberData: GroupType }) => {
       </Text>
 
       <HStack margin={"0 auto"} wrap={"wrap"} justifyContent={"space-around"}>
-        {member.map((data) => {
+        {member?.map((data) => {
           return <MemberCard data={data} key={data.idol_name_kr} />;
         })}
       </HStack>

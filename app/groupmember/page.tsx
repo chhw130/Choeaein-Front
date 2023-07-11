@@ -1,24 +1,21 @@
 import GroupContainer from "@/component/groupMemberPage/GroupContainer";
 import MemberSection from "@/component/groupMemberPage/MemberSection";
 import { getIdolMember, getIdolMemberAlbum } from "@/utils/API/SSGSetting";
-import { GroupType } from "@/utils/interface/interface";
+import { GroupType, IdolAlbumType } from "@/utils/interface/interface";
 import React from "react";
-
-const getData = async (groupName: string) => {
-  const groupMemberData: GroupType = await getIdolMember(groupName);
-  return { groupMemberData };
-};
 
 interface GroupMemberPageProps {
   searchParams: { group: string };
 }
 
 const GroupMemberPage = async ({ searchParams }: GroupMemberPageProps) => {
-  const groupName = searchParams.group;
+  const groupName: string = searchParams.group;
 
-  const { groupMemberData } = await getData(groupName);
+  console.log(groupName);
+  const groupMemberData: GroupType = await getIdolMember(groupName);
+  const albumData: IdolAlbumType = await getIdolMemberAlbum(groupName);
 
-  const albumData = await getIdolMemberAlbum(groupName);
+  console.log(groupMemberData);
 
   return (
     <main>

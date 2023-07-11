@@ -1,20 +1,24 @@
 "use client";
 import DescriptionCard from "@/UI/Card/DescriptionCard";
-import { GroupType } from "@/utils/interface/interface";
+import {
+  GroupType,
+  IdolAlbumType,
+  SoloType,
+} from "@/utils/interface/interface";
 import { Center, Flex } from "@chakra-ui/react";
 import { notFound } from "next/navigation";
 import React from "react";
 
 export interface GroupContainerProps {
-  groupMemberData: GroupType;
-  albumData: any;
+  albumData: IdolAlbumType;
+  groupMemberData?: GroupType;
+  soloData?: SoloType;
 }
 
-const GroupContainer = ({
-  groupMemberData,
-  albumData,
-}: GroupContainerProps) => {
-  if (!groupMemberData.pk) return notFound();
+const GroupContainer = ({ albumData, ...rest }: GroupContainerProps) => {
+  const idolData = rest?.groupMemberData || rest?.soloData;
+
+  if (idolData?.pk) return notFound();
 
   return (
     <Flex
@@ -24,10 +28,7 @@ const GroupContainer = ({
       as={"section"}
     >
       <Center paddingTop={10} flexDir={["column", "column", "row"]}>
-        <DescriptionCard
-          groupMemberData={groupMemberData}
-          albumData={albumData}
-        />
+        <DescriptionCard idolData={idolData} albumData={albumData} />
       </Center>
     </Flex>
   );

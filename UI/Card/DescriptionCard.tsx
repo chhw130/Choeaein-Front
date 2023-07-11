@@ -11,13 +11,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
 import React from "react";
 import styles from "./DescriptionCard.module.scss";
-import { GroupContainerProps } from "@/component/groupMemberPage/GroupContainer";
 import AlbumCarousel from "../Carousel/AlbumCarousel";
+import { IdolAlbumType } from "@/utils/interface/interface";
 
-const DescriptionCard = ({
-  groupMemberData,
-  albumData,
-}: GroupContainerProps) => {
+interface DescriptionCardProps {
+  albumData: IdolAlbumType;
+  idolData: any;
+}
+
+const DescriptionCard = ({ albumData, idolData }: DescriptionCardProps) => {
   return (
     <Card
       as="article"
@@ -25,10 +27,8 @@ const DescriptionCard = ({
       h={"100%"}
       padding={5}
       borderLeft={"8px solid black"}
-      borderRadius={0}
-      variant={"outline"}
       flexDir={["column", "column", "row"]}
-      justifyContent={"space-between"}
+      justifyContent={"space-around"}
     >
       {groupMemberData?.group_profile && (
         <Image
@@ -42,14 +42,10 @@ const DescriptionCard = ({
       )}
       <Stack w={["100%", "100%", "50%"]}>
         <CardHeader>
-          <Text fontSize={["md", "xl", "2xl"]}>{groupMemberData.enter}</Text>
-          <Text fontSize={["xl", "2xl", "4xl"]}>
-            {groupMemberData.groupname}
-          </Text>
-        </CardHeader>
-        <CardBody>
-          <Stack>
-            <Text>데뷔 : {groupMemberData.group_debut}</Text>
+          <Flex justifyContent={"space-between"}>
+            <Text fontSize={["xl", "2xl", "4xl"]}>
+              {groupMemberData.groupname}
+            </Text>
             <Flex>
               <Text
                 as={"a"}
@@ -68,7 +64,11 @@ const DescriptionCard = ({
                 <FontAwesomeIcon icon={faYoutube} size="2xl" />
               </Text>
             </Flex>
-          </Stack>
+          </Flex>
+          <Text fontSize={["md", "xl", "2xl"]}>{groupMemberData.enter}</Text>
+          <Text>Debut : {groupMemberData.group_debut}</Text>
+        </CardHeader>
+        <CardBody>
           <AlbumCarousel albumData={albumData} />
         </CardBody>
       </Stack>
