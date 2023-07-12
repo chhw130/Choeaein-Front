@@ -21,7 +21,6 @@ import {
   useMutation,
   useQueryClient,
 } from "@tanstack/react-query";
-import { OAuthButtonGroup } from "./OAuthButtonGroup";
 import MainLogo from "@/UI/Logo/MainLogo";
 import { LoginData } from "@/utils/interface/interface";
 import useUser from "@/utils/hook/useUser";
@@ -143,7 +142,7 @@ const UserLogin = () => {
             </ButtonGroup>
             <HStack fontSize={"sm"} w={"100%"}>
               <HStack w="100%" justifyContent={"center"}>
-                <Link href="/findID">
+                <Link href="/findID" replace>
                   <Text>아이디 찾기</Text>
                 </Link>
                 <Text color={"gray.300"}>|</Text>
@@ -159,7 +158,7 @@ const UserLogin = () => {
               </Text>
               <Divider />
             </HStack>
-            <OAuthButtonGroup />
+            {/* <OAuthButtonGroup /> */}
           </Stack>
         </Flex>
       </Flex>

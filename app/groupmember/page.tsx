@@ -2,7 +2,6 @@ import GroupContainer from "@/component/groupMemberPage/GroupContainer";
 import MemberSection from "@/component/groupMemberPage/MemberSection";
 import { getIdolMember, getIdolMemberAlbum } from "@/utils/API/SSGSetting";
 import { GroupType, IdolAlbumType } from "@/utils/interface/interface";
-import dynamic from "next/dynamic";
 import React from "react";
 
 interface GroupMemberPageProps {

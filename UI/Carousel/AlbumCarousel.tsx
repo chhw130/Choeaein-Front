@@ -1,10 +1,9 @@
 import React, { useCallback, useRef } from "react";
 import Slider from "react-slick";
 import Image from "next/image";
-import { Box, Text } from "@chakra-ui/react";
+import { Box, Text, Tooltip } from "@chakra-ui/react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import AlbumCarouselBtn from "../Button/AlbumCarouselBtn";
 import { IdolAlbumType } from "@/utils/interface/interface";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCompactDisc } from "@fortawesome/free-solid-svg-icons";
@@ -18,9 +17,6 @@ const AlbumCarousel = ({ albumData }: AlbumCaruoselProps) => {
   const albumLength = album?.length;
 
   const slickRef = useRef<any>(false);
-
-  const previous = useCallback(() => slickRef.current.slickPrev(), []);
-  const next = useCallback(() => slickRef.current.slickNext(), []);
 
   const settings = {
     dots: true,
@@ -39,24 +35,20 @@ const AlbumCarousel = ({ albumData }: AlbumCaruoselProps) => {
       <Slider {...settings} ref={slickRef}>
         {album?.map((data) => {
           return (
-            <Box width={"100px"} key={data.pk}>
-              <Image
-                src={data.album_cover}
-                alt="아티스트 이미지"
-                width={180}
-                height={180}
-                priority
-              />
+            <Box width={"100px"} key={data.pk} cursor={"pointer"}>
+              <Tooltip label={data.album_name} placement="bottom">
+                <Image
+                  src={data.album_cover}
+                  alt={data.album_name}
+                  width={180}
+                  height={180}
+                  priority
+                />
+              </Tooltip>
             </Box>
           );
         })}
       </Slider>
-      {albumLength > 3 && (
-        <>
-          <AlbumCarouselBtn slickEvent={slickRef} left={"-30px"} />
-          <AlbumCarouselBtn slickEvent={slickRef} right={"-30px"} />
-        </>
-      )}
     </Box>
   );
 };

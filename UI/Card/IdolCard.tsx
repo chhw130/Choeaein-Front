@@ -22,6 +22,7 @@ const IdolCard = ({ data }: IdolCardProps) => {
     router.push(url);
     router.prefetch(url);
   };
+
   return (
     <Box
       onClick={() => idolCardHandler()}
@@ -63,7 +64,6 @@ const IdolCard = ({ data }: IdolCardProps) => {
         </HStack>
       </Box>
       <Text
-        fontFamily="fantasy"
         paddingTop={"20px"}
         margin={0}
         fontSize="1.6vw"

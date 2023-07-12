@@ -8,7 +8,13 @@ const MemberSection = ({ groupMemberData }: { groupMemberData: GroupType }) => {
   const member = groupMemberData?.member;
 
   return (
-    <Center as="section" w={"80%"} flexDir={"column"} margin={"0 auto"}>
+    <Center
+      as="section"
+      w={"80%"}
+      flexDir={"column"}
+      margin={"0 auto"}
+      marginBottom={"3rem"}
+    >
       <Text fontSize={["xl", "2xl", "3xl"]} margin={"50px 0"}>
         아이돌 스케줄 보러가기
       </Text>
