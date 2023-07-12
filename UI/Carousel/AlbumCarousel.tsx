@@ -1,7 +1,7 @@
 import React, { useCallback, useRef } from "react";
 import Slider from "react-slick";
 import Image from "next/image";
-import { Box, Text } from "@chakra-ui/react";
+import { Box, Text, Tooltip } from "@chakra-ui/react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { IdolAlbumType } from "@/utils/interface/interface";
@@ -35,14 +35,16 @@ const AlbumCarousel = ({ albumData }: AlbumCaruoselProps) => {
       <Slider {...settings} ref={slickRef}>
         {album?.map((data) => {
           return (
-            <Box width={"100px"} key={data.pk}>
-              <Image
-                src={data.album_cover}
-                alt="아티스트 이미지"
-                width={180}
-                height={180}
-                priority
-              />
+            <Box width={"100px"} key={data.pk} cursor={"pointer"}>
+              <Tooltip label={data.album_name} placement="bottom">
+                <Image
+                  src={data.album_cover}
+                  alt={data.album_name}
+                  width={180}
+                  height={180}
+                  priority
+                />
+              </Tooltip>
             </Box>
           );
         })}

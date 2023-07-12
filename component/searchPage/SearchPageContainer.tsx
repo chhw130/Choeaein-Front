@@ -1,21 +1,31 @@
 "use client";
-import { Container } from "@chakra-ui/react";
+import { Box, Container } from "@chakra-ui/react";
 import PageTitle from "./PageTitle";
 import SearchPageContents from "./SearchPageContents";
+import { useSearchParams } from "next/navigation";
+import useSearchData from "@/utils/hook/useSearchData";
 
 const SearchPageContainer = () => {
+  const search = useSearchParams();
+  const keyword = search?.get("keyword");
+
+  const { searchData, isLoading } = useSearchData(keyword);
+
+  console.log(searchData);
+
   return (
-    <Container
+    <Box
       as={"section"}
-      h="100vh"
+      // h="100vh"
+      width={"80%"}
       display={"flex"}
       flexDir={"column"}
-      paddingTop={100}
+      padding={"7rem 0"}
       margin={"0 100px"}
     >
       <PageTitle />
-      <SearchPageContents />
-    </Container>
+      <SearchPageContents searchData={searchData} />
+    </Box>
   );
 };
 
