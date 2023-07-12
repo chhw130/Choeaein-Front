@@ -30,9 +30,14 @@ export const getIdolMemberAlbum = async (group: string) => {
   return res.json();
 };
 
+export const getIdolSoloAlbum = async (idol: string) => {
+  const res = await fetch(`${url}/albums/${idol}/`);
+  return res.json();
+};
+
 /**특정 솔로 아이돌 정보 */
 export const getIdolSolo = async (idol: string | null | undefined) => {
-  const res = await fetch(`${url}/solos/${idol}`);
+  const res = await fetch(`${url}/solos/${idol}/`);
   return res.json();
 };
 
