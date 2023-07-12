@@ -5,16 +5,21 @@ import MemberCard from "../../UI/Card/MemberCard";
 const SearchPageContents = ({ searchData }: any) => {
   return (
     <Flex
-      width={"80%"}
+      width={"90%"}
       justifyContent={"space-around"}
+      alignItems={"center"}
       gap={"30px 4%"}
       wrap={"wrap"}
       as={"article"}
-      margin={"1rem auto"}
+      margin={"3rem auto"}
     >
-      {searchData?.map((data: any) => {
-        return <MemberCard key={data.idol_name_kr} data={data} />;
-      })}
+      {searchData ? (
+        searchData?.map((data: any) => {
+          return <MemberCard key={data.idol_name_kr} data={data} />;
+        })
+      ) : (
+        <Box>검색 결과가 없습니다.</Box>
+      )}
     </Flex>
   );
 };

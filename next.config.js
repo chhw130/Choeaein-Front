@@ -27,6 +27,7 @@ const nextConfig = {
       "talkimg.imbc.com",
       "i.namu.wiki",
       "a5.mzstatic.com",
+      "i.pinimg.com",
     ],
   },
 };

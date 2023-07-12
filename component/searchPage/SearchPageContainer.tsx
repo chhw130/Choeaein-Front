@@ -11,12 +11,10 @@ const SearchPageContainer = () => {
 
   const { searchData, isLoading } = useSearchData(keyword);
 
-  console.log(searchData);
-
   return (
     <Box
       as={"section"}
-      // h="100vh"
+      minH={"100vh"}
       width={"80%"}
       display={"flex"}
       flexDir={"column"}

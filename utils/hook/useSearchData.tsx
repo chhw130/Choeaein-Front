@@ -11,8 +11,9 @@ interface UseSearchDataType {
 const useSearchData = (
   keyword: string | null | undefined
 ): UseSearchDataType => {
-  const { data: searchData, isLoading } = useQuery(["searchData"], () =>
-    getSearchData(keyword)
+  const { data: searchData, isLoading } = useQuery(
+    ["searchData", keyword],
+    () => getSearchData(keyword)
   );
 
   return { searchData, isLoading };
