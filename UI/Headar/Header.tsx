@@ -10,16 +10,13 @@ import {
 } from "@chakra-ui/react";
 import Link from "next/link";
 import HeaderBtn from "@/UI/Headar/HeaderBtn";
-import { SidebarContent } from "@/UI/Headar/Sidebar";
 import logo from "../../public/img/logo_main.png";
 import Image from "next/image";
-import { MobileNav } from "./MobileNav";
 import { ToastContainer } from "react-toastify";
 import ThemeBtn from "../theme/ThemeBtn";
 import SearchBar from "./SearchBar";
 
 const Header = () => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
   const { colorMode } = useColorMode();
 
   return (
@@ -29,22 +26,32 @@ const Header = () => {
         as="nav"
         position="fixed"
         w="100%"
-        justifyContent="center"
+        justifyContent="space-around"
         display="flex"
         zIndex={20}
         height="4rem"
         bg={colorMode !== "dark" ? "white" : "black"}
       >
-        <Flex w={"96%"} justifyContent={"space-between"} alignItems={"center"}>
+        <Flex
+          justifyContent={"space-between"}
+          alignItems={"center"}
+          w={"100%"}
+          padding={"20px"}
+        >
           <Link href="/" prefetch={false}>
-            <HStack>
+            <HStack spacing={[1, 1, 2]}>
               <Image src={logo} height={20} width={20} alt="choe" />
-              <Box fontSize={20} fontWeight={"bold"}>
+              <Box fontSize={[15, 15, 20]} fontWeight={"bold"}>
                 CHOEAEIN
               </Box>
             </HStack>
           </Link>
-          <HStack>
+          <HStack
+            spacing={[1, 1, 3]}
+            width={["70%", "50%", "80%"]}
+            maxW={["300px", "400px", "500px"]}
+            minW={["100px", "300px", "500px"]}
+          >
             <SearchBar />
             <ThemeBtn />
             <div className="navItem">

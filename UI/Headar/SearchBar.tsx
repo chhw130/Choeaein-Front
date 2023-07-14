@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import React, { useCallback, useState } from "react";
 import { GoSearch } from "react-icons/go";
 import { toast } from "react-toastify";
+import MobileSearchBtn from "../Button/MobileSearchBtn";
 
 const SearchBar = () => {
   const router = useRouter();
@@ -32,24 +33,21 @@ const SearchBar = () => {
   };
 
   return (
-    <InputGroup as="form" marginRight="10px" onSubmit={(e) => submitHandler(e)}>
-      <Input
-        list="searchData"
-        placeholder="아이돌을 검색해보세요."
-        fontSize="0.9rem"
-        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-          onChangeSearchBar(e)
-        }
-      />
-      <Box as="datalist" id="searchData">
-        <Box as="option" value={"fe"} width={"30"}>
-          data
-        </Box>
-      </Box>
-      <Button type="submit">
-        <GoSearch />
-      </Button>
-    </InputGroup>
+    <>
+      <InputGroup as="form" onSubmit={(e) => submitHandler(e)}>
+        <Input
+          placeholder="아이돌을 검색"
+          size={["sm", "sm", "md"]}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            onChangeSearchBar(e)
+          }
+        />
+
+        <Button type="submit" size={["sm", "sm", "md"]}>
+          <GoSearch />
+        </Button>
+      </InputGroup>
+    </>
   );
 };
 
