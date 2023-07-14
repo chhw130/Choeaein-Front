@@ -6,8 +6,6 @@ import {
   Flex,
   Icon,
   useColorModeValue,
-  Drawer,
-  DrawerContent,
   useDisclosure,
   BoxProps,
   FlexProps,
@@ -24,7 +22,6 @@ import { IconType } from "react-icons";
 import UserInform from "../../component/adminPage/UserInform";
 import Link from "next/link";
 import Image from "next/image";
-import { MobileNav } from "./MobileNav";
 import logoImage from "../../public/img/logo_main.png";
 import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 import { GoSearch } from "react-icons/go";
@@ -48,25 +45,8 @@ export default function SidebarWithHeader({
   const { colorMode } = useColorMode();
   return (
     <Box minH="100vh" bg={useColorModeValue("gray.100", "gray.900")} zIndex="1">
-      <SidebarContent
-        onClose={() => onClose}
-        display={{ base: "none", md: "block" }}
-      />
-      {/* <Drawer
-        autoFocus={false}
-        isOpen={isOpen}
-        placement="left"
-        onClose={onClose}
-        returnFocusOnClose={false}
-        onOverlayClick={onClose}
-        size="full"
-      >
-        <DrawerContent>
-          <SidebarContent onClose={onClose} />
-        </DrawerContent>
-      </Drawer> */}
-      {/* mobilenav */}
-      {/* <MobileNav onOpen={onOpen} /> */}
+      <SidebarContent display={{ base: "none", md: "block" }} />
+
       <Box
         ml={{ base: 0, md: 60 }}
         p="4"
@@ -82,11 +62,7 @@ export default function SidebarWithHeader({
   );
 }
 
-interface SidebarProps extends BoxProps {
-  onClose: () => void;
-}
-
-export const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
+export const SidebarContent = ({ ...rest }) => {
   const { colorMode, toggleColorMode } = useColorMode();
 
   return (
@@ -118,24 +94,12 @@ export const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
           >
             {colorMode === "light" ? <MoonIcon /> : <SunIcon />}
           </Button>
-          <CloseButton
-            display={{ base: "flex", md: "none" }}
-            onClick={onClose}
-          />
         </HStack>
       </Flex>
       <UserInform />
-      <InputGroup margin="0px 16px" padding="16px">
-        <Input placeholder="아이돌을 검색하세요." fontSize="0.7rem" w="50%" />
-        <InputRightAddon children={<GoSearch />} padding="0px 8px" />
-      </InputGroup>
+
       {LinkItems.map((link) => (
-        <NavItem
-          key={link.name}
-          link={link.name}
-          icon={link.icon}
-          onClick={onClose}
-        >
+        <NavItem key={link.name} link={link.name} icon={link.icon}>
           {link.name}
         </NavItem>
       ))}
