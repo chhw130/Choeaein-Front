@@ -30,7 +30,7 @@ const Header = () => {
         position="fixed"
         w="100%"
         justifyContent="center"
-        display={["none", "none", "flex"]}
+        display="flex"
         zIndex={20}
         height="4rem"
         bg={colorMode !== "dark" ? "white" : "black"}
@@ -53,20 +53,6 @@ const Header = () => {
           </HStack>
         </Flex>
       </Flex>
-      <MobileNav onOpen={onOpen} />
-      <Drawer
-        autoFocus={false}
-        isOpen={isOpen}
-        placement="left"
-        onClose={onClose}
-        returnFocusOnClose={false}
-        onOverlayClick={onClose}
-        size="full"
-      >
-        <DrawerContent>
-          <SidebarContent onClose={onClose} />
-        </DrawerContent>
-      </Drawer>
     </>
   );
 };
