@@ -5,6 +5,7 @@ import "@fortawesome/fontawesome-svg-core/styles.css";
 import "react-toastify/dist/ReactToastify.css";
 
 import { Metadata } from "next";
+import RecoilProvider from "./RecoilProvider";
 
 export const metadata: Metadata = {
   title: "Myfavor",
@@ -24,9 +25,11 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body suppressHydrationWarning>
         <ReactQueryProvider>
-          <Providers>
-            <DefaultLayout>{children}</DefaultLayout>
-          </Providers>
+          <RecoilProvider>
+            <Providers>
+              <DefaultLayout>{children}</DefaultLayout>
+            </Providers>
+          </RecoilProvider>
         </ReactQueryProvider>
       </body>
     </html>

@@ -23,6 +23,7 @@ export interface ModalProps {
 
 const ViewDayCalendarModal = ({ isOpen, selectedDay, onClose }: ModalProps) => {
   const selectDay = selectedDay.format("YYYY년 M월 D일");
+  const newSelectDay = selectedDay.format("YYYY-MM-DD");
 
   const {
     isOpen: isOpenUserScheduleForm,

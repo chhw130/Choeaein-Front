@@ -5,7 +5,6 @@ import "moment/locale/ko";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import IdolInform from "./IdolInform";
 import { Box, Button, Flex, Text } from "@chakra-ui/react";
-import { useQuery } from "@tanstack/react-query";
 import {
   faChevronLeft,
   faChevronRight,
@@ -13,7 +12,6 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import dynamic from "next/dynamic";
 import CategoryBtn from "./CategoryBtn";
-import { getIdolSchedule } from "@/utils/API/CSRSetting";
 import useCalendar from "@/utils/hook/useCalendar";
 import { ChoeIdolType } from "@/utils/interface/interface";
 const ViewDayCalendarModal = dynamic(

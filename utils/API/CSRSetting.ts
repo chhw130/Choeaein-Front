@@ -57,8 +57,8 @@ export const getSearchData = (keyword: string | null | undefined) =>
   instance.get(`/search/?q=${keyword}`).then((res) => res.data);
 
 /**특정 아이돌 스케줄 */
-export const getIdolSchedule = (idol: string) =>
-  instance.get(`/idols/${idol}/schedules/`).then((res) => res.data);
+export const getIdolSchedule = (postData: any, idol: string) =>
+  instance.post(`/idols/${idol}/schedule/`, postData).then((res) => res.data);
 
 /**사진을 업로드 할 url 가져오는 함수. */
 export const getUploadUrl = async (img: any) => {

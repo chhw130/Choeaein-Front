@@ -1,24 +1,51 @@
 import ShowEvent from "@/component/calendarPage/ShowEvent";
 import { Box, Td, Tr, useDisclosure } from "@chakra-ui/react";
 import moment from "moment";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "../../component/calendarPage/Calendar.module.scss";
 import { ChoeIdolType } from "../interface/interface";
 import { useMutation } from "@tanstack/react-query";
 import { getIdolSchedule } from "../API/CSRSetting";
+import { useRecoilValue } from "recoil";
+import { categoryState } from "../RecoilStore/CategoryState";
 
 const useCalendar = (idolData: ChoeIdolType) => {
-  const { data: newIdolSchedule, isLoading } = useMutation(() =>
-    getIdolSchedule("123")
-  );
+  const categories = useRecoilValue(categoryState);
 
-  const { isOpen, onClose, onOpen } = useDisclosure();
   /**선택한 날 */
   const [selectedDay, setSelectedDay] = useState(moment());
 
   /**현재 보여주는 달의 날짜들 */
   const [getMoment, setMoment] = useState(moment());
   const today = getMoment;
+
+  const when = today.format("YYYY-MM");
+  const postData = {
+    when,
+    categories,
+  };
+
+  console.log(postData);
+
+  /**스케줄 받아오기 */
+  const {
+    data: newIdolSchedule,
+    isLoading,
+    mutateAsync: getIdolScheduleHandler,
+  } = useMutation((postData: any) =>
+    getIdolSchedule(postData, idolData?.idol_name_kr)
+  );
+
+  useEffect(() => {
+    const getIdolHandler = async () => {
+      await getIdolScheduleHandler(postData);
+    };
+
+    getIdolHandler();
+  }, [when, categories]);
+
+  /**모달창 */
+  const { isOpen, onClose, onOpen } = useDisclosure();
 
   // 그 달의 시작하는 week() 주
   const firstWeek = today.clone().startOf("month").week();

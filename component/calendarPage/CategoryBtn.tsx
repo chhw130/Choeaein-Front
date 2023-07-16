@@ -11,6 +11,8 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { Button } from "@chakra-ui/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useRecoilState } from "recoil";
+import { categoryState } from "@/utils/RecoilStore/CategoryState";
 
 interface CategoryBtnProps {
   idolId: number;
@@ -46,31 +48,23 @@ const CategoryBtn = ({ idolId }: CategoryBtnProps) => {
           { pk: 4, category: "congrats", content: "축하", icon: faGift },
           { pk: 5, category: "buy", content: "구매", icon: faStore },
         ];
-  const initActiveButtons =
-    Number(idolId) === userPick
-      ? ["broadcast", "event", "release", "congrats", "buy", "my"]
-      : ["broadcast", "event", "release", "congrats", "buy"];
 
-  const [activeButtons, setActiveButtons] = useState(initActiveButtons);
+  const [category, setCategory] = useRecoilState(categoryState);
 
   /**클릭한 버튼 toggle 함수 */
   const handleClick = (buttonPk: string) => {
-    if (activeButtons.length === 1 && activeButtons.includes(buttonPk)) {
+    if (category.length === 1 && category.includes(buttonPk)) {
       return;
     }
-    const index = activeButtons.indexOf(buttonPk);
+    const index = category.indexOf(buttonPk);
 
     if (index === -1) {
-      setActiveButtons([...activeButtons, buttonPk]);
+      setCategory([...category, buttonPk]);
     } else {
-      setActiveButtons([
-        ...activeButtons.slice(0, index),
-        ...activeButtons.slice(index + 1),
-      ]);
+      setCategory([...category.slice(0, index), ...category.slice(index + 1)]);
     }
-
-    console.log(activeButtons);
   };
+
   return (
     <div className={styles.categoryContainer}>
       {buttons.map((btn) => (
@@ -79,9 +73,7 @@ const CategoryBtn = ({ idolId }: CategoryBtnProps) => {
           w={[40, 80, 150]}
           h={[10, 14, 16]}
           className={`${
-            activeButtons.includes(btn.category)
-              ? styles.active
-              : styles.inactive
+            category.includes(btn.category) ? styles.active : styles.inactive
           } 
            ${styles.buttonss}
           `}
