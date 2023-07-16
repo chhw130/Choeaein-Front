@@ -10,6 +10,7 @@ import {
   ModalFooter,
   ModalHeader,
   ModalOverlay,
+  Spinner,
   Text,
   VStack,
   useDisclosure,
@@ -64,17 +65,25 @@ const ViewDayCalendarModal = ({
           <ModalBody>
             {!dateLoading ? (
               <VStack padding={3} flexDir={"column"} margin={" 0 auto"}>
-                {idolDateSchedules?.map(
-                  (idolDateSchedule: IdolDateScheduleType) => (
-                    <DateScheduleCard
-                      key={idolDateSchedule.pk}
-                      idolDateSchedule={idolDateSchedule}
-                    />
-                  )
+                {idolDateSchedules.length !== 0 ? (
+                  <>
+                    {idolDateSchedules?.map(
+                      (idolDateSchedule: IdolDateScheduleType) => (
+                        <DateScheduleCard
+                          key={idolDateSchedule.pk}
+                          idolDateSchedule={idolDateSchedule}
+                        />
+                      )
+                    )}
+                  </>
+                ) : (
+                  <Text fontSize={"2xl"}>일정이 없습니다.</Text>
                 )}
               </VStack>
             ) : (
-              <div>loading</div>
+              <Center h={"100px"}>
+                <Spinner />
+              </Center>
             )}
             <hr />
             <Center padding={5}>

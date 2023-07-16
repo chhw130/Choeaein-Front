@@ -12,6 +12,8 @@ async function CalendarPage({ searchParams }: any) {
 
   const idolData: ChoeIdolType = await getIdolInform(idolName);
 
+  console.log(idolData);
+
   return (
     <main>
       <CalnedarContainer idolData={idolData} />

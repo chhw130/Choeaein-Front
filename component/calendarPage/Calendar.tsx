@@ -14,6 +14,7 @@ import dynamic from "next/dynamic";
 import CategoryBtn from "./CategoryBtn";
 import useCalendar from "@/utils/hook/useCalendar";
 import { ChoeIdolType } from "@/utils/interface/interface";
+import useUser from "@/utils/hook/useUser";
 const ViewDayCalendarModal = dynamic(
   () => import("@/UI/Modal/ViewDayCalendarModal")
 );
@@ -36,6 +37,9 @@ const Calendar = ({ idolData }: { idolData: ChoeIdolType }) => {
     idolDateSchedules,
     dateLoading,
   } = useCalendar(idolData);
+
+  const { userData } = useUser();
+  const userPick = userData?.pick;
 
   return (
     <>
@@ -89,14 +93,14 @@ const Calendar = ({ idolData }: { idolData: ChoeIdolType }) => {
         </Flex>
         <CategoryBtn idolId={idolData.pk} />
 
-        <Box h={"500px"} pos={"relative"}>
+        <Box h={"100%"} pos={"relative"}>
           <CalendarTable
             days={days}
             calendarArr={calendarArr}
             isLoading={isLoading}
           />
         </Box>
-        <ReportBtn />
+        <ReportBtn idolData={idolData} />
       </article>
     </>
   );

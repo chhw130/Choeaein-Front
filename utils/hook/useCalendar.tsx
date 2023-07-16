@@ -26,7 +26,7 @@ interface UseCalendarType {
 
 const useCalendar = (idolData: ChoeIdolType): UseCalendarType => {
   const categories = useRecoilValue(categoryState);
-  const idolName = idolData.idol_name_kr;
+  const idolName = idolData.idol_name_en;
 
   /**선택한 날 */
   const [selectedDay, setSelectedDay] = useState(moment());

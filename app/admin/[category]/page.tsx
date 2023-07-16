@@ -1,7 +1,5 @@
 import React from "react";
-import { Box } from "@chakra-ui/react";
 import dynamic from "next/dynamic";
-import { getUserInform } from "@/utils/API/CSRSetting";
 const IdolList = dynamic(() => import("@/component/adminPage/IdolList"));
 const ReportSchedule = dynamic(
   () => import("@/component/adminPage/ReportSchedule")

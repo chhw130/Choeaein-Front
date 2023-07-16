@@ -14,10 +14,18 @@ import {
 } from "@chakra-ui/react";
 import { ModalProps } from "./ViewDayCalendarModal";
 import { useForm } from "react-hook-form";
+import { useMutation } from "@tanstack/react-query";
+import { putUserPassword } from "@/utils/API/CSRSetting";
 
 interface ModifyPasswordModalProps {
   isOpen: boolean;
   onClose: () => void;
+}
+
+export interface PasswordFormType {
+  old_password: string;
+  new_password: string;
+  confirmNew_password?: string;
 }
 
 const ModifyPasswordModal = ({ isOpen, onClose }: ModifyPasswordModalProps) => {
@@ -25,10 +33,19 @@ const ModifyPasswordModal = ({ isOpen, onClose }: ModifyPasswordModalProps) => {
     register,
     formState: { errors },
     handleSubmit,
-  } = useForm();
+  } = useForm<PasswordFormType>();
 
-  const modifyPasswordHandler = (data: any) => {
-    console.log(data);
+  const { mutateAsync: putUserPasswordHandler } = useMutation(
+    (data: PasswordFormType) => putUserPassword(data)
+  );
+
+  const PasswordFormSubmitHandler = async (form: PasswordFormType) => {
+    const data: PasswordFormType = {
+      old_password: form.old_password,
+      new_password: form.new_password,
+    };
+
+    await putUserPasswordHandler(data);
   };
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
@@ -36,7 +53,7 @@ const ModifyPasswordModal = ({ isOpen, onClose }: ModifyPasswordModalProps) => {
       <ModalContent>
         <ModalHeader>비밀번호 수정하기</ModalHeader>
         <ModalCloseButton />
-        <form onSubmit={handleSubmit(modifyPasswordHandler)}>
+        <form onSubmit={handleSubmit(PasswordFormSubmitHandler)}>
           <ModalBody>
             <FormLabel margin={0} htmlFor="password">
               기존 비밀번호
@@ -46,7 +63,7 @@ const ModifyPasswordModal = ({ isOpen, onClose }: ModifyPasswordModalProps) => {
               type="password"
               autoComplete="off"
               margin="10px 0"
-              {...register("password", {
+              {...register("old_password", {
                 required: {
                   value: true,
                   message: "필수 정보입니다.",
@@ -61,7 +78,7 @@ const ModifyPasswordModal = ({ isOpen, onClose }: ModifyPasswordModalProps) => {
               type="password"
               margin="10px 0"
               autoComplete="off"
-              {...register("newPassword", {
+              {...register("new_password", {
                 required: {
                   value: true,
                   message: "필수 정보입니다.",
@@ -76,7 +93,7 @@ const ModifyPasswordModal = ({ isOpen, onClose }: ModifyPasswordModalProps) => {
               type="password"
               margin="10px 0"
               autoComplete="off"
-              {...register("confirmNewPassword", {
+              {...register("confirmNew_password", {
                 required: {
                   value: true,
                   message: "필수 정보입니다.",

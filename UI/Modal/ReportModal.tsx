@@ -17,15 +17,25 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { ModalProps } from "./ViewDayCalendarModal";
 import RadioCard from "../Card/RadioCard";
+import { useMutation } from "@tanstack/react-query";
+import { postUserReportSchedule } from "@/utils/API/CSRSetting";
+import { ChoeIdolType } from "@/utils/interface/interface";
 
+interface ReportModalProps extends ModalProps {
+  idolData: ChoeIdolType;
+}
 interface ReportForm {
   title: string;
   location: string;
   startDate: string;
-  content: string;
 }
 
-const ReportModal = ({ isOpen, onClose }: ModalProps) => {
+export interface PostDataType extends ReportForm {
+  type: string | number;
+  whoes: string[];
+}
+
+const ReportModal = ({ isOpen, onClose, idolData }: ReportModalProps) => {
   const { register, handleSubmit } = useForm<ReportForm>();
   const categorys = ["방송", "발매", "구매", "축하", "행사"];
 
@@ -36,20 +46,24 @@ const ReportModal = ({ isOpen, onClose }: ModalProps) => {
 
   const group = getRootProps();
 
-  const submitHandler = (formData: ReportForm) => {
-    const data = {
-      category: value,
+  const { mutateAsync: reportScheduleHandler } = useMutation(
+    (data: PostDataType) => postUserReportSchedule(data)
+  );
+
+  const submitHandler = async (formData: ReportForm) => {
+    const data: PostDataType = {
+      whoes: [idolData.idol_name_kr],
+      type: value,
       title: formData.title,
       location: formData.location,
       startDate: formData.startDate,
-      content: formData.content,
     };
 
-    console.log(data);
+    await reportScheduleHandler(data);
   };
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose}>
+    <Modal isOpen={isOpen} onClose={onClose} isCentered>
       <ModalOverlay />
       <ModalContent>
         <ModalHeader>일정 제보하기</ModalHeader>
@@ -107,20 +121,6 @@ const ReportModal = ({ isOpen, onClose }: ModalProps) => {
               autoComplete="off"
               type="date"
               {...register("startDate", {
-                required: {
-                  value: true,
-                  message: "필수 정보입니다.",
-                },
-              })}
-            />
-            <FormLabel margin={0} htmlFor="content">
-              상세 내용
-            </FormLabel>
-            <Input
-              id="content"
-              margin="10px 0"
-              autoComplete="off"
-              {...register("content", {
                 required: {
                   value: true,
                   message: "필수 정보입니다.",
