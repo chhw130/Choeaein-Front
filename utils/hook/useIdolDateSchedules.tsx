@@ -22,7 +22,7 @@ const useIdolDateSchedules = (
 ): UseIdolDateSchedulesType => {
   console.log(postData, idolName);
   const {
-    data: idolDateSchedules,
+    data: idolDateSchedules = [],
     isLoading,
     mutateAsync: getIdolDayScheduleHandler,
   } = useMutation(() => getIdolSchedule(postData, idolName));

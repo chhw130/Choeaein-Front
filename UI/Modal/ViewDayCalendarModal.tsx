@@ -2,6 +2,7 @@ import {
   Box,
   Button,
   Center,
+  Flex,
   Modal,
   ModalBody,
   ModalCloseButton,
@@ -10,13 +11,13 @@ import {
   ModalHeader,
   ModalOverlay,
   Text,
+  VStack,
   useDisclosure,
 } from "@chakra-ui/react";
 import React from "react";
 import UserScheduleForm from "./UserScheduleForm";
 import { IdolDateScheduleType } from "@/utils/interface/interface";
 import moment from "moment";
-import ScheduleDetailModal from "./ScheduleDetailModal";
 import DateScheduleCard from "../Card/DateScheduleCard";
 
 export interface ModalProps {
@@ -62,7 +63,7 @@ const ViewDayCalendarModal = ({
           <ModalCloseButton />
           <ModalBody>
             {!dateLoading ? (
-              <Center padding={5}>
+              <VStack padding={3} flexDir={"column"} margin={" 0 auto"}>
                 {idolDateSchedules?.map(
                   (idolDateSchedule: IdolDateScheduleType) => (
                     <DateScheduleCard
@@ -71,7 +72,7 @@ const ViewDayCalendarModal = ({
                     />
                   )
                 )}
-              </Center>
+              </VStack>
             ) : (
               <div>loading</div>
             )}

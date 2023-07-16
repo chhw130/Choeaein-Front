@@ -1,7 +1,15 @@
 import { IdolDateScheduleType } from "@/utils/interface/interface";
-import { Box, useDisclosure } from "@chakra-ui/react";
+import { Box, Card, CardBody, Text, useDisclosure } from "@chakra-ui/react";
 import React from "react";
 import ScheduleDetailModal from "../Modal/ScheduleDetailModal";
+import {
+  faBroadcastTower,
+  faCalendarCheck,
+  faCompactDisc,
+  faGift,
+  faStore,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 interface DateScheduleCardProps {
   idolDateSchedule: IdolDateScheduleType;
@@ -14,6 +22,22 @@ const DateScheduleCard = ({ idolDateSchedule }: DateScheduleCardProps) => {
     onOpen: onOpenScheduleDetail,
   } = useDisclosure();
 
+  const category = idolDateSchedule?.ScheduleType?.type;
+
+  const icon = {
+    broadcast: {
+      icon: faBroadcastTower,
+      bg: "#443c68",
+    },
+    event: { icon: faCalendarCheck, bg: "#537fe7" },
+    release: {
+      icon: faCompactDisc,
+      bg: "#f16767",
+    },
+    congrats: { icon: faGift, bg: "#e7b10a" },
+    buy: { icon: faStore, bg: "#609966" },
+  };
+
   return (
     <>
       <ScheduleDetailModal
@@ -21,18 +45,23 @@ const DateScheduleCard = ({ idolDateSchedule }: DateScheduleCardProps) => {
         onClose={onCloseScheduleDetail}
         idolDateSchedule={idolDateSchedule}
       />
-      <Box
+      <Card
         key={idolDateSchedule.pk}
         bg={"white"}
         color={"black"}
-        w={"300px"}
-        h={"60px"}
+        w={["100%", "100%", "80%"]}
         borderRadius={"10px"}
         cursor={"pointer"}
         onClick={() => onOpenScheduleDetail()}
       >
-        {idolDateSchedule.ScheduleTitle}
-      </Box>
+        <CardBody>
+          <FontAwesomeIcon
+            icon={icon[category].icon}
+            color={icon[category].bg}
+          />
+          <Text>{idolDateSchedule.ScheduleTitle}</Text>
+        </CardBody>
+      </Card>
     </>
   );
 };

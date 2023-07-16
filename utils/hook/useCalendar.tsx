@@ -57,7 +57,7 @@ const useCalendar = (idolData: ChoeIdolType): UseCalendarType => {
   }, [when, categories]);
 
   /**스케줄 받아오기 (date) */
-  const date = today.format("YYYY-MM-DD");
+  const date = selectedDay.format("YYYY-MM-DD");
   const postDateData = {
     when: date,
     categories,
@@ -114,7 +114,7 @@ const useCalendar = (idolData: ChoeIdolType): UseCalendarType => {
                     onClick={async () => {
                       setSelectedDay(days);
                       onOpen();
-                      // await getIdolDayScheduleHandler();
+                      await getIdolDayScheduleHandler();
                     }}
                     cursor={"pointer"}
                     border={
