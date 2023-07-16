@@ -15,7 +15,12 @@ import {
 import { ModalProps } from "./ViewDayCalendarModal";
 import { useForm } from "react-hook-form";
 
-const ModifyPasswordModal = ({ isOpen, onClose }: ModalProps) => {
+interface ModifyPasswordModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+}
+
+const ModifyPasswordModal = ({ isOpen, onClose }: ModifyPasswordModalProps) => {
   const {
     register,
     formState: { errors },

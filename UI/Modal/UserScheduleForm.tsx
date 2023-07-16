@@ -24,7 +24,12 @@ interface UserScheduleForm {
   date: string;
 }
 
-const UserScheduleForm = ({ isOpen, onClose }: ModalProps) => {
+interface UserScheduleFormType {
+  isOpen: boolean;
+  onClose: () => void;
+}
+
+const UserScheduleForm = ({ isOpen, onClose }: UserScheduleFormType) => {
   const {
     register,
     handleSubmit,

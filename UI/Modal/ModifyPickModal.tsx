@@ -15,7 +15,12 @@ import { useForm } from "react-hook-form";
 import { ModalProps } from "./ViewDayCalendarModal";
 import IdolOption from "@/UI/Select/IdolOption";
 
-const ModifyPickModal = ({ isOpen, onClose }: ModalProps) => {
+interface ModifyPickModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+}
+
+const ModifyPickModal = ({ isOpen, onClose }: ModifyPickModalProps) => {
   const modifyPickHandler = () => {};
   const {
     register,

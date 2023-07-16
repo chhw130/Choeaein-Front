@@ -33,6 +33,8 @@ const Calendar = ({ idolData }: { idolData: ChoeIdolType }) => {
     today,
     getMoment,
     isLoading,
+    idolDateSchedules,
+    dateLoading,
   } = useCalendar(idolData);
 
   return (
@@ -41,6 +43,8 @@ const Calendar = ({ idolData }: { idolData: ChoeIdolType }) => {
         selectedDay={selectedDay}
         isOpen={isOpen}
         onClose={onClose}
+        idolDateSchedules={idolDateSchedules}
+        dateLoading={dateLoading}
       />
       <article className={styles.calendarContainer}>
         <Flex justifyContent="space-between" padding="10px 20px">

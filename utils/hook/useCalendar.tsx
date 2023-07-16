@@ -8,9 +8,11 @@ import { useMutation } from "@tanstack/react-query";
 import { getIdolSchedule } from "../API/CSRSetting";
 import { useRecoilValue } from "recoil";
 import { categoryState } from "../RecoilStore/CategoryState";
+import useIdolDateSchedules from "./useIdolDateSchedules";
 
 const useCalendar = (idolData: ChoeIdolType) => {
   const categories = useRecoilValue(categoryState);
+  const idolName = idolData.idol_name_kr;
 
   /**선택한 날 */
   const [selectedDay, setSelectedDay] = useState(moment());
@@ -25,16 +27,12 @@ const useCalendar = (idolData: ChoeIdolType) => {
     categories,
   };
 
-  console.log(postData);
-
   /**스케줄 받아오기 */
   const {
     data: newIdolSchedule,
     isLoading,
     mutateAsync: getIdolScheduleHandler,
-  } = useMutation((postData: any) =>
-    getIdolSchedule(postData, idolData?.idol_name_kr)
-  );
+  } = useMutation((postData: any) => getIdolSchedule(postData, idolName));
 
   useEffect(() => {
     const getIdolHandler = async () => {
@@ -43,6 +41,18 @@ const useCalendar = (idolData: ChoeIdolType) => {
 
     getIdolHandler();
   }, [when, categories]);
+
+  /**스케줄 받아오기 (date) */
+  const date = today.format("YYYY-MM-DD");
+  const postDateData = {
+    when: date,
+    categories,
+  };
+  const {
+    idolDateSchedules,
+    isLoading: dateLoading,
+    getIdolDayScheduleHandler,
+  } = useIdolDateSchedules(postDateData, idolName);
 
   /**모달창 */
   const { isOpen, onClose, onOpen } = useDisclosure();
@@ -87,9 +97,10 @@ const useCalendar = (idolData: ChoeIdolType) => {
                     padding={[2, 3, 4]}
                     textAlign="center"
                     key={index}
-                    onClick={() => {
+                    onClick={async () => {
                       setSelectedDay(days);
                       onOpen();
+                      // await getIdolDayScheduleHandler();
                     }}
                     cursor={"pointer"}
                     border={
@@ -132,9 +143,10 @@ const useCalendar = (idolData: ChoeIdolType) => {
                     padding={[2, 3, 4]}
                     textAlign="center"
                     key={index}
-                    onClick={() => {
+                    onClick={async () => {
                       setSelectedDay(days);
                       onOpen();
+                      await getIdolDayScheduleHandler();
                     }}
                     cursor={"pointer"}
                     border={
@@ -173,6 +185,8 @@ const useCalendar = (idolData: ChoeIdolType) => {
     today,
     getMoment,
     isLoading,
+    idolDateSchedules,
+    dateLoading,
   };
 };
 
