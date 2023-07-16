@@ -14,8 +14,10 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 import UserScheduleForm from "./UserScheduleForm";
-import useIdolDateSchedules from "@/utils/hook/useIdolDateSchedules";
-import { ChoeIdolType } from "@/utils/interface/interface";
+import { IdolDateScheduleType } from "@/utils/interface/interface";
+import moment from "moment";
+import ScheduleDetailModal from "./ScheduleDetailModal";
+import DateScheduleCard from "../Card/DateScheduleCard";
 
 export interface ModalProps {
   isOpen: boolean;
@@ -23,8 +25,8 @@ export interface ModalProps {
 }
 
 interface ViewDayCalendarModalProps extends ModalProps {
-  selectedDay: any;
-  idolDateSchedules: any;
+  selectedDay: moment.Moment;
+  idolDateSchedules: IdolDateScheduleType[];
   dateLoading: boolean;
 }
 
@@ -43,14 +45,13 @@ const ViewDayCalendarModal = ({
     onOpen,
   } = useDisclosure();
 
-  console.log(idolDateSchedules);
-
   return (
     <>
       <UserScheduleForm
         isOpen={isOpenUserScheduleForm}
         onClose={onCloseUserScheduleForm}
       />
+
       <Modal isOpen={isOpen} onClose={onClose} isCentered size={"xl"}>
         <ModalOverlay />
         <ModalContent>
@@ -62,15 +63,14 @@ const ViewDayCalendarModal = ({
           <ModalBody>
             {!dateLoading ? (
               <Center padding={5}>
-                <Box
-                  bg={"white"}
-                  color={"black"}
-                  w={"300px"}
-                  h={"60px"}
-                  borderRadius={"10px"}
-                >
-                  schedule
-                </Box>
+                {idolDateSchedules?.map(
+                  (idolDateSchedule: IdolDateScheduleType) => (
+                    <DateScheduleCard
+                      key={idolDateSchedule.pk}
+                      idolDateSchedule={idolDateSchedule}
+                    />
+                  )
+                )}
               </Center>
             ) : (
               <div>loading</div>

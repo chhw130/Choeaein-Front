@@ -3,14 +3,28 @@ import { Box, Td, Tr, useDisclosure } from "@chakra-ui/react";
 import moment from "moment";
 import React, { useEffect, useState } from "react";
 import styles from "../../component/calendarPage/Calendar.module.scss";
-import { ChoeIdolType } from "../interface/interface";
+import { ChoeIdolType, IdolDateScheduleType } from "../interface/interface";
 import { useMutation } from "@tanstack/react-query";
 import { getIdolSchedule } from "../API/CSRSetting";
 import { useRecoilValue } from "recoil";
 import { categoryState } from "../RecoilStore/CategoryState";
 import useIdolDateSchedules from "./useIdolDateSchedules";
 
-const useCalendar = (idolData: ChoeIdolType) => {
+interface UseCalendarType {
+  isOpen: boolean;
+  onClose: () => void;
+  calendarArr: Function;
+  selectedDay: moment.Moment;
+  setSelectedDay: React.Dispatch<React.SetStateAction<moment.Moment>>;
+  setMoment: React.Dispatch<React.SetStateAction<moment.Moment>>;
+  today: moment.Moment;
+  getMoment: moment.Moment;
+  isLoading: boolean;
+  idolDateSchedules: IdolDateScheduleType[];
+  dateLoading: boolean;
+}
+
+const useCalendar = (idolData: ChoeIdolType): UseCalendarType => {
   const categories = useRecoilValue(categoryState);
   const idolName = idolData.idol_name_kr;
 

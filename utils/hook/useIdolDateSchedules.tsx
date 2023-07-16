@@ -1,15 +1,25 @@
-import { useMutation } from "@tanstack/react-query";
+import { UseMutateAsyncFunction, useMutation } from "@tanstack/react-query";
 import React, { useEffect } from "react";
 import { getIdolSchedule } from "../API/CSRSetting";
 import { useRecoilState } from "recoil";
 import { categoryState } from "../RecoilStore/CategoryState";
+import { IdolDateScheduleType } from "../interface/interface";
 
-interface useIdolDateSchedulesType {
-  idolDateSchedules: any;
+interface UseIdolDateSchedulesType {
+  idolDateSchedules: IdolDateScheduleType[];
   isLoading: boolean;
+  getIdolDayScheduleHandler: UseMutateAsyncFunction<
+    any,
+    unknown,
+    void,
+    unknown
+  >;
 }
 
-const useIdolDateSchedules = (postData: any, idolName: string) => {
+const useIdolDateSchedules = (
+  postData: any,
+  idolName: string
+): UseIdolDateSchedulesType => {
   console.log(postData, idolName);
   const {
     data: idolDateSchedules,
