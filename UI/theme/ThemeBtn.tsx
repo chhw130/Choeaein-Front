@@ -7,6 +7,7 @@ const ThemeBtn = () => {
 
   return (
     <Button
+      size={["sm", "sm", "md"]}
       onClick={toggleColorMode}
       color={colorMode === "light" ? "black" : "white"}
     >

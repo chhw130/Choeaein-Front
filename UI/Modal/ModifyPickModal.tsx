@@ -12,16 +12,30 @@ import {
   Modal,
 } from "@chakra-ui/react";
 import { useForm } from "react-hook-form";
-import { ModalProps } from "./ViewDayCalendarModal";
 import IdolOption from "@/UI/Select/IdolOption";
+import { useMutation } from "@tanstack/react-query";
+import { putUserPick } from "@/utils/API/CSRSetting";
 
-const ModifyPickModal = ({ isOpen, onClose }: ModalProps) => {
-  const modifyPickHandler = () => {};
+interface ModifyPickModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+}
+
+const ModifyPickModal = ({ isOpen, onClose }: ModifyPickModalProps) => {
   const {
     register,
     formState: { errors },
     handleSubmit,
-  } = useForm();
+  } = useForm<{ pick: string }>();
+
+  const { mutateAsync: userPickHandler } = useMutation((data) =>
+    putUserPick(data)
+  );
+
+  const modifyPickHandler = async (data: any) => {
+    await userPickHandler(data);
+  };
+
   return (
     <Modal isOpen={isOpen} onClose={onClose} isCentered>
       <ModalOverlay />
@@ -30,7 +44,12 @@ const ModifyPickModal = ({ isOpen, onClose }: ModalProps) => {
         <ModalCloseButton />
         <form onSubmit={handleSubmit(modifyPickHandler)}>
           <ModalBody>
-            <Select placeholder="최애를 선택해주세요.">
+            <Select
+              placeholder="최애를 선택해주세요."
+              {...register("pick", {
+                required: true,
+              })}
+            >
               <IdolOption />
             </Select>
           </ModalBody>

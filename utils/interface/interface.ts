@@ -82,5 +82,25 @@ export interface GroupMember extends IdolType {
   idol_profile: string;
 }
 
+/**특정 한명의 아이돌 타입 */
+export interface ChoeIdolType extends IdolType {
+  pk: number;
+  idol_profile: string;
+  is_solo: boolean;
+  group: string[];
+  idol_birthday: string;
+  has_schedules: boolean;
+  viewCount: number;
+}
+
+export interface IdolMonthScheduleType {}
+export interface IdolDateScheduleType {
+  ScheduleTitle: string;
+  ScheduleType: { type: string };
+  location: string;
+  pk: number;
+  when: string;
+}
+
 /**아이돌 스케줄 */
 export interface RandomIdolSchedule {}

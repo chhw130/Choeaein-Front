@@ -1,3 +1,5 @@
+import { PasswordFormType } from "@/UI/Modal/ModifyPasswordModal";
+import { PostDataType } from "@/UI/Modal/ReportModal";
 import axios from "axios";
 
 import Cookies from "js-cookie";
@@ -53,12 +55,35 @@ export const getUserInform = () =>
     })
     .then((res) => res.data);
 
+/**유저 pick 변경 */
+export const putUserPick = (data: any) =>
+  instance
+    .put("/users/edit/pick/", data, {
+      headers: {
+        "X-CSRFToken": Cookies.get("csrftoken") || "",
+      },
+      withCredentials: true,
+    })
+    .then((res) => res.data);
+
+/**유저 password 변경 */
+
+export const putUserPassword = (data: PasswordFormType) =>
+  instance
+    .put("/oauth/changePW/", data, {
+      headers: {
+        "X-CSRFToken": Cookies.get("csrftoken") || "",
+      },
+      withCredentials: true,
+    })
+    .then((res) => res.data);
+
 export const getSearchData = (keyword: string | null | undefined) =>
   instance.get(`/search/?q=${keyword}`).then((res) => res.data);
 
-/**특정 아이돌 스케줄 */
-export const getIdolSchedule = (idolId: string) =>
-  instance.get(`/idols/${idolId}/schedules/`).then((res) => res.data);
+/**특정 아이돌 스케줄(month) */
+export const getIdolSchedule = (postData: any, idol: string) =>
+  instance.post(`/idols/${idol}/schedule/`, postData).then((res) => res.data);
 
 /**사진을 업로드 할 url 가져오는 함수. */
 export const getUploadUrl = async (img: any) => {
@@ -108,9 +133,16 @@ export const postProfileImg = async (profileImg: any) => {
 };
 
 /**유저가 제보한 아이돌 일정 */
-export const getUserReportSchedule = async () =>
-  await instance.get(`/users/reports/`).then((res) => res.data);
+export const postUserReportSchedule = async (data: PostDataType) =>
+  await instance
+    .post(`/users/reports/`, data, {
+      headers: {
+        "X-CSRFToken": Cookies.get("csrftoken") || "",
+      },
+    })
+    .then((res) => res.data);
 
+export const getUserReportSchedule = async () => instance.get("");
 /**유저 일정 등록 */
 
 export const postUserCalendar = async (data: any) =>

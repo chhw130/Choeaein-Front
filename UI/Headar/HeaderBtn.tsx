@@ -11,6 +11,7 @@ import {
 } from "@chakra-ui/react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 
 const loginMenu = [
@@ -42,13 +43,14 @@ const logoutMenu = [
 const HeaderBtn = () => {
   const { userData } = useUser();
   const { colorMode } = useColorMode();
+  const router = useRouter();
 
   const queryClient = useQueryClient();
   const { mutateAsync: logoutHandler } = useMutation(() => postLogout(), {
     onSuccess: () => {
       queryClient.removeQueries(["me"]);
-
       toast("로그아웃 되엇습니다.", { theme: colorMode, type: "success" });
+      router.push("/");
     },
   });
 
@@ -61,13 +63,18 @@ const HeaderBtn = () => {
     <Menu>
       <MenuButton>
         <Avatar
-        // @ts-ignore
-        // src={session?.data?.user?.image}
+          // @ts-ignore
+          // src={session?.data?.user?.image}
+          size={["xs", "xs", "md"]}
         />
       </MenuButton>
       {
         <MenuList>
-          {userData?.is_admin && <MenuItem>관리자페이지</MenuItem>}
+          {userData?.is_admin && (
+            <Link href={"/admin/home"}>
+              <MenuItem>관리자페이지</MenuItem>
+            </Link>
+          )}
           {!userData
             ? loginMenu.map((menu, index) => (
                 <Link href={menu.link} prefetch={false} key={index}>

@@ -11,10 +11,7 @@ const SoloPage = async ({ searchParams }: SoloPageProps) => {
   const idolName: string = searchParams.idol;
 
   const soloData: SoloType = await getIdolSolo(idolName);
-
   const albumData: IdolAlbumType = await getIdolSoloAlbum(idolName);
-
-  console.log(albumData);
 
   return (
     <main>

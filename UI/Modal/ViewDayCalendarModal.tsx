@@ -2,6 +2,7 @@ import {
   Box,
   Button,
   Center,
+  Flex,
   Modal,
   ModalBody,
   ModalCloseButton,
@@ -9,20 +10,36 @@ import {
   ModalFooter,
   ModalHeader,
   ModalOverlay,
+  Spinner,
   Text,
+  VStack,
   useDisclosure,
 } from "@chakra-ui/react";
 import React from "react";
 import UserScheduleForm from "./UserScheduleForm";
+import { IdolDateScheduleType } from "@/utils/interface/interface";
+import moment from "moment";
+import DateScheduleCard from "../Card/DateScheduleCard";
 
 export interface ModalProps {
   isOpen: boolean;
-  selectedDay?: any;
-  onClose: any;
+  onClose: () => void;
 }
 
-const ViewDayCalendarModal = ({ isOpen, selectedDay, onClose }: ModalProps) => {
-  const selectDay = selectedDay.format("YYYY년 M월 D일");
+interface ViewDayCalendarModalProps extends ModalProps {
+  selectedDay: moment.Moment;
+  idolDateSchedules: IdolDateScheduleType[];
+  dateLoading: boolean;
+}
+
+const ViewDayCalendarModal = ({
+  isOpen,
+  selectedDay,
+  idolDateSchedules,
+  dateLoading,
+  onClose,
+}: ViewDayCalendarModalProps) => {
+  const selectDay: string = selectedDay.format("YYYY년 M월 D일");
 
   const {
     isOpen: isOpenUserScheduleForm,
@@ -36,6 +53,7 @@ const ViewDayCalendarModal = ({ isOpen, selectedDay, onClose }: ModalProps) => {
         isOpen={isOpenUserScheduleForm}
         onClose={onCloseUserScheduleForm}
       />
+
       <Modal isOpen={isOpen} onClose={onClose} isCentered size={"xl"}>
         <ModalOverlay />
         <ModalContent>
@@ -45,17 +63,28 @@ const ViewDayCalendarModal = ({ isOpen, selectedDay, onClose }: ModalProps) => {
           </ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <Center padding={5}>
-              <Box
-                bg={"white"}
-                color={"black"}
-                w={"300px"}
-                h={"60px"}
-                borderRadius={"10px"}
-              >
-                schedule
-              </Box>
-            </Center>
+            {!dateLoading ? (
+              <VStack padding={3} flexDir={"column"} margin={" 0 auto"}>
+                {idolDateSchedules.length !== 0 ? (
+                  <>
+                    {idolDateSchedules?.map(
+                      (idolDateSchedule: IdolDateScheduleType) => (
+                        <DateScheduleCard
+                          key={idolDateSchedule.pk}
+                          idolDateSchedule={idolDateSchedule}
+                        />
+                      )
+                    )}
+                  </>
+                ) : (
+                  <Text fontSize={"2xl"}>일정이 없습니다.</Text>
+                )}
+              </VStack>
+            ) : (
+              <Center h={"100px"}>
+                <Spinner />
+              </Center>
+            )}
             <hr />
             <Center padding={5}>
               <Button onClick={() => onOpen()}>내 일정 추가하기</Button>

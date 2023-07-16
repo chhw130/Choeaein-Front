@@ -1,6 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
 import { getUserInform } from "../API/CSRSetting";
-import { useRouter } from "next/navigation";
 import { UserData } from "../interface/interface";
 
 interface UseUserType {
