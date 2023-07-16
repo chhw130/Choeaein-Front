@@ -13,7 +13,7 @@ import { Button } from "@chakra-ui/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 interface CategoryBtnProps {
-  idolId: string;
+  idolId: number;
 }
 
 const CategoryBtn = ({ idolId }: CategoryBtnProps) => {
@@ -68,6 +68,8 @@ const CategoryBtn = ({ idolId }: CategoryBtnProps) => {
         ...activeButtons.slice(index + 1),
       ]);
     }
+
+    console.log(activeButtons);
   };
   return (
     <div className={styles.categoryContainer}>

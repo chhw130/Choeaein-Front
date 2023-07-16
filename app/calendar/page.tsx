@@ -1,5 +1,6 @@
 import CalnedarContainer from "@/component/calendarPage/CalendarContainer";
 import { getIdolInform } from "@/utils/API/SSGSetting";
+import { ChoeIdolType } from "@/utils/interface/interface";
 
 export interface CalendarPageProps {
   params: { idolID: string };
@@ -9,7 +10,9 @@ export interface CalendarPageProps {
 async function CalendarPage({ searchParams }: any) {
   const idolName = searchParams.idol;
 
-  const idolData = await getIdolInform(idolName);
+  const idolData: ChoeIdolType = await getIdolInform(idolName);
+
+  console.log(idolData);
 
   return (
     <main>
