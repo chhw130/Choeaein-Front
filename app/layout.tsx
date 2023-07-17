@@ -9,6 +9,10 @@ import RecoilProvider from "./RecoilProvider";
 export const metadata: Metadata = {
   title: "Myfavor",
   description: "최애의 스케줄을 확인하세요.",
+  icons: {
+    icon: "https://example.com/icon.png",
+    apple: "https://example.com/apple-icon.png",
+  },
 };
 
 export default function RootLayout({
