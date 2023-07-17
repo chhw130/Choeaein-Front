@@ -15,7 +15,9 @@ const IdolCard = ({ data }: IdolCardProps) => {
   const router = useRouter();
 
   const idolCardHandler = () => {
-    const idol = data.groupname || data.idol_name_kr;
+    const idol = data.groupname || data.idol_name_en;
+
+    console.log(idol);
     const url = data.groupname
       ? `/groupmember?group=${idol}`
       : `/solo?idol=${idol}`;

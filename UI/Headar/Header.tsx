@@ -1,20 +1,12 @@
 "use client";
-import {
-  Box,
-  Drawer,
-  DrawerContent,
-  Flex,
-  HStack,
-  useColorMode,
-  useDisclosure,
-} from "@chakra-ui/react";
+import { Box, Flex, HStack, useColorMode } from "@chakra-ui/react";
 import Link from "next/link";
 import HeaderBtn from "@/UI/Headar/HeaderBtn";
-import logo from "../../public/img/logo_main.png";
 import Image from "next/image";
 import { ToastContainer } from "react-toastify";
 import ThemeBtn from "../theme/ThemeBtn";
 import SearchBar from "./SearchBar";
+import logo from "../../utils/img/logo_main.png";
 
 const Header = () => {
   const { colorMode } = useColorMode();

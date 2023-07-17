@@ -3,6 +3,7 @@ import { Box, Card, CardBody, Text, useDisclosure } from "@chakra-ui/react";
 import React from "react";
 import ScheduleDetailModal from "../Modal/ScheduleDetailModal";
 import {
+  IconDefinition,
   faBroadcastTower,
   faCalendarCheck,
   faCompactDisc,
@@ -15,6 +16,19 @@ interface DateScheduleCardProps {
   idolDateSchedule: IdolDateScheduleType;
 }
 
+interface CategoryType {
+  icon: IconDefinition;
+  bg: string;
+}
+
+interface IconType {
+  broadcast: CategoryType;
+  event: CategoryType;
+  release: CategoryType;
+  congrats: CategoryType;
+  buy: CategoryType;
+}
+
 const DateScheduleCard = ({ idolDateSchedule }: DateScheduleCardProps) => {
   const {
     isOpen: isOpenScheduleDetail,
@@ -24,7 +38,7 @@ const DateScheduleCard = ({ idolDateSchedule }: DateScheduleCardProps) => {
 
   const category = idolDateSchedule?.ScheduleType?.type;
 
-  const icon = {
+  const icon: IconType = {
     broadcast: {
       icon: faBroadcastTower,
       bg: "#443c68",
@@ -56,8 +70,8 @@ const DateScheduleCard = ({ idolDateSchedule }: DateScheduleCardProps) => {
       >
         <CardBody>
           <FontAwesomeIcon
-            icon={icon[category].icon}
-            color={icon[category].bg}
+            icon={icon[category as keyof typeof icon].icon}
+            color={icon[category as keyof typeof icon].bg}
           />
           <Text>{idolDateSchedule.ScheduleTitle}</Text>
         </CardBody>

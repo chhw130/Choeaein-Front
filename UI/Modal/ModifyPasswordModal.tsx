@@ -59,6 +59,7 @@ const ModifyPasswordModal = ({ isOpen, onClose }: ModifyPasswordModalProps) => {
               기존 비밀번호
             </FormLabel>
             <Input
+              fontFamily={"heading"}
               id="password"
               type="password"
               autoComplete="off"
@@ -74,6 +75,7 @@ const ModifyPasswordModal = ({ isOpen, onClose }: ModifyPasswordModalProps) => {
               새 비밀번호
             </FormLabel>
             <Input
+              fontFamily={"heading"}
               id="newPassword"
               type="password"
               margin="10px 0"
@@ -89,6 +91,7 @@ const ModifyPasswordModal = ({ isOpen, onClose }: ModifyPasswordModalProps) => {
               비밀번호 확인
             </FormLabel>
             <Input
+              fontFamily={"heading"}
               id="confirmNewPassword"
               type="password"
               margin="10px 0"

@@ -2,29 +2,24 @@
 import React, { ReactNode } from "react";
 import {
   Box,
-  CloseButton,
   Flex,
   Icon,
   useColorModeValue,
   useDisclosure,
-  BoxProps,
   FlexProps,
   Text,
   HStack,
   Button,
   useColorMode,
-  InputGroup,
-  Input,
-  InputRightAddon,
 } from "@chakra-ui/react";
 import { FiHome, FiTrendingUp, FiCompass, FiMenu } from "react-icons/fi";
 import { IconType } from "react-icons";
 import UserInform from "../../component/adminPage/UserInform";
 import Link from "next/link";
 import Image from "next/image";
-import logoImage from "../../public/img/logo_main.png";
+
+import logo from "../../utils/img/logo_main.png";
 import { MoonIcon, SunIcon } from "@chakra-ui/icons";
-import { GoSearch } from "react-icons/go";
 
 interface LinkItemProps {
   name: string;
@@ -79,7 +74,7 @@ export const SidebarContent = ({ ...rest }) => {
       <Flex h="20" alignItems="center" mx="8" justifyContent="space-between">
         <HStack>
           <Image
-            src={logoImage}
+            src={logo}
             width={20}
             height={20}
             alt="myfavor"
