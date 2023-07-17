@@ -37,8 +37,8 @@ const ModifyNicknameModal = ({ isOpen, onClose }: ModalProps) => {
               새 닉네임
             </FormLabel>
             <Input
+              fontFamily={"heading"}
               id="nickname"
-              type="password"
               margin="10px 0"
               {...register("password", {
                 required: {

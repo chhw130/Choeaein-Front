@@ -5,8 +5,11 @@ import EditUserImg from "./EditUserImg";
 import ModifyPick from "./UI/ModifyPick";
 import ModifyPassword from "./UI/ModifyPassword";
 import ModifyNickname from "./UI/ModfiyNickname";
+import useUser from "@/utils/hook/useUser";
 
 const EditUser = () => {
+  const { userData } = useUser();
+
   return (
     <Box marginTop="30px" h="600px">
       <EditUserImg />
@@ -23,7 +26,7 @@ const EditUser = () => {
             <Text w="60px" fontWeight={"bold"}>
               아이디
             </Text>
-            <Text>{"email"}</Text>
+            <Text>{userData?.email}</Text>
           </HStack>
         </Flex>
         <ModifyPassword />

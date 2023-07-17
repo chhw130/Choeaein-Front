@@ -146,7 +146,8 @@ export const postUserReportSchedule = async (data: PostDataType) =>
     })
     .then((res) => res.data);
 
-export const getUserReportSchedule = async () => instance.get("");
+export const getUserReportSchedule = async () =>
+  instance.get("/users/reports/").then((res) => res.data);
 /**유저 일정 등록 */
 
 export const postUserCalendar = async (data: any) =>
