@@ -3,7 +3,6 @@ import DefaultLayout from "../UI/Footer/DefaultLayout";
 import { Providers } from "./ChakraUIProvider";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import "react-toastify/dist/ReactToastify.css";
-
 import { Metadata } from "next";
 import RecoilProvider from "./RecoilProvider";
 
@@ -11,8 +10,8 @@ export const metadata: Metadata = {
   title: "Myfavor",
   description: "최애의 스케줄을 확인하세요.",
   icons: {
-    icon: "/img/logo_main.png",
-    shortcut: "/img/logo_main.png",
+    icon: "https://example.com/icon.png",
+    apple: "https://example.com/apple-icon.png",
   },
 };
 
