@@ -81,9 +81,13 @@ export const putUserPassword = (data: PasswordFormType) =>
 export const getSearchData = (keyword: string | null | undefined) =>
   instance.get(`/search/?q=${keyword}`).then((res) => res.data);
 
-/**특정 아이돌 스케줄(month) */
+/**특정 아이돌 스케줄(카테고리별로) */
 export const getIdolSchedule = (postData: any, idol: string) =>
   instance.post(`/idols/${idol}/schedule/`, postData).then((res) => res.data);
+
+/**특정 아이돌 다가오는 스케줄 */
+export const getUpcomingSchedule = (idol: string) =>
+  instance.get(`/idols/${idol}/upcoming/`).then((res) => res.data);
 
 /**사진을 업로드 할 url 가져오는 함수. */
 export const getUploadUrl = async (img: any) => {

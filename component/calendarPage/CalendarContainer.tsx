@@ -13,7 +13,7 @@ const CalendarContainer = ({ idolData }: { idolData: ChoeIdolType }) => {
       <div className={styles.calendarWrap}>
         <Calendar idolData={idolData} />
       </div>
-      <ComingSchedule />
+      <ComingSchedule idolData={idolData} />
     </section>
   );
 };
