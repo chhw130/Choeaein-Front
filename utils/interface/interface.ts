@@ -28,6 +28,11 @@ export interface SignUpData extends UserDataType {
   phone_number?: string;
 }
 
+/**user가 제보한 report schedule */
+export interface MypageReportSchedule extends IdolDateScheduleType {
+  is_enroll: boolean;
+}
+
 /**메인페이지 아이돌 타입 */
 interface IdolType {
   idol_name_en: string;

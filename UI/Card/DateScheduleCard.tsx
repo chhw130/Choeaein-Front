@@ -1,15 +1,8 @@
 import { IdolDateScheduleType } from "@/utils/interface/interface";
-import { Box, Card, CardBody, Text, useDisclosure } from "@chakra-ui/react";
+import { Card, CardBody, Text, useDisclosure } from "@chakra-ui/react";
 import React from "react";
 import ScheduleDetailModal from "../Modal/ScheduleDetailModal";
-import {
-  IconDefinition,
-  faBroadcastTower,
-  faCalendarCheck,
-  faCompactDisc,
-  faGift,
-  faStore,
-} from "@fortawesome/free-solid-svg-icons";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { icon } from "@/utils/data/ClientData";
 
