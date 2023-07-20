@@ -4,7 +4,6 @@ import { useRouter } from "next/navigation";
 import React, { useCallback, useState } from "react";
 import { GoSearch } from "react-icons/go";
 import { toast } from "react-toastify";
-import MobileSearchBtn from "../Button/MobileSearchBtn";
 
 const SearchBar = () => {
   const router = useRouter();

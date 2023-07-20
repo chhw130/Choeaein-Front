@@ -5,7 +5,6 @@ import {
   Flex,
   Icon,
   useColorModeValue,
-  useDisclosure,
   FlexProps,
   Text,
   HStack,
@@ -36,7 +35,6 @@ export default function SidebarWithHeader({
 }: {
   children: ReactNode;
 }) {
-  const { isOpen, onOpen, onClose } = useDisclosure();
   const { colorMode } = useColorMode();
   return (
     <Box minH="100vh" bg={useColorModeValue("gray.100", "gray.900")} zIndex="1">
@@ -80,7 +78,6 @@ export const SidebarContent = ({ ...rest }) => {
             alt="myfavor"
             priority={true}
           />
-          <Text>CHOEAEIN</Text>
         </HStack>
         <HStack>
           <Button
@@ -92,7 +89,6 @@ export const SidebarContent = ({ ...rest }) => {
         </HStack>
       </Flex>
       <UserInform />
-
       {LinkItems.map((link) => (
         <NavItem key={link.name} link={link.name} icon={link.icon}>
           {link.name}
