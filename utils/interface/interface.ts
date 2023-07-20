@@ -93,7 +93,6 @@ export interface ChoeIdolType extends IdolType {
   viewCount: number;
 }
 
-export interface IdolMonthScheduleType {}
 export interface IdolDateScheduleType {
   ScheduleTitle: string;
   ScheduleType: { type: string };
@@ -103,4 +102,6 @@ export interface IdolDateScheduleType {
 }
 
 /**아이돌 스케줄 */
-export interface RandomIdolSchedule {}
+export interface RandomIdolSchedule extends IdolDateScheduleType {
+  participant: { idol: string };
+}

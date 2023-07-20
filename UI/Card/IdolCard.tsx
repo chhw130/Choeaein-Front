@@ -17,12 +17,11 @@ const IdolCard = ({ data }: IdolCardProps) => {
   const idolCardHandler = () => {
     const idol = data.groupname || data.idol_name_en;
 
-    console.log(idol);
     const url = data.groupname
       ? `/groupmember?group=${idol}`
       : `/solo?idol=${idol}`;
     router.push(url);
-    router.prefetch(url);
+    // router.prefetch(url);
   };
 
   return (

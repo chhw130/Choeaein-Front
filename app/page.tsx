@@ -1,24 +1,33 @@
 import IdolSection from "@/component/mainPage/IdolSection";
 import MainVideo from "@/component/mainPage/MainVideo";
 import RandomSchedule from "@/component/mainPage/RandomSchedule";
-import { getIdolGroups, getIdolSolos } from "@/utils/API/SSGSetting";
-import { IdolGroupType } from "@/utils/interface/interface";
+import {
+  getIdolGroups,
+  getIdolSolos,
+  getRandomSchedules,
+} from "@/utils/API/SSGSetting";
+import {
+  IdolDateScheduleType,
+  IdolGroupType,
+  RandomIdolSchedule,
+  SoloType,
+} from "@/utils/interface/interface";
 
 const fetchData = async () => {
   const idolGroupData: IdolGroupType[] = await getIdolGroups();
-  const idolSoloData = await getIdolSolos();
+  const idolSoloData: SoloType[] = await getIdolSolos();
+  const randomSchedules: RandomIdolSchedule[] = await getRandomSchedules();
 
-  return { idolGroupData, idolSoloData };
+  return { idolGroupData, idolSoloData, randomSchedules };
 };
 
 export default async function Home() {
-  const schedulesData: [] = [];
-  const { idolGroupData, idolSoloData } = await fetchData();
+  const { idolGroupData, idolSoloData, randomSchedules } = await fetchData();
 
   return (
     <main>
       <MainVideo />
-      <RandomSchedule schedulesData={schedulesData} />
+      <RandomSchedule randomSchedules={randomSchedules} />
       <IdolSection idolGroupData={idolGroupData} idolSoloData={idolSoloData} />
     </main>
   );
