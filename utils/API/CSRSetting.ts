@@ -81,6 +81,10 @@ export const putUserPassword = (data: PasswordFormType) =>
     })
     .then((res) => res.data);
 
+/**유저 제보 스케줄 */
+export const getMyReportSchedules = () =>
+  instance.get(`/users/mypage/myreport`).then((res) => res.data);
+
 export const getSearchData = (keyword: string | null | undefined) =>
   instance.get(`/search/?q=${keyword}`).then((res) => res.data);
 

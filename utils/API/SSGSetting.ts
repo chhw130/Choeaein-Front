@@ -8,6 +8,12 @@ export const getIdolList = async () => {
   return res.json();
 };
 
+/**아이돌 랜덤데이터 */
+export const getRandomSchedules = async () => {
+  const res = await fetch(`${url}/schedules/slide/`);
+  return res.json();
+};
+
 /**아이돌 그룹*/
 export const getIdolGroups = async () => {
   const res = await fetch(`${url}/groups/`);

@@ -11,6 +11,7 @@ import {
   ModalFooter,
   ModalHeader,
   ModalOverlay,
+  useColorMode,
   useRadioGroup,
 } from "@chakra-ui/react";
 import React from "react";
@@ -20,6 +21,7 @@ import RadioCard from "../Card/RadioCard";
 import { useMutation } from "@tanstack/react-query";
 import { postUserReportSchedule } from "@/utils/API/CSRSetting";
 import { ChoeIdolType } from "@/utils/interface/interface";
+import { toast } from "react-toastify";
 
 interface ReportModalProps extends ModalProps {
   idolData: ChoeIdolType;
@@ -38,16 +40,19 @@ export interface PostDataType extends ReportForm {
 const ReportModal = ({ isOpen, onClose, idolData }: ReportModalProps) => {
   const { register, handleSubmit } = useForm<ReportForm>();
   const categorys = ["방송", "발매", "구매", "축하", "행사"];
+  const { colorMode } = useColorMode();
 
   const { getRootProps, getRadioProps, value } = useRadioGroup({
     name: "category",
     defaultValue: "방송",
   });
-
   const group = getRootProps();
 
   const { mutateAsync: reportScheduleHandler } = useMutation(
-    (data: PostDataType) => postUserReportSchedule(data)
+    (data: PostDataType) => postUserReportSchedule(data),
+    {
+      onSuccess: () => {},
+    }
   );
 
   const submitHandler = async (formData: ReportForm) => {

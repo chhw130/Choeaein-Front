@@ -17,12 +17,10 @@ const IdolCard = ({ data }: IdolCardProps) => {
   const idolCardHandler = () => {
     const idol = data.groupname || data.idol_name_en;
 
-    console.log(idol);
     const url = data.groupname
       ? `/groupmember?group=${idol}`
       : `/solo?idol=${idol}`;
     router.push(url);
-    router.prefetch(url);
   };
 
   return (
@@ -61,8 +59,8 @@ const IdolCard = ({ data }: IdolCardProps) => {
       >
         <Text>자세히 보러가기</Text>
         <HStack spacing={3} marginTop={3}>
-          <FontAwesomeIcon icon={faInstagram} />
-          <FontAwesomeIcon icon={faYoutube} />
+          {/* <FontAwesomeIcon icon={faInstagram} />
+          <FontAwesomeIcon icon={faYoutube} /> */}
         </HStack>
       </Box>
       <Text

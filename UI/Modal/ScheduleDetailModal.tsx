@@ -29,13 +29,13 @@ const ScheduleDetailModal = ({
       <ModalOverlay />
       <ModalContent>
         <ModalHeader>
-          <Text>{idolDateSchedule.ScheduleTitle}</Text>
+          <Text>{idolDateSchedule?.ScheduleTitle}</Text>
           <Text>{date}</Text>
         </ModalHeader>
         <ModalCloseButton />
         <ModalBody>
-          <Box>{idolDateSchedule.location}</Box>
-          <Box>{idolDateSchedule.ScheduleType.type}</Box>
+          <Box>{idolDateSchedule?.location}</Box>
+          <Box>{idolDateSchedule?.ScheduleType?.type}</Box>
         </ModalBody>
         <ModalFooter></ModalFooter>
       </ModalContent>
