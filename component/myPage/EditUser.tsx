@@ -23,7 +23,7 @@ const EditUser = () => {
         <ModifyPick />
         <Flex justifyContent="space-between" width="80%" height="40px">
           <HStack spacing={5}>
-            <Text w="60px" fontWeight={"bold"}>
+            <Text w="70px" fontWeight={"bold"} fontSize={"lg"}>
               아이디
             </Text>
             <Text>{userData?.email}</Text>

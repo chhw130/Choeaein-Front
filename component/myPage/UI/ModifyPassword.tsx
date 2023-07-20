@@ -13,7 +13,7 @@ const ModifyPassword = () => {
       <ModifyPasswordModal isOpen={isOpen} onClose={onClose} />
       <Flex justifyContent="space-between" width="80%" height="40px">
         <HStack spacing={5}>
-          <Text w={"60px"} fontWeight={"bold"}>
+          <Text w={"70px"} fontWeight={"bold"} fontSize={"lg"}>
             비밀번호
           </Text>
           <Text>***********</Text>

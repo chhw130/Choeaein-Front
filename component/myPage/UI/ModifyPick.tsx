@@ -16,7 +16,7 @@ const ModifyPick = () => {
       <ModifyPickModal isOpen={isOpen} onClose={onClose} />
       <Flex justifyContent="space-between" width="80%" height="100px">
         <HStack spacing={5}>
-          <Text w="60px" fontWeight={"bold"}>
+          <Text w="70px" fontWeight={"bold"} fontSize={"lg"}>
             최애
           </Text>
           <Avatar

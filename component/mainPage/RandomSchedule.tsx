@@ -22,8 +22,6 @@ interface RandomScheduleProps {
 }
 
 const RandomSchedule = ({ randomSchedules }: RandomScheduleProps) => {
-  console.log(randomSchedules);
-
   const prefersReducedMotion = usePrefersReducedMotion();
   const animation = prefersReducedMotion
     ? undefined

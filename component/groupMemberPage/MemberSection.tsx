@@ -19,7 +19,13 @@ const MemberSection = ({ groupMemberData }: { groupMemberData: GroupType }) => {
         아이돌 스케줄 보러가기
       </Text>
 
-      <HStack margin={"0 auto"} wrap={"wrap"} justifyContent={"space-around"}>
+      <HStack
+        alignItems={"center"}
+        wrap={"wrap"}
+        justifyContent={"space-around"}
+        w={"100%"}
+        h={"100%"}
+      >
         {member?.map((data) => {
           return <MemberCard data={data} key={data.idol_name_kr} />;
         })}

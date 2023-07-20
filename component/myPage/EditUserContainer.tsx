@@ -29,7 +29,8 @@ const EditUserContainer = () => {
   return (
     <Box
       as="section"
-      w={["95%", "80%", "50%"]}
+      w={["90%", "80%", "60%"]}
+      maxW={"700px"}
       padding="100px 0"
       margin="0 auto"
     >
