@@ -90,7 +90,14 @@ export const getSearchData = (keyword: string | null | undefined) =>
 
 /**특정 아이돌 스케줄(카테고리별로) */
 export const getIdolSchedule = (postData: any, idol: string) =>
-  instance.post(`/idols/${idol}/schedule/`, postData).then((res) => res.data);
+  instance
+    .post(`/idols/${idol}/schedule/`, postData, {
+      headers: {
+        "X-CSRFToken": Cookies.get("csrftoken") || "",
+      },
+      withCredentials: true,
+    })
+    .then((res) => res.data);
 
 /**특정 아이돌 다가오는 스케줄 */
 export const getUpcomingSchedule = (idol: string) =>
@@ -155,6 +162,23 @@ export const postUserReportSchedule = async (data: PostDataType) =>
 
 export const getUserReportSchedule = async () =>
   instance.get("/users/reports/").then((res) => res.data);
+
+/**유저 일정 디테일 */
+export const getUserReportDetail = async (schedulePk: number) =>
+  instance.get(`/users/reports/${schedulePk}/`).then((res) => res.data);
+
+/**유저 일정 수정하기 */
+export const putUserReportDetail = async (
+  formData: PostDataType,
+  schedulePk: number
+) =>
+  instance
+    .put(`/users/reports/${schedulePk}`, formData)
+    .then((res) => res.data);
+
+/**유저 일정 삭제하기 */
+export const deleteUserReportSchedule = async (schedulePk: number) =>
+  instance.delete(`/users/reports/${schedulePk}/`).then((res) => res.data);
 /**유저 일정 등록 */
 
 export const postUserCalendar = async (data: any) =>

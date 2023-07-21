@@ -42,7 +42,10 @@ const AlbumCarousel = ({ albumData }: AlbumCaruoselProps) => {
                   alt={data.album_name}
                   width={180}
                   height={180}
-                  priority
+                  priority={true}
+                  loading="eager"
+                  // placeholder="blur"
+                  blurDataURL=""
                 />
               </Tooltip>
             </Box>

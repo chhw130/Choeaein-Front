@@ -15,38 +15,30 @@ import {
 import { getUserReportSchedule } from "@/utils/API/CSRSetting";
 import SkeletonUI from "../../UI/Skeleton/SkeletonUI";
 import PageBtn from "../../UI/Button/PageBtn";
+import ReportScheduleBtn from "@/UI/Button/ReportScheduleBtn";
 
 const ReportSchedule = () => {
   const { data: scheduleData = [], isLoading } = useQuery(
     ["userReportSchedule"],
     () => getUserReportSchedule()
   );
-
   const data = useMemo(() => scheduleData, [scheduleData]);
   const COLUMS = [
     {
       Header: "idol",
-      accessor: "whoes[0].idol_name_kr",
-    },
-    {
-      Header: "아이돌 이름",
-      accessor: "whoes[0].idol_en_kr",
+      accessor: "whoes[0]",
     },
     {
       Header: "제보자",
-      accessor: "owner.nickname",
+      accessor: "owner",
     },
     {
       Header: "스케줄 이름",
-      accessor: "title",
-    },
-    {
-      Header: "스케줄 내용",
-      accessor: "content",
+      accessor: "ScheduleTitle",
     },
     {
       Header: "스케줄 종류",
-      accessor: "type",
+      accessor: "ScheduleType.type",
     },
     {
       Header: "장소",
@@ -54,11 +46,10 @@ const ReportSchedule = () => {
     },
     {
       Header: "시간",
-      accessor: "time",
+      accessor: "when",
     },
   ];
   const columns = useMemo(() => COLUMS, []);
-
   const {
     getTableProps,
     getTableBodyProps,
@@ -89,7 +80,6 @@ const ReportSchedule = () => {
     },
     usePagination
   );
-
   const {
     // @ts-ignore
     pageIndex,
@@ -97,8 +87,8 @@ const ReportSchedule = () => {
 
   return (
     <>
-      {data.length === 0 ? (
-        <Center h="450px" fontSize={"28px"}>
+      {!isLoading && data.length === 0 ? (
+        <Center h="100vh" fontSize={"28px"}>
           제보받은 스케줄이 없습니다.
         </Center>
       ) : (
@@ -112,6 +102,7 @@ const ReportSchedule = () => {
                       {column.render("Header")}
                     </Th>
                   ))}
+                  <Th key={"control"}>관리</Th>
                 </Tr>
               ))}
             </Thead>
@@ -129,6 +120,9 @@ const ReportSchedule = () => {
                           </Td>
                         );
                       })}
+                      <Td key={"contorl"}>
+                        <ReportScheduleBtn row={row} />
+                      </Td>
                     </Tr>
                   );
                 })}

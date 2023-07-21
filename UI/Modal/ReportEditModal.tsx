@@ -1,3 +1,6 @@
+import React from "react";
+import { PostDataType, ReportForm } from "./ReportModal";
+import { useForm } from "react-hook-form";
 import {
   Button,
   Container,
@@ -11,58 +14,71 @@ import {
   ModalFooter,
   ModalHeader,
   ModalOverlay,
+  useColorMode,
   useRadioGroup,
 } from "@chakra-ui/react";
-import React from "react";
-import { useForm } from "react-hook-form";
 import { ModalProps } from "./ViewDayCalendarModal";
 import RadioCard from "../Card/RadioCard";
-import { useMutation } from "@tanstack/react-query";
-import { postUserReportSchedule } from "@/utils/API/CSRSetting";
-import { ChoeIdolType } from "@/utils/interface/interface";
+import { MypageReportSchedule } from "@/utils/interface/interface";
+import moment from "moment";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { putUserReportDetail } from "@/utils/API/CSRSetting";
+import { toast } from "react-toastify";
 
-interface ReportModalProps extends ModalProps {
-  idolData: ChoeIdolType;
-}
-export interface ReportForm {
-  ScheduleTitle: string;
-  location: string;
-  when: string;
+interface ReportEditModalProps extends ModalProps {
+  reportData: MypageReportSchedule;
 }
 
-export interface PostDataType extends ReportForm {
-  ScheduleType: string | number;
-  whoes: string[];
-}
-
-const ReportModal = ({ isOpen, onClose, idolData }: ReportModalProps) => {
+const ReportEditModal = ({
+  isOpen,
+  onClose,
+  reportData,
+}: ReportEditModalProps) => {
   const { register, handleSubmit } = useForm<ReportForm>();
-  const categorys = ["broadcast", "release", "buy", "congrats", "행사"];
 
-  const { getRootProps, getRadioProps, value } = useRadioGroup({
+  const categorys = ["broadcast", "release", "buy", "congrats", "행사"];
+  const { colorMode } = useColorMode();
+
+  const {
+    getRootProps,
+    getRadioProps,
+    value: category,
+  } = useRadioGroup({
     name: "category",
-    defaultValue: "broadcast",
+    defaultValue: reportData?.ScheduleType?.type,
   });
   const group = getRootProps();
 
-  const { mutateAsync: reportScheduleHandler } = useMutation(
-    (data: PostDataType) => postUserReportSchedule(data),
+  const date: string = moment(reportData?.when).format("YYYY-MM-DD");
+
+  const queryClient = useQueryClient();
+
+  const { mutateAsync: putUserReportDetailHandler, isLoading } = useMutation(
+    (formData: PostDataType) => putUserReportDetail(formData, reportData?.pk),
     {
-      onSuccess: () => {},
-      onError: () => {},
+      onSuccess: () => {
+        queryClient.invalidateQueries(["userReportSchedule"]);
+        queryClient.invalidateQueries(["myReport"]);
+        onClose();
+        return toast("스케줄이 수정되었습니다.", {
+          type: "success",
+          theme: colorMode,
+          autoClose: 2000,
+          toastId: 1,
+        });
+      },
     }
   );
 
   const submitHandler = async (formData: ReportForm) => {
     const data: PostDataType = {
-      whoes: [idolData.idol_name_kr],
-      ScheduleType: value,
+      whoes: [reportData?.whoes[0]],
+      ScheduleType: category,
       ScheduleTitle: formData.ScheduleTitle,
       location: formData.location,
       when: formData.when,
     };
-
-    await reportScheduleHandler(data);
+    await putUserReportDetailHandler(data);
   };
 
   return (
@@ -94,6 +110,7 @@ const ReportModal = ({ isOpen, onClose, idolData }: ReportModalProps) => {
               id="ScheduleTitle"
               margin="10px 0"
               autoComplete="off"
+              defaultValue={reportData?.ScheduleTitle}
               {...register("ScheduleTitle", {
                 required: {
                   value: true,
@@ -108,6 +125,7 @@ const ReportModal = ({ isOpen, onClose, idolData }: ReportModalProps) => {
               id="location"
               margin="10px 0"
               autoComplete="off"
+              defaultValue={reportData?.location}
               {...register("location", {
                 required: {
                   value: true,
@@ -123,6 +141,7 @@ const ReportModal = ({ isOpen, onClose, idolData }: ReportModalProps) => {
               margin="10px 0"
               autoComplete="off"
               type="date"
+              defaultValue={date}
               {...register("when", {
                 required: {
                   value: true,
@@ -132,7 +151,9 @@ const ReportModal = ({ isOpen, onClose, idolData }: ReportModalProps) => {
             />
           </ModalBody>
           <ModalFooter>
-            <Button type="submit">제보하기</Button>
+            <Button type="submit" isLoading={isLoading}>
+              제보하기
+            </Button>
           </ModalFooter>
         </Container>
       </ModalContent>
@@ -140,4 +161,4 @@ const ReportModal = ({ isOpen, onClose, idolData }: ReportModalProps) => {
   );
 };
 
-export default ReportModal;
+export default ReportEditModal;
