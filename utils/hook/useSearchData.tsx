@@ -3,8 +3,8 @@ import React from "react";
 import { getSearchData } from "../API/CSRSetting";
 import { MemberType } from "../interface/interface";
 
-interface UseSearchDataType {
-  searchData: MemberType;
+export interface UseSearchDataType {
+  searchData: MemberType[];
   isLoading: boolean;
 }
 

@@ -7,7 +7,6 @@ import {
   getRandomSchedules,
 } from "@/utils/API/SSGSetting";
 import {
-  IdolDateScheduleType,
   IdolGroupType,
   RandomIdolSchedule,
   SoloType,

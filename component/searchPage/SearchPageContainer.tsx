@@ -22,7 +22,7 @@ const SearchPageContainer = () => {
       margin={"0 100px"}
     >
       <PageTitle />
-      <SearchPageContents searchData={searchData} />
+      <SearchPageContents searchData={searchData} isLoading={isLoading} />
     </Box>
   );
 };
