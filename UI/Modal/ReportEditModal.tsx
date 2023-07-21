@@ -1,3 +1,6 @@
+import React from "react";
+import { PostDataType, ReportForm } from "./ReportModal";
+import { useForm } from "react-hook-form";
 import {
   Button,
   Container,
@@ -13,56 +16,42 @@ import {
   ModalOverlay,
   useRadioGroup,
 } from "@chakra-ui/react";
-import React from "react";
-import { useForm } from "react-hook-form";
 import { ModalProps } from "./ViewDayCalendarModal";
 import RadioCard from "../Card/RadioCard";
-import { useMutation } from "@tanstack/react-query";
-import { postUserReportSchedule } from "@/utils/API/CSRSetting";
-import { ChoeIdolType } from "@/utils/interface/interface";
+import { MypageReportSchedule } from "@/utils/interface/interface";
 
-interface ReportModalProps extends ModalProps {
-  idolData: ChoeIdolType;
-}
-export interface ReportForm {
-  ScheduleTitle: string;
-  location: string;
-  startDate: string;
+interface ReportEditModalProps extends ModalProps {
+  reportData: MypageReportSchedule;
 }
 
-export interface PostDataType extends ReportForm {
-  ScheduleType: string | number;
-  whoes: string[];
-}
-
-const ReportModal = ({ isOpen, onClose, idolData }: ReportModalProps) => {
+const ReportEditModal = ({
+  isOpen,
+  onClose,
+  reportData,
+}: ReportEditModalProps) => {
   const { register, handleSubmit } = useForm<ReportForm>();
+
   const categorys = ["broadcast", "release", "buy", "congrats", "행사"];
 
-  const { getRootProps, getRadioProps, value } = useRadioGroup({
+  const {
+    getRootProps,
+    getRadioProps,
+    value: category,
+  } = useRadioGroup({
     name: "category",
-    defaultValue: "broadcast",
+    defaultValue: reportData?.ScheduleType?.type,
   });
   const group = getRootProps();
 
-  const { mutateAsync: reportScheduleHandler } = useMutation(
-    (data: PostDataType) => postUserReportSchedule(data),
-    {
-      onSuccess: () => {},
-      onError: () => {},
-    }
-  );
-
   const submitHandler = async (formData: ReportForm) => {
     const data: PostDataType = {
-      whoes: [idolData.idol_name_kr],
-      ScheduleType: value,
+      whoes: [""],
+      ScheduleType: category,
       ScheduleTitle: formData.ScheduleTitle,
       location: formData.location,
       startDate: formData.startDate,
     };
-
-    await reportScheduleHandler(data);
+    // await reportScheduleHandler(data);
   };
 
   return (
@@ -94,6 +83,7 @@ const ReportModal = ({ isOpen, onClose, idolData }: ReportModalProps) => {
               id="ScheduleTitle"
               margin="10px 0"
               autoComplete="off"
+              defaultValue={reportData?.ScheduleTitle}
               {...register("ScheduleTitle", {
                 required: {
                   value: true,
@@ -108,6 +98,7 @@ const ReportModal = ({ isOpen, onClose, idolData }: ReportModalProps) => {
               id="location"
               margin="10px 0"
               autoComplete="off"
+              defaultValue={reportData?.location}
               {...register("location", {
                 required: {
                   value: true,
@@ -123,6 +114,7 @@ const ReportModal = ({ isOpen, onClose, idolData }: ReportModalProps) => {
               margin="10px 0"
               autoComplete="off"
               type="date"
+              defaultValue={reportData?.when}
               {...register("startDate", {
                 required: {
                   value: true,
@@ -140,4 +132,4 @@ const ReportModal = ({ isOpen, onClose, idolData }: ReportModalProps) => {
   );
 };
 
-export default ReportModal;
+export default ReportEditModal;

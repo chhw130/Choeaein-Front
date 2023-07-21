@@ -162,6 +162,14 @@ export const postUserReportSchedule = async (data: PostDataType) =>
 
 export const getUserReportSchedule = async () =>
   instance.get("/users/reports/").then((res) => res.data);
+
+/**유저 일정 디테일 */
+export const getUserReportDetail = async (schedulePk: number) =>
+  instance.get(`/users/reports/${schedulePk}/`).then((res) => res.data);
+
+/**유저 일정 삭제하기 */
+export const deleteUserReportSchedule = async (schedulePk: number) =>
+  instance.delete(`/users/reports/${schedulePk}/`).then((res) => res.data);
 /**유저 일정 등록 */
 
 export const postUserCalendar = async (data: any) =>

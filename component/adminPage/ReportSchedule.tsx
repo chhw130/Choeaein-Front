@@ -3,7 +3,6 @@ import { useQuery } from "@tanstack/react-query";
 import { useMemo } from "react";
 import { useTable, usePagination } from "react-table";
 import {
-  Box,
   Center,
   Table,
   TableContainer,
@@ -16,6 +15,7 @@ import {
 import { getUserReportSchedule } from "@/utils/API/CSRSetting";
 import SkeletonUI from "../../UI/Skeleton/SkeletonUI";
 import PageBtn from "../../UI/Button/PageBtn";
+import ReportScheduleBtn from "@/UI/Button/ReportScheduleBtn";
 
 const ReportSchedule = () => {
   const { data: scheduleData = [], isLoading } = useQuery(
@@ -49,19 +49,17 @@ const ReportSchedule = () => {
       Header: "시간",
       accessor: "when",
     },
-    {
-      Header: "controll",
-      accessor: "pk",
-      Cell: ({
-        cell: {
-          // @ts-ignore
+    // {
+    //   Header: "control",
+    //   accessor: "pk",
 
-          value,
-        },
-      }) => {
-        return <Box>{value}</Box>;
-      },
-    },
+    //   Cell: (
+    //     // @ts-ignore
+    //     { cell: { value } }
+    //   ) => {
+    //     return <ReportScheduleBtn value={value} />;
+    //   },
+    // },
   ];
   const columns = useMemo(() => COLUMS, []);
 
@@ -135,6 +133,9 @@ const ReportSchedule = () => {
                           </Td>
                         );
                       })}
+                      <Td key={"contorl"}>
+                        <ReportScheduleBtn row={row} />
+                      </Td>
                     </Tr>
                   );
                 })}
