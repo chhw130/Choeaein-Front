@@ -58,6 +58,7 @@ const ReportEditModal = ({
     {
       onSuccess: () => {
         queryClient.invalidateQueries(["userReportSchedule"]);
+        queryClient.invalidateQueries(["myReport"]);
         onClose();
         return toast("스케줄이 수정되었습니다.", {
           type: "success",

@@ -7,7 +7,6 @@ import { MypageReportSchedule } from "@/utils/interface/interface";
 
 const ReportScheduleBtn = ({ row }: any) => {
   const reportData: MypageReportSchedule = row?.original;
-  console.log(reportData);
   return (
     <ButtonGroup>
       <ReportScheduleEnrollBtn reportData={reportData} />

@@ -39,7 +39,7 @@ const IdolSection = ({ idolGroupData, idolSoloData }: IdolSectionProps) => {
           </Box>
         </VStack>
 
-        <Tabs>
+        <Tabs isLazy>
           <TabList>
             <Tab
               w={"50%"}

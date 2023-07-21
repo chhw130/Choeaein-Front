@@ -38,7 +38,7 @@ const EditUserContainer = () => {
         마이페이지
       </Text>
 
-      <Tabs as={"section"} isFitted variant="enclosed">
+      <Tabs as={"section"} isFitted variant="enclosed" isLazy>
         <TabList mb="1em">
           <Tab>내정보</Tab>
           <Tab>제보한 일정</Tab>
