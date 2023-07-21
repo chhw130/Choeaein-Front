@@ -22,7 +22,6 @@ const ReportSchedule = () => {
     ["userReportSchedule"],
     () => getUserReportSchedule()
   );
-
   const data = useMemo(() => scheduleData, [scheduleData]);
   const COLUMS = [
     {
@@ -49,20 +48,8 @@ const ReportSchedule = () => {
       Header: "시간",
       accessor: "when",
     },
-    // {
-    //   Header: "control",
-    //   accessor: "pk",
-
-    //   Cell: (
-    //     // @ts-ignore
-    //     { cell: { value } }
-    //   ) => {
-    //     return <ReportScheduleBtn value={value} />;
-    //   },
-    // },
   ];
   const columns = useMemo(() => COLUMS, []);
-
   const {
     getTableProps,
     getTableBodyProps,
@@ -93,7 +80,6 @@ const ReportSchedule = () => {
     },
     usePagination
   );
-
   const {
     // @ts-ignore
     pageIndex,
@@ -102,7 +88,7 @@ const ReportSchedule = () => {
   return (
     <>
       {!isLoading && data.length === 0 ? (
-        <Center h="450px" fontSize={"28px"}>
+        <Center h="100vh" fontSize={"28px"}>
           제보받은 스케줄이 없습니다.
         </Center>
       ) : (

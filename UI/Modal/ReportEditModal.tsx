@@ -14,14 +14,16 @@ import {
   ModalFooter,
   ModalHeader,
   ModalOverlay,
+  useColorMode,
   useRadioGroup,
 } from "@chakra-ui/react";
 import { ModalProps } from "./ViewDayCalendarModal";
 import RadioCard from "../Card/RadioCard";
 import { MypageReportSchedule } from "@/utils/interface/interface";
 import moment from "moment";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { putUserReportDetail } from "@/utils/API/CSRSetting";
+import { toast } from "react-toastify";
 
 interface ReportEditModalProps extends ModalProps {
   reportData: MypageReportSchedule;
@@ -35,6 +37,7 @@ const ReportEditModal = ({
   const { register, handleSubmit } = useForm<ReportForm>();
 
   const categorys = ["broadcast", "release", "buy", "congrats", "행사"];
+  const { colorMode } = useColorMode();
 
   const {
     getRootProps,
@@ -48,8 +51,22 @@ const ReportEditModal = ({
 
   const date: string = moment(reportData?.when).format("YYYY-MM-DD");
 
+  const queryClient = useQueryClient();
+
   const { mutateAsync: putUserReportDetailHandler, isLoading } = useMutation(
-    (formData: PostDataType) => putUserReportDetail(formData, reportData?.pk)
+    (formData: PostDataType) => putUserReportDetail(formData, reportData?.pk),
+    {
+      onSuccess: () => {
+        queryClient.invalidateQueries(["userReportSchedule"]);
+        onClose();
+        return toast("스케줄이 수정되었습니다.", {
+          type: "success",
+          theme: colorMode,
+          autoClose: 2000,
+          toastId: 1,
+        });
+      },
+    }
   );
 
   const submitHandler = async (formData: ReportForm) => {

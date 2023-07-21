@@ -1,5 +1,5 @@
 "use client";
-import { Box, Button, Input, InputGroup, useColorMode } from "@chakra-ui/react";
+import { Button, Input, InputGroup, useColorMode } from "@chakra-ui/react";
 import { useRouter } from "next/navigation";
 import React, { useCallback, useState } from "react";
 import { GoSearch } from "react-icons/go";
