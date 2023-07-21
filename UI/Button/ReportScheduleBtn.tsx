@@ -10,9 +10,9 @@ const ReportScheduleBtn = ({ row }: any) => {
   console.log(reportData);
   return (
     <ButtonGroup>
-      {/* <ReportScheduleEnrollBtn value={value} /> */}
+      <ReportScheduleEnrollBtn reportData={reportData} />
       <ReportScheduleEditBtn reportData={reportData} />
-      {/* <ReportScheduleDeleteBtn value={value} /> */}
+      <ReportScheduleDeleteBtn reportData={reportData} />
     </ButtonGroup>
   );
 };

@@ -116,6 +116,7 @@ const ReportSchedule = () => {
                       {column.render("Header")}
                     </Th>
                   ))}
+                  <Th key={"control"}>관리</Th>
                 </Tr>
               ))}
             </Thead>

@@ -19,6 +19,9 @@ import {
 import { ModalProps } from "./ViewDayCalendarModal";
 import RadioCard from "../Card/RadioCard";
 import { MypageReportSchedule } from "@/utils/interface/interface";
+import moment from "moment";
+import { useMutation } from "@tanstack/react-query";
+import { putUserReportDetail } from "@/utils/API/CSRSetting";
 
 interface ReportEditModalProps extends ModalProps {
   reportData: MypageReportSchedule;
@@ -43,15 +46,21 @@ const ReportEditModal = ({
   });
   const group = getRootProps();
 
+  const date: string = moment(reportData?.when).format("YYYY-MM-DD");
+
+  const { mutateAsync: putUserReportDetailHandler, isLoading } = useMutation(
+    (formData: PostDataType) => putUserReportDetail(formData, reportData?.pk)
+  );
+
   const submitHandler = async (formData: ReportForm) => {
     const data: PostDataType = {
-      whoes: [""],
+      whoes: [reportData?.whoes[0]],
       ScheduleType: category,
       ScheduleTitle: formData.ScheduleTitle,
       location: formData.location,
       startDate: formData.startDate,
     };
-    // await reportScheduleHandler(data);
+    await putUserReportDetailHandler(data);
   };
 
   return (
@@ -114,7 +123,7 @@ const ReportEditModal = ({
               margin="10px 0"
               autoComplete="off"
               type="date"
-              defaultValue={reportData?.when}
+              defaultValue={date}
               {...register("startDate", {
                 required: {
                   value: true,
@@ -124,7 +133,9 @@ const ReportEditModal = ({
             />
           </ModalBody>
           <ModalFooter>
-            <Button type="submit">제보하기</Button>
+            <Button type="submit" isLoading={isLoading}>
+              제보하기
+            </Button>
           </ModalFooter>
         </Container>
       </ModalContent>

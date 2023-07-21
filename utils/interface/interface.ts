@@ -31,6 +31,7 @@ export interface SignUpData extends UserDataType {
 /**user가 제보한 report schedule */
 export interface MypageReportSchedule extends IdolDateScheduleType {
   is_enroll: boolean;
+  whoes?: string[];
 }
 
 /**메인페이지 아이돌 타입 */

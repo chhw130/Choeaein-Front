@@ -167,6 +167,15 @@ export const getUserReportSchedule = async () =>
 export const getUserReportDetail = async (schedulePk: number) =>
   instance.get(`/users/reports/${schedulePk}/`).then((res) => res.data);
 
+/**유저 일정 수정하기 */
+export const putUserReportDetail = async (
+  formData: PostDataType,
+  schedulePk: number
+) =>
+  instance
+    .put(`/users/reports/${schedulePk}`, formData)
+    .then((res) => res.data);
+
 /**유저 일정 삭제하기 */
 export const deleteUserReportSchedule = async (schedulePk: number) =>
   instance.delete(`/users/reports/${schedulePk}/`).then((res) => res.data);
