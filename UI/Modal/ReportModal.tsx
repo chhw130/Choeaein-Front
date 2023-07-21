@@ -27,7 +27,7 @@ interface ReportModalProps extends ModalProps {
 export interface ReportForm {
   ScheduleTitle: string;
   location: string;
-  startDate: string;
+  when: string;
 }
 
 export interface PostDataType extends ReportForm {
@@ -59,7 +59,7 @@ const ReportModal = ({ isOpen, onClose, idolData }: ReportModalProps) => {
       ScheduleType: value,
       ScheduleTitle: formData.ScheduleTitle,
       location: formData.location,
-      startDate: formData.startDate,
+      when: formData.when,
     };
 
     await reportScheduleHandler(data);
@@ -115,15 +115,15 @@ const ReportModal = ({ isOpen, onClose, idolData }: ReportModalProps) => {
                 },
               })}
             />
-            <FormLabel margin={0} htmlFor="startDate">
+            <FormLabel margin={0} htmlFor="when">
               일정
             </FormLabel>
             <Input
-              id="startDate"
+              id="when"
               margin="10px 0"
               autoComplete="off"
               type="date"
-              {...register("startDate", {
+              {...register("when", {
                 required: {
                   value: true,
                   message: "필수 정보입니다.",

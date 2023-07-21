@@ -76,7 +76,7 @@ const ReportEditModal = ({
       ScheduleType: category,
       ScheduleTitle: formData.ScheduleTitle,
       location: formData.location,
-      startDate: formData.startDate,
+      when: formData.when,
     };
     await putUserReportDetailHandler(data);
   };
@@ -133,16 +133,16 @@ const ReportEditModal = ({
                 },
               })}
             />
-            <FormLabel margin={0} htmlFor="startDate">
+            <FormLabel margin={0} htmlFor="when">
               일정
             </FormLabel>
             <Input
-              id="startDate"
+              id="when"
               margin="10px 0"
               autoComplete="off"
               type="date"
               defaultValue={date}
-              {...register("startDate", {
+              {...register("when", {
                 required: {
                   value: true,
                   message: "필수 정보입니다.",
