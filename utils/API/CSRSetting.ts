@@ -90,7 +90,14 @@ export const getSearchData = (keyword: string | null | undefined) =>
 
 /**특정 아이돌 스케줄(카테고리별로) */
 export const getIdolSchedule = (postData: any, idol: string) =>
-  instance.post(`/idols/${idol}/schedule/`, postData).then((res) => res.data);
+  instance
+    .post(`/idols/${idol}/schedule/`, postData, {
+      headers: {
+        "X-CSRFToken": Cookies.get("csrftoken") || "",
+      },
+      withCredentials: true,
+    })
+    .then((res) => res.data);
 
 /**특정 아이돌 다가오는 스케줄 */
 export const getUpcomingSchedule = (idol: string) =>

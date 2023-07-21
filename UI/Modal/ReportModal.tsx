@@ -27,24 +27,23 @@ interface ReportModalProps extends ModalProps {
   idolData: ChoeIdolType;
 }
 interface ReportForm {
-  title: string;
+  ScheduleTitle: string;
   location: string;
   startDate: string;
 }
 
 export interface PostDataType extends ReportForm {
-  type: string | number;
+  ScheduleType: string | number;
   whoes: string[];
 }
 
 const ReportModal = ({ isOpen, onClose, idolData }: ReportModalProps) => {
   const { register, handleSubmit } = useForm<ReportForm>();
-  const categorys = ["방송", "발매", "구매", "축하", "행사"];
-  const { colorMode } = useColorMode();
+  const categorys = ["broadcast", "release", "buy", "congrats", "행사"];
 
   const { getRootProps, getRadioProps, value } = useRadioGroup({
     name: "category",
-    defaultValue: "방송",
+    defaultValue: "broadcast",
   });
   const group = getRootProps();
 
@@ -52,14 +51,15 @@ const ReportModal = ({ isOpen, onClose, idolData }: ReportModalProps) => {
     (data: PostDataType) => postUserReportSchedule(data),
     {
       onSuccess: () => {},
+      onError: () => {},
     }
   );
 
   const submitHandler = async (formData: ReportForm) => {
     const data: PostDataType = {
       whoes: [idolData.idol_name_kr],
-      type: value,
-      title: formData.title,
+      ScheduleType: value,
+      ScheduleTitle: formData.ScheduleTitle,
       location: formData.location,
       startDate: formData.startDate,
     };
@@ -89,14 +89,14 @@ const ReportModal = ({ isOpen, onClose, idolData }: ReportModalProps) => {
               })}
             </HStack>
 
-            <FormLabel margin={0} htmlFor="title">
+            <FormLabel margin={0} htmlFor="ScheduleTitle">
               일정 이름
             </FormLabel>
             <Input
-              id="title"
+              id="ScheduleTitle"
               margin="10px 0"
               autoComplete="off"
-              {...register("title", {
+              {...register("ScheduleTitle", {
                 required: {
                   value: true,
                   message: "필수 정보입니다.",

@@ -3,6 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useMemo } from "react";
 import { useTable, usePagination } from "react-table";
 import {
+  Box,
   Center,
   Table,
   TableContainer,
@@ -26,27 +27,19 @@ const ReportSchedule = () => {
   const COLUMS = [
     {
       Header: "idol",
-      accessor: "whoes[0].idol_name_kr",
-    },
-    {
-      Header: "아이돌 이름",
-      accessor: "whoes[0].idol_en_kr",
+      accessor: "whoes[0]",
     },
     {
       Header: "제보자",
-      accessor: "owner.nickname",
+      accessor: "owner",
     },
     {
       Header: "스케줄 이름",
-      accessor: "title",
-    },
-    {
-      Header: "스케줄 내용",
-      accessor: "content",
+      accessor: "ScheduleTitle",
     },
     {
       Header: "스케줄 종류",
-      accessor: "type",
+      accessor: "ScheduleType.type",
     },
     {
       Header: "장소",
@@ -54,7 +47,20 @@ const ReportSchedule = () => {
     },
     {
       Header: "시간",
-      accessor: "time",
+      accessor: "when",
+    },
+    {
+      Header: "controll",
+      accessor: "pk",
+      Cell: ({
+        cell: {
+          // @ts-ignore
+
+          value,
+        },
+      }) => {
+        return <Box>{value}</Box>;
+      },
     },
   ];
   const columns = useMemo(() => COLUMS, []);
@@ -97,7 +103,7 @@ const ReportSchedule = () => {
 
   return (
     <>
-      {data.length === 0 ? (
+      {!isLoading && data.length === 0 ? (
         <Center h="450px" fontSize={"28px"}>
           제보받은 스케줄이 없습니다.
         </Center>

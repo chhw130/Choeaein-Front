@@ -44,11 +44,6 @@ const IdolList = () => {
                 height={1000}
                 alt="아이돌"
                 loading="lazy"
-                // style={{
-                //   width: "60%",
-                //   aspectRatio: "1/1",
-                //   objectFit: "cover",
-                // }}
               />
             </Box>
           </>
