@@ -15,6 +15,7 @@ export interface UserData extends UserDataType {
   is_admin: boolean;
   pk: number;
   profileImg: string;
+  idol_profile: string;
 }
 
 export interface SignUpData extends UserDataType {
