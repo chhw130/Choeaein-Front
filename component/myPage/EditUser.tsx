@@ -20,7 +20,7 @@ const EditUser = () => {
         fontSize={["12px", "13px", "15px"]}
         spacing={6}
       >
-        <ModifyPick />
+        <ModifyPick userData={userData} />
         <Flex justifyContent="space-between" width="80%" height="40px">
           <HStack spacing={5}>
             <Text w="70px" fontWeight={"bold"} fontSize={"lg"}>
