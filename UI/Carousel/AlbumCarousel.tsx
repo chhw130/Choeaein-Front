@@ -14,7 +14,6 @@ interface AlbumCaruoselProps {
 
 const AlbumCarousel = ({ albumData }: AlbumCaruoselProps) => {
   const album = albumData?.albums;
-  const albumLength = album?.length;
 
   const slickRef = useRef<any>(false);
 
@@ -44,7 +43,7 @@ const AlbumCarousel = ({ albumData }: AlbumCaruoselProps) => {
                   height={180}
                   priority={true}
                   loading="eager"
-                  // placeholder="blur"
+                  placeholder="blur"
                   blurDataURL=""
                 />
               </Tooltip>
