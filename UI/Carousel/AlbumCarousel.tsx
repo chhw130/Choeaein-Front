@@ -4,17 +4,15 @@ import Image from "next/image";
 import { Box, Text, Tooltip } from "@chakra-ui/react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { IdolAlbumType } from "@/utils/interface/interface";
+import { albumType } from "@/utils/interface/interface";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCompactDisc } from "@fortawesome/free-solid-svg-icons";
 
 interface AlbumCaruoselProps {
-  albumData: IdolAlbumType;
+  albumData: albumType[];
 }
 
 const AlbumCarousel = ({ albumData }: AlbumCaruoselProps) => {
-  const album = albumData?.albums;
-
   const slickRef = useRef<any>(false);
 
   const settings = {
@@ -32,7 +30,7 @@ const AlbumCarousel = ({ albumData }: AlbumCaruoselProps) => {
         &nbsp;Album
       </Text>
       <Slider {...settings} ref={slickRef}>
-        {album?.map((data) => {
+        {albumData?.map((data) => {
           return (
             <Box width={"100px"} key={data.pk} cursor={"pointer"}>
               <Tooltip label={data.album_name} placement="bottom">

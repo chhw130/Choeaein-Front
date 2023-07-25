@@ -12,10 +12,10 @@ import Image from "next/image";
 import React from "react";
 import styles from "./DescriptionCard.module.scss";
 import AlbumCarousel from "../Carousel/AlbumCarousel";
-import { IdolAlbumType } from "@/utils/interface/interface";
+import { albumType } from "@/utils/interface/interface";
 
 interface DescriptionCardProps {
-  albumData: IdolAlbumType;
+  albumData: albumType[];
   idolData: any;
 }
 

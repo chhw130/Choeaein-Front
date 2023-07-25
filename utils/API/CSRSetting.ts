@@ -26,7 +26,7 @@ export const SSRInstance = axios.create({
 
 /**회원가입 */
 export const postSignUp = (signUpInform: any) =>
-  instance.post(`/users/`, signUpInform).then((res) => res.data);
+  instance.post(`/oauth/signup/`, signUpInform).then((res) => res.data);
 
 /**로그인 */
 export const postLogin = (loginInform: any) =>
@@ -189,15 +189,14 @@ export const putUserReportDetail = async (
 /**유저 일정 삭제하기 */
 export const deleteUserReportSchedule = async (schedulePk: number) =>
   instance.delete(`/users/reports/${schedulePk}/`).then((res) => res.data);
-/**유저 일정 등록 */
 
+/**유저 일정 등록 */
 export const postUserCalendar = async (data: any) =>
   await instance.post(`/users_calendar/`, data, {
     withCredentials: true,
   });
 
 /**유저 일정 수정 */
-
 export const putUserCalendar = async (data: any, schedulePk: any) => {
   await instance.put(`/users_calendar/${schedulePk}/`, data, {
     withCredentials: true,

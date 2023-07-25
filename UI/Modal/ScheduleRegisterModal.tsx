@@ -18,26 +18,40 @@ import {
   postUserReport,
 } from "@/utils/API/CSRSetting";
 import { MypageReportSchedule } from "@/utils/interface/interface";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { toast } from "react-toastify";
 
 interface ScheduleRegisterModalProps extends ModalProps {
-  idolName: string;
   reportData: MypageReportSchedule;
 }
 
 const ScheduleRegisterModal = ({
   isOpen,
   onClose,
-  idolName,
   reportData,
 }: ScheduleRegisterModalProps) => {
-  const { mutateAsync: postReportScheduleHandler } = useMutation(
+  const queryclinet = useQueryClient();
+
+  const idolName = reportData?.whoes[0].split("(");
+
+  const idolNameKR: string = idolName[1].slice(0, -1);
+  console.log(reportData);
+
+  const { mutateAsync: postReportScheduleHandler, isLoading } = useMutation(
     (reportData: MypageReportSchedule | any) =>
-      postUserReport(idolName, reportData),
+      postUserReport(idolNameKR, reportData),
     {
-      onError: () => {},
+      onError: () => {
+        toast("서버 에러", {
+          type: "error",
+        });
+      },
       onSuccess: async () => {
         await deleteUserReportSchedule(reportData.pk);
+        queryclinet.invalidateQueries([`userReportSchedule`]);
+        toast("일정이 성공적으로 업로드 되었습니다.", {
+          type: "success",
+        });
       },
     }
   );
@@ -50,16 +64,6 @@ const ScheduleRegisterModal = ({
     participant: [{ idolName }],
   };
 
-  const obj = {
-    ScheduleTitle: "Perferendis commodi quam.",
-    ScheduleType: {
-      type: "congrats",
-    },
-    location: "케이아트 디딤홀",
-    when: "2023-05-17T04:54:47",
-  };
-
-  console.log(reportData);
   return (
     <Modal isOpen={isOpen} onClose={onClose} isCentered size={"sm"}>
       <ModalOverlay />
@@ -77,15 +81,14 @@ const ScheduleRegisterModal = ({
           <ButtonGroup>
             <Button
               type="submit"
+              isLoading={isLoading}
               onClick={async () => {
                 await postReportScheduleHandler(newReportData);
               }}
             >
               일정 추가하기
             </Button>
-            <Button type="submit" onClick={() => onClose()}>
-              취소
-            </Button>
+            <Button onClick={() => onClose()}>취소</Button>
           </ButtonGroup>
         </ModalFooter>
       </ModalContent>
