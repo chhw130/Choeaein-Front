@@ -43,8 +43,8 @@ const AlbumCarousel = ({ albumData }: AlbumCaruoselProps) => {
                   height={180}
                   priority={true}
                   loading="eager"
-                  placeholder="blur"
-                  blurDataURL=""
+                  // placeholder="blur"
+                  // blurDataURL=""
                 />
               </Tooltip>
             </Box>

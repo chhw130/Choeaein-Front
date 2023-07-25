@@ -3,6 +3,7 @@ import { PostDataType } from "@/UI/Modal/ReportModal";
 import axios from "axios";
 
 import Cookies from "js-cookie";
+import { MypageReportSchedule } from "../interface/interface";
 
 export const instance = axios.create({
   baseURL:
@@ -166,6 +167,15 @@ export const getUserReportSchedule = async () =>
 /**유저 일정 디테일 */
 export const getUserReportDetail = async (schedulePk: number) =>
   instance.get(`/users/reports/${schedulePk}/`).then((res) => res.data);
+
+/**유저 일정 등록하기 */
+export const postUserReport = async (
+  idolName: string,
+  reportData: MypageReportSchedule | any
+) =>
+  instance
+    .post(`/idols/${idolName}/schedules/`, reportData)
+    .then((res) => res.data);
 
 /**유저 일정 수정하기 */
 export const putUserReportDetail = async (
