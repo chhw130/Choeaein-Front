@@ -1,6 +1,6 @@
 import GroupContainer from "@/component/groupMemberPage/GroupContainer";
 import { getIdolSolo, getIdolSoloAlbum } from "@/utils/API/SSGSetting";
-import { IdolAlbumType, SoloType } from "@/utils/interface/interface";
+import { SoloType, albumType } from "@/utils/interface/interface";
 import React from "react";
 
 interface SoloPageProps {
@@ -11,7 +11,7 @@ const SoloPage = async ({ searchParams }: SoloPageProps) => {
   const idolName: string = searchParams.idol;
 
   const soloData: SoloType = await getIdolSolo(idolName);
-  const albumData: IdolAlbumType = await getIdolSoloAlbum(idolName);
+  const albumData: albumType[] = await getIdolSoloAlbum(idolName);
 
   return (
     <main>
