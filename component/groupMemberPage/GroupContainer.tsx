@@ -1,16 +1,12 @@
 "use client";
 import DescriptionCard from "@/UI/Card/DescriptionCard";
-import {
-  GroupType,
-  IdolAlbumType,
-  SoloType,
-} from "@/utils/interface/interface";
+import { albumType } from "@/utils/interface/interface";
 import { Center, Flex } from "@chakra-ui/react";
 import { notFound } from "next/navigation";
 import React from "react";
 
 export interface GroupContainerProps {
-  albumData: IdolAlbumType;
+  albumData: albumType[];
   idolData: any;
 }
 

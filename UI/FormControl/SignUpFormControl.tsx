@@ -59,7 +59,6 @@ const SignUpFormControl = ({
             placeholder="당신의 최애를 알려주세요."
             {...register}
           >
-            <option>123</option>
             <IdolOption />
           </Select>
         ) : (

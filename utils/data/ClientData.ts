@@ -20,6 +20,11 @@ interface IconType {
   buy: CategoryType;
 }
 
+interface StepData {
+  title: string;
+  description: string;
+}
+
 export const icon: IconType = {
   broadcast: {
     icon: faBroadcastTower,
@@ -33,3 +38,9 @@ export const icon: IconType = {
   congrats: { icon: faGift, bg: "#e7b10a" },
   buy: { icon: faStore, bg: "#609966" },
 };
+
+export const stepData: StepData[] = [
+  { title: "이메일인증", description: "Contact Info" },
+  { title: "회원가입", description: "Date & Time" },
+  { title: "회원가입완료", description: "Select Rooms" },
+];
