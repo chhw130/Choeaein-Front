@@ -1,5 +1,3 @@
-import axios from "axios";
-
 const url = process.env.NEXT_PUBLIC_DEV_BASE_URL;
 
 /**아이돌 목록*/

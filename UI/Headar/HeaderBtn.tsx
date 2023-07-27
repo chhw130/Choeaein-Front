@@ -21,7 +21,7 @@ const loginMenu = [
   },
   {
     title: "회원가입",
-    link: "/signup",
+    link: "/signup/home",
   },
 ];
 

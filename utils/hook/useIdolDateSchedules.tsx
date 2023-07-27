@@ -20,14 +20,11 @@ const useIdolDateSchedules = (
   postData: any,
   idolName: string
 ): UseIdolDateSchedulesType => {
-  console.log(postData, idolName);
   const {
     data: idolDateSchedules = [],
     isLoading,
     mutateAsync: getIdolDayScheduleHandler,
   } = useMutation(() => getIdolSchedule(postData, idolName));
-
-  console.log(isLoading, idolDateSchedules);
 
   return { idolDateSchedules, isLoading, getIdolDayScheduleHandler };
 };

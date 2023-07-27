@@ -1,4 +1,5 @@
 "use client";
+import { verifyEmail } from "@/utils/API/CSRSetting";
 import { stepData } from "@/utils/data/ClientData";
 import {
   Box,
@@ -22,6 +23,7 @@ import {
   Stepper,
   useSteps,
 } from "@chakra-ui/react";
+import { useMutation } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 import React from "react";
 
@@ -32,6 +34,16 @@ const SignUpHome = () => {
     index: 1,
     count: stepData.length,
   });
+
+  const { mutateAsync: verify } = useMutation((email: object) =>
+    verifyEmail(email)
+  );
+
+  const verifyEmailHandler = async () => {
+    await verify({
+      email: "527coco@naver.com",
+    });
+  };
 
   return (
     <Box paddingTop={"8rem"} h={"100vh"} as="main">
@@ -64,7 +76,7 @@ const SignUpHome = () => {
           <InputGroup>
             <Input />
             <InputRightElement w={"4.5em"}>
-              <Button>인증하기</Button>
+              <Button onClick={() => verifyEmailHandler()}>인증하기</Button>
             </InputRightElement>
           </InputGroup>
         </CardBody>
