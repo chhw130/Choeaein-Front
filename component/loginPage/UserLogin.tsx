@@ -151,13 +151,13 @@ const UserLogin = () => {
                 <Link href={"/signup"}>회원가입</Link>
               </HStack>
             </HStack>
-            <HStack>
+            {/* <HStack>
               <Divider />
               <Text fontSize="sm" whiteSpace="nowrap" color="muted">
                 or continue with
               </Text>
               <Divider />
-            </HStack>
+            </HStack> */}
             {/* <OAuthButtonGroup /> */}
           </Stack>
         </Flex>

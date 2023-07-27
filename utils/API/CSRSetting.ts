@@ -24,6 +24,13 @@ export const SSRInstance = axios.create({
   withCredentials: true,
 });
 
+export const verifyEmail = (email: object) =>
+  instance
+    .post(`/oauth/signup/step1/`, {
+      email: "527coco@naver.com",
+    })
+    .then((res) => res.data);
+
 /**회원가입 */
 export const postSignUp = (signUpInform: any) =>
   instance.post(`/oauth/signup/`, signUpInform).then((res) => res.data);
