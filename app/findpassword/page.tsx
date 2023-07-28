@@ -1,3 +1,4 @@
+"use client";
 import FindPassword from "@/component/findPage/findPassword/FindPassword";
 import React from "react";
 

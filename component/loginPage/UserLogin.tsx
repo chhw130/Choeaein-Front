@@ -4,67 +4,37 @@ import { useForm } from "react-hook-form";
 import {
   Button,
   ButtonGroup,
-  Divider,
   Flex,
   HStack,
   Input,
   Stack,
   Text,
-  useColorMode,
 } from "@chakra-ui/react";
-import { postLogin } from "@/utils/API/CSRSetting";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-
-import {
-  QueryClient,
-  useMutation,
-  useQueryClient,
-} from "@tanstack/react-query";
 import MainLogo from "@/UI/Logo/MainLogo";
 import { LoginData } from "@/utils/interface/interface";
 import useUser from "@/utils/hook/useUser";
 import { useEffect } from "react";
-import { toast } from "react-toastify";
 import GoHomeBtn from "@/UI/Button/GoHomeBtn";
+import useLogin from "@/utils/hook/useLogin";
 
 const UserLogin = () => {
   const router = useRouter();
-  const { colorMode } = useColorMode();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<LoginData>();
+
   const { isLoading, isLogin, userData } = useUser();
-  const queryClient: QueryClient = useQueryClient();
 
   /**로그인 되어있으면 home으로 라우팅 */
   useEffect(() => {
     if (!isLoading && isLogin) router.push("/");
   }, [isLoading, isLogin, userData]);
 
-  const { mutateAsync: loginHandler, isLoading: loginLoading } = useMutation(
-    (loginData: LoginData) => postLogin(loginData),
-    {
-      onError: () => {
-        toast("ID또는 Password가 틀렸습니다.", {
-          type: "error",
-          theme: colorMode,
-          toastId: "login",
-        });
-      },
-      onSuccess: () => {
-        router.push("/");
-        queryClient.invalidateQueries(["me"]);
-        toast("로그인 성공!!", {
-          type: "info",
-          theme: colorMode,
-          toastId: "login",
-        });
-      },
-    }
-  );
+  const { loginHandler, loginLoading } = useLogin();
 
   /**로그인 form을 제출했을 때*/
   const onSubmit = async (loginData: LoginData) => {
