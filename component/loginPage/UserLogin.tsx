@@ -26,6 +26,7 @@ import { LoginData } from "@/utils/interface/interface";
 import useUser from "@/utils/hook/useUser";
 import { useEffect } from "react";
 import { toast } from "react-toastify";
+import GoHomeBtn from "@/UI/Button/GoHomeBtn";
 
 const UserLogin = () => {
   const router = useRouter();
@@ -118,16 +119,7 @@ const UserLogin = () => {
                 <Text color={"#bf1650"}>⚠ {errors.password.message}</Text>
               ))}
             <ButtonGroup marginTop="10px" justifyContent="center" w="100%">
-              <Button
-                w="50%"
-                h="50px"
-                onClick={() => {
-                  router.push("/");
-                }}
-                type="button"
-              >
-                홈으로
-              </Button>
+              <GoHomeBtn />
               <Button
                 w="50%"
                 h="50px"

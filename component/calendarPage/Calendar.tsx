@@ -39,7 +39,8 @@ const Calendar = ({ idolData }: { idolData: ChoeIdolType }) => {
   } = useCalendar(idolData);
 
   const { userData } = useUser();
-  const userPick = userData?.pick;
+
+  const isUserPick = userData?.pick === idolData.pk;
 
   return (
     <>
@@ -100,7 +101,7 @@ const Calendar = ({ idolData }: { idolData: ChoeIdolType }) => {
             isLoading={isLoading}
           />
         </Box>
-        <ReportBtn idolData={idolData} />
+        {isUserPick && <ReportBtn idolData={idolData} />}
       </article>
     </>
   );

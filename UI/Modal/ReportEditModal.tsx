@@ -72,7 +72,7 @@ const ReportEditModal = ({
 
   const submitHandler = async (formData: ReportForm) => {
     const data: PostDataType = {
-      whoes: [reportData?.whoes[0]],
+      // whoes: [reportData?.whoes[0]],
       ScheduleType: category,
       ScheduleTitle: formData.ScheduleTitle,
       location: formData.location,

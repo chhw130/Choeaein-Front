@@ -39,7 +39,8 @@
     "component/calendarPage/Sidebar.jsx",
     "pages/api/test.jsx",
     "utils/phone/SendPhoneMessage.js",
-    "pages/api/proxy/[...slug].js"
+    "pages/api/proxy/[...slug].js",
+    "UI/Stepper"
   ],
   "exclude": ["node_modules"]
 }

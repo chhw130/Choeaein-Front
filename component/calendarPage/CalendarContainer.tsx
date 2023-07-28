@@ -4,8 +4,8 @@ import styles from "./CalendarPage.module.scss";
 import dynamic from "next/dynamic";
 import { ChoeIdolType } from "@/utils/interface/interface";
 
-const ComingSchedule = dynamic(() => import("./ComingSchedule"));
 const Calendar = dynamic(() => import("./Calendar"));
+const ComingSchedule = dynamic(() => import("./ComingSchedule"));
 
 const CalendarContainer = ({ idolData }: { idolData: ChoeIdolType }) => {
   return (

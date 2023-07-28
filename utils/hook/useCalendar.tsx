@@ -1,5 +1,5 @@
 import ShowEvent from "@/component/calendarPage/ShowEvent";
-import { Box, Td, Tr, useDisclosure } from "@chakra-ui/react";
+import { Box, Flex, Td, Tr, useDisclosure } from "@chakra-ui/react";
 import moment from "moment";
 import React, { useEffect, useState } from "react";
 import styles from "../../component/calendarPage/Calendar.module.scss";
@@ -107,6 +107,7 @@ const useCalendar = (idolData: ChoeIdolType): UseCalendarType => {
                 return (
                   <Td
                     width={10}
+                    maxW={10}
                     height={20}
                     padding={[2, 3, 4]}
                     textAlign="center"
@@ -126,12 +127,12 @@ const useCalendar = (idolData: ChoeIdolType): UseCalendarType => {
                   >
                     <div>{days.format("D")}</div>
 
-                    <div className={styles.eventContent}>
+                    <Flex justifyContent={"center"}>
                       <ShowEvent
                         days={days}
                         newIdolSchedule={newIdolSchedule}
                       />
-                    </div>
+                    </Flex>
                   </Td>
                 );
                 // 다른 달은 글씨 색 연하게
@@ -172,12 +173,12 @@ const useCalendar = (idolData: ChoeIdolType): UseCalendarType => {
                   >
                     <Box>
                       <div>{days.format("D")}</div>
-                      <div className={styles.eventContent}>
+                      <Flex justifyContent={"center"}>
                         <ShowEvent
                           days={days}
                           newIdolSchedule={newIdolSchedule}
                         />
-                      </div>
+                      </Flex>
                     </Box>
                   </Td>
                 );

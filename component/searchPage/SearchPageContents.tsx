@@ -2,6 +2,7 @@ import { Box, Flex, Spinner } from "@chakra-ui/react";
 import React from "react";
 import MemberCard from "../../UI/Card/MemberCard";
 import { UseSearchDataType } from "@/utils/hook/useSearchData";
+import SpinnerUI from "@/UI/Spinner/SpinnerUI";
 
 const SearchPageContents = ({ searchData, isLoading }: UseSearchDataType) => {
   return (
@@ -9,14 +10,13 @@ const SearchPageContents = ({ searchData, isLoading }: UseSearchDataType) => {
       width={"90%"}
       justifyContent={"space-around"}
       alignItems={"center"}
-      // gap={"30px 4%"}
       wrap={"wrap"}
       as={"article"}
       margin={"3rem auto"}
       pos={"relative"}
     >
-      {!isLoading ? (
-        <Spinner top={"80%"} pos={"absolute"} left={"44%"} size={"lg"} />
+      {isLoading ? (
+        <SpinnerUI />
       ) : searchData ? (
         searchData?.map((data: any) => {
           return <MemberCard key={data.idol_name_kr} data={data} />;

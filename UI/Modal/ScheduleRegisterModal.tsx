@@ -35,7 +35,6 @@ const ScheduleRegisterModal = ({
   const idolName = reportData?.whoes[0].split("(");
 
   const idolNameKR: string = idolName[1].slice(0, -1);
-  console.log(reportData);
 
   const { mutateAsync: postReportScheduleHandler, isLoading } = useMutation(
     (reportData: MypageReportSchedule | any) =>
@@ -49,7 +48,8 @@ const ScheduleRegisterModal = ({
       onSuccess: async () => {
         await deleteUserReportSchedule(reportData.pk);
         queryclinet.invalidateQueries([`userReportSchedule`]);
-        toast("일정이 성공적으로 업로드 되었습니다.", {
+        onClose();
+        return toast("일정이 성공적으로 업로드 되었습니다.", {
           type: "success",
         });
       },
@@ -57,11 +57,12 @@ const ScheduleRegisterModal = ({
   );
 
   const newReportData = {
+    owner: "관리자",
     ScheduleTitle: reportData.ScheduleTitle,
-    ScheduleType: reportData.ScheduleType,
+    ScheduleType: reportData.ScheduleType?.type,
     location: reportData.location,
     when: reportData.when,
-    participant: [{ idolName }],
+    participant: [idolNameKR],
   };
 
   return (
