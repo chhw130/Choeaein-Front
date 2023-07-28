@@ -10,7 +10,7 @@ interface ShowEventProps {
 }
 
 const ShowEvent = ({ days, newIdolSchedule }: ShowEventProps) => {
-  const removeDuplicateTypeSchedule = newIdolSchedule.filter(
+  const removeDuplicateTypeSchedule = newIdolSchedule?.filter(
     (schedule, index, arr) => {
       return (
         arr.findIndex(
