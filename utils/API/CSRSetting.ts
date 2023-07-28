@@ -178,7 +178,7 @@ export const getUserReportDetail = async (schedulePk: number) =>
 /**유저 일정 등록하기 */
 export const postUserReport = async (
   idolName: string,
-  reportData: MypageReportSchedule | any
+  reportData: MypageReportSchedule
 ) =>
   instance
     .post(`/idols/${idolName}/schedules/`, reportData)

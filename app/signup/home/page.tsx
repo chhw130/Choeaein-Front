@@ -3,7 +3,11 @@
 import VerifyEmail from "@/component/singupPage/VerifyEmail";
 
 const SignUpHome = () => {
-  return <VerifyEmail />;
+  return (
+    <main>
+      <VerifyEmail />
+    </main>
+  );
 };
 
 export default SignUpHome;

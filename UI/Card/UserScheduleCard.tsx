@@ -9,7 +9,6 @@ import {
   Text,
   useDisclosure,
 } from "@chakra-ui/react";
-import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import UserScheduleStatusModal from "../Modal/UserScheduleStatusModal";
 import { icon } from "@/utils/data/ClientData";
@@ -23,6 +22,8 @@ const UserScheduleCard = ({ userReport }: ScheduleCardProps) => {
   const { onClose, onOpen, isOpen } = useDisclosure();
 
   const category = userReport?.ScheduleType?.type;
+
+  console.log(category);
 
   return (
     <>
@@ -40,8 +41,8 @@ const UserScheduleCard = ({ userReport }: ScheduleCardProps) => {
         <CardBody>
           <Text>
             <FontAwesomeIcon
-              icon={icon[category as keyof typeof icon].icon}
-              color={icon[category as keyof typeof icon].bg}
+              icon={icon[category as keyof typeof icon]?.icon}
+              color={icon[category as keyof typeof icon]?.bg}
             />
             &nbsp;{userReport.ScheduleTitle}
             &nbsp;{userReport?.is_enroll ? "(승인)" : "(미승인)"}

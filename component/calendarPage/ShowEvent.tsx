@@ -1,13 +1,32 @@
 import { Flex } from "@chakra-ui/react";
 import styles from "./Calendar.module.scss";
-import moment from "moment";
+import moment, { Moment } from "moment";
 import "moment/locale/ko";
+import { IdolDateScheduleType } from "@/utils/interface/interface";
 
-const ShowEvent = ({ days, newIdolSchedule }: any) => {
+interface ShowEventProps {
+  days: Moment;
+  newIdolSchedule: IdolDateScheduleType[];
+}
+
+const ShowEvent = ({ days, newIdolSchedule }: ShowEventProps) => {
+  const removeDuplicateTypeSchedule = newIdolSchedule.filter(
+    (schedule, index, arr) => {
+      return (
+        arr.findIndex(
+          (item) =>
+            moment(item.when).format("YYYYMMDD") ===
+              moment(schedule.when).format("YYYYMMDD") &&
+            item.ScheduleType.type === schedule.ScheduleType.type
+        ) === index
+      );
+    }
+  );
+
   return (
     <>
       <Flex padding={1}>
-        {newIdolSchedule?.map((item: any, i: number) => {
+        {removeDuplicateTypeSchedule?.map((item, i) => {
           if (
             days?.format("YYYYMMDD") == moment(item.when).format("YYYYMMDD")
           ) {
@@ -17,12 +36,9 @@ const ShowEvent = ({ days, newIdolSchedule }: any) => {
                 className={`${styles.listItem} ${
                   styles[item.ScheduleType.type]
                 }`}
-              >
-                {item.data}
-              </div>
+              ></div>
             );
           }
-          return true;
         })}
       </Flex>
     </>

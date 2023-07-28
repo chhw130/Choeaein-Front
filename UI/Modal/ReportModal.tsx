@@ -11,6 +11,7 @@ import {
   ModalFooter,
   ModalHeader,
   ModalOverlay,
+  useColorMode,
   useRadioGroup,
 } from "@chakra-ui/react";
 import React from "react";
@@ -20,6 +21,7 @@ import RadioCard from "../Card/RadioCard";
 import { useMutation } from "@tanstack/react-query";
 import { postUserReportSchedule } from "@/utils/API/CSRSetting";
 import { ChoeIdolType } from "@/utils/interface/interface";
+import { toast } from "react-toastify";
 
 interface ReportModalProps extends ModalProps {
   idolData: ChoeIdolType;
@@ -32,12 +34,12 @@ export interface ReportForm {
 
 export interface PostDataType extends ReportForm {
   ScheduleType: string | number;
-  whoes: string[];
 }
 
 const ReportModal = ({ isOpen, onClose, idolData }: ReportModalProps) => {
   const { register, handleSubmit } = useForm<ReportForm>();
   const categorys = ["broadcast", "release", "buy", "congrats", "행사"];
+  const { colorMode } = useColorMode();
 
   const { getRootProps, getRadioProps, value } = useRadioGroup({
     name: "category",
@@ -48,14 +50,26 @@ const ReportModal = ({ isOpen, onClose, idolData }: ReportModalProps) => {
   const { mutateAsync: reportScheduleHandler } = useMutation(
     (data: PostDataType) => postUserReportSchedule(data),
     {
-      onSuccess: () => {},
-      onError: () => {},
+      onSuccess: () => {
+        onClose();
+        return toast("일정이 제보되었습니다.", {
+          type: "success",
+          theme: colorMode,
+          toastId: "report",
+        });
+      },
+      onError: () => {
+        return toast("잠시후 다시 시도해주세요.", {
+          type: "error",
+          theme: colorMode,
+          toastId: "report",
+        });
+      },
     }
   );
 
   const submitHandler = async (formData: ReportForm) => {
     const data: PostDataType = {
-      whoes: [idolData.idol_name_kr],
       ScheduleType: value,
       ScheduleTitle: formData.ScheduleTitle,
       location: formData.location,
