@@ -1,3 +1,4 @@
+"use client";
 import FindID from "@/component/findPage/findId/FindID";
 import React from "react";
 

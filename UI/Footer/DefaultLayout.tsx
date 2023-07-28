@@ -7,7 +7,6 @@ const DefaultLayout = ({ children }: { children: React.ReactNode }) => {
   const url = usePathname();
 
   const isAdminPage = url?.includes("admin");
-  console.log(isAdminPage);
 
   return (
     <>

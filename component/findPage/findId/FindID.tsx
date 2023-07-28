@@ -9,6 +9,7 @@ import {
   InputGroup,
   InputLeftAddon,
   VStack,
+  useColorMode,
 } from "@chakra-ui/react";
 import React from "react";
 import { useForm } from "react-hook-form";
@@ -16,21 +17,21 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPhone } from "@fortawesome/free-solid-svg-icons";
 import FindButton from "@/UI/Button/FindButton";
 import MainLogo from "@/UI/Logo/MainLogo";
-import { useMutation } from "@tanstack/react-query";
-import { findID } from "@/utils/API/CSRSetting";
+import useFindID from "@/utils/hook/useFindID";
+
+export interface FindIDFormType {
+  nickname: string;
+  phone: string;
+}
 
 const FindID = () => {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit } = useForm<FindIDFormType>();
 
-  const { mutateAsync: findIdHandler, data: idData } = useMutation(
-    (data: any) => findID(data)
-  );
+  const { findIdHandler, idData } = useFindID();
 
-  const submitHandler = async (data: any) => {
+  const submitHandler = async (data: FindIDFormType) => {
     await findIdHandler(data);
   };
-
-  console.log(idData);
 
   return (
     <Flex height={"100vh"}>
