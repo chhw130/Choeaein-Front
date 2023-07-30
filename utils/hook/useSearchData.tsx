@@ -1,5 +1,4 @@
 import { useQuery } from "@tanstack/react-query";
-import React from "react";
 import { getSearchData } from "../API/CSRSetting";
 import { MemberType } from "../interface/interface";
 
@@ -13,7 +12,13 @@ const useSearchData = (
 ): UseSearchDataType => {
   const { data: searchData, isLoading } = useQuery(
     ["searchData", keyword],
-    () => getSearchData(keyword)
+    () => getSearchData(keyword),
+    {
+      onError: () => {
+        return;
+      },
+      retry: false,
+    }
   );
 
   return { searchData, isLoading };

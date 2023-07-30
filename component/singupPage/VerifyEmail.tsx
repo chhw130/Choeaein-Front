@@ -55,14 +55,14 @@ const VerifyEmail = () => {
         <CardFooter justifyContent={"center"}>
           <ButtonGroup w={"80%"}>
             <GoHomeBtn />
-            <Button
+            {/* <Button
               w={"50%"}
               h={"50px"}
               isDisabled={true}
               onClick={() => router.push("/signup/user")}
             >
               다음단계
-            </Button>
+            </Button> */}
           </ButtonGroup>
         </CardFooter>
       </Card>

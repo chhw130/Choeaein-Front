@@ -5,6 +5,7 @@ import axios from "axios";
 import Cookies from "js-cookie";
 import { MypageReportSchedule } from "../interface/interface";
 import { FindIDFormType } from "@/component/findPage/findId/FindID";
+import { ReportPkType } from "@/UI/Modal/ScheduleRegisterModal";
 
 export const instance = axios.create({
   baseURL:
@@ -34,7 +35,9 @@ export const verifyEmail = (email: object) =>
 
 /**회원가입 */
 export const postSignUp = (signUpInform: any) =>
-  instance.post(`/oauth/signup/`, signUpInform).then((res) => res.data);
+  instance
+    .post(`/oauth/signup/step2/41/EmailVerificationToken/`, signUpInform)
+    .then((res) => res.data);
 
 /**로그인 */
 export const postLogin = (loginInform: any) =>
@@ -176,14 +179,9 @@ export const getUserReportSchedule = async () =>
 export const getUserReportDetail = async (schedulePk: number) =>
   instance.get(`/users/reports/${schedulePk}/`).then((res) => res.data);
 
-/**유저 일정 등록하기 */
-export const postUserReport = async (
-  idolName: string,
-  reportData: MypageReportSchedule
-) =>
-  instance
-    .post(`/idols/${idolName}/schedules/`, reportData)
-    .then((res) => res.data);
+/**유저 report 등록하기 */
+export const postUserReport = async (reportPk: ReportPkType) =>
+  instance.post(`/users/register`, reportPk).then((res) => res.data);
 
 /**유저 일정 수정하기 */
 export const putUserReportDetail = async (

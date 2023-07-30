@@ -13,16 +13,17 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 import { ModalProps } from "./ViewDayCalendarModal";
-import {
-  deleteUserReportSchedule,
-  postUserReport,
-} from "@/utils/API/CSRSetting";
+import { postUserReport } from "@/utils/API/CSRSetting";
 import { MypageReportSchedule } from "@/utils/interface/interface";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { toast } from "react-toastify";
 
 interface ScheduleRegisterModalProps extends ModalProps {
   reportData: MypageReportSchedule;
+}
+
+export interface ReportPkType {
+  report_pk: number;
 }
 
 const ScheduleRegisterModal = ({
@@ -32,13 +33,10 @@ const ScheduleRegisterModal = ({
 }: ScheduleRegisterModalProps) => {
   const queryclinet = useQueryClient();
 
-  const idolName = reportData?.whoes[0].split("(");
-
-  const idolNameKR: string = idolName[1].slice(0, -1);
+  const reportPk: ReportPkType = { report_pk: reportData?.pk };
 
   const { mutateAsync: postReportScheduleHandler, isLoading } = useMutation(
-    (reportData: MypageReportSchedule | any) =>
-      postUserReport(idolNameKR, reportData),
+    (reportPk: ReportPkType) => postUserReport(reportPk),
     {
       onError: () => {
         toast("서버 에러", {
@@ -46,7 +44,6 @@ const ScheduleRegisterModal = ({
         });
       },
       onSuccess: async () => {
-        await deleteUserReportSchedule(reportData.pk);
         queryclinet.invalidateQueries([`userReportSchedule`]);
         onClose();
         return toast("일정이 성공적으로 업로드 되었습니다.", {
@@ -55,15 +52,6 @@ const ScheduleRegisterModal = ({
       },
     }
   );
-
-  const newReportData = {
-    owner: "관리자",
-    ScheduleTitle: reportData.ScheduleTitle,
-    ScheduleType: reportData.ScheduleType?.type,
-    location: reportData.location,
-    when: reportData.when,
-    participant: [idolNameKR],
-  };
 
   return (
     <Modal isOpen={isOpen} onClose={onClose} isCentered size={"sm"}>
@@ -84,7 +72,7 @@ const ScheduleRegisterModal = ({
               type="submit"
               isLoading={isLoading}
               onClick={async () => {
-                await postReportScheduleHandler(newReportData);
+                await postReportScheduleHandler(reportPk);
               }}
             >
               일정 추가하기

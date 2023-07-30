@@ -43,10 +43,10 @@ const NotFoundPage = ({ idolRankData }: NotFoundPageProps) => {
           onClick={() => router.replace("/")}
           right={0}
           pos={"relative"}
-          size={"lg"}
           position="relative"
           variant={"solid"}
           bg={"gray.400"}
+          w={"100px"}
         >
           &larr; Go Home
         </Button>

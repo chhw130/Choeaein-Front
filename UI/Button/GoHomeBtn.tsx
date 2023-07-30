@@ -9,6 +9,7 @@ const GoHomeBtn = () => {
     <Button
       w="50%"
       h="50px"
+      margin={"0 auto"}
       onClick={() => {
         router.push("/");
       }}
