@@ -6,18 +6,7 @@ import { FindIDFormType } from "@/component/findPage/findId/FindID";
 import { ReportPkType } from "@/UI/Modal/ScheduleRegisterModal";
 
 export const instance = axios.create({
-  baseURL:
-    process.env.NODE_ENV === "development"
-      ? "/api/v2/"
-      : process.env.NEXT_PUBLIC_DEV_BASE_URL,
-  headers: {
-    "X-CSRFToken": Cookies.get("csrftoken") || "",
-  },
-  withCredentials: true,
-});
-
-export const SSRInstance = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_DEV_BASE_URL,
+  baseURL: `${process.env.NEXT_PUBLIC_DEV_BASE_URL}/api/v2`,
   headers: {
     "X-CSRFToken": Cookies.get("csrftoken") || "",
   },
