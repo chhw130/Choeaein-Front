@@ -1,9 +1,7 @@
 import { PasswordFormType } from "@/UI/Modal/ModifyPasswordModal";
 import { PostDataType } from "@/UI/Modal/ReportModal";
 import axios from "axios";
-
 import Cookies from "js-cookie";
-import { MypageReportSchedule } from "../interface/interface";
 import { FindIDFormType } from "@/component/findPage/findId/FindID";
 import { ReportPkType } from "@/UI/Modal/ScheduleRegisterModal";
 
