@@ -1,5 +1,10 @@
 const url = process.env.NEXT_PUBLIC_DEV_BASE_URL;
 
+export const getIdolRank = async () => {
+  const res = await fetch(`${url}/idols/rank/`, { cache: "force-cache" });
+  return res.json();
+};
+
 /**아이돌 목록*/
 export const getIdolList = async () => {
   const res = await fetch(`${url}/idols/`);

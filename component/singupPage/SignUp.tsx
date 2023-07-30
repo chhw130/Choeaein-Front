@@ -2,13 +2,15 @@
 import { useForm } from "react-hook-form";
 import { Box, Button, ButtonGroup, Flex } from "@chakra-ui/react";
 import { postSignUp } from "@/utils/API/CSRSetting";
-import { useRouter } from "next/navigation";
+import { useParams, usePathname, useRouter } from "next/navigation";
 import { SignUpData } from "@/utils/interface/interface";
 import { useMutation } from "@tanstack/react-query";
 import MainLogo from "@/UI/Logo/MainLogo";
 import SignUpFormControl from "@/UI/FormControl/SignUpFormControl";
 
 const SignUp = () => {
+  const params = useParams();
+
   /**회원가입 확인 모달창 */
   const {
     register,
@@ -38,6 +40,7 @@ const SignUp = () => {
       name: data.name,
       nickname: data.nickname,
       age: age,
+      phone: data.phone_number,
       pick: Number(data.pick),
     };
 

@@ -35,8 +35,8 @@ const IdolCard = ({ data }: IdolCardProps) => {
       <Image
         src={data?.group_profile || data?.solo_profile || data?.idol_profile}
         alt="아티스트 이미지"
-        width={10000}
-        height={10000}
+        width={1000}
+        height={1000}
         loading="lazy"
         className={styles.groupImg}
       />

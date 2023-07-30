@@ -13,6 +13,7 @@ interface AlbumCaruoselProps {
 }
 
 const AlbumCarousel = ({ albumData }: AlbumCaruoselProps) => {
+  console.log(albumData);
   const slickRef = useRef<any>(false);
 
   const settings = {
