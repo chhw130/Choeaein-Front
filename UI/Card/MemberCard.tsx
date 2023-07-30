@@ -12,6 +12,7 @@ interface IdolCardProps {
 const MemberCard = ({ data }: IdolCardProps) => {
   const router = useRouter();
 
+  console.log(data);
   return (
     <>
       <Box

@@ -93,7 +93,8 @@ export interface ChoeIdolType extends IdolType {
   group: string[];
   idol_birthday: string;
   has_schedules: boolean;
-  viewCount: number;
+  viewCount?: number;
+  pickCount?: number;
 }
 
 export interface IdolDateScheduleType {
