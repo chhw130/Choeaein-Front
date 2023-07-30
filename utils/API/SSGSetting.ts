@@ -1,4 +1,4 @@
-const url = process.env.NEXT_PUBLIC_DEV_BASE_URL;
+const url = `${process.env.NEXT_PUBLIC_DEV_BASE_URL}/api/v2`;
 
 export const getIdolRank = async () => {
   const res = await fetch(`${url}/idols/rank/`, { cache: "force-cache" });
