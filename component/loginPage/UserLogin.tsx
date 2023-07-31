@@ -110,7 +110,7 @@ const UserLogin = () => {
                 <Text color={"gray.300"}>|</Text>
                 <Link href="/findpassword">비밀번호 찾기</Link>
                 <Text color={"gray.300"}>|</Text>
-                <Link href={"/signup"}>회원가입</Link>
+                <Link href={"/signup/home"}>회원가입</Link>
               </HStack>
             </HStack>
             {/* <HStack>

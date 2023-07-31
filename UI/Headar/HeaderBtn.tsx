@@ -55,7 +55,6 @@ const HeaderBtn = () => {
   });
 
   const signOutHandler = async () => {
-    // await signOut();
     await logoutHandler();
   };
 
