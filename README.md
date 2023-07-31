@@ -143,6 +143,7 @@ src="https://user-images.githubusercontent.com/121347506/229693783-22b5be1c-c88a
 > next/Image로 기존의 jpg,png에서 webp형식으로 변환 => 결과적으로 이미지 로드 시간 최대 323ms -> 39ms 단축
 > 또한 이미지 lazy Loading기본으로 제공 및 layout Shifting 해결
 
+<br>
 
 ### 2. dynamic import로 first load Js크기 줄이기
 
