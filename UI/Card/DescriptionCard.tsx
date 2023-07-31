@@ -1,8 +1,10 @@
 import {
+  Button,
   Card,
   CardBody,
   CardHeader,
   Flex,
+  HStack,
   Stack,
   Text,
 } from "@chakra-ui/react";
@@ -13,6 +15,7 @@ import React from "react";
 import styles from "./DescriptionCard.module.scss";
 import AlbumCarousel from "../Carousel/AlbumCarousel";
 import { albumType } from "@/utils/interface/interface";
+import Link from "next/link";
 
 interface DescriptionCardProps {
   albumData: albumType[];
@@ -51,14 +54,17 @@ const DescriptionCard = ({ albumData, idolData }: DescriptionCardProps) => {
         <CardHeader>
           <Flex justifyContent={"space-between"}>
             <Text fontSize={["xl", "2xl", "4xl"]}>{name}</Text>
-            <Flex>
+            <HStack>
               <Text as={"a"} href={instaLink} target="_blank" width={"40px"}>
                 <FontAwesomeIcon icon={faInstagram} size="2xl" />
               </Text>
               <Text as={"a"} href={youtubeLink} target="_blank" width={"40px"}>
                 <FontAwesomeIcon icon={faYoutube} size="2xl" />
               </Text>
-            </Flex>
+              <Link href={`/calendar?idol=${idolData?.idol_name_en}`}>
+                <Button>스케줄 보러가기</Button>
+              </Link>
+            </HStack>
           </Flex>
           <Text fontSize={["md", "xl", "2xl"]}>{idolData.enter}</Text>
           <Text>Debut : {debut}</Text>
