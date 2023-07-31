@@ -18,16 +18,10 @@ https://www.choeaein.click
 <br>
 <br>
 
-### 멤버 구성 
-
-## Front 
-
-- 최현우 : <https://github.com/chhw130>
-
-
-## Back 
-
-- 고은기 : <https://github.com/sliverKi>
+|      최현우      |                                                                                                                 
+| :------------------------------------------------------------------------------: | 
+|   <img width="160px" src="https://user-images.githubusercontent.com/116826162/236803962-73ff1ba3-63cf-46c7-93f9-22282f6f0746.jpeg" />  |
+|   [@ChoiHyunWoo](https://github.com/chhw130)   |   
 
 
 <br>
