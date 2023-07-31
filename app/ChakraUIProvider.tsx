@@ -7,6 +7,7 @@ const ChakraProvider = dynamic(() =>
   import("@chakra-ui/provider").then((mod) => mod.ChakraProvider)
 );
 import localFont from "next/font/local";
+
 import { useLayoutEffect, useState } from "react";
 
 const BMJUA = localFont({

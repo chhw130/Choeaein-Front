@@ -29,6 +29,7 @@ const nextConfig = {
       "i.namu.wiki",
       "a5.mzstatic.com",
       "i.pinimg.com",
+      "www.jeonsomiofficial.com",
     ],
   },
 };

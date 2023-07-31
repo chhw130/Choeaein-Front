@@ -61,8 +61,13 @@ const DescriptionCard = ({ albumData, idolData }: DescriptionCardProps) => {
               <Text as={"a"} href={youtubeLink} target="_blank" width={"40px"}>
                 <FontAwesomeIcon icon={faYoutube} size="2xl" />
               </Text>
-              <Link href={`/calendar?idol=${idolData?.idol_name_en}`}>
-                <Button>스케줄 보러가기</Button>
+              <Link
+                prefetch={true}
+                href={`/calendar?idol=${idolData?.idol_name_en}`}
+              >
+                {name === idolData?.idol_name_kr && (
+                  <Button>스케줄 보러가기</Button>
+                )}
               </Link>
             </HStack>
           </Flex>
