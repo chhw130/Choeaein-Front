@@ -4,14 +4,14 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({
 });
 
 const nextConfig = {
-  // async rewrites() {
-  //   return [
-  //     {
-  //       source: "/api/v2/:path*/",
-  //       destination: `${process.env.NEXT_PUBLIC_DEV_BASE_URL}/:path*/`,
-  //     },
-  //   ];
-  // },
+  async rewrites() {
+    return [
+      {
+        source: "/api/v2/:path*/",
+        destination: `${process.env.NEXT_PUBLIC_DEV_BASE_URL}/:path*/`,
+      },
+    ];
+  },
 
   trailingSlash: true,
 
@@ -29,6 +29,7 @@ const nextConfig = {
       "i.namu.wiki",
       "a5.mzstatic.com",
       "i.pinimg.com",
+      "www.jeonsomiofficial.com",
     ],
   },
 };

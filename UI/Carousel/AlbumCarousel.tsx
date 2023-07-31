@@ -1,4 +1,4 @@
-import React, { useCallback, useRef } from "react";
+import React, { useRef } from "react";
 import Slider from "react-slick";
 import Image from "next/image";
 import { Box, Text, Tooltip } from "@chakra-ui/react";
@@ -13,7 +13,6 @@ interface AlbumCaruoselProps {
 }
 
 const AlbumCarousel = ({ albumData }: AlbumCaruoselProps) => {
-  console.log(albumData);
   const slickRef = useRef<any>(false);
 
   const settings = {
