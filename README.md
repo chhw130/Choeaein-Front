@@ -124,6 +124,9 @@ src="https://user-images.githubusercontent.com/121347506/229693783-22b5be1c-c88a
 
 <img width="1439" alt="스크린샷 2023-07-31 오후 7 34 46" src="https://github.com/chhw130/myfavor-Next/assets/116826162/a001c9bc-8c07-4be5-bac2-0b2b7b7d0a2a">
 
+<img width="1052" alt="스크린샷 2023-07-31 오후 8 30 06" src="https://github.com/chhw130/myfavor-Next/assets/116826162/c3bd3f61-2537-48fd-a8ba-9d2a2dcee016">
+
+
 
 <br>
 <br>
