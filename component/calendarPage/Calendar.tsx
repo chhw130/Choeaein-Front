@@ -101,7 +101,7 @@ const Calendar = ({ idolData }: { idolData: ChoeIdolType }) => {
             isLoading={isLoading}
           />
         </Box>
-        {!isUserPick && <ReportBtn idolData={idolData} />}
+        {isUserPick && <ReportBtn idolData={idolData} />}
       </article>
     </>
   );
