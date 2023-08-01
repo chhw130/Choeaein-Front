@@ -6,7 +6,11 @@ import { FindIDFormType } from "@/component/findPage/findId/FindID";
 import { ReportPkType } from "@/UI/Modal/ScheduleRegisterModal";
 
 export const instance = axios.create({
-  baseURL: `${process.env.NEXT_PUBLIC_DEV_BASE_URL}/api/v2`,
+  baseURL:
+    process.env.NODE_ENV === "development"
+      ? `${process.env.NEXT_PUBLIC_DEV_BASE_URL}/api/v2`
+      : `${process.env.NEXT_PUBLIC_DEPLOY_BASE_URL}/api/v2`,
+
   headers: {
     "X-CSRFToken": Cookies.get("csrftoken") || "",
   },
