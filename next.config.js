@@ -4,6 +4,7 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({
 });
 
 const nextConfig = {
+
   // async rewrites() {
   //   if (process.env.NODE_ENV === "development") {
   //     return [
@@ -14,6 +15,7 @@ const nextConfig = {
   //     ];
   //   }
   // },
+
 
   trailingSlash: true,
 
