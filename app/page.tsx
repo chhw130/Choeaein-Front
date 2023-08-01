@@ -23,8 +23,6 @@ const fetchData = async () => {
 export default async function Home() {
   const { idolGroupData, idolSoloData, randomSchedules } = await fetchData();
 
-  console.log(idolGroupData);
-
   return (
     <main>
       <MainVideo />

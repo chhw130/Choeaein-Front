@@ -1,7 +1,9 @@
-const url =
-  process.env.NODE_ENV === "development"
-    ? `${process.env.NEXT_PUBLIC_DEV_BASE_URL}/api/v2`
-    : `${process.env.NEXT_PUBLIC_DEPLOY_BASE_URL}/api/v2`;
+// const url =
+//   process.env.NODE_ENV === "development"
+//     ? `${process.env.NEXT_PUBLIC_DEV_BASE_URL}/api/v2`
+//     : `${process.env.NEXT_PUBLIC_DEPLOY_BASE_URL}/api/v2`;
+
+const url = `${process.env.NEXT_PUBLIC_DEPLOY_BASE_URL}/api/v2`;
 
 export const getIdolRank = async () => {
   const res = await fetch(`${url}/idols/rank/`, { cache: "force-cache" });
