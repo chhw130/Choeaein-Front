@@ -20,6 +20,7 @@ import GoHomeBtn from "@/UI/Button/GoHomeBtn";
 import useLogin from "@/utils/hook/useLogin";
 
 const UserLogin = () => {
+  console.log(process.env.NEXT_PUBLIC_DEPLOY_BASE_URL);
   const router = useRouter();
   const {
     register,

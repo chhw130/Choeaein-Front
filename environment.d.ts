@@ -12,6 +12,8 @@ declare global {
       NEXT_PUBLIC_NAVER_SECRET: string;
       NEXT_PUBLIC_BASE_URL: string;
       NEXT_PUBLIC_DEV_BASE_URL: string;
+      NEXT_PUBLIC_DEPLOY_BASE_URL: string;
+
       NODE_ENV: "development" | "production";
     }
   }

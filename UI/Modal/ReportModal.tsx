@@ -38,7 +38,7 @@ export interface PostDataType extends ReportForm {
 
 const ReportModal = ({ isOpen, onClose, idolData }: ReportModalProps) => {
   const { register, handleSubmit } = useForm<ReportForm>();
-  const categorys = ["broadcast", "release", "buy", "congrats", "행사"];
+  const categorys = ["broadcast", "event", "release", "buy", "congrats"];
   const { colorMode } = useColorMode();
 
   const { getRootProps, getRadioProps, value } = useRadioGroup({
