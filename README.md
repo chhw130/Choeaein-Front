@@ -126,7 +126,12 @@ src="https://user-images.githubusercontent.com/121347506/229693783-22b5be1c-c88a
 
 <img width="1052" alt="스크린샷 2023-07-31 오후 8 30 06" src="https://github.com/chhw130/myfavor-Next/assets/116826162/c3bd3f61-2537-48fd-a8ba-9d2a2dcee016">
 
+### 스케줄확인
 
+
+![화면-기록-2023-08-01-오후-3 05 11 (1)](https://github.com/chhw130/myfavor-Next/assets/116826162/b5acb0f4-d04f-4468-8026-75fcc7e55ca7)
+
+> 아이돌 스케줄을 일자, 카테고리 별로 확인가능
 
 <br>
 <br>
