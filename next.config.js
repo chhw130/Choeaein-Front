@@ -4,16 +4,16 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({
 });
 
 const nextConfig = {
-  async rewrites() {
-    if (process.env.NODE_ENV === "development") {
-      return [
-        {
-          source: "/api/v2/:path*/",
-          destination: `${process.env.NEXT_PUBLIC_DEPLOY_BASE_URL}/:path*/`,
-        },
-      ];
-    }
-  },
+  // async rewrites() {
+  //   if (process.env.NODE_ENV === "development") {
+  //     return [
+  //       {
+  //         source: "/api/v2/:path*/",
+  //         destination: `${process.env.NEXT_PUBLIC_DEPLOY_BASE_URL}/:path*/`,
+  //       },
+  //     ];
+  //   }
+  // },
 
   trailingSlash: true,
 
