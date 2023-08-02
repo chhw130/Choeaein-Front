@@ -1,7 +1,7 @@
 "use client";
 import MemberCard from "@/UI/Card/MemberCard";
 import { GroupType } from "@/utils/interface/interface";
-import { Box, Center, HStack, Text } from "@chakra-ui/react";
+import { Center, HStack, Text } from "@chakra-ui/react";
 import React from "react";
 
 const MemberSection = ({ groupMemberData }: { groupMemberData: GroupType }) => {

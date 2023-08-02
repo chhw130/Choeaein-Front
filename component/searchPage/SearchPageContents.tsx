@@ -1,4 +1,5 @@
-import { Box, Flex, Spinner } from "@chakra-ui/react";
+"use client";
+import { Box, Flex } from "@chakra-ui/react";
 import React from "react";
 import MemberCard from "../../UI/Card/MemberCard";
 import { UseSearchDataType } from "@/utils/hook/useSearchData";

@@ -1,8 +1,11 @@
 "use client";
-import ModifyNicknameModal from "@/UI/Modal/ModifyNicknameModal";
+// import ModifyNicknameModal from "@/UI/Modal/ModifyNicknameModal";
 import useUser from "@/utils/hook/useUser";
 import { Button, Flex, HStack, Text, useDisclosure } from "@chakra-ui/react";
+import dynamic from "next/dynamic";
 import React from "react";
+
+const ModifyNicknameModal = dynamic(import("@/UI/Modal/ModifyNicknameModal"));
 
 const ModifyNickname = () => {
   const { onClose, isOpen, onOpen } = useDisclosure();

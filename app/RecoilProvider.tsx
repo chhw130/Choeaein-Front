@@ -1,12 +1,16 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { ReactNode } from "react";
-import { RecoilRoot } from "recoil";
 
-type Props = {
+const RecoilRoot = dynamic(() =>
+  import("recoil").then((mod) => mod.RecoilRoot)
+);
+
+interface RecoilProviderProps {
   children: ReactNode;
-};
+}
 
-export default function RecoilProvider({ children }: Props) {
+export default function RecoilProvider({ children }: RecoilProviderProps) {
   return <RecoilRoot>{children}</RecoilRoot>;
 }

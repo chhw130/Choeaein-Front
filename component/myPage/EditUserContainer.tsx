@@ -2,9 +2,6 @@
 
 import {
   Box,
-  Center,
-  Skeleton,
-  Spinner,
   Tab,
   TabList,
   TabPanel,
@@ -12,21 +9,11 @@ import {
   Tabs,
   Text,
 } from "@chakra-ui/react";
-import dynamic from "next/dynamic";
 import MyReportSchedule from "./MyReportSchedule";
 import useUser from "@/utils/hook/useUser";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
-
-const EditUser = dynamic(() => import("./EditUser"), {
-  loading: () => (
-    <Skeleton h="600px">
-      <Center position="absolute" top={400} left={680}>
-        <Spinner size="xl" />
-      </Center>
-    </Skeleton>
-  ),
-});
+import EditUser from "./EditUser";
 
 const EditUserContainer = () => {
   const { isLoading, isLogin, userData } = useUser();

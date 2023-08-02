@@ -1,9 +1,11 @@
 "use client";
-import DescriptionCard from "@/UI/Card/DescriptionCard";
 import { albumType } from "@/utils/interface/interface";
 import { Center, Flex } from "@chakra-ui/react";
+import dynamic from "next/dynamic";
 import { notFound } from "next/navigation";
 import React from "react";
+
+const DescriptionCard = dynamic(() => import("@/UI/Card/DescriptionCard"));
 
 export interface GroupContainerProps {
   albumData: albumType[];

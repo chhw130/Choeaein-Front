@@ -8,10 +8,9 @@ const AdminLayout = ({ children }: { children: React.ReactNode }) => {
   const { userData, isLoading, isLogin } = useUser();
   const router = useRouter();
 
+  /**admin계정만 접근가능 */
   useEffect(() => {
     if (!isLoading && !isLogin) {
-      console.log(1);
-      /**admin계정만 접근가능 */
       if (!userData?.is_admin) {
         router.push("/");
       }

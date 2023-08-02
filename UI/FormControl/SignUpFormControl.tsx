@@ -7,6 +7,7 @@ import {
   Select,
   Text,
 } from "@chakra-ui/react";
+
 import React from "react";
 import { FieldError, UseFormRegisterReturn } from "react-hook-form";
 import IdolOption from "../Select/IdolOption";

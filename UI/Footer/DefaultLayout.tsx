@@ -5,7 +5,6 @@ import { usePathname } from "next/navigation";
 
 const DefaultLayout = ({ children }: { children: React.ReactNode }) => {
   const url = usePathname();
-
   const isAdminPage = url?.includes("admin");
 
   return (

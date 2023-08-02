@@ -1,7 +1,10 @@
 "use client";
-import ModifyPasswordModal from "@/UI/Modal/ModifyPasswordModal";
+// import ModifyPasswordModal from "@/UI/Modal/ModifyPasswordModal";
 import { Button, Flex, HStack, Text, useDisclosure } from "@chakra-ui/react";
+import dynamic from "next/dynamic";
 import React from "react";
+
+const ModifyPasswordModal = dynamic(import("@/UI/Modal/ModifyPasswordModal"));
 
 const ModifyPassword = () => {
   const { onClose, isOpen, onOpen } = useDisclosure();

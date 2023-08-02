@@ -1,4 +1,4 @@
-import ModifyPickModal from "@/UI/Modal/ModifyPickModal";
+// import ModifyPickModal from "@/UI/Modal/ModifyPickModal";
 import { UserData } from "@/utils/interface/interface";
 import {
   Avatar,
@@ -8,6 +8,9 @@ import {
   Text,
   useDisclosure,
 } from "@chakra-ui/react";
+import dynamic from "next/dynamic";
+
+const ModifyPickModal = dynamic(import("@/UI/Modal/ModifyPickModal"));
 
 const ModifyPick = ({ userData }: { userData: UserData }) => {
   const { isOpen, onClose, onOpen } = useDisclosure();

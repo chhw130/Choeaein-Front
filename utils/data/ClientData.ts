@@ -25,6 +25,36 @@ interface StepData {
   description: string;
 }
 
+/**header Avatar Data */
+
+export const loginMenu = [
+  {
+    title: "로그인",
+    link: "/login",
+  },
+  {
+    title: "회원가입",
+    link: "/signup/home",
+  },
+];
+
+export const logoutMenu = [
+  {
+    title: "로그아웃",
+    link: "/",
+  },
+  {
+    title: "마이페이지",
+    link: "/mypage",
+  },
+  {
+    title: "스케줄 보기",
+    link: "/",
+  },
+];
+
+/**calendar Data */
+
 export const icon: IconType = {
   broadcast: {
     icon: faBroadcastTower,

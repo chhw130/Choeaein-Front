@@ -1,9 +1,13 @@
+"use client";
 import React from "react";
 import dynamic from "next/dynamic";
 import { getIdolList } from "@/utils/API/SSGSetting";
 import { MemberType } from "@/utils/interface/interface";
-import ReportSchedule from "@/component/adminPage/ReportSchedule";
+
 const IdolList = dynamic(() => import("@/component/adminPage/IdolList"));
+const ReportSchedule = dynamic(
+  () => import("@/component/adminPage/ReportSchedule")
+);
 
 const AdminPage = async (params: any) => {
   const path = params.params.category;
