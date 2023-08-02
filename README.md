@@ -163,13 +163,12 @@ const ChakraProvider = dynamic(() =>
 
 ### 최적화 결과
 
-1. 최적화 전 사이트
-<img width="529" alt="스크린샷 2023-08-01 오후 5 16 29" src="https://github.com/chhw130/myfavor-Next/assets/116826162/e92591bc-cc25-41f5-9d53-7444bc82d59e">
-
-2. 최적화 후 사이트
-<img width="541" alt="스크린샷 2023-08-01 오후 5 13 08" src="https://github.com/chhw130/myfavor-Next/assets/116826162/ed51f8e2-33e0-46d5-8de2-5a68afb0b3f0">
 
 
+<img width="1043" alt="스크린샷 2023-08-02 오후 7 00 26" src="https://github.com/chhw130/myfavor-Next/assets/116826162/d72c08e3-c521-44dc-824f-c682998014b1">
+
+
+<img width="981" alt="스크린샷 2023-08-02 오후 7 00 36" src="https://github.com/chhw130/myfavor-Next/assets/116826162/78fc8688-f70a-47d1-9311-36f41500b1c9">
 
 
 <br>
