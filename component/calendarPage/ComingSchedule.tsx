@@ -18,7 +18,7 @@ const ComingSchedule = ({ idolData }: ComingScheduleProps) => {
   const { data, isLoading } = useUpcomingSchedules(idolName);
 
   return (
-    <Center flexDir="column" margin={30} width={"60%"} maxW={"700px"}>
+    <Center flexDir="column" margin={"0 auto"} width={"60%"} maxW={"700px"}>
       <Text fontSize="35px" fontWeight="bold">
         다가오는 스케줄
       </Text>

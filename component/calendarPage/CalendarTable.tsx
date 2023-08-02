@@ -1,5 +1,6 @@
 "use client";
 import {
+  Box,
   Center,
   Skeleton,
   Table,
@@ -10,7 +11,6 @@ import {
   Tr,
 } from "@chakra-ui/react";
 import React from "react";
-import styles from "./Calendar.module.scss";
 import SpinnerUI from "@/UI/Spinner/SpinnerUI";
 
 interface CalendarTableProps {
@@ -27,7 +27,7 @@ const CalendarTable = ({
   return (
     <>
       {isLoading ? (
-        <>
+        <Box pos={"relative"}>
           <Skeleton
             w={"100%"}
             h={"500px"}
@@ -37,7 +37,7 @@ const CalendarTable = ({
           />
           <Center
             pos={"absolute"}
-            top={"0"}
+            top={"10px"}
             flexDir={"column"}
             w={"100%"}
             h={"500px"}
@@ -45,7 +45,7 @@ const CalendarTable = ({
             <SpinnerUI />
             <Text color={"olive"}>아이돌 일정을 불러오고 있습니다.</Text>
           </Center>
-        </>
+        </Box>
       ) : (
         <Table h={"500px"} w="100%" pos={"relative"}>
           <Thead>
@@ -64,7 +64,7 @@ const CalendarTable = ({
               })}
             </Tr>
           </Thead>
-          <Tbody className={styles.calendarTbody}>{calendarArr()}</Tbody>
+          <Tbody>{calendarArr()}</Tbody>
         </Table>
       )}
     </>

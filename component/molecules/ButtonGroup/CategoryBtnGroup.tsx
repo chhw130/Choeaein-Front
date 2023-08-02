@@ -1,13 +1,6 @@
 "use client";
 import React from "react";
 import styles from "./CategoryBtnGroup.module.scss";
-import {
-  faBroadcastTower,
-  faCalendarCheck,
-  faCompactDisc,
-  faGift,
-  faStore,
-} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useRecoilState } from "recoil";
 import { categoryState } from "@/utils/RecoilStore/CategoryState";
