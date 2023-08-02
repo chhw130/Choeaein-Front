@@ -134,12 +134,16 @@ src="https://user-images.githubusercontent.com/121347506/229693783-22b5be1c-c88a
 
 ##  :bulb: 문제 해결
 
-### 1. Next Image로 최적화
+### 1. Next Image / Locale Font로 최적화
 
 <img width="1323" alt="스크린샷 2023-07-31 오후 7 40 51" src="https://github.com/chhw130/myfavor-Next/assets/116826162/f9451468-4848-45dd-b7c2-79bc49ce67c4">
 
 > next/Image로 기존의 jpg,png에서 webp형식으로 변환 => 결과적으로 이미지 로드 시간 최대 323ms -> 39ms 단축
 > 또한 이미지 lazy Loading기본으로 제공 및 layout Shifting 해결
+
+
+> NextJs에서 제공하는 Next/font로 font 최적화
+> font preload를 통해 font의 layout shifting문제 해결
 
 <br>
 
@@ -161,6 +165,17 @@ const ChakraProvider = dynamic(() =>
 
 <br>
 
+### 3. Js 애니메이션 -> css 애니메이션
+
+> 기존의 JS 애니메이션을 css 애니메이션으로 변경하였습니다. JS 애니메이션의 경우 다음과 같은 문제가 있었습니다.
+> - 애니메이션을 JS를 이용하여 동적으로 설정하다 보니 성능 문제가 존재했습니다.
+> - 컴포넌트 내부에서 JS를 조작하기 때문에 다른 로직과 공존하여 가독성이 저하 되었습니다.
+> - JS 애니메이션을 재사용할 때 함수를 다시 호출해야 했습니다.
+>
+> 결과적으로 css Keyframe기반으로 애니메이션을 구성하게 되면 cpu를 사용하기 보다 브라우저 GPU를 이용하여 부드럽고 성능에 더 효율적입니다.
+
+<br>
+
 ### 최적화 결과
 
 
@@ -179,6 +194,9 @@ const ChakraProvider = dynamic(() =>
 ##  :bulb: 프로젝트를 진행하면서 고민했던 것들
 
 
-- [proxy를 통한 cors에러 해결로 생산성 확대](https://velog.io/@chhw130/%EC%A7%80%EA%B8%8B%EC%A7%80%EA%B8%8B%ED%95%9C-CORS-%EC%98%A4%EB%A5%98-%ED%95%B4%EA%B2%B0%EB%B0%A9%EB%B2%95)
+- [지긋지긋한 CORS에러](https://velog.io/@chhw130/%EC%A7%80%EA%B8%8B%EC%A7%80%EA%B8%8B%ED%95%9C-CORS-%EC%98%A4%EB%A5%98-%ED%95%B4%EA%B2%B0%EB%B0%A9%EB%B2%95)
+- [NextJS에서의 Proxy설정](https://velog.io/@chhw130/NextJs-nextJs%EC%97%90%EC%84%9C-Proxy%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0)
 - [bundleAnalyzer를 통한 웹 최적화](https://velog.io/@chhw130/NextJs-%EC%95%B1%EC%9D%84-%EC%B5%9C%EC%A0%81%ED%99%94%ED%95%B4%EB%B3%B4%EC%9E%90with-nextbundle-Analyzer)
+- [Next/Font를 이용한 font 최적화](https://velog.io/@chhw130/NextJs%EC%97%90%EC%84%9C-font-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0)
+- [SearchBar만드는 방법](https://velog.io/@chhw130/NextJs%EB%A1%9C-searchBar%EB%A7%8C%EB%93%A4%EA%B8%B0with-useSearchParams)
 
