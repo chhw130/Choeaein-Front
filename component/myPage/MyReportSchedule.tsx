@@ -1,3 +1,4 @@
+"use client";
 import { getMyReportSchedules } from "@/utils/API/CSRSetting";
 import { MypageReportSchedule } from "@/utils/interface/interface";
 import { Box, Skeleton } from "@chakra-ui/react";
@@ -6,8 +7,6 @@ import dynamic from "next/dynamic";
 import React from "react";
 
 const ScheduleCard = dynamic(import("@/UI/Card/UserScheduleCard"));
-
-// import ScheduleCard from "@/UI/Card/UserScheduleCard";
 
 const MyReportSchedule = () => {
   const { data: userReportData = [], isLoading } = useQuery([`myReport`], () =>

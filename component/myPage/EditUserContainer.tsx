@@ -9,20 +9,13 @@ import {
   Tabs,
   Text,
 } from "@chakra-ui/react";
-import MyReportSchedule from "./MyReportSchedule";
-import useUser from "@/utils/hook/useUser";
-import { useRouter } from "next/navigation";
-import { useEffect } from "react";
-import EditUser from "./EditUser";
+
+import dynamic from "next/dynamic";
+
+const EditUser = dynamic(() => import("./EditUser"));
+const MyReportSchedule = dynamic(() => import("./MyReportSchedule"));
 
 const EditUserContainer = () => {
-  const { isLoading, isLogin, userData } = useUser();
-  const router = useRouter();
-
-  useEffect(() => {
-    if (!isLoading && !isLogin) router.push("/");
-  }, [isLoading, isLogin, userData]);
-
   return (
     <Box
       as="section"

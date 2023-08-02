@@ -1,4 +1,3 @@
-import React from "react";
 import { LoginData } from "../interface/interface";
 import {
   QueryClient,

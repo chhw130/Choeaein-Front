@@ -5,7 +5,9 @@ import { Button, Flex, HStack, Text, useDisclosure } from "@chakra-ui/react";
 import dynamic from "next/dynamic";
 import React from "react";
 
-const ModifyNicknameModal = dynamic(import("@/UI/Modal/ModifyNicknameModal"));
+const ModifyNicknameModal = dynamic(
+  () => import("@/UI/Modal/ModifyNicknameModal")
+);
 
 const ModifyNickname = () => {
   const { onClose, isOpen, onOpen } = useDisclosure();
