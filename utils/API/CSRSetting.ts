@@ -8,8 +8,8 @@ import { ReportPkType } from "@/UI/Modal/ScheduleRegisterModal";
 export const instance = axios.create({
   baseURL:
     process.env.NODE_ENV === "development"
-      ? `${process.env.NEXT_PUBLIC_DEV_BASE_URL}/api/v2`
-      : `${process.env.NEXT_PUBLIC_DEPLOY_BASE_URL}/api/v2`,
+      ? "/api/v2/"
+      : process.env.NEXT_PUBLIC_DEPLOY_BASE_URL,
 
   headers: {
     "X-CSRFToken": Cookies.get("csrftoken") || "",
@@ -18,11 +18,7 @@ export const instance = axios.create({
 });
 
 export const verifyEmail = (email: object) =>
-  instance
-    .post(`/oauth/signup/step1/`, {
-      email: "527coco@naver.com",
-    })
-    .then((res) => res.data);
+  instance.post(`/oauth/signup/step1/`, email).then((res) => res.data);
 
 /**회원가입 */
 export const postSignUp = (signUpInform: any) =>

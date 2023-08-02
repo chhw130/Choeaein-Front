@@ -2,22 +2,8 @@
 import { useForm } from "react-hook-form";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCamera } from "@fortawesome/free-solid-svg-icons/faCamera";
-import {
-  Avatar,
-  Box,
-  Button,
-  Card,
-  FormControl,
-  FormErrorMessage,
-  FormLabel,
-  Icon,
-  Input,
-  InputGroup,
-  InputLeftElement,
-  VStack,
-} from "@chakra-ui/react";
+import { Avatar, Box, Button, Card, Input, VStack } from "@chakra-ui/react";
 import { getUploadUrl } from "@/utils/API/CSRSetting";
-import { FiFile } from "react-icons/fi";
 
 const EditUserImg = () => {
   const { register, handleSubmit } = useForm();
@@ -26,8 +12,6 @@ const EditUserImg = () => {
     const res = await getUploadUrl(data);
     console.log(res);
   };
-
-  const settingThumbnail = () => {};
 
   return (
     <VStack spacing={5}>
@@ -55,7 +39,6 @@ const EditUserImg = () => {
           </Box>
           <Input
             type="file"
-            // onChange={settingThumbnail()}
             {...register("file")}
             accept="image/*"
             position="absolute"
@@ -66,8 +49,9 @@ const EditUserImg = () => {
             opacity={0}
           />
         </Card>
-
-        <Button type="submit">변경하기</Button>
+        <Button type="submit" top={-10}>
+          변경하기
+        </Button>
       </Box>
     </VStack>
   );

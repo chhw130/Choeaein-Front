@@ -1,9 +1,7 @@
 "use client";
 import ModifyPasswordModal from "@/UI/Modal/ModifyPasswordModal";
-import useUser from "@/utils/hook/useUser";
 import { Button, Flex, HStack, Text, useDisclosure } from "@chakra-ui/react";
 import React from "react";
-import { useForm } from "react-hook-form";
 
 const ModifyPassword = () => {
   const { onClose, isOpen, onOpen } = useDisclosure();

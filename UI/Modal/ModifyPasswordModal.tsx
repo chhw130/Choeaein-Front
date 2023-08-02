@@ -11,11 +11,13 @@ import {
   ModalFooter,
   ModalHeader,
   ModalOverlay,
+  useColorMode,
 } from "@chakra-ui/react";
-import { ModalProps } from "./ViewDayCalendarModal";
 import { useForm } from "react-hook-form";
 import { useMutation } from "@tanstack/react-query";
 import { putUserPassword } from "@/utils/API/CSRSetting";
+import { toast } from "react-toastify";
+import { AxiosError } from "axios";
 
 interface ModifyPasswordModalProps {
   isOpen: boolean;
@@ -35,8 +37,27 @@ const ModifyPasswordModal = ({ isOpen, onClose }: ModifyPasswordModalProps) => {
     handleSubmit,
   } = useForm<PasswordFormType>();
 
+  const { colorMode } = useColorMode();
+
   const { mutateAsync: putUserPasswordHandler } = useMutation(
-    (data: PasswordFormType) => putUserPassword(data)
+    (data: PasswordFormType) => putUserPassword(data),
+    {
+      onSuccess: () => {
+        return toast("변경되었습니다.", {
+          type: "success",
+        });
+      },
+      onError: (err: AxiosError) => {
+        const errData = err.response?.data;
+        // const errMsg = errData?.message;
+        return toast("에러", {
+          type: "error",
+          theme: colorMode,
+          autoClose: 2000,
+          toastId: 1,
+        });
+      },
+    }
   );
 
   const PasswordFormSubmitHandler = async (form: PasswordFormType) => {
