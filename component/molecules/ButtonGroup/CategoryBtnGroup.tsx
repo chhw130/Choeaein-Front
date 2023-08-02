@@ -1,53 +1,28 @@
 "use client";
 import React from "react";
-import styles from "./Calendar.module.scss";
+import styles from "./CategoryBtnGroup.module.scss";
 import {
   faBroadcastTower,
   faCalendarCheck,
   faCompactDisc,
   faGift,
   faStore,
-  faUser,
 } from "@fortawesome/free-solid-svg-icons";
-import { Button } from "@chakra-ui/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useRecoilState } from "recoil";
 import { categoryState } from "@/utils/RecoilStore/CategoryState";
+import ButtonAtom from "../../atoms/Button/ButtonAtom";
+import { ButtonGroup } from "@chakra-ui/react";
+import { categoryData, categoryPickData } from "@/utils/data/ClientData";
 
 interface CategoryBtnProps {
   idolId: number;
 }
 
-const CategoryBtn = ({ idolId }: CategoryBtnProps) => {
+const CategoryBtnGroup = ({ idolId }: CategoryBtnProps) => {
   const userPick = 1;
 
-  const buttons =
-    Number(idolId) === userPick
-      ? [
-          {
-            pk: 1,
-            category: "broadcast",
-            content: "방송",
-            icon: faBroadcastTower,
-          },
-          { pk: 2, category: "event", content: "행사", icon: faCalendarCheck },
-          { pk: 3, category: "release", content: "발매", icon: faCompactDisc },
-          { pk: 4, category: "congrats", content: "축하", icon: faGift },
-          { pk: 5, category: "buy", content: "구매", icon: faStore },
-          { pk: 6, category: "my", content: "My", icon: faUser },
-        ]
-      : [
-          {
-            pk: 1,
-            category: "broadcast",
-            content: "방송",
-            icon: faBroadcastTower,
-          },
-          { pk: 2, category: "event", content: "행사", icon: faCalendarCheck },
-          { pk: 3, category: "release", content: "발매", icon: faCompactDisc },
-          { pk: 4, category: "congrats", content: "축하", icon: faGift },
-          { pk: 5, category: "buy", content: "구매", icon: faStore },
-        ];
+  const buttons = Number(idolId) === userPick ? categoryData : categoryPickData;
 
   const [category, setCategory] = useRecoilState(categoryState);
 
@@ -66,9 +41,9 @@ const CategoryBtn = ({ idolId }: CategoryBtnProps) => {
   };
 
   return (
-    <div className={styles.categoryContainer}>
+    <ButtonGroup justifyContent={"center"} spacing={0}>
       {buttons.map((btn) => (
-        <Button
+        <ButtonAtom
           fontSize={[11, 13, 15]}
           w={[40, 80, 150]}
           h={[10, 14, 16]}
@@ -82,10 +57,10 @@ const CategoryBtn = ({ idolId }: CategoryBtnProps) => {
         >
           <FontAwesomeIcon className={styles.icons} icon={btn.icon} />
           {btn.content}
-        </Button>
+        </ButtonAtom>
       ))}
-    </div>
+    </ButtonGroup>
   );
 };
 
-export default CategoryBtn;
+export default CategoryBtnGroup;

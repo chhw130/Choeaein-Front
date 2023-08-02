@@ -19,8 +19,8 @@ import {
   faPhone,
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
-import FindButton from "@/UI/Button/FindButton";
 import MainLogo from "@/UI/Logo/MainLogo";
+import ButtonAtom from "@/component/atoms/Button/ButtonAtom";
 
 const FindPassword = () => {
   const { register } = useForm();
@@ -80,7 +80,16 @@ const FindPassword = () => {
               </InputGroup>
               {true ? (
                 <VStack w={"100%"}>
-                  <FindButton />
+                  <ButtonAtom
+                    type="submit"
+                    w={"100%"}
+                    h={"50px"}
+                    bg="#f89598"
+                    color="white"
+                    _hover={{ bg: "#e0797b" }}
+                  >
+                    비밀번호 찾기
+                  </ButtonAtom>
                 </VStack>
               ) : (
                 <VStack spacing={"6"} w={"100%"} alignItems="flex-start">

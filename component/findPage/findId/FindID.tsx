@@ -14,9 +14,9 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPhone } from "@fortawesome/free-solid-svg-icons";
-import FindButton from "@/UI/Button/FindButton";
 import MainLogo from "@/UI/Logo/MainLogo";
 import useFindID from "@/utils/hook/useFindID";
+import ButtonAtom from "@/component/atoms/Button/ButtonAtom";
 
 export interface FindIDFormType {
   nickname: string;
@@ -64,7 +64,16 @@ const FindID = () => {
                 />
               </InputGroup>
             </FormControl>
-            <FindButton />
+            <ButtonAtom
+              type="submit"
+              w={"100%"}
+              h={"50px"}
+              bg="#f89598"
+              color="white"
+              _hover={{ bg: "#e0797b" }}
+            >
+              아이디 찾기
+            </ButtonAtom>
             {idData ? (
               <Flex flexDir="row" fontSize="2xl">
                 아이디는 &nbsp;

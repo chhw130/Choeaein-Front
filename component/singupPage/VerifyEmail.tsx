@@ -1,5 +1,5 @@
 "use client";
-import GoHomeBtn from "@/UI/Button/GoHomeBtn";
+import ButtonAtom from "@/component/atoms/Button/ButtonAtom";
 import VerifyEmailCautionCard from "@/UI/Card/VerifyEmailCautionCard";
 import SignupStepper from "@/UI/Stepper/SignupStepper";
 import { verifyEmail } from "@/utils/API/CSRSetting";
@@ -54,15 +54,17 @@ const VerifyEmail = () => {
         </CardBody>
         <CardFooter justifyContent={"center"}>
           <ButtonGroup w={"80%"}>
-            <GoHomeBtn />
-            {/* <Button
-              w={"50%"}
-              h={"50px"}
-              isDisabled={true}
-              onClick={() => router.push("/signup/user")}
+            <ButtonAtom
+              w="50%"
+              h="50px"
+              margin={"0 auto"}
+              onClick={() => {
+                router.push("/");
+              }}
+              type="button"
             >
-              다음단계
-            </Button> */}
+              홈으로
+            </ButtonAtom>
           </ButtonGroup>
         </CardFooter>
       </Card>

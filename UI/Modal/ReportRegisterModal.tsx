@@ -26,7 +26,7 @@ export interface ReportPkType {
   report_pk: number;
 }
 
-const ScheduleRegisterModal = ({
+const ReportRegisterModal = ({
   isOpen,
   onClose,
   reportData,
@@ -85,4 +85,4 @@ const ScheduleRegisterModal = ({
   );
 };
 
-export default ScheduleRegisterModal;
+export default ReportRegisterModal;

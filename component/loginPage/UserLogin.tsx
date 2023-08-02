@@ -16,8 +16,8 @@ import MainLogo from "@/UI/Logo/MainLogo";
 import { LoginData } from "@/utils/interface/interface";
 import useUser from "@/utils/hook/useUser";
 import { useEffect } from "react";
-import GoHomeBtn from "@/UI/Button/GoHomeBtn";
 import useLogin from "@/utils/hook/useLogin";
+import ButtonAtom from "@/component/atoms/Button/ButtonAtom";
 
 const UserLogin = () => {
   const router = useRouter();
@@ -89,7 +89,18 @@ const UserLogin = () => {
                 <Text color={"#bf1650"}>⚠ {errors.password.message}</Text>
               ))}
             <ButtonGroup marginTop="10px" justifyContent="center" w="100%">
-              <GoHomeBtn />
+              <ButtonAtom
+                w="50%"
+                h="50px"
+                margin={"0 auto"}
+                onClick={() => {
+                  router.push("/");
+                }}
+                type="button"
+              >
+                홈으로
+              </ButtonAtom>
+
               <Button
                 w="50%"
                 h="50px"

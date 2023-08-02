@@ -1,6 +1,5 @@
 "use client";
 import {
-  Button,
   Card,
   CardBody,
   CardHeader,
@@ -17,6 +16,7 @@ import styles from "./DescriptionCard.module.scss";
 import AlbumCarousel from "../Carousel/AlbumCarousel";
 import { albumType } from "@/utils/interface/interface";
 import Link from "next/link";
+import ButtonAtom from "@/component/atoms/Button/ButtonAtom";
 
 interface DescriptionCardProps {
   albumData: albumType[];
@@ -67,7 +67,7 @@ const DescriptionCard = ({ albumData, idolData }: DescriptionCardProps) => {
                 href={`/calendar?idol=${idolData?.idol_name_en}`}
               >
                 {name === idolData?.idol_name_kr && (
-                  <Button>스케줄 보러가기</Button>
+                  <ButtonAtom>스케줄 보러가기</ButtonAtom>
                 )}
               </Link>
             </HStack>

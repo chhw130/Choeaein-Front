@@ -15,7 +15,7 @@ import {
 } from "@chakra-ui/react";
 import Image from "next/image";
 import SkeletonUI from "../../UI/Skeleton/SkeletonUI";
-import PageBtn from "../../UI/Button/PageBtn";
+import PageBtn from "../molecules/ButtonGroup/PageBtnGroup";
 import { MemberType } from "@/utils/interface/interface";
 
 const IdolList = ({ idolData }: { idolData: MemberType }) => {

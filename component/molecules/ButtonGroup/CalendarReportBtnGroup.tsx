@@ -1,5 +1,4 @@
 import {
-  Box,
   Button,
   ButtonGroup,
   Popover,
@@ -12,11 +11,12 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 import React from "react";
-import ReportModal from "../Modal/ReportModal";
+import ReportModal from "../../../UI/Modal/ReportModal";
 import { ChoeIdolType } from "@/utils/interface/interface";
 import { WarningIcon } from "@chakra-ui/icons";
+import ButtonAtom from "../../atoms/Button/ButtonAtom";
 
-const ReportBtn = ({ idolData }: { idolData: ChoeIdolType }) => {
+const CalnedarReportBtnGroup = ({ idolData }: { idolData: ChoeIdolType }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <>
@@ -36,12 +36,12 @@ const ReportBtn = ({ idolData }: { idolData: ChoeIdolType }) => {
             </PopoverBody>
           </PopoverContent>
         </Popover>
-        <Button padding={5} alignSelf="flex-end" onClick={onOpen}>
+        <ButtonAtom padding={5} alignSelf="flex-end" onClick={onOpen}>
           제보하기
-        </Button>
+        </ButtonAtom>
       </ButtonGroup>
     </>
   );
 };
 
-export default ReportBtn;
+export default CalnedarReportBtnGroup;
