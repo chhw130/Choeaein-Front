@@ -45,6 +45,9 @@ const ModifyPasswordModal = ({ isOpen, onClose }: ModifyPasswordModalProps) => {
       onSuccess: () => {
         return toast("변경되었습니다.", {
           type: "success",
+          theme: colorMode,
+          autoClose: 2000,
+          toastId: "changePassword",
         });
       },
       onError: (err: AxiosError) => {
@@ -54,7 +57,7 @@ const ModifyPasswordModal = ({ isOpen, onClose }: ModifyPasswordModalProps) => {
           type: "error",
           theme: colorMode,
           autoClose: 2000,
-          toastId: 1,
+          toastId: "changePassword",
         });
       },
     }

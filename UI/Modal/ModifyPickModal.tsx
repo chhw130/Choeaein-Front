@@ -1,7 +1,6 @@
 import React from "react";
 import {
   Button,
-  FormLabel,
   ModalBody,
   ModalCloseButton,
   ModalContent,
@@ -10,11 +9,14 @@ import {
   ModalOverlay,
   Select,
   Modal,
+  Box,
+  useColorMode,
 } from "@chakra-ui/react";
 import { useForm } from "react-hook-form";
 import IdolOption from "@/UI/Select/IdolOption";
 import { useMutation } from "@tanstack/react-query";
 import { putUserPick } from "@/utils/API/CSRSetting";
+import { toast } from "react-toastify";
 
 interface ModifyPickModalProps {
   isOpen: boolean;
@@ -28,8 +30,28 @@ const ModifyPickModal = ({ isOpen, onClose }: ModifyPickModalProps) => {
     handleSubmit,
   } = useForm<{ pick: string }>();
 
-  const { mutateAsync: userPickHandler } = useMutation((data) =>
-    putUserPick(data)
+  const { colorMode } = useColorMode();
+
+  const { mutateAsync: userPickHandler } = useMutation(
+    (data) => putUserPick(data),
+    {
+      onSuccess: () => {
+        return toast("변경되었습니다.", {
+          type: "success",
+          theme: colorMode,
+          autoClose: 2000,
+          toastId: "changePick",
+        });
+      },
+      onError: () => {
+        return toast("변경에 실패했습니다.", {
+          type: "error",
+          theme: colorMode,
+          autoClose: 2000,
+          toastId: "changePick",
+        });
+      },
+    }
   );
 
   const modifyPickHandler = async (data: any) => {
@@ -42,7 +64,7 @@ const ModifyPickModal = ({ isOpen, onClose }: ModifyPickModalProps) => {
       <ModalContent>
         <ModalHeader>최애 변경하기</ModalHeader>
         <ModalCloseButton />
-        <form onSubmit={handleSubmit(modifyPickHandler)}>
+        <Box as="form" onSubmit={handleSubmit(modifyPickHandler)}>
           <ModalBody>
             <Select
               placeholder="최애를 선택해주세요."
@@ -56,7 +78,7 @@ const ModifyPickModal = ({ isOpen, onClose }: ModifyPickModalProps) => {
           <ModalFooter>
             <Button type="submit">변경하기</Button>
           </ModalFooter>
-        </form>
+        </Box>
       </ModalContent>
     </Modal>
   );
