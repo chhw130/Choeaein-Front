@@ -68,12 +68,9 @@ src="https://user-images.githubusercontent.com/121347506/229693783-22b5be1c-c88a
 
 ##  :bulb: 주요 기능 
     
- ### - 회원가입 & 로그인 & 로그아웃
-   - DB값 검증
-   - E-mail 로그인 
-   - ID, PW 일치 불일치 검증 
-   - PW 변경
-   - 로그인 시 세션(Session)ID 생성
+ ### - 회원가입 & 로그인 & 로그아웃 & ID찾기
+   - use-Hook-form으로 form 관리 및 유효성 검사
+   - 로그인 방식 : 세션(Session)ID
    
  ### - 마이페이지
    - user-profile 변경시 image를 cloud-server에 저장
@@ -81,9 +78,8 @@ src="https://user-images.githubusercontent.com/121347506/229693783-22b5be1c-c88a
    - 사용자 정보 update
    
  ### - 메인 페이지 
-   - sliding-bar 
-   - 관리자 회원인 경우, 관리자 페이지 접속 가능
-   - 일반 사용자인 경우, 관리자 페이지 접속 불가 
+   - sliding-bar 랜덤 스케줄
+   - 그룹/솔로 섹션 페이지
    
  ### - 캘린더 페이지 
    - 활성 카테고리에 따라 달력에 표시되어 지는 일정 구분
@@ -126,7 +122,12 @@ src="https://user-images.githubusercontent.com/121347506/229693783-22b5be1c-c88a
 
 <img width="1052" alt="스크린샷 2023-07-31 오후 8 30 06" src="https://github.com/chhw130/myfavor-Next/assets/116826162/c3bd3f61-2537-48fd-a8ba-9d2a2dcee016">
 
+### 스케줄확인
 
+
+![화면-기록-2023-08-01-오후-3 05 11 (1)](https://github.com/chhw130/myfavor-Next/assets/116826162/b5acb0f4-d04f-4468-8026-75fcc7e55ca7)
+
+> 아이돌 스케줄을 일자, 카테고리 별로 확인가능
 
 <br>
 <br>
@@ -158,6 +159,17 @@ const ChakraProvider = dynamic(() =>
 > dynamic import를 통해 모듈을 빌드시가 아닌 런타임시에 로드하여 초기 로드 시간 최적화
 > 즉시 화면에 반영되는 모듈보다는 상호작용을 통해 일어나는 모듈에 대해 dynamic import 적용(ex : button, modal, drawer 등)
 
+<br>
+
+### 최적화 결과
+
+1. 최적화 전 사이트
+<img width="529" alt="스크린샷 2023-08-01 오후 5 16 29" src="https://github.com/chhw130/myfavor-Next/assets/116826162/e92591bc-cc25-41f5-9d53-7444bc82d59e">
+
+2. 최적화 후 사이트
+<img width="541" alt="스크린샷 2023-08-01 오후 5 13 08" src="https://github.com/chhw130/myfavor-Next/assets/116826162/ed51f8e2-33e0-46d5-8de2-5a68afb0b3f0">
+
+
 
 
 <br>
@@ -169,4 +181,5 @@ const ChakraProvider = dynamic(() =>
 
 
 - [proxy를 통한 cors에러 해결로 생산성 확대](https://velog.io/@chhw130/%EC%A7%80%EA%B8%8B%EC%A7%80%EA%B8%8B%ED%95%9C-CORS-%EC%98%A4%EB%A5%98-%ED%95%B4%EA%B2%B0%EB%B0%A9%EB%B2%95)
+- [bundleAnalyzer를 통한 웹 최적화](https://velog.io/@chhw130/NextJs-%EC%95%B1%EC%9D%84-%EC%B5%9C%EC%A0%81%ED%99%94%ED%95%B4%EB%B3%B4%EC%9E%90with-nextbundle-Analyzer)
 
