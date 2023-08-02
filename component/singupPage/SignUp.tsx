@@ -1,12 +1,19 @@
 "use client";
 import { useForm } from "react-hook-form";
-import { Box, Button, ButtonGroup, Flex } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  ButtonGroup,
+  VStack,
+  useColorMode,
+} from "@chakra-ui/react";
 import { postSignUp } from "@/utils/API/CSRSetting";
-import { useParams, usePathname, useRouter } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { SignUpData } from "@/utils/interface/interface";
 import { useMutation } from "@tanstack/react-query";
 import MainLogo from "@/UI/Logo/MainLogo";
 import SignUpFormControl from "@/UI/FormControl/SignUpFormControl";
+import { toast } from "react-toastify";
 
 const SignUp = () => {
   const params = useParams();
@@ -20,11 +27,19 @@ const SignUp = () => {
   } = useForm<SignUpData>();
 
   const router = useRouter();
+  const { colorMode } = useColorMode();
 
   const { mutateAsync: signUpHandler } = useMutation(
     (signUpInform: SignUpData) => postSignUp(signUpInform),
     {
-      onSuccess: () => {},
+      onSuccess: () => {
+        return toast("회원가입에 성공했습니다.", {
+          type: "success",
+          theme: colorMode,
+          autoClose: 2000,
+          toastId: "changePassword",
+        });
+      },
     }
   );
 
@@ -49,8 +64,8 @@ const SignUp = () => {
 
   return (
     <>
-      <Box maxW={"560px"} margin={"0 auto"} padding={"80px 30px"}>
-        <Flex
+      <Box as="section" maxW={"560px"} margin={"0 auto"} padding={"80px 30px"}>
+        <VStack
           as="form"
           onSubmit={handleSubmit(onSubmit)}
           width={"100%"}
@@ -222,7 +237,7 @@ const SignUp = () => {
               제출
             </Button>
           </ButtonGroup>
-        </Flex>
+        </VStack>
       </Box>
     </>
   );

@@ -1,3 +1,4 @@
+"use client";
 import SearchPageContainer from "@/component/searchPage/SearchPageContainer";
 
 export interface SearchPageParams {

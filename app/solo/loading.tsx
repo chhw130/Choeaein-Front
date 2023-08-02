@@ -1,5 +1,5 @@
 "use client";
-import { Box, Skeleton } from "@chakra-ui/react";
+import { Skeleton } from "@chakra-ui/react";
 import React from "react";
 
 const loading = () => {

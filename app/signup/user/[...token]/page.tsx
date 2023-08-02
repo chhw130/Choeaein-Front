@@ -1,6 +1,8 @@
 "use client";
-import SignUp from "@/component/singupPage/SignUp";
+import dynamic from "next/dynamic";
 import React from "react";
+
+const SignUp = dynamic(() => import("@/component/singupPage/SignUp"));
 
 const signupPage = () => {
   return (

@@ -1,9 +1,11 @@
 "use client";
-import { Box, Container } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import PageTitle from "./PageTitle";
-import SearchPageContents from "./SearchPageContents";
 import { useSearchParams } from "next/navigation";
 import useSearchData from "@/utils/hook/useSearchData";
+import dynamic from "next/dynamic";
+
+const SearchPageContents = dynamic(() => import("./SearchPageContents"));
 
 const SearchPageContainer = () => {
   const search = useSearchParams();
