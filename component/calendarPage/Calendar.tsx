@@ -1,8 +1,7 @@
 "use client";
-import styles from "./Calendar.module.scss";
 import "moment/locale/ko";
 import IdolInform from "./IdolInform";
-import { Flex } from "@chakra-ui/react";
+import { Box, Flex } from "@chakra-ui/react";
 import useCalendar from "@/utils/hook/useCalendar";
 import { ChoeIdolType } from "@/utils/interface/interface";
 import useUser from "@/utils/hook/useUser";
@@ -47,7 +46,15 @@ const Calendar = ({ idolData }: { idolData: ChoeIdolType }) => {
         idolDateSchedules={idolDateSchedules}
         dateLoading={dateLoading}
       />
-      <article className={styles.calendarContainer}>
+      <Flex
+        as="article"
+        w={["100%", "100%", "75%"]}
+        h={"80%"}
+        fontSize={"1.3rem"}
+        display={"flex"}
+        flexDir={"column"}
+        margin={"0 auto"}
+      >
         <Flex justifyContent="space-between" padding="10px 15px">
           <IdolInform idolData={idolData} />
           <CalendarBtnGroup
@@ -64,7 +71,7 @@ const Calendar = ({ idolData }: { idolData: ChoeIdolType }) => {
           isLoading={isLoading}
         />
         {isUserPick && <ReportBtn idolData={idolData} />}
-      </article>
+      </Flex>
     </>
   );
 };
