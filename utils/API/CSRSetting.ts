@@ -3,7 +3,7 @@ import { PostDataType } from "@/UI/Modal/ReportModal";
 import axios from "axios";
 import Cookies from "js-cookie";
 import { FindIDFormType } from "@/component/findPage/findId/FindID";
-import { ReportPkType } from "@/UI/Modal/ScheduleRegisterModal";
+import { ReportPkType } from "@/UI/Modal/ReportRegisterModal";
 
 export const instance = axios.create({
   baseURL:

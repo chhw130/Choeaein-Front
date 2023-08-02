@@ -14,8 +14,8 @@ import {
 } from "@chakra-ui/react";
 import { getUserReportSchedule } from "@/utils/API/CSRSetting";
 import SkeletonUI from "../../UI/Skeleton/SkeletonUI";
-import PageBtn from "../../UI/Button/PageBtn";
-import ReportScheduleBtn from "@/UI/Button/ReportScheduleBtn";
+import PageBtn from "../molecules/ButtonGroup/PageBtnGroup";
+import ReportScheduleBtn from "@/component/molecules/ButtonGroup/ReportScheduleBtnGroup";
 
 const ReportSchedule = () => {
   const { data: scheduleData = [], isLoading } = useQuery(

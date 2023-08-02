@@ -53,7 +53,38 @@ export const logoutMenu = [
   },
 ];
 
+/**calendar Category */
+
+export const categoryData = [
+  {
+    pk: 1,
+    category: "broadcast",
+    content: "방송",
+    icon: faBroadcastTower,
+  },
+  { pk: 2, category: "event", content: "행사", icon: faCalendarCheck },
+  { pk: 3, category: "release", content: "발매", icon: faCompactDisc },
+  { pk: 4, category: "congrats", content: "축하", icon: faGift },
+  { pk: 5, category: "buy", content: "구매", icon: faStore },
+];
+
+export const categoryPickData = [
+  {
+    pk: 1,
+    category: "broadcast",
+    content: "방송",
+    icon: faBroadcastTower,
+  },
+  { pk: 2, category: "event", content: "행사", icon: faCalendarCheck },
+  { pk: 3, category: "release", content: "발매", icon: faCompactDisc },
+  { pk: 4, category: "congrats", content: "축하", icon: faGift },
+  { pk: 5, category: "buy", content: "구매", icon: faStore },
+  // { pk: 6, category: "my", content: "My", icon: faUser },
+];
+
 /**calendar Data */
+
+export const days = ["일", "월", "화", "수", "목", "금", "토"];
 
 export const icon: IconType = {
   broadcast: {
@@ -68,6 +99,8 @@ export const icon: IconType = {
   congrats: { icon: faGift, bg: "#e7b10a" },
   buy: { icon: faStore, bg: "#609966" },
 };
+
+/**singup Data */
 
 export const stepData: StepData[] = [
   { title: "이메일인증", description: "Contact Info" },

@@ -1,5 +1,6 @@
-import { Box, Button, ButtonGroup, HStack, Text } from "@chakra-ui/react";
+import { Box, ButtonGroup, HStack, Text } from "@chakra-ui/react";
 import React from "react";
+import ButtonAtom from "../../atoms/Button/ButtonAtom";
 
 const PageBtn = ({
   gotoPage,
@@ -21,37 +22,37 @@ const PageBtn = ({
       w="100%"
     >
       <HStack display="flex" flexDir="row" spacing={3}>
-        <Button
+        <ButtonAtom
           onClick={() => gotoPage(0)}
           borderRadius={10}
           border={"1px solid black"}
         >
           {"<<"}
-        </Button>
-        <Button
+        </ButtonAtom>
+        <ButtonAtom
           onClick={() => previousPage()}
           colorScheme="cyan"
           disabled={!canPreviousPage}
         >
           이전
-        </Button>
+        </ButtonAtom>
         <Text w={10} textAlign="center">
           {pageIndex + 1}
         </Text>
-        <Button
+        <ButtonAtom
           onClick={() => nextPage()}
           colorScheme="twitter"
           disabled={!canNextPage}
         >
           다음
-        </Button>
-        <Button
+        </ButtonAtom>
+        <ButtonAtom
           onClick={() => gotoPage(pageCount - 1)}
           borderRadius={10}
           border={"1px solid black"}
         >
           {">>"}
-        </Button>
+        </ButtonAtom>
       </HStack>
       <Box paddingTop={4}>
         Page {pageIndex + 1} / {pageOptions.length}
