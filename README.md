@@ -38,7 +38,7 @@ https://www.choeaein.click
 ![Github](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=GitHub&logoColor=white)     <img alt="Slack" src ="https://img.shields.io/badge/Slack-4A154B.svg?&style=for-the-badge&logo=Slack&logoColor=white"/></a>
 
 ### 호스팅
-![Render](https://img.shields.io/badge/Render-46E3B7?style=for-the-badge&logo=Render&logoColor=white)
+![Vercel](https://img.shields.io/badge/Vercel-black?style=flat&logo=Vercel&logoColor=white)
 
 ### 개발
 
@@ -49,6 +49,7 @@ https://www.choeaein.click
 ### 주요 라이브러리
 
 ![React Query](https://img.shields.io/badge/-React%20Query-FF4154?style=for-the-badge&logo=react%20query&logoColor=white)
+![Recoil](https://img.shields.io/badge/recoil-f26b00?style=for-the-badge&logo=recoil)
 ![React Hook Form](https://img.shields.io/badge/React%20Hook%20Form-%23EC5990.svg?style=for-the-badge&logo=reacthookform&logoColor=white)
 ![Chakra UI](https://shields.io/badge/chakra--ui-black?logo=chakraui&style=for-the-badge%22)
 ![SASS](https://img.shields.io/badge/SASS-hotpink.svg?style=for-the-badge&logo=SASS&logoColor=white)
@@ -199,4 +200,5 @@ const ChakraProvider = dynamic(() =>
 - [bundleAnalyzer를 통한 웹 최적화](https://velog.io/@chhw130/NextJs-%EC%95%B1%EC%9D%84-%EC%B5%9C%EC%A0%81%ED%99%94%ED%95%B4%EB%B3%B4%EC%9E%90with-nextbundle-Analyzer)
 - [Next/Font를 이용한 font 최적화](https://velog.io/@chhw130/NextJs%EC%97%90%EC%84%9C-font-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0)
 - [SearchBar만드는 방법](https://velog.io/@chhw130/NextJs%EB%A1%9C-searchBar%EB%A7%8C%EB%93%A4%EA%B8%B0with-useSearchParams)
+- [Atomic패턴 적용하기](https://velog.io/@chhw130/%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C-%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B4Atomic-Pattern)
 
