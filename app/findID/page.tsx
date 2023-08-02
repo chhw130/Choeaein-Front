@@ -1,6 +1,8 @@
 "use client";
-import FindID from "@/component/findPage/findId/FindID";
+import dynamic from "next/dynamic";
 import React from "react";
+
+const FindID = dynamic(() => import("@/component/findPage/findId/FindID"));
 
 const findIDPage = async () => {
   return (

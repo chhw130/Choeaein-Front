@@ -9,7 +9,6 @@ import {
   InputGroup,
   InputLeftAddon,
   VStack,
-  useColorMode,
 } from "@chakra-ui/react";
 import React from "react";
 import { useForm } from "react-hook-form";
@@ -37,7 +36,6 @@ const FindID = () => {
     <Flex height={"100vh"}>
       <Center margin={"30px"} width={"100%"} flexDir={"column"}>
         <MainLogo />
-
         <Box as="form" w={"100%"} onSubmit={handleSubmit(submitHandler)}>
           <VStack spacing={7} maxW="500px" margin="0 auto">
             <FormControl id="nickname">

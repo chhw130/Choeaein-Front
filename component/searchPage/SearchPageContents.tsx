@@ -2,7 +2,7 @@
 import { Box, Flex } from "@chakra-ui/react";
 import React from "react";
 import MemberCard from "../../UI/Card/MemberCard";
-import useSearchData, { UseSearchDataType } from "@/utils/hook/useSearchData";
+import useSearchData from "@/utils/hook/useSearchData";
 import SpinnerUI from "@/UI/Spinner/SpinnerUI";
 import { useSearchParams } from "next/navigation";
 
@@ -11,6 +11,7 @@ const SearchPageContents = () => {
   const keyword = search?.get("keyword");
 
   const { searchData, isLoading } = useSearchData(keyword);
+
   return (
     <Flex
       width={"90%"}
