@@ -55,7 +55,7 @@ const UserLogin = () => {
           margin={"30px auto"}
           fontFamily={"inherit"}
         >
-          <MainLogo />
+          <MainLogo width={60} height={60} fontSize={[10, 20, 30]} />
           <Input
             fontFamily={"heading"}
             w={"90%"}

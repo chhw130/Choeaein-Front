@@ -1,8 +1,5 @@
 import { UseMutateAsyncFunction, useMutation } from "@tanstack/react-query";
-import React, { useEffect } from "react";
 import { getIdolSchedule } from "../API/CSRSetting";
-import { useRecoilState } from "recoil";
-import { categoryState } from "../RecoilStore/CategoryState";
 import { IdolDateScheduleType } from "../interface/interface";
 
 interface UseIdolDateSchedulesType {
