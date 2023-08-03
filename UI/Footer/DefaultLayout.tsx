@@ -1,6 +1,6 @@
 "use client";
 import Footer from "@/UI/Footer/Footer";
-import Header from "@/UI/Headar/Header";
+import Header from "@/component/organisms/Header/Header";
 import { usePathname } from "next/navigation";
 
 const DefaultLayout = ({ children }: { children: React.ReactNode }) => {

@@ -7,6 +7,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { postLogout } from "@/utils/API/CSRSetting";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
+import { queryKey } from "@/utils/queryKey/QueryKey";
 
 const HeaderMenuList = () => {
   const { userData } = useUser();
@@ -16,7 +17,7 @@ const HeaderMenuList = () => {
   const queryClient = useQueryClient();
   const { mutateAsync: logoutHandler } = useMutation(() => postLogout(), {
     onSuccess: () => {
-      queryClient.removeQueries(["me"]);
+      queryClient.removeQueries([queryKey.userKey]);
       toast("로그아웃 되엇습니다.", { theme: colorMode, type: "success" });
       return router.push("/");
     },

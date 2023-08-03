@@ -28,7 +28,8 @@ const FindPassword = () => {
     <>
       <Flex height={"100vh"}>
         <Center margin={"30px"} width={"100%"} flexDir={"column"}>
-          <MainLogo />
+          <MainLogo width={60} height={60} fontSize={[10, 20, 30]} />
+
           <Box
             as="form"
             // onSubmit={handleSubmit(onSubmit)}

@@ -1,8 +1,7 @@
-import React from "react";
 import { getUserReportDetail } from "../API/CSRSetting";
 import { useQuery } from "@tanstack/react-query";
-// import MypageReportSchedule from "../interface/interface.ts";
 import { MypageReportSchedule } from "../interface/interface";
+import { queryKey } from "../queryKey/QueryKey";
 
 interface useUserReportDetailType {
   userReportDetail: MypageReportSchedule;
@@ -11,7 +10,7 @@ interface useUserReportDetailType {
 
 const useUserReportDetail = (schedulePk: number): useUserReportDetailType => {
   const { data: userReportDetail = [], isLoading } = useQuery(
-    ["userReport", schedulePk],
+    [queryKey.userReportKey, schedulePk],
     () => getUserReportDetail(schedulePk)
   );
   return { userReportDetail, isLoading };

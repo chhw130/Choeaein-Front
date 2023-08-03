@@ -35,7 +35,8 @@ const FindID = () => {
   return (
     <Flex height={"100vh"}>
       <Center margin={"30px"} width={"100%"} flexDir={"column"}>
-        <MainLogo />
+        <MainLogo width={60} height={60} fontSize={[10, 20, 30]} />
+
         <Box as="form" w={"100%"} onSubmit={handleSubmit(submitHandler)}>
           <VStack spacing={7} maxW="500px" margin="0 auto">
             <FormControl id="nickname">

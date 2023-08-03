@@ -1,5 +1,7 @@
 "use client";
-import { Button, Input, InputGroup, useColorMode } from "@chakra-ui/react";
+import ButtonAtom from "@/component/atoms/Button/ButtonAtom";
+import InputAtom from "@/component/atoms/Input/InputAtom";
+import { InputGroup, useColorMode } from "@chakra-ui/react";
 import { useRouter } from "next/navigation";
 import React, { useCallback, useState } from "react";
 import { GoSearch } from "react-icons/go";
@@ -34,17 +36,16 @@ const SearchBar = () => {
   return (
     <>
       <InputGroup as="form" onSubmit={(e) => submitHandler(e)}>
-        <Input
-          placeholder="아이돌을 검색"
+        <InputAtom
+          placeholder="아이돌 검색"
           size={["sm", "sm", "md"]}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
             onChangeSearchBar(e)
           }
         />
-
-        <Button type="submit" size={["sm", "sm", "md"]}>
+        <ButtonAtom type="submit" size={["sm", "sm", "md"]}>
           <GoSearch />
-        </Button>
+        </ButtonAtom>
       </InputGroup>
     </>
   );

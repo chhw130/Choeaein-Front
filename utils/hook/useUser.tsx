@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { getUserInform } from "../API/CSRSetting";
 import { UserData } from "../interface/interface";
+import { queryKey } from "../queryKey/QueryKey";
 
 interface UseUserType {
   userData: UserData;
@@ -13,7 +14,7 @@ const useUser = (): UseUserType => {
     data: userData,
     isError,
     isLoading,
-  } = useQuery(["me"], () => getUserInform(), {
+  } = useQuery([queryKey.userKey], () => getUserInform(), {
     retry: false,
     refetchOnWindowFocus: false,
     onError: () => {

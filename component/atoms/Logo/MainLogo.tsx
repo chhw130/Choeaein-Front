@@ -1,15 +1,27 @@
-import { HStack, Text } from "@chakra-ui/react";
+import { HStack, Text, TypographyProps } from "@chakra-ui/react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import logo from "../../../utils/img/logo_main.png";
 
-const MainLogo = () => {
+interface MainLogoProps {
+  width: number;
+  height: number;
+  fontSize: number[];
+}
+
+const MainLogo = ({ width, height, fontSize }: MainLogoProps) => {
   return (
-    <Link href={"/"} prefetch={false} scroll={false}>
+    <Link href={"/"} prefetch={true} scroll={false}>
       <HStack margin={"20px"}>
-        <Image src={logo} alt="최애돌" width={40} height={40} priority={true} />
-        <Text fontSize={["30px", "40px", "40px"]} fontWeight="bold">
+        <Image
+          src={logo}
+          alt="최애돌"
+          width={width}
+          height={height}
+          priority={true}
+        />
+        <Text fontSize={fontSize} fontWeight="bold">
           CHOEAEIN
         </Text>
       </HStack>
