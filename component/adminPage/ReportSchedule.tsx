@@ -13,7 +13,7 @@ import {
   Tr,
 } from "@chakra-ui/react";
 import { getUserReportSchedule } from "@/utils/API/CSRSetting";
-import SkeletonUI from "../../UI/Skeleton/SkeletonUI";
+import SkeletonUI from "../atoms/Skeleton/SkeletonUI";
 import PageBtn from "../molecules/ButtonGroup/PageBtnGroup";
 import ReportScheduleBtn from "@/component/molecules/ButtonGroup/ReportScheduleBtnGroup";
 

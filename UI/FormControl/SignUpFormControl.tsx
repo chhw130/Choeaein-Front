@@ -10,7 +10,7 @@ import {
 
 import React from "react";
 import { FieldError, UseFormRegisterReturn } from "react-hook-form";
-import IdolOption from "../Select/IdolOption";
+import IdolOption from "../../component/atoms/Select/IdolOption";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPhone } from "@fortawesome/free-solid-svg-icons";
 

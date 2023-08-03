@@ -11,7 +11,7 @@ import { postSignUp } from "@/utils/API/CSRSetting";
 import { useParams, useRouter } from "next/navigation";
 import { SignUpData } from "@/utils/interface/interface";
 import { useMutation } from "@tanstack/react-query";
-import MainLogo from "@/UI/Logo/MainLogo";
+import MainLogo from "@/component/atoms/Logo/MainLogo";
 import SignUpFormControl from "@/UI/FormControl/SignUpFormControl";
 import { toast } from "react-toastify";
 

@@ -50,7 +50,6 @@ const CalendarBtnGroup = ({
       </ButtonAtom>
       <ButtonAtom
         size={["sm", "sm", "md"]}
-        // margin={"auto 0"}
         onClick={() => {
           setMoment(moment());
           setSelectedDay(moment());

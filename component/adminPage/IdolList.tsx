@@ -14,7 +14,7 @@ import {
   Tr,
 } from "@chakra-ui/react";
 import Image from "next/image";
-import SkeletonUI from "../../UI/Skeleton/SkeletonUI";
+import SkeletonUI from "../atoms/Skeleton/SkeletonUI";
 import PageBtn from "../molecules/ButtonGroup/PageBtnGroup";
 import { MemberType } from "@/utils/interface/interface";
 

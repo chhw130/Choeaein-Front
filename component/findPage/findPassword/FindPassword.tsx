@@ -19,7 +19,7 @@ import {
   faPhone,
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
-import MainLogo from "@/UI/Logo/MainLogo";
+import MainLogo from "@/component/atoms/Logo/MainLogo";
 import ButtonAtom from "@/component/atoms/Button/ButtonAtom";
 
 const FindPassword = () => {
