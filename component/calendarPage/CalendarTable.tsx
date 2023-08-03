@@ -11,7 +11,7 @@ import {
   Tr,
 } from "@chakra-ui/react";
 import React from "react";
-import SpinnerUI from "@/UI/Spinner/SpinnerUI";
+import SpinnerUI from "@/component/atoms/Spinner/SpinnerUI";
 
 interface CalendarTableProps {
   calendarArr: Function;

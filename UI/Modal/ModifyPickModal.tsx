@@ -13,7 +13,7 @@ import {
   useColorMode,
 } from "@chakra-ui/react";
 import { useForm } from "react-hook-form";
-import IdolOption from "@/UI/Select/IdolOption";
+import IdolOption from "@/component/atoms/Select/IdolOption";
 import { useMutation } from "@tanstack/react-query";
 import { putUserPick } from "@/utils/API/CSRSetting";
 import { toast } from "react-toastify";

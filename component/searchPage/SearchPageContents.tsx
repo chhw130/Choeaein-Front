@@ -3,7 +3,7 @@ import { Box, Flex } from "@chakra-ui/react";
 import React from "react";
 import MemberCard from "../../UI/Card/MemberCard";
 import useSearchData from "@/utils/hook/useSearchData";
-import SpinnerUI from "@/UI/Spinner/SpinnerUI";
+import SpinnerUI from "@/component/atoms/Spinner/SpinnerUI";
 import { useSearchParams } from "next/navigation";
 
 const SearchPageContents = () => {
