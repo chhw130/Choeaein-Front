@@ -28,30 +28,9 @@ const Footer = () => {
       <div className={styles.footerSns}>
         <h1>더욱 다양한 최애인을 만나보세요!</h1>
         <div className={styles.footerSns_image}>
-          <span>
-            <a href="/">
-              <img
-                src="https://velog.velcdn.com/images/view_coding/post/5d5135de-adf6-4fcc-96a6-2dcc0a757aa7/image.png"
-                alt="sns_kakao"
-              />
-            </a>
-          </span>
-          <span>
-            <a href="/">
-              <img
-                src="https://velog.velcdn.com/images/view_coding/post/7943324d-0eaa-4f46-b5ca-4041843ffd56/image.png"
-                alt="sns_instagram"
-              />
-            </a>
-          </span>
-          <span>
-            <a href="/">
-              <img
-                src="https://velog.velcdn.com/images/view_coding/post/755b52f1-5bc6-4843-86b6-cf8596dfe462/image.png"
-                alt="sns_yutube"
-              />
-            </a>
-          </span>
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
       </div>
       <div className={styles.footerMade}></div>
