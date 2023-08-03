@@ -1,9 +1,10 @@
-import { Box, HStack, Text } from "@chakra-ui/react";
+import { Box, Card, HStack, Text } from "@chakra-ui/react";
 import Image from "next/image";
 import React from "react";
 import styles from "./IdolCard.module.scss";
 import { IdolGroupType } from "@/utils/interface/interface";
 import Link from "next/link";
+import TextAtom from "@/component/atoms/Text/TextAtom";
 
 interface IdolCardProps {
   data: IdolGroupType | any;
@@ -17,12 +18,14 @@ const IdolCard = ({ data }: IdolCardProps) => {
     : `/solo?idol=${idol}`;
 
   return (
-    <Box
+    <Card
       textAlign="center"
       margin="30px 0"
       w={["24%", "24%", "23%"]}
       className={styles.idolBox}
       pos={"relative"}
+      bg={"transparent"}
+      shadow={"none"}
     >
       <Link href={url}>
         <Image
@@ -50,11 +53,10 @@ const IdolCard = ({ data }: IdolCardProps) => {
           cursor={"pointer"}
           color={"white"}
         >
-          <Text>자세히 보러가기</Text>
-          <HStack spacing={3} marginTop={3}></HStack>
+          <TextAtom>자세히 보러가기</TextAtom>
         </Box>
       </Link>
-      <Text
+      <TextAtom
         paddingTop={"20px"}
         margin={0}
         fontSize="1.8vw"
@@ -62,16 +64,16 @@ const IdolCard = ({ data }: IdolCardProps) => {
         cursor={"pointer"}
       >
         {data.idol_name_kr || data.groupname}
-      </Text>
-      <Text
+      </TextAtom>
+      <TextAtom
         margin={0}
         fontSize="1.7vw"
         letterSpacing="-0.19px"
         color={"#888888"}
       >
         {data.idol_name_en}
-      </Text>
-    </Box>
+      </TextAtom>
+    </Card>
   );
 };
 

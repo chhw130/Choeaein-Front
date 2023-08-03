@@ -7,6 +7,7 @@ const API_URL = process.env.NEXT_PUBLIC_DEV_BASE_URL;
 
 const nextConfig = {
 
+
   trailingSlash: true,
 
   experimental: {
