@@ -1,5 +1,5 @@
 import ReactQueryProvider from "./ReactQueryProvider";
-import DefaultLayout from "../UI/Footer/DefaultLayout";
+import DefaultLayout from "./DefaultLayout";
 import { Providers } from "./ChakraUIProvider";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import "react-toastify/dist/ReactToastify.css";

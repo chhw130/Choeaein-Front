@@ -3,7 +3,7 @@ import React from "react";
 import SearchBar from "../SearchBar/SearchBar";
 import ButtonAtom from "@/component/atoms/Button/ButtonAtom";
 import { MoonIcon, SunIcon } from "@chakra-ui/icons";
-import HeaderBtn from "@/UI/Headar/HeaderBtn";
+import HeaderMenu from "../MenuBar.tsx/HeaderMenu";
 
 const Navigation = () => {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -23,7 +23,7 @@ const Navigation = () => {
       >
         {colorMode !== "light" ? <MoonIcon /> : <SunIcon />}
       </ButtonAtom>
-      <HeaderBtn />
+      <HeaderMenu />
     </HStack>
   );
 };
