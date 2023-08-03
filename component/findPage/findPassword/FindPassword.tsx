@@ -19,8 +19,8 @@ import {
   faPhone,
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
-import MainLogo from "@/component/atoms/Logo/MainLogo";
 import ButtonAtom from "@/component/atoms/Button/ButtonAtom";
+import MainLogo from "@/component/atoms/Logo/MainLogo";
 
 const FindPassword = () => {
   const { register } = useForm();
