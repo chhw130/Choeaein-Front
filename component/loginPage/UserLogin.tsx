@@ -12,12 +12,12 @@ import {
 } from "@chakra-ui/react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import MainLogo from "@/component/atoms/Logo/MainLogo";
 import { LoginData } from "@/utils/interface/interface";
 import useUser from "@/utils/hook/useUser";
 import { useEffect } from "react";
 import useLogin from "@/utils/hook/useLogin";
 import ButtonAtom from "@/component/atoms/Button/ButtonAtom";
+import MainLogo from "../atoms/Logo/MainLogo";
 
 const UserLogin = () => {
   const router = useRouter();

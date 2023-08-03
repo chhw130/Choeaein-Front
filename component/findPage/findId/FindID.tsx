@@ -14,9 +14,9 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPhone } from "@fortawesome/free-solid-svg-icons";
-import MainLogo from "@/component/atoms/Logo/MainLogo";
 import useFindID from "@/utils/hook/useFindID";
 import ButtonAtom from "@/component/atoms/Button/ButtonAtom";
+import MainLogo from "@/component/atoms/Logo/MainLogo";
 
 export interface FindIDFormType {
   nickname: string;
