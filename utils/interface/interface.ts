@@ -39,6 +39,7 @@ export interface MypageReportSchedule extends IdolDateScheduleType {
 interface IdolType {
   idol_name_en: string;
   idol_name_kr: string;
+  pk: number;
 }
 
 export interface IdolSoloType extends IdolType {
@@ -56,6 +57,7 @@ export interface IdolGroupType {
   enter: string;
   group_profile: string;
   groupname: string;
+  pk: number;
 }
 
 export interface GroupType extends IdolGroupType {

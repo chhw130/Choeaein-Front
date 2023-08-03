@@ -73,7 +73,7 @@ const SignUp = () => {
           justifyContent={"center"}
           flexDir={"column"}
         >
-          <MainLogo />
+          <MainLogo width={60} height={60} fontSize={[10, 20, 30]} />
           <SignUpFormControl
             label={"아이디(Email)"}
             inputId={"email"}

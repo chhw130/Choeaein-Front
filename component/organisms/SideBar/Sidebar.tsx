@@ -15,7 +15,7 @@ import { FiHome, FiTrendingUp, FiCompass, FiMenu } from "react-icons/fi";
 import { IconType } from "react-icons";
 import Link from "next/link";
 import Image from "next/image";
-import logo from "../../utils/img/logo_main.png";
+import logo from "../../../utils/img/logo_main.png";
 import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 import UserInform from "@/component/adminPage/UserInform";
 

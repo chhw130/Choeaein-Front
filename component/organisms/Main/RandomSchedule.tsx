@@ -5,11 +5,8 @@ import {
   keyframes,
   usePrefersReducedMotion,
 } from "@chakra-ui/react";
-import RandomScheduleSlider from "./RandomScheduleSlider";
-import {
-  IdolDateScheduleType,
-  RandomIdolSchedule,
-} from "@/utils/interface/interface";
+import RandomScheduleSlider from "../../molecules/RandomScheduleSlider/RandomScheduleSlider";
+import { RandomIdolSchedule } from "@/utils/interface/interface";
 
 const loop = keyframes`
 100% {
@@ -33,7 +30,7 @@ const RandomSchedule = ({ randomSchedules }: RandomScheduleProps) => {
       position="relative"
       overflow="hidden"
       display="flex"
-      h="200px"
+      h={["150px", "180px", "200px"]}
       w="100%"
     >
       <Container

@@ -1,5 +1,4 @@
 "use client";
-import HeaderBtn from "@/UI/Headar/HeaderBtn";
 import {
   Flex,
   FlexProps,
@@ -49,7 +48,6 @@ export const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
           CHOEAEIN
         </Text>
       </Link>
-      <HeaderBtn />
     </Flex>
   );
 };

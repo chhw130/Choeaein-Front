@@ -1,11 +1,10 @@
 import { icon } from "@/utils/data/ClientData";
 import { RandomIdolSchedule } from "@/utils/interface/interface";
-import { Box, Flex } from "@chakra-ui/react";
-import { faBroadcastTower } from "@fortawesome/free-solid-svg-icons/faBroadcastTower";
+import { Box } from "@chakra-ui/react";
 import { faMicrophone } from "@fortawesome/free-solid-svg-icons/faMicrophone";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
-import { IconType } from "react-icons";
+import TextAtom from "../../atoms/Text/TextAtom";
 
 interface RandomSchedulesSilderProps {
   randomSchedules: RandomIdolSchedule[];
@@ -21,11 +20,11 @@ const RandomScheduleSlider = ({
           8,
           10
         )}일`;
-
         const category = data.ScheduleType.type;
 
         return (
           <Box
+            as="article"
             key={`${data.pk}-${index}`}
             margin={"0 10px"}
             transform="transform 0.3s ease"
@@ -36,39 +35,32 @@ const RandomScheduleSlider = ({
             }}
             borderRadius={"10px"}
           >
-            <Flex
-              flexDir="column"
-              w={["210px", "230px", "280px"]}
+            <Box
+              padding={["13px", "15px", "20px"]}
+              fontSize={["11px", "13px", "15px"]}
+              w={["180px", "230px", "280px"]}
               transition="transform 0.5s"
               cursor="pointer"
-              borderRadius="10px"
             >
-              <Box
-                padding={["13px", "15px", "20px"]}
-                fontSize={["11px", "13px", "15px"]}
+              <TextAtom>{dateFormat}</TextAtom>
+              <TextAtom
+                h={"57px"}
+                overflow="hidden"
+                lineHeight={1.4}
+                textOverflow="ellipsis"
+                whiteSpace={"nowrap"}
               >
-                <div>
-                  <span>{dateFormat}</span>
-                </div>
-                <Box
-                  h={"57px"}
-                  overflow="hidden"
-                  lineHeight={1.4}
-                  textOverflow="ellipsis"
-                  whiteSpace={"nowrap"}
-                >
-                  <FontAwesomeIcon
-                    icon={icon[category as keyof typeof icon].icon}
-                    color={icon[category as keyof typeof icon].bg}
-                  />
-                  &nbsp;{data.ScheduleTitle}
-                </Box>
-                <Box position="static" marginTop={[1, 2, 3]} right={10}>
-                  <FontAwesomeIcon icon={faMicrophone} />
-                  &nbsp;{data.participant.idol}
-                </Box>
-              </Box>
-            </Flex>
+                <FontAwesomeIcon
+                  icon={icon[category as keyof typeof icon].icon}
+                  color={icon[category as keyof typeof icon].bg}
+                />
+                &nbsp;{data.ScheduleTitle}
+              </TextAtom>
+              <TextAtom>
+                <FontAwesomeIcon icon={faMicrophone} />
+                &nbsp;{data.participant.idol}
+              </TextAtom>
+            </Box>
           </Box>
         );
       })}
