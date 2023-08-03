@@ -28,8 +28,9 @@ const IdolCard = ({ data }: IdolCardProps) => {
         <Image
           src={data?.group_profile || data?.solo_profile || data?.idol_profile}
           alt="아티스트 이미지"
-          width={1000}
-          height={1000}
+          width={300}
+          height={300}
+          quality={100}
           className={styles.groupImg}
         />
         <Box
@@ -56,7 +57,7 @@ const IdolCard = ({ data }: IdolCardProps) => {
       <Text
         paddingTop={"20px"}
         margin={0}
-        fontSize="1.6vw"
+        fontSize="1.8vw"
         letterSpacing="-0.19px"
         cursor={"pointer"}
       >
@@ -64,7 +65,7 @@ const IdolCard = ({ data }: IdolCardProps) => {
       </Text>
       <Text
         margin={0}
-        fontSize="1.6vw"
+        fontSize="1.7vw"
         letterSpacing="-0.19px"
         color={"#888888"}
       >

@@ -40,7 +40,6 @@ const AlbumCarousel = ({ albumData }: AlbumCaruoselProps) => {
                   width={180}
                   height={180}
                   priority={true}
-                  loading="eager"
                   // placeholder="blur"
                   // blurDataURL=""
                 />
