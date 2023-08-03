@@ -61,8 +61,9 @@ https://www.choeaein.click
 
 ##  :bulb: Architecture
 
-<img width="800" alt="스크린샷 2023-04-04 오후 2 16 55" 
-src="https://user-images.githubusercontent.com/121347506/229693783-22b5be1c-c88a-49c8-940d-37265e3bd72c.png">
+<img width="1399" alt="스크린샷 2023-08-03 오후 4 11 51" src="https://github.com/chhw130/myfavor-Next/assets/116826162/cdec45b2-0b92-4686-afda-0b43d4cbe0ec">
+
+
 
 <br>
 <br>
