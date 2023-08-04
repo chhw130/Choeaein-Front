@@ -10,12 +10,14 @@ const TextAtom = ({
   textOverflow,
   whiteSpace,
   as,
+  margin,
 }: TextProps) => {
   return (
     <Text
       as={as}
       fontSize={fontSize}
       color={color}
+      margin={margin}
       h={h}
       textOverflow={textOverflow}
       lineHeight={lineHeight}

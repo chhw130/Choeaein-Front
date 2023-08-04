@@ -62,7 +62,7 @@ const IdolSection = ({ idolGroupData, idolSoloData }: IdolSectionProps) => {
             </Tab>
           </TabList>
           <TabPanels>
-            <TabPanel>
+            <TabPanel padding={0}>
               <Flex
                 width="100%"
                 flexWrap={"wrap"}
@@ -73,7 +73,7 @@ const IdolSection = ({ idolGroupData, idolSoloData }: IdolSectionProps) => {
                 ))}
               </Flex>
             </TabPanel>
-            <TabPanel>
+            <TabPanel padding={0}>
               <Flex
                 width="100%"
                 flexWrap={"wrap"}

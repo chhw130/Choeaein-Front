@@ -21,7 +21,7 @@ const IdolCard = ({ data }: IdolCardProps) => {
     <Card
       textAlign="center"
       margin="30px 0"
-      w={["24%", "24%", "23%"]}
+      w={["40%", "24%", "23%"]}
       className={styles.idolBox}
       pos={"relative"}
       bg={"transparent"}
@@ -58,8 +58,8 @@ const IdolCard = ({ data }: IdolCardProps) => {
       </Link>
       <TextAtom
         paddingTop={"20px"}
-        margin={0}
-        fontSize="1.8vw"
+        margin={1}
+        fontSize={["16px", "17px", "20px"]}
         letterSpacing="-0.19px"
         cursor={"pointer"}
       >
@@ -67,7 +67,7 @@ const IdolCard = ({ data }: IdolCardProps) => {
       </TextAtom>
       <TextAtom
         margin={0}
-        fontSize="1.7vw"
+        fontSize={["14px", "15px", "18px"]}
         letterSpacing="-0.19px"
         color={"#888888"}
       >
