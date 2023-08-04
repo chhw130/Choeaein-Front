@@ -6,7 +6,6 @@ import {
   Icon,
   useColorModeValue,
   FlexProps,
-  Text,
   HStack,
   Button,
   useColorMode,
