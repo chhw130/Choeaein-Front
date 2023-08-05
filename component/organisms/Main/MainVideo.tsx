@@ -1,18 +1,21 @@
 "use client";
-import { AspectRatio } from "@chakra-ui/react";
+import { AspectRatio, Box } from "@chakra-ui/react";
 
 const MainVideo = () => {
   return (
     /**video source */
-    <AspectRatio
-      as="section"
-      h={["400px", "500px", "530px"]}
-      objectFit={"cover"}
-    >
-      <video preload="none" autoPlay loop muted>
-        <source src="/videos/darkHeart.webm" type="video/webm"></source>
-      </video>
-    </AspectRatio>
+    <>
+      <Box w={"100%"} h={"475px"} pos={"relative"} objectFit={"cover"}>
+        <iframe
+          src="https://player.vimeo.com/video/740372966?autoplay=true&loop=true&muted=true&controls=false&playsinline=0&quality=1080p&transparent=0"
+          allow="autoplay"
+          style={{
+            width: "100%",
+            height: "100%",
+          }}
+        />
+      </Box>
+    </>
   );
 };
 
