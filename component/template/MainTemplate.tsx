@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import MainVideo from "../organisms/Main/MainVideo";
 import RandomSchedule from "../organisms/Main/RandomSchedule";
@@ -7,6 +8,7 @@ import {
   IdolSoloType,
   RandomIdolSchedule,
 } from "@/utils/interface/interface";
+import { Box, Flex } from "@chakra-ui/react";
 
 interface MainTemplateProps {
   idolGroupData: IdolGroupType[];
@@ -20,11 +22,11 @@ const MainTemplate = ({
   randomSchedules,
 }: MainTemplateProps) => {
   return (
-    <>
+    <Box paddingTop={"4rem"}>
       <MainVideo />
       <RandomSchedule randomSchedules={randomSchedules} />
       <IdolSection idolGroupData={idolGroupData} idolSoloData={idolSoloData} />
-    </>
+    </Box>
   );
 };
 
