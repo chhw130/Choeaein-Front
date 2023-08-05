@@ -1,4 +1,4 @@
-import { Box, Card, HStack, Text } from "@chakra-ui/react";
+import { Box, Card } from "@chakra-ui/react";
 import Image from "next/image";
 import React from "react";
 import styles from "./IdolCard.module.scss";
@@ -6,11 +6,11 @@ import { IdolGroupType } from "@/utils/interface/interface";
 import Link from "next/link";
 import TextAtom from "@/component/atoms/Text/TextAtom";
 
-interface IdolCardProps {
+interface IdolProps {
   data: IdolGroupType | any;
 }
 
-const IdolCard = ({ data }: IdolCardProps) => {
+const Idol = ({ data }: IdolProps) => {
   const idol = data.groupname || data.idol_name_en;
 
   const url = data.groupname
@@ -18,8 +18,9 @@ const IdolCard = ({ data }: IdolCardProps) => {
     : `/solo?idol=${idol}`;
 
   return (
-    <Card
+    <Box
       textAlign="center"
+      as="article"
       margin="30px 0"
       w={["40%", "24%", "23%"]}
       className={styles.idolBox}
@@ -73,8 +74,8 @@ const IdolCard = ({ data }: IdolCardProps) => {
       >
         {data.idol_name_en}
       </TextAtom>
-    </Card>
+    </Box>
   );
 };
 
-export default IdolCard;
+export default Idol;

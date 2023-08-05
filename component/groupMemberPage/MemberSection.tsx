@@ -1,5 +1,5 @@
 "use client";
-import MemberCard from "@/UI/Card/MemberCard";
+import MemberCard from "@/component/molecules/Idol/MemberCard";
 import { GroupType } from "@/utils/interface/interface";
 import { Center, HStack, Text } from "@chakra-ui/react";
 import React from "react";

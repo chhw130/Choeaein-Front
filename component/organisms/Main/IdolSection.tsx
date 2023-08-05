@@ -9,9 +9,9 @@ import {
   Tabs,
   VStack,
 } from "@chakra-ui/react";
-import IdolCard from "@/UI/Card/IdolCard";
 import { IdolGroupType, IdolSoloType } from "@/utils/interface/interface";
 import TextAtom from "../../atoms/Text/TextAtom";
+import Idol from "@/component/molecules/Idol/Idol";
 
 interface IdolSectionProps {
   idolGroupData: IdolGroupType[];
@@ -69,7 +69,7 @@ const IdolSection = ({ idolGroupData, idolSoloData }: IdolSectionProps) => {
                 justifyContent="space-around"
               >
                 {idolGroupData?.map((data: IdolGroupType) => (
-                  <IdolCard data={data} key={data.pk} />
+                  <Idol data={data} key={data.pk} />
                 ))}
               </Flex>
             </TabPanel>
@@ -80,7 +80,7 @@ const IdolSection = ({ idolGroupData, idolSoloData }: IdolSectionProps) => {
                 justifyContent="space-around"
               >
                 {idolSoloData?.map((data: IdolSoloType) => (
-                  <IdolCard data={data} key={data.pk} />
+                  <Idol data={data} key={data.pk} />
                 ))}
               </Flex>
             </TabPanel>
