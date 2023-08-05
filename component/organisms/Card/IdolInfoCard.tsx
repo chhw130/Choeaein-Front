@@ -21,16 +21,25 @@ import TextAtom from "@/component/atoms/Text/TextAtom";
 
 interface IdolInfoCardProps {
   albumData: albumType[];
-  idolData: any;
+  profile: string;
+  name: string;
+  enName?: string;
+  debut: string;
+  instaLink: string;
+  youtubeLink: string;
+  enter: string;
 }
 
-const IdolInfoCard = ({ albumData, idolData }: IdolInfoCardProps) => {
-  const idolImg = idolData?.group_profile || idolData.solo_profile;
-  const name = idolData?.groupname || idolData.idol_name_kr;
-  const debut = idolData.group_debut || idolData.solo_debut;
-  const instaLink = idolData.group_insta || idolData.solo_insta;
-  const youtubeLink = idolData.group_youtube || idolData.solo_youtube;
-
+const IdolInfoCard = ({
+  albumData,
+  profile,
+  name,
+  enName,
+  debut,
+  instaLink,
+  youtubeLink,
+  enter,
+}: IdolInfoCardProps) => {
   return (
     <Card
       as="article"
@@ -41,10 +50,11 @@ const IdolInfoCard = ({ albumData, idolData }: IdolInfoCardProps) => {
       justifyContent={"space-around"}
       alignItems={"center"}
       margin={"0 auto"}
+      padding={3}
     >
-      {idolImg && (
+      {profile && (
         <Image
-          src={idolImg}
+          src={profile}
           className={styles.groupImg}
           alt="아티스트 이미지"
           width={1000}
@@ -64,17 +74,12 @@ const IdolInfoCard = ({ albumData, idolData }: IdolInfoCardProps) => {
               <Link href={youtubeLink}>
                 <FontAwesomeIcon icon={faYoutube} size="2xl" />
               </Link>
-              <Link
-                prefetch={true}
-                href={`/calendar?idol=${idolData?.idol_name_en}`}
-              >
-                {name === idolData?.idol_name_kr && (
-                  <ButtonAtom>스케줄 보러가기</ButtonAtom>
-                )}
+              <Link prefetch={true} href={`/calendar?idol=${enName}`}>
+                {name === enName && <ButtonAtom>스케줄 보러가기</ButtonAtom>}
               </Link>
             </HStack>
           </Flex>
-          <TextAtom fontSize={["md", "xl", "2xl"]}>{idolData.enter}</TextAtom>
+          <TextAtom fontSize={["md", "xl", "2xl"]}>{enter}</TextAtom>
           <TextAtom>Debut : {debut}</TextAtom>
         </CardHeader>
         <CardBody>
