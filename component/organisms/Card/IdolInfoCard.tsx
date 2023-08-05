@@ -13,17 +13,18 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
 import React from "react";
 import styles from "./DescriptionCard.module.scss";
-import AlbumCarousel from "../Carousel/AlbumCarousel";
+import AlbumCarousel from "../../molecules/Carousel/AlbumCarousel";
 import { albumType } from "@/utils/interface/interface";
 import Link from "next/link";
 import ButtonAtom from "@/component/atoms/Button/ButtonAtom";
+import TextAtom from "@/component/atoms/Text/TextAtom";
 
-interface DescriptionCardProps {
+interface IdolInfoCardProps {
   albumData: albumType[];
   idolData: any;
 }
 
-const DescriptionCard = ({ albumData, idolData }: DescriptionCardProps) => {
+const IdolInfoCard = ({ albumData, idolData }: IdolInfoCardProps) => {
   const idolImg = idolData?.group_profile || idolData.solo_profile;
   const name = idolData?.groupname || idolData.idol_name_kr;
   const debut = idolData.group_debut || idolData.solo_debut;
@@ -35,10 +36,11 @@ const DescriptionCard = ({ albumData, idolData }: DescriptionCardProps) => {
       as="article"
       w={["100%", "100%", "90%"]}
       h={"100%"}
-      padding={5}
       borderLeft={"8px solid black"}
       flexDir={["column", "column", "row"]}
       justifyContent={"space-around"}
+      alignItems={"center"}
+      margin={"0 auto"}
     >
       {idolImg && (
         <Image
@@ -56,12 +58,12 @@ const DescriptionCard = ({ albumData, idolData }: DescriptionCardProps) => {
           <Flex justifyContent={"space-between"}>
             <Text fontSize={["xl", "2xl", "4xl"]}>{name}</Text>
             <HStack>
-              <Text as={"a"} href={instaLink} target="_blank" width={"40px"}>
+              <Link href={instaLink}>
                 <FontAwesomeIcon icon={faInstagram} size="2xl" />
-              </Text>
-              <Text as={"a"} href={youtubeLink} target="_blank" width={"40px"}>
+              </Link>
+              <Link href={youtubeLink}>
                 <FontAwesomeIcon icon={faYoutube} size="2xl" />
-              </Text>
+              </Link>
               <Link
                 prefetch={true}
                 href={`/calendar?idol=${idolData?.idol_name_en}`}
@@ -72,8 +74,8 @@ const DescriptionCard = ({ albumData, idolData }: DescriptionCardProps) => {
               </Link>
             </HStack>
           </Flex>
-          <Text fontSize={["md", "xl", "2xl"]}>{idolData.enter}</Text>
-          <Text>Debut : {debut}</Text>
+          <TextAtom fontSize={["md", "xl", "2xl"]}>{idolData.enter}</TextAtom>
+          <TextAtom>Debut : {debut}</TextAtom>
         </CardHeader>
         <CardBody>
           <AlbumCarousel albumData={albumData} />
@@ -83,4 +85,4 @@ const DescriptionCard = ({ albumData, idolData }: DescriptionCardProps) => {
   );
 };
 
-export default DescriptionCard;
+export default IdolInfoCard;

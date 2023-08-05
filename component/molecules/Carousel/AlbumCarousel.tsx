@@ -7,6 +7,7 @@ import "slick-carousel/slick/slick-theme.css";
 import { albumType } from "@/utils/interface/interface";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCompactDisc } from "@fortawesome/free-solid-svg-icons";
+import TextAtom from "@/component/atoms/Text/TextAtom";
 
 interface AlbumCaruoselProps {
   albumData: albumType[];
@@ -25,10 +26,10 @@ const AlbumCarousel = ({ albumData }: AlbumCaruoselProps) => {
   };
   return (
     <Box marginTop={"10px"} pos={"relative"}>
-      <Text fontSize={"2xl"}>
+      <TextAtom fontSize={"2xl"}>
         <FontAwesomeIcon icon={faCompactDisc} />
         &nbsp;Album
-      </Text>
+      </TextAtom>
       <Slider {...settings} ref={slickRef}>
         {albumData?.map((data) => {
           return (

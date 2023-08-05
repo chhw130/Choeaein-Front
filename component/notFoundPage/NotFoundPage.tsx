@@ -9,7 +9,7 @@ import {
 } from "@chakra-ui/react";
 import { useRouter } from "next/navigation";
 import { ChoeIdolType } from "@/utils/interface/interface";
-import MemberCard from "@/UI/Card/MemberCard";
+import MemberCard from "@/component/molecules/Idol/MemberCard";
 
 interface NotFoundPageProps {
   idolRankData: ChoeIdolType[];
