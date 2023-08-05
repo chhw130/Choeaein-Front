@@ -1,4 +1,4 @@
-import GroupContainer from "@/component/groupMemberPage/GroupContainer";
+import IdolInfoCard from "@/component/organisms/Card/IdolInfoCard";
 import { getIdolSolo, getIdolSoloAlbum } from "@/utils/API/SSGSetting";
 import { SoloType, albumType } from "@/utils/interface/interface";
 import React from "react";
@@ -15,7 +15,7 @@ const SoloPage = async ({ searchParams }: SoloPageProps) => {
 
   return (
     <main>
-      <GroupContainer idolData={soloData} albumData={albumData} />
+      <IdolInfoCard idolData={soloData} albumData={albumData} />
     </main>
   );
 };
