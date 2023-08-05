@@ -7,7 +7,7 @@ import IdolInfoCard from "../organisms/Card/IdolInfoCard";
 
 export interface GroupMemberTemplateProps {
   albumData: albumType[];
-  groupMemberData?: GroupType;
+  groupMemberData: GroupType;
 }
 
 const GroupMemberTemplate = ({
@@ -16,7 +16,15 @@ const GroupMemberTemplate = ({
 }: GroupMemberTemplateProps) => {
   return (
     <Flex paddingTop={"5rem"} flexDir={"column"}>
-      <IdolInfoCard idolData={groupMemberData} albumData={albumData} />
+      <IdolInfoCard
+        albumData={albumData}
+        profile={groupMemberData?.group_profile}
+        name={groupMemberData?.groupname}
+        debut={groupMemberData?.group_debut}
+        instaLink={groupMemberData?.group_insta}
+        youtubeLink={groupMemberData?.group_youtube}
+        enter={groupMemberData?.enter}
+      />
       <MemberSection groupMemberData={groupMemberData} />
     </Flex>
   );

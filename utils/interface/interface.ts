@@ -70,9 +70,9 @@ export interface GroupType extends IdolGroupType {
 
 export interface SoloType extends IdolSoloType {
   pk: number;
-  group_debut: string;
-  group_insta: string;
-  group_youtube: string;
+  solo_debut: string;
+  solo_insta: string;
+  solo_youtube: string;
 }
 
 /**아이돌 앨범 타입 */
