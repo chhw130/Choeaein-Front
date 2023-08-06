@@ -18,7 +18,7 @@ const Header = () => {
         height="4rem"
         bg={colorMode !== "dark" ? "white" : "black"}
         alignItems={"center"}
-        padding={"20px"}
+        padding={["0px", "15px", "15px"]}
       >
         <MainLogo fontSize={[15, 15, 20]} width={20} height={20} />
         <Navigation />
