@@ -10,7 +10,7 @@ const Navigation = () => {
 
   return (
     <HStack
-      padding={"5px"}
+      paddingRight={"10px"}
       spacing={[1, 1, 3]}
       width={["60%", "50%", "80%"]}
       maxW={["300px", "400px", "500px"]}
