@@ -1,7 +1,8 @@
+"use client";
 import React, { useRef } from "react";
 import Slider from "react-slick";
 import Image from "next/image";
-import { Box, Text, Tooltip } from "@chakra-ui/react";
+import { Box, Tooltip } from "@chakra-ui/react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { albumType } from "@/utils/interface/interface";
@@ -24,6 +25,7 @@ const AlbumCarousel = ({ albumData }: AlbumCaruoselProps) => {
     slidesToScroll: 3,
     arrows: false,
   };
+
   return (
     <Box marginTop={"10px"} pos={"relative"}>
       <TextAtom fontSize={"2xl"}>
@@ -32,6 +34,7 @@ const AlbumCarousel = ({ albumData }: AlbumCaruoselProps) => {
       </TextAtom>
       <Slider {...settings} ref={slickRef}>
         {albumData?.map((data) => {
+          console.log(data);
           return (
             <Box width={"100px"} key={data.pk} cursor={"pointer"}>
               <Tooltip label={data.album_name} placement="bottom">
@@ -41,8 +44,6 @@ const AlbumCarousel = ({ albumData }: AlbumCaruoselProps) => {
                   width={180}
                   height={180}
                   priority={true}
-                  // placeholder="blur"
-                  // blurDataURL=""
                 />
               </Tooltip>
             </Box>
