@@ -12,7 +12,7 @@ import { faInstagram, faYoutube } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
 import React from "react";
-import styles from "./DescriptionCard.module.scss";
+import styles from "./IdolInfoCard.module.scss";
 import AlbumCarousel from "../../molecules/Carousel/AlbumCarousel";
 import { albumType } from "@/utils/interface/interface";
 import Link from "next/link";
@@ -40,7 +40,8 @@ const IdolInfoCard = ({
   youtubeLink,
   enter,
 }: IdolInfoCardProps) => {
-  console.log(profile);
+  console.log(name, enName);
+
   return (
     <Card
       as="article"
@@ -76,16 +77,16 @@ const IdolInfoCard = ({
                 <FontAwesomeIcon icon={faYoutube} size="2xl" />
               </Link>
               <Link prefetch={true} href={`/calendar?idol=${enName}`}>
-                {name === enName && <ButtonAtom>스케줄 보러가기</ButtonAtom>}
+                {enName && <ButtonAtom>스케줄 보러가기</ButtonAtom>}
               </Link>
             </HStack>
           </Flex>
           <TextAtom fontSize={["md", "xl", "2xl"]}>{enter}</TextAtom>
           <TextAtom>Debut : {debut}</TextAtom>
         </CardHeader>
-        <CardBody>
+        {/* <CardBody>
           <AlbumCarousel albumData={albumData} />
-        </CardBody>
+        </CardBody> */}
       </Stack>
     </Card>
   );
