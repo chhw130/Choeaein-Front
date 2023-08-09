@@ -1,26 +1,17 @@
 import {
-  Button,
   Center,
-  Modal,
   ModalBody,
-  ModalCloseButton,
-  ModalContent,
   ModalFooter,
   ModalHeader,
-  ModalOverlay,
   Spinner,
-  Text,
   VStack,
-  useDisclosure,
 } from "@chakra-ui/react";
 import React from "react";
-import UserScheduleForm from "./UserScheduleForm";
 import { IdolDateScheduleType } from "@/utils/interface/interface";
 import moment from "moment";
 import DateScheduleCard from "../Card/DateScheduleCard";
 import ModalOrganism from "@/component/organisms/Modal/ModalOrganism";
 import TextAtom from "@/component/atoms/Text/TextAtom";
-import ButtonAtom from "@/component/atoms/Button/ButtonAtom";
 
 export interface ModalProps {
   isOpen: boolean;
@@ -42,19 +33,8 @@ const ViewDayCalendarModal = ({
 }: ViewDayCalendarModalProps) => {
   const selectDay: string = selectedDay.format("YYYY년 M월 D일");
 
-  const {
-    isOpen: isOpenUserScheduleForm,
-    onClose: onCloseUserScheduleForm,
-    onOpen,
-  } = useDisclosure();
-
   return (
     <>
-      <UserScheduleForm
-        isOpen={isOpenUserScheduleForm}
-        onClose={onCloseUserScheduleForm}
-      />
-
       <ModalOrganism isOpen={isOpen} onClose={onClose} isCentered size={"xl"}>
         <ModalHeader>
           <TextAtom>{selectDay}</TextAtom>
@@ -83,11 +63,8 @@ const ViewDayCalendarModal = ({
               <Spinner />
             </Center>
           )}
-          <hr />
-          <Center padding={5}>
-            <ButtonAtom onClick={() => onOpen()}>내 일정 추가하기</ButtonAtom>
-          </Center>
         </ModalBody>
+        <ModalFooter></ModalFooter>
       </ModalOrganism>
     </>
   );

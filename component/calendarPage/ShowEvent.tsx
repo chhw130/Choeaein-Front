@@ -1,4 +1,4 @@
-import { Flex } from "@chakra-ui/react";
+import { Box, Flex } from "@chakra-ui/react";
 import styles from "./Calendar.module.scss";
 import moment, { Moment } from "moment";
 import "moment/locale/ko";
@@ -31,12 +31,12 @@ const ShowEvent = ({ days, newIdolSchedule }: ShowEventProps) => {
             days?.format("YYYYMMDD") == moment(item.when).format("YYYYMMDD")
           ) {
             return (
-              <div
+              <Box
                 key={i}
                 className={`${styles.listItem} ${
                   styles[item.ScheduleType.type]
                 }`}
-              ></div>
+              />
             );
           }
         })}

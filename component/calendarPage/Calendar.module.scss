@@ -1,20 +1,7 @@
-.testDiv {
-  /* border: 1px solid black; */
-  display: flex;
-  list-style: none;
-}
-
 .listItem {
   padding: 30px;
   font-size: 16px;
   list-style: none;
-}
-
-.eventContent {
-  display: flex;
-  height: 16px;
-  width: 100%;
-  justify-content: center;
 }
 
 /* 방송  */
@@ -75,24 +62,4 @@
   flex-direction: row;
   align-items: center;
   display: flex;
-}
-
-/* my */
-.my {
-  font-size: 30px;
-  background: black;
-  color: white;
-  border-radius: 5px;
-  padding: 5px;
-  flex-direction: row;
-  align-items: center;
-  display: flex;
-}
-
-/* 모바일 가로, 테블릿 세로 (해상도 ~ 479px)*/
-
-@media (max-width: 768px) {
-  .calendarContainer {
-    width: 100%;
-  }
 }

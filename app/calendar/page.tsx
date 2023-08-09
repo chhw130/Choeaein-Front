@@ -1,5 +1,4 @@
 import CalendarTemplate from "@/component/template/CalendarTemplate";
-import CalnedarContainer from "@/component/template/CalendarTemplate";
 import { getIdolInform } from "@/utils/API/SSGSetting";
 import { ChoeIdolType } from "@/utils/interface/interface";
 
