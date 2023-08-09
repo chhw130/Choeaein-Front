@@ -1,23 +1,17 @@
 "use client";
 
 import { useForm } from "react-hook-form";
-import {
-  Button,
-  ButtonGroup,
-  Flex,
-  HStack,
-  Input,
-  Stack,
-  Text,
-} from "@chakra-ui/react";
+import { Flex, Stack } from "@chakra-ui/react";
 import { useRouter } from "next/navigation";
-import Link from "next/link";
 import { LoginData } from "@/utils/interface/interface";
 import useUser from "@/utils/hook/useUser";
 import { useEffect } from "react";
 import useLogin from "@/utils/hook/useLogin";
-import ButtonAtom from "@/component/atoms/Button/ButtonAtom";
 import MainLogo from "../atoms/Logo/MainLogo";
+import InputAtom from "../atoms/Input/InputAtom";
+import LoginBtnGroup from "../molecules/ButtonGroup/LoginBtnGroup";
+import TextAtom from "../atoms/Text/TextAtom";
+import LoginNav from "../molecules/Navigation/LoginNav";
 
 const UserLogin = () => {
   const router = useRouter();
@@ -47,7 +41,7 @@ const UserLogin = () => {
         <Flex
           as="form"
           onSubmit={handleSubmit(onSubmit)}
-          width={"100%"}
+          w={"100%"}
           maxW={"500px"}
           flexDir={"column"}
           justifyContent={"center"}
@@ -56,18 +50,20 @@ const UserLogin = () => {
           fontFamily={"inherit"}
         >
           <MainLogo width={60} height={60} fontSize={[10, 20, 30]} />
-          <Input
+          <InputAtom
             fontFamily={"heading"}
             w={"90%"}
             h={"70px"}
             fontSize={"1rem"}
             margin={2}
             placeholder="UserEmail"
-            {...register("email", {
-              required: "ID를 입력해주세요.",
-            })}
+            register={{
+              ...register("email", {
+                required: "ID를 입력해주세요.",
+              }),
+            }}
           />
-          <Input
+          <InputAtom
             fontFamily={"heading"}
             w={"90%"}
             h={"70px"}
@@ -83,55 +79,15 @@ const UserLogin = () => {
 
           <Stack spacing="6" w="90%" maxW="450px" marginTop={5}>
             {(errors.email && (
-              <Text color={"#bf1650"}>⚠ {errors.email.message}</Text>
+              <TextAtom color={"#bf1650"}>⚠ {errors.email.message}</TextAtom>
             )) ||
               (errors.password && (
-                <Text color={"#bf1650"}>⚠ {errors.password.message}</Text>
+                <TextAtom color={"#bf1650"}>
+                  ⚠ {errors.password.message}
+                </TextAtom>
               ))}
-            <ButtonGroup marginTop="10px" justifyContent="center" w="100%">
-              <ButtonAtom
-                w="50%"
-                h="50px"
-                margin={"0 auto"}
-                onClick={() => {
-                  router.push("/");
-                }}
-                type="button"
-              >
-                홈으로
-              </ButtonAtom>
-
-              <Button
-                w="50%"
-                h="50px"
-                type="submit"
-                color="white"
-                bg="#f89598"
-                isLoading={loginLoading}
-                _hover={{ bg: "#e0797b" }}
-              >
-                로그인
-              </Button>
-            </ButtonGroup>
-            <HStack fontSize={"sm"} w={"100%"}>
-              <HStack w="100%" justifyContent={"center"}>
-                <Link href="/findID" replace>
-                  <Text>아이디 찾기</Text>
-                </Link>
-                <Text color={"gray.300"}>|</Text>
-                <Link href="/findpassword">비밀번호 찾기</Link>
-                <Text color={"gray.300"}>|</Text>
-                <Link href={"/signup/home"}>회원가입</Link>
-              </HStack>
-            </HStack>
-            {/* <HStack>
-              <Divider />
-              <Text fontSize="sm" whiteSpace="nowrap" color="muted">
-                or continue with
-              </Text>
-              <Divider />
-            </HStack> */}
-            {/* <OAuthButtonGroup /> */}
+            <LoginBtnGroup loginLoading={loginLoading} />
+            <LoginNav />
           </Stack>
         </Flex>
       </Flex>
