@@ -1,4 +1,3 @@
-import IdolInfoCard from "@/component/organisms/Card/IdolInfoCard";
 import SoloTemplate from "@/component/template/SoloTemplate";
 import { getIdolSolo, getIdolSoloAlbum } from "@/utils/API/SSGSetting";
 import { SoloType, albumType } from "@/utils/interface/interface";
