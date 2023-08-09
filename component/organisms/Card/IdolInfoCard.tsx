@@ -64,7 +64,6 @@ const IdolInfoCard = ({
           blurDataURL="blur"
         />
       )}
-      {/*
       <Stack w={["100%", "100%", "50%"]}>
         <CardHeader>
           <Flex justifyContent={"space-between"}>
@@ -87,7 +86,7 @@ const IdolInfoCard = ({
         <CardBody>
           <AlbumCarousel albumData={albumData} />
         </CardBody>
-      </Stack> */}
+      </Stack>
     </Card>
   );
 };
