@@ -34,7 +34,6 @@ const AlbumCarousel = ({ albumData }: AlbumCaruoselProps) => {
       </TextAtom>
       <Slider {...settings} ref={slickRef}>
         {albumData?.map((data) => {
-          console.log(data);
           return (
             <Box width={"100px"} key={data.pk} cursor={"pointer"}>
               <Tooltip label={data.album_name} placement="bottom">
