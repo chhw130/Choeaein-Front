@@ -19,8 +19,8 @@ const SoloTemplate = ({ soloData, albumData }: SoloTemplateProps) => {
     >
       <IdolInfoCard
         albumData={albumData}
-        profile={soloData?.solo_profile}
-        name={soloData?.idol_name_kr}
+        profile={soloData.solo_profile}
+        name={soloData.idol_name_kr}
         debut={soloData.solo_debut}
         instaLink={soloData.solo_insta}
         youtubeLink={soloData.solo_youtube}
