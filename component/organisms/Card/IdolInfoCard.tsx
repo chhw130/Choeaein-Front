@@ -53,7 +53,7 @@ const IdolInfoCard = ({
       margin={"0 auto"}
       padding={3}
     >
-      {/* {profile && (
+      {profile && (
         <Image
           src={profile}
           className={styles.groupImg}
@@ -64,6 +64,7 @@ const IdolInfoCard = ({
           blurDataURL="blur"
         />
       )}
+      {/*
       <Stack w={["100%", "100%", "50%"]}>
         <CardHeader>
           <Flex justifyContent={"space-between"}>
