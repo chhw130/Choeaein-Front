@@ -1,5 +1,5 @@
 import {
-  ButtonGroup,
+  HStack,
   Popover,
   PopoverArrow,
   PopoverBody,
@@ -15,12 +15,12 @@ import { ChoeIdolType } from "@/utils/interface/interface";
 import { WarningIcon } from "@chakra-ui/icons";
 import ButtonAtom from "../../atoms/Button/ButtonAtom";
 
-const CalnedarReportBtnGroup = ({ idolData }: { idolData: ChoeIdolType }) => {
+const CalendarReportSection = ({ idolData }: { idolData: ChoeIdolType }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <>
       <ReportModal isOpen={isOpen} onClose={onClose} idolData={idolData} />
-      <ButtonGroup marginTop={4} alignSelf="flex-end">
+      <HStack as={"section"} w={"30%"} alignSelf={"flex-end"}>
         <Popover>
           <PopoverTrigger>
             <WarningIcon cursor={"pointer"} margin={"auto 0"} boxSize={"8"} />
@@ -38,9 +38,9 @@ const CalnedarReportBtnGroup = ({ idolData }: { idolData: ChoeIdolType }) => {
         <ButtonAtom padding={5} alignSelf="flex-end" onClick={onOpen}>
           제보하기
         </ButtonAtom>
-      </ButtonGroup>
+      </HStack>
     </>
   );
 };
 
-export default CalnedarReportBtnGroup;
+export default CalendarReportSection;

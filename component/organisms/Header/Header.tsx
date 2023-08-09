@@ -2,12 +2,14 @@
 import { Flex, useColorMode } from "@chakra-ui/react";
 import MainLogo from "@/component/atoms/Logo/MainLogo";
 import Navigation from "@/component/molecules/Navigation/Navigation";
+import { ToastContainer } from "react-toastify";
 
 const Header = () => {
   const { colorMode } = useColorMode();
 
   return (
     <>
+      <ToastContainer position="top-center" />
       <Flex
         as={"header"}
         position="fixed"

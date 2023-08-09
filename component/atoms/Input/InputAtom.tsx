@@ -16,11 +16,13 @@ const InputAtom = ({
   fontSize,
   margin,
   register,
+  type,
 }: InputAtomProps) => {
   return (
     <Input
       placeholder={placeholder}
       size={size}
+      type={type}
       onChange={onChange}
       fontFamily={fontFamily}
       w={w}

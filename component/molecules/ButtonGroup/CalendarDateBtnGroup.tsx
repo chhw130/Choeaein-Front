@@ -1,4 +1,5 @@
 import ButtonAtom from "@/component/atoms/Button/ButtonAtom";
+import TextAtom from "@/component/atoms/Text/TextAtom";
 import { ButtonGroup, Text } from "@chakra-ui/react";
 import {
   faChevronLeft,
@@ -9,19 +10,19 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import moment from "moment";
 import React, { Dispatch, SetStateAction } from "react";
 
-interface CalendarBtnGroupProps {
+interface CalendarDateBtnGroupProps {
   setMoment: Dispatch<SetStateAction<moment.Moment>>;
   getMoment: moment.Moment;
   today: moment.Moment;
   setSelectedDay: Dispatch<SetStateAction<moment.Moment>>;
 }
 
-const CalendarBtnGroup = ({
+const CalendarDateBtnGroup = ({
   setMoment,
   getMoment,
   today,
   setSelectedDay,
-}: CalendarBtnGroupProps) => {
+}: CalendarDateBtnGroupProps) => {
   return (
     <ButtonGroup fontSize={[15, 18, 26]} margin={"auto 0"} spacing={1}>
       <ButtonAtom
@@ -32,13 +33,13 @@ const CalendarBtnGroup = ({
       >
         <FontAwesomeIcon icon={faChevronLeft} size="lg" />
       </ButtonAtom>
-      <Text
+      <TextAtom
         margin="auto 0px"
         width={["72px", "130px", "150px"]}
         textAlign={"center"}
       >
         {today.format("YYYY.MM")}
-      </Text>
+      </TextAtom>
       <ButtonAtom
         size={["sm", "sm", "md"]}
         margin={"auto 0"}
@@ -61,4 +62,4 @@ const CalendarBtnGroup = ({
   );
 };
 
-export default CalendarBtnGroup;
+export default CalendarDateBtnGroup;

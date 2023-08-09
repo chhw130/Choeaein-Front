@@ -12,10 +12,10 @@ interface ComingScheduleProps {
   idolData: ChoeIdolType;
 }
 
-const ComingSchedule = ({ idolData }: ComingScheduleProps) => {
+const ComingScheduleSection = ({ idolData }: ComingScheduleProps) => {
   const idolName = idolData.idol_name_en;
 
-  const { data, isLoading } = useUpcomingSchedules(idolName);
+  const { data } = useUpcomingSchedules(idolName);
 
   return (
     <Center flexDir="column" margin={"0 auto"} width={"60%"} maxW={"700px"}>
@@ -31,4 +31,4 @@ const ComingSchedule = ({ idolData }: ComingScheduleProps) => {
   );
 };
 
-export default ComingSchedule;
+export default ComingScheduleSection;
