@@ -40,6 +40,7 @@ const IdolInfoCard = ({
   youtubeLink,
   enter,
 }: IdolInfoCardProps) => {
+  console.log(profile);
   return (
     <Card
       as="article"
@@ -52,7 +53,7 @@ const IdolInfoCard = ({
       margin={"0 auto"}
       padding={3}
     >
-      {profile && (
+      {/* {profile && (
         <Image
           src={profile}
           className={styles.groupImg}
@@ -85,7 +86,7 @@ const IdolInfoCard = ({
         <CardBody>
           <AlbumCarousel albumData={albumData} />
         </CardBody>
-      </Stack>
+      </Stack> */}
     </Card>
   );
 };
