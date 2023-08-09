@@ -42,19 +42,8 @@ const ViewDayCalendarModal = ({
 }: ViewDayCalendarModalProps) => {
   const selectDay: string = selectedDay.format("YYYY년 M월 D일");
 
-  const {
-    isOpen: isOpenUserScheduleForm,
-    onClose: onCloseUserScheduleForm,
-    onOpen,
-  } = useDisclosure();
-
   return (
     <>
-      <UserScheduleForm
-        isOpen={isOpenUserScheduleForm}
-        onClose={onCloseUserScheduleForm}
-      />
-
       <ModalOrganism isOpen={isOpen} onClose={onClose} isCentered size={"xl"}>
         <ModalHeader>
           <TextAtom>{selectDay}</TextAtom>
@@ -83,11 +72,8 @@ const ViewDayCalendarModal = ({
               <Spinner />
             </Center>
           )}
-          <hr />
-          <Center padding={5}>
-            <ButtonAtom onClick={() => onOpen()}>내 일정 추가하기</ButtonAtom>
-          </Center>
         </ModalBody>
+        <ModalFooter></ModalFooter>
       </ModalOrganism>
     </>
   );

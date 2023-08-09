@@ -7,8 +7,6 @@ const TextAtom = ({
   children,
   h,
   lineHeight,
-  textOverflow,
-  whiteSpace,
   as,
   margin,
 }: TextProps) => {
@@ -19,9 +17,7 @@ const TextAtom = ({
       color={color}
       margin={margin}
       h={h}
-      textOverflow={textOverflow}
       lineHeight={lineHeight}
-      whiteSpace={whiteSpace}
     >
       {children}
     </Text>

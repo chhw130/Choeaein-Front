@@ -79,7 +79,6 @@ export const categoryPickData = [
   { pk: 3, category: "release", content: "발매", icon: faCompactDisc },
   { pk: 4, category: "congrats", content: "축하", icon: faGift },
   { pk: 5, category: "buy", content: "구매", icon: faStore },
-  // { pk: 6, category: "my", content: "My", icon: faUser },
 ];
 
 /**calendar Data */
@@ -89,7 +88,7 @@ export const days = ["일", "월", "화", "수", "목", "금", "토"];
 export const icon: IconType = {
   broadcast: {
     icon: faBroadcastTower,
-    bg: "#443c68",
+    bg: "#B677FF",
   },
   event: { icon: faCalendarCheck, bg: "#537fe7" },
   release: {

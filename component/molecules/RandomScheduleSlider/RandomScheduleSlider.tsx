@@ -43,19 +43,21 @@ const RandomScheduleSlider = ({
               cursor="pointer"
             >
               <TextAtom>{dateFormat}</TextAtom>
-              <TextAtom
-                h={"57px"}
-                overflow="hidden"
-                lineHeight={1.4}
-                textOverflow="ellipsis"
-                whiteSpace={"nowrap"}
-              >
-                <FontAwesomeIcon
-                  icon={icon[category as keyof typeof icon].icon}
-                  color={icon[category as keyof typeof icon].bg}
-                />
-                &nbsp;{data.ScheduleTitle}
-              </TextAtom>
+              <Box>
+                <TextAtom
+                  h={"57px"}
+                  overflow="hidden"
+                  lineHeight={1.4}
+                  textOverflow="ellipsis"
+                  whiteSpace={"nowrap"}
+                >
+                  <FontAwesomeIcon
+                    icon={icon[category as keyof typeof icon].icon}
+                    color={icon[category as keyof typeof icon].bg}
+                  />
+                  &nbsp;{data.ScheduleTitle}
+                </TextAtom>
+              </Box>
               <TextAtom>
                 <FontAwesomeIcon icon={faMicrophone} />
                 &nbsp;{data.participant.idol}
