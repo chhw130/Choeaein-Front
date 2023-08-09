@@ -14,12 +14,10 @@ const GroupMemberPage = async ({ searchParams }: GroupMemberPageProps) => {
   const albumData: albumType[] = await getIdolMemberAlbum(groupName);
 
   return (
-    <main>
-      <GroupMemberTemplate
-        groupMemberData={groupMemberData}
-        albumData={albumData}
-      />
-    </main>
+    <GroupMemberTemplate
+      groupMemberData={groupMemberData}
+      albumData={albumData}
+    />
   );
 };
 

@@ -17,11 +17,13 @@ const ButtonAtom = ({
   className,
   fontSize,
   size,
+  isLoading,
 }: ButtonProps) => {
   return (
     <Button
       className={className}
       fontSize={fontSize}
+      isLoading={isLoading}
       type={type}
       w={w}
       h={h}

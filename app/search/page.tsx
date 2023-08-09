@@ -1,16 +1,12 @@
 "use client";
-import SearchPageContainer from "@/component/searchPage/SearchPageContainer";
+import SearchPageContainer from "@/component/template/SearchTemplate";
 
 export interface SearchPageParams {
   params: { keyword: string };
 }
 
 const SearchPage = () => {
-  return (
-    <main>
-      <SearchPageContainer />
-    </main>
-  );
+  return <SearchPageContainer />;
 };
 
 export default SearchPage;

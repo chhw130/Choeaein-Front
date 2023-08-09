@@ -1,24 +1,23 @@
 "use client";
 import "moment/locale/ko";
-import IdolInform from "./IdolInform";
-import { Box, Flex } from "@chakra-ui/react";
+import IdolInform from "../../molecules/Idol/IdolInform";
+import { Flex } from "@chakra-ui/react";
 import useCalendar from "@/utils/hook/useCalendar";
 import { ChoeIdolType } from "@/utils/interface/interface";
-import useUser from "@/utils/hook/useUser";
-import CalendarBtnGroup from "../molecules/ButtonGroup/CalendarBtnGroup";
+import CalendarBtnGroup from "../../molecules/ButtonGroup/CalendarDateBtnGroup";
 import { days } from "@/utils/data/ClientData";
 import dynamic from "next/dynamic";
-import CategoryBtnGroup from "../molecules/ButtonGroup/CategoryBtnGroup";
+import CategoryBtnGroup from "../../molecules/ButtonGroup/CategoryBtnGroup";
+import CalendarDateBtnGroup from "../../molecules/ButtonGroup/CalendarDateBtnGroup";
 
 const ViewDayCalendarModal = dynamic(
   () => import("@/UI/Modal/ViewDayCalendarModal")
 );
-const CalendarTable = dynamic(() => import("./CalendarTable"));
-const ReportBtn = dynamic(
-  () => import("@/component/molecules/ButtonGroup/CalendarReportBtnGroup")
+const CalendarTable = dynamic(
+  () => import("../../molecules/Table/CalendarTable")
 );
 
-const Calendar = ({ idolData }: { idolData: ChoeIdolType }) => {
+const CalendarSection = ({ idolData }: { idolData: ChoeIdolType }) => {
   const {
     isOpen,
     onClose,
@@ -32,10 +31,6 @@ const Calendar = ({ idolData }: { idolData: ChoeIdolType }) => {
     idolDateSchedules,
     dateLoading,
   } = useCalendar(idolData);
-
-  const { userData } = useUser();
-
-  const isUserPick = userData?.pick === idolData.pk;
 
   return (
     <>
@@ -57,7 +52,7 @@ const Calendar = ({ idolData }: { idolData: ChoeIdolType }) => {
       >
         <Flex justifyContent="space-between" padding="10px 15px">
           <IdolInform idolData={idolData} />
-          <CalendarBtnGroup
+          <CalendarDateBtnGroup
             setMoment={setMoment}
             getMoment={getMoment}
             today={today}
@@ -70,9 +65,8 @@ const Calendar = ({ idolData }: { idolData: ChoeIdolType }) => {
           calendarArr={calendarArr}
           isLoading={isLoading}
         />
-        {isUserPick && <ReportBtn idolData={idolData} />}
       </Flex>
     </>
   );
 };
-export default Calendar;
+export default CalendarSection;

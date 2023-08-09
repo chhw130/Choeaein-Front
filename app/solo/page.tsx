@@ -14,11 +14,7 @@ const SoloPage = async ({ searchParams }: SoloPageProps) => {
   const soloData: SoloType = await getIdolSolo(idolName);
   const albumData: albumType[] = await getIdolSoloAlbum(idolName);
 
-  return (
-    <main>
-      <SoloTemplate soloData={soloData} albumData={albumData} />
-    </main>
-  );
+  return <SoloTemplate soloData={soloData} albumData={albumData} />;
 };
 
 export default SoloPage;

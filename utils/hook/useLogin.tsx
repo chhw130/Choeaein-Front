@@ -8,6 +8,7 @@ import { postLogin } from "../API/CSRSetting";
 import { toast } from "react-toastify";
 import { useColorMode } from "@chakra-ui/react";
 import { useRouter } from "next/navigation";
+import { queryKey } from "../queryKey/QueryKey";
 
 const useLogin = () => {
   const { colorMode } = useColorMode();
@@ -28,7 +29,7 @@ const useLogin = () => {
       },
       onSuccess: () => {
         router.push("/");
-        queryClient.invalidateQueries(["me"]);
+        queryClient.invalidateQueries([queryKey.userKey]);
         toast("로그인 성공!!", {
           type: "info",
           theme: colorMode,

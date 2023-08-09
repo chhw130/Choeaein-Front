@@ -1,12 +1,9 @@
 "use client";
-import UserLogin from "@/component/loginPage/UserLogin";
+
+import UserLoginTemplate from "@/component/template/UserLoginTemplate";
 
 const LoginPage = async () => {
-  return (
-    <main>
-      <UserLogin />
-    </main>
-  );
+  return <UserLoginTemplate />;
 };
 
 export default LoginPage;

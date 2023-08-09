@@ -1,4 +1,5 @@
-import CalnedarContainer from "@/component/calendarPage/CalendarContainer";
+import CalendarTemplate from "@/component/template/CalendarTemplate";
+import CalnedarContainer from "@/component/template/CalendarTemplate";
 import { getIdolInform } from "@/utils/API/SSGSetting";
 import { ChoeIdolType } from "@/utils/interface/interface";
 
@@ -12,11 +13,7 @@ async function CalendarPage({ searchParams }: any) {
 
   const idolData: ChoeIdolType = await getIdolInform(idolName);
 
-  return (
-    <main>
-      <CalnedarContainer idolData={idolData} />
-    </main>
-  );
+  return <CalendarTemplate idolData={idolData} />;
 }
 
 export default CalendarPage;

@@ -11,7 +11,12 @@ interface SoloTemplateProps {
 
 const SoloTemplate = ({ soloData, albumData }: SoloTemplateProps) => {
   return (
-    <Flex paddingTop={"9rem"} flexDir={"column"} marginBottom={"6rem"}>
+    <Flex
+      as={"main"}
+      paddingTop={"9rem"}
+      flexDir={"column"}
+      marginBottom={"6rem"}
+    >
       <IdolInfoCard
         albumData={albumData}
         profile={soloData?.solo_profile}
