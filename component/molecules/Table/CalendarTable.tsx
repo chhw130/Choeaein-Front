@@ -5,7 +5,6 @@ import {
   Skeleton,
   Table,
   Tbody,
-  Text,
   Th,
   Thead,
   Tr,

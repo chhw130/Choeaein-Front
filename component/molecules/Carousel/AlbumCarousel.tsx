@@ -19,7 +19,6 @@ const AlbumCarousel = ({ albumData }: AlbumCaruoselProps) => {
 
   const settings = {
     dots: true,
-    infinite: false,
     speed: 400,
     slidesToShow: 3,
     slidesToScroll: 3,
@@ -32,16 +31,17 @@ const AlbumCarousel = ({ albumData }: AlbumCaruoselProps) => {
         <FontAwesomeIcon icon={faCompactDisc} />
         &nbsp;Album
       </TextAtom>
+
       <Slider {...settings} ref={slickRef}>
         {albumData?.map((data) => {
           return (
-            <Box width={"100px"} key={data.pk} cursor={"pointer"}>
+            <Box key={data.pk} cursor="pointer">
               <Tooltip label={data.album_name} placement="bottom">
                 <Image
                   src={data.album_cover}
                   alt={data.album_name}
-                  width={180}
-                  height={180}
+                  width={380}
+                  height={380}
                   priority={true}
                 />
               </Tooltip>

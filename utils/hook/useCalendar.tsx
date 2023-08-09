@@ -2,7 +2,6 @@ import ShowEvent from "@/component/calendarPage/ShowEvent";
 import { Box, Flex, Td, Tr, useDisclosure } from "@chakra-ui/react";
 import moment from "moment";
 import React, { useEffect, useState } from "react";
-import styles from "../../component/calendarPage/Calendar.module.scss";
 import { ChoeIdolType, IdolDateScheduleType } from "../interface/interface";
 import { useMutation } from "@tanstack/react-query";
 import { getIdolSchedule } from "../API/CSRSetting";
@@ -125,9 +124,9 @@ const useCalendar = (idolData: ChoeIdolType): UseCalendarType => {
                         : undefined
                     }
                   >
-                    <div>{days.format("D")}</div>
+                    <Box>{days.format("D")}</Box>
 
-                    <Flex justifyContent={"center"}>
+                    <Flex h={"16px"} justifyContent={"center"}>
                       <ShowEvent
                         days={days}
                         newIdolSchedule={newIdolSchedule}
@@ -147,7 +146,12 @@ const useCalendar = (idolData: ChoeIdolType): UseCalendarType => {
                     style={{ color: "#c2c2c2" }}
                   >
                     {days.format("D")}
-                    <div className={styles.eventContent} />
+                    <Box
+                      h={"16px"}
+                      display={"flex"}
+                      width={"100%"}
+                      justifyContent={"center"}
+                    />
                   </Td>
                 );
               } else {
@@ -172,8 +176,8 @@ const useCalendar = (idolData: ChoeIdolType): UseCalendarType => {
                     }
                   >
                     <Box>
-                      <div>{days.format("D")}</div>
-                      <Flex justifyContent={"center"}>
+                      <Box>{days.format("D")}</Box>
+                      <Flex h={"16px"} justifyContent={"center"}>
                         <ShowEvent
                           days={days}
                           newIdolSchedule={newIdolSchedule}

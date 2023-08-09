@@ -4,7 +4,6 @@ import IdolInform from "../../molecules/Idol/IdolInform";
 import { Flex } from "@chakra-ui/react";
 import useCalendar from "@/utils/hook/useCalendar";
 import { ChoeIdolType } from "@/utils/interface/interface";
-import CalendarBtnGroup from "../../molecules/ButtonGroup/CalendarDateBtnGroup";
 import { days } from "@/utils/data/ClientData";
 import dynamic from "next/dynamic";
 import CategoryBtnGroup from "../../molecules/ButtonGroup/CategoryBtnGroup";

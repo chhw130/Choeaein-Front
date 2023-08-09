@@ -1,26 +1,17 @@
 import {
-  Button,
   Center,
-  Modal,
   ModalBody,
-  ModalCloseButton,
-  ModalContent,
   ModalFooter,
   ModalHeader,
-  ModalOverlay,
   Spinner,
-  Text,
   VStack,
-  useDisclosure,
 } from "@chakra-ui/react";
 import React from "react";
-import UserScheduleForm from "./UserScheduleForm";
 import { IdolDateScheduleType } from "@/utils/interface/interface";
 import moment from "moment";
 import DateScheduleCard from "../Card/DateScheduleCard";
 import ModalOrganism from "@/component/organisms/Modal/ModalOrganism";
 import TextAtom from "@/component/atoms/Text/TextAtom";
-import ButtonAtom from "@/component/atoms/Button/ButtonAtom";
 
 export interface ModalProps {
   isOpen: boolean;
