@@ -40,8 +40,6 @@ const IdolInfoCard = ({
   youtubeLink,
   enter,
 }: IdolInfoCardProps) => {
-  console.log(name, enName);
-
   return (
     <Card
       as="article"
@@ -84,9 +82,9 @@ const IdolInfoCard = ({
           <TextAtom fontSize={["md", "xl", "2xl"]}>{enter}</TextAtom>
           <TextAtom>Debut : {debut}</TextAtom>
         </CardHeader>
-        {/* <CardBody>
+        <CardBody>
           <AlbumCarousel albumData={albumData} />
-        </CardBody> */}
+        </CardBody>
       </Stack>
     </Card>
   );
