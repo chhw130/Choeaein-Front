@@ -1,6 +1,6 @@
 "use client";
 import "moment/locale/ko";
-import IdolInform from "../../calendarPage/IdolInform";
+import IdolInform from "../../molecules/Idol/IdolInform";
 import { Flex } from "@chakra-ui/react";
 import useCalendar from "@/utils/hook/useCalendar";
 import { ChoeIdolType } from "@/utils/interface/interface";

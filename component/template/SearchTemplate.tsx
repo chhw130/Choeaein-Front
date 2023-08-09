@@ -1,22 +1,22 @@
 "use client";
 import { Box } from "@chakra-ui/react";
-import PageTitle from "./PageTitle";
 import dynamic from "next/dynamic";
 
-const SearchPageContents = dynamic(() => import("./SearchPageContents"));
+const SearchPageContents = dynamic(
+  () => import("../organisms/Section/SearchSection")
+);
 
 const SearchPageContainer = () => {
   return (
     <Box
-      as={"section"}
+      as={"main"}
       minH={"100vh"}
-      width={"80%"}
+      w={"80%"}
       display={"flex"}
       flexDir={"column"}
       padding={"7rem 0"}
-      margin={"0 100px"}
+      margin={"0 10%"}
     >
-      <PageTitle />
       <SearchPageContents />
     </Box>
   );

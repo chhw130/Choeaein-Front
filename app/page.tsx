@@ -22,12 +22,10 @@ export default async function Home() {
   const { idolGroupData, idolSoloData, randomSchedules } = await fetchData();
 
   return (
-    <main>
-      <MainTemplate
-        idolGroupData={idolGroupData}
-        idolSoloData={idolSoloData}
-        randomSchedules={randomSchedules}
-      />
-    </main>
+    <MainTemplate
+      idolGroupData={idolGroupData}
+      idolSoloData={idolSoloData}
+      randomSchedules={randomSchedules}
+    />
   );
 }

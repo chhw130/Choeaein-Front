@@ -3,11 +3,7 @@
 import UserLoginTemplate from "@/component/template/UserLoginTemplate";
 
 const LoginPage = async () => {
-  return (
-    <main>
-      <UserLoginTemplate />
-    </main>
-  );
+  return <UserLoginTemplate />;
 };
 
 export default LoginPage;
