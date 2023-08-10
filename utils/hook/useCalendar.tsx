@@ -61,6 +61,7 @@ const useCalendar = (idolData: ChoeIdolType): UseCalendarType => {
     when: date,
     categories,
   };
+
   const {
     idolDateSchedules,
     isLoading: dateLoading,

@@ -40,7 +40,6 @@ const UserLoginSection = () => {
     <>
       <Flex as={"section"} height="100vh">
         <Form
-          as="form"
           onSubmit={handleSubmit(onSubmit)}
           w={"100%"}
           maxW={"500px"}

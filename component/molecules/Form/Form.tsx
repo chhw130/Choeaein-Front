@@ -7,7 +7,6 @@ interface FormProps extends FlexProps {
 
 const Form = ({
   children,
-  as,
   onSubmit,
   w,
   maxW,
@@ -15,11 +14,13 @@ const Form = ({
   justifyContent,
   alignItems,
   margin,
+  h,
   fontFamily,
 }: FormProps) => {
   return (
     <Flex
-      as={as}
+      h={h}
+      as={"form"}
       onSubmit={onSubmit}
       w={w}
       maxW={maxW}

@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import logo from "../../../utils/img/logo_main.png";
+import TextAtom from "../Text/TextAtom";
 
 interface MainLogoProps {
   width: number;
@@ -21,9 +22,9 @@ const MainLogo = ({ width, height, fontSize }: MainLogoProps) => {
           height={height}
           priority={true}
         />
-        <Text fontSize={fontSize} fontWeight="bold">
+        <TextAtom fontSize={fontSize} fontWeight="bold">
           CHOEAEIN
-        </Text>
+        </TextAtom>
       </HStack>
     </Link>
   );
