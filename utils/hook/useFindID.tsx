@@ -2,7 +2,7 @@ import { useColorMode } from "@chakra-ui/react";
 import { UseMutateAsyncFunction, useMutation } from "@tanstack/react-query";
 import { findID } from "../API/CSRSetting";
 import { toast } from "react-toastify";
-import { FindIDFormType } from "@/component/findPage/findId/FindID";
+import { FindIDFormType } from "@/component/organisms/Section/FindIDFormSection";
 
 interface UseFindIDType {
   findIdHandler: UseMutateAsyncFunction<any, unknown, FindIDFormType, unknown>;
