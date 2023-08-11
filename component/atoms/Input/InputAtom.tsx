@@ -17,10 +17,18 @@ const InputAtom = ({
   margin,
   register,
   type,
+  accept,
+  cursor,
+  pos,
+  opacity,
 }: InputAtomProps) => {
   return (
     <Input
       placeholder={placeholder}
+      accept={accept}
+      cursor={cursor}
+      pos={pos}
+      opacity={opacity}
       size={size}
       type={type}
       onChange={onChange}

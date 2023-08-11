@@ -1,4 +1,5 @@
 "use client";
+import TextAtom from "@/component/atoms/Text/TextAtom";
 // import ModifyNicknameModal from "@/UI/Modal/ModifyNicknameModal";
 import useUser from "@/utils/hook/useUser";
 import { Button, Flex, HStack, Text, useDisclosure } from "@chakra-ui/react";
@@ -18,10 +19,10 @@ const ModifyNickname = () => {
       <ModifyNicknameModal isOpen={isOpen} onClose={onClose} />
       <Flex justifyContent="space-between" width="80%" height="40px">
         <HStack spacing={5}>
-          <Text w={"70px"} fontWeight={"bold"} fontSize={"lg"}>
+          <TextAtom w={"70px"} fontWeight={"bold"} fontSize={"lg"}>
             별명
-          </Text>
-          <Text>{userData?.nickname}</Text>
+          </TextAtom>
+          <TextAtom>{userData?.nickname}</TextAtom>
         </HStack>
         <Button onClick={onOpen}>수정</Button>
       </Flex>

@@ -2,25 +2,36 @@
 import { useForm } from "react-hook-form";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCamera } from "@fortawesome/free-solid-svg-icons/faCamera";
-import { Avatar, Box, Button, Card, Input, VStack } from "@chakra-ui/react";
+import {
+  Avatar,
+  Box,
+  Button,
+  Card,
+  Input,
+  VStack,
+  useColorMode,
+} from "@chakra-ui/react";
 import { getUploadUrl } from "@/utils/API/CSRSetting";
+import TextAtom from "../atoms/Text/TextAtom";
+import InputAtom from "../atoms/Input/InputAtom";
 
 const EditUserImg = () => {
   const { register, handleSubmit } = useForm();
+  const { colorMode } = useColorMode();
 
   const imgSubmit = async (data: any) => {
     const res = await getUploadUrl(data);
-    console.log(res);
   };
 
   return (
     <VStack spacing={5}>
-      <h2>프로필 정보</h2>
+      <TextAtom as={"h2"}>프로필 정보</TextAtom>
       <Avatar src="" size="2xl" />
       <Box as="form" onSubmit={handleSubmit(imgSubmit)} cursor="pointer">
-        <Card
+        <Box
           position="relative"
           cursor="pointer"
+          shadow={"base"}
           top="-60px"
           left={"-40px"}
           borderRadius="50%"
@@ -28,6 +39,7 @@ const EditUserImg = () => {
           height="50px"
           lineHeight="47px"
           textAlign="center"
+          bg={colorMode === "dark" ? "black" : "white"}
         >
           <Box position="absolute" left={"10px"} cursor="pointer">
             <FontAwesomeIcon
@@ -37,18 +49,15 @@ const EditUserImg = () => {
               cursor="pointer"
             />
           </Box>
-          <Input
+          <InputAtom
             type="file"
-            {...register("file")}
+            register={{ ...register("file") }}
             accept="image/*"
-            position="absolute"
+            pos="absolute"
             cursor="pointer"
-            transform="scale(1)"
-            left={"0px"}
-            top={"5px"}
             opacity={0}
           />
-        </Card>
+        </Box>
         <Button type="submit" top={-10}>
           변경하기
         </Button>

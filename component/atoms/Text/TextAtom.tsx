@@ -8,10 +8,12 @@ const TextAtom = ({
   h,
   lineHeight,
   as,
+  w,
   margin,
 }: TextProps) => {
   return (
     <Text
+      w={w}
       as={as}
       fontSize={fontSize}
       color={color}

@@ -3,7 +3,7 @@
 import useUser from "@/utils/hook/useUser";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
-import EditUserContainer from "@/component/myPage/EditUserContainer";
+import MyPageTemplate from "@/component/template/MyPageTemplate";
 
 const MyPage = async () => {
   const { isLoading, isLogin, userData } = useUser();
@@ -13,11 +13,7 @@ const MyPage = async () => {
     if (!isLoading && !isLogin) router.push("/");
   }, [isLoading, isLogin, userData]);
 
-  return (
-    <main>
-      <EditUserContainer />
-    </main>
-  );
+  return <MyPageTemplate />;
 };
 
 export default MyPage;

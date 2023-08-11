@@ -6,12 +6,13 @@ import ModifyPick from "./UI/ModifyPick";
 import ModifyPassword from "./UI/ModifyPassword";
 import ModifyNickname from "./UI/ModfiyNickname";
 import useUser from "@/utils/hook/useUser";
+import TextAtom from "../atoms/Text/TextAtom";
 
 const EditUser = () => {
   const { userData } = useUser();
 
   return (
-    <Box marginTop="30px" h="600px">
+    <Box as="article" marginTop="30px" h="600px">
       <EditUserImg />
       <hr />
       <VStack
@@ -23,9 +24,9 @@ const EditUser = () => {
         <ModifyPick userData={userData} />
         <Flex justifyContent="space-between" width="80%" height="40px">
           <HStack spacing={5}>
-            <Text w="70px" fontWeight={"bold"} fontSize={"lg"}>
+            <TextAtom w="70px" fontWeight={"bold"} fontSize={"lg"}>
               아이디
-            </Text>
+            </TextAtom>
             <Text>{userData?.email}</Text>
           </HStack>
         </Flex>

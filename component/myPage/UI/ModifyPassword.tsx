@@ -1,4 +1,5 @@
 "use client";
+import TextAtom from "@/component/atoms/Text/TextAtom";
 // import ModifyPasswordModal from "@/UI/Modal/ModifyPasswordModal";
 import { Button, Flex, HStack, Text, useDisclosure } from "@chakra-ui/react";
 import dynamic from "next/dynamic";
@@ -16,10 +17,10 @@ const ModifyPassword = () => {
       <ModifyPasswordModal isOpen={isOpen} onClose={onClose} />
       <Flex justifyContent="space-between" width="80%" height="40px">
         <HStack spacing={5}>
-          <Text w={"70px"} fontWeight={"bold"} fontSize={"lg"}>
+          <TextAtom w={"70px"} fontWeight={"bold"} fontSize={"lg"}>
             비밀번호
-          </Text>
-          <Text>***********</Text>
+          </TextAtom>
+          <TextAtom>***********</TextAtom>
         </HStack>
         <Button onClick={onOpen}>수정</Button>
       </Flex>
