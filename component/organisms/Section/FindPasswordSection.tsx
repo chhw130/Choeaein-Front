@@ -21,7 +21,7 @@ import MainLogo from "@/component/atoms/Logo/MainLogo";
 import Form from "@/component/molecules/Form/Form";
 import InputAtom from "@/component/atoms/Input/InputAtom";
 
-const FindPassword = () => {
+const FindPasswordSection = () => {
   const { register } = useForm();
   return (
     <>
@@ -38,6 +38,7 @@ const FindPassword = () => {
           flexDir={"column"}
           w={"90%"}
           maxW="500px"
+          marginTop={"3rem"}
         >
           <VStack spacing={7} maxW="500px" w={"100%"} margin="0 auto">
             <InputGroup>
@@ -154,4 +155,4 @@ const FindPassword = () => {
   );
 };
 
-export default FindPassword;
+export default FindPasswordSection;

@@ -26,7 +26,9 @@ const CalendarTemplate = ({ idolData }: { idolData: ChoeIdolType }) => {
       spacing={5}
     >
       <CalendarSection idolData={idolData} />
-      {!isUserPick && <CalendarReportSection idolData={idolData} />}
+      {isUserPick === idolData.pk && (
+        <CalendarReportSection idolData={idolData} />
+      )}
       <ComingScheduleSection idolData={idolData} />
     </VStack>
   );

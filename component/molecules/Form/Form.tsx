@@ -16,11 +16,13 @@ const Form = ({
   margin,
   h,
   fontFamily,
+  marginTop,
 }: FormProps) => {
   return (
     <Flex
-      h={h}
       as={"form"}
+      h={h}
+      marginTop={marginTop}
       onSubmit={onSubmit}
       w={w}
       maxW={maxW}

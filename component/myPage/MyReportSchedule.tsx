@@ -1,4 +1,5 @@
 "use client";
+import UserScheduleCard from "@/UI/Card/UserScheduleCard";
 import { getMyReportSchedules } from "@/utils/API/CSRSetting";
 import { MypageReportSchedule } from "@/utils/interface/interface";
 import { Box, Skeleton } from "@chakra-ui/react";
@@ -13,11 +14,15 @@ const MyReportSchedule = () => {
     getMyReportSchedules()
   );
 
+  console.log(userReportData, isLoading);
+
   return (
     <Box h={"60vh"} alignItems={"center"}>
       {!isLoading ? (
         userReportData.map((userReport: MypageReportSchedule) => {
-          return <ScheduleCard userReport={userReport} key={userReport.pk} />;
+          return (
+            <UserScheduleCard userReport={userReport} key={userReport.pk} />
+          );
         })
       ) : (
         <Skeleton h={"100%"} />

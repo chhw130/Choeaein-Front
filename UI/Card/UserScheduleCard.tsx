@@ -1,18 +1,10 @@
-import { getMyReportSchedules } from "@/utils/API/CSRSetting";
 import { MypageReportSchedule } from "@/utils/interface/interface";
-import {
-  Box,
-  Card,
-  CardBody,
-  CardHeader,
-  Heading,
-  Text,
-  useDisclosure,
-} from "@chakra-ui/react";
+import { Box, Card, CardBody, Text, useDisclosure } from "@chakra-ui/react";
 import React from "react";
 import UserScheduleStatusModal from "../Modal/UserScheduleStatusModal";
 import { icon } from "@/utils/data/ClientData";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import TextAtom from "@/component/atoms/Text/TextAtom";
 
 interface ScheduleCardProps {
   userReport: MypageReportSchedule;
@@ -32,23 +24,21 @@ const UserScheduleCard = ({ userReport }: ScheduleCardProps) => {
         onClose={onClose}
         userReport={userReport}
       />
-      <Card
+      <Box
         cursor={"pointer"}
         w={["100%", "80%", "80%"]}
         margin={"10px auto"}
         onClick={() => onOpen()}
       >
-        <CardBody>
-          <Text>
-            <FontAwesomeIcon
-              icon={icon[category as keyof typeof icon]?.icon}
-              color={icon[category as keyof typeof icon]?.bg}
-            />
-            &nbsp;{userReport.ScheduleTitle}
-            &nbsp;{userReport?.is_enroll ? "(승인)" : "(미승인)"}
-          </Text>
-        </CardBody>
-      </Card>
+        <TextAtom>
+          <FontAwesomeIcon
+            icon={icon[category as keyof typeof icon]?.icon}
+            color={icon[category as keyof typeof icon]?.bg}
+          />
+          &nbsp;{userReport.ScheduleTitle}
+          &nbsp;{userReport?.is_enroll ? "(승인)" : "(미승인)"}
+        </TextAtom>
+      </Box>
     </>
   );
 };
