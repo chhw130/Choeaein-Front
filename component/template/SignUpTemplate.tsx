@@ -4,7 +4,7 @@ import SignUp from "../singupPage/SignUp";
 
 const SignUpTemplate = () => {
   return (
-    <Box as="main" paddingTop={"4rem"}>
+    <Box as="main" paddingTop={"3rem"}>
       <SignUp />
     </Box>
   );
