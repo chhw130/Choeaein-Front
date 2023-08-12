@@ -10,6 +10,7 @@ import {
 import { useRouter } from "next/navigation";
 import { ChoeIdolType } from "@/utils/interface/interface";
 import MemberCard from "@/component/molecules/Idol/MemberCard";
+import ButtonAtom from "../atoms/Button/ButtonAtom";
 
 interface NotFoundPageProps {
   idolRankData: ChoeIdolType[];
@@ -25,7 +26,7 @@ const NotFoundPage = ({ idolRankData }: NotFoundPageProps) => {
       bg="white"
       justifyContent="space-evenly"
       minH="100vh"
-      paddingTop={"10rem"}
+      paddingTop={"5rem"}
       paddingBottom={"3rem"}
       bgColor={
         color === "light" ? "white" : "var(--chakra-colors-chakra-body-bg);"
@@ -39,7 +40,7 @@ const NotFoundPage = ({ idolRankData }: NotFoundPageProps) => {
         position={"relative"}
         spacing="10"
       >
-        <Button
+        <ButtonAtom
           onClick={() => router.replace("/")}
           right={0}
           pos={"relative"}
@@ -49,7 +50,7 @@ const NotFoundPage = ({ idolRankData }: NotFoundPageProps) => {
           w={"100px"}
         >
           &larr; Go Home
-        </Button>
+        </ButtonAtom>
         <VStack spacing={10}>
           <Heading size={"2xl"}>
             죄송합니다. 해당 페이지를 찾을 수 없습니다.
@@ -57,12 +58,13 @@ const NotFoundPage = ({ idolRankData }: NotFoundPageProps) => {
           <Heading size={"lg"}>요즘 떠오르는 아이돌들을 살펴보세요.</Heading>
           <HStack
             as={"section"}
-            w={"100%"}
+            w={"80%"}
+            marginTop={"3rem"}
             wrap={"wrap"}
-            justifyContent={"center"}
+            justifyContent="space-between"
           >
             {idolRankData?.map((rankData) => (
-              <MemberCard data={rankData} />
+              <MemberCard key={rankData.pk} data={rankData} />
             ))}
           </HStack>
         </VStack>
