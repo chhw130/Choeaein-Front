@@ -46,7 +46,7 @@ const HeaderMenu = () => {
             <MenuItem>관리자페이지</MenuItem>
           </Link>
         )}
-        {!userData
+        {userData
           ? loginMenu.map((menu, index) => (
               <Link href={menu.link} prefetch={true} key={index}>
                 <MenuItem key={index}>{menu.title}</MenuItem>
