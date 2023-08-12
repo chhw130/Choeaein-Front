@@ -7,8 +7,6 @@ import { useQuery } from "@tanstack/react-query";
 import dynamic from "next/dynamic";
 import React from "react";
 
-const ScheduleCard = dynamic(import("@/UI/Card/UserScheduleCard"));
-
 const MyReportSchedule = () => {
   const { data: userReportData = [], isLoading } = useQuery([`myReport`], () =>
     getMyReportSchedules()
