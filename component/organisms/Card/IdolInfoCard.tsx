@@ -3,6 +3,7 @@
 import {
   Card,
   CardBody,
+  CardFooter,
   CardHeader,
   Flex,
   HStack,
@@ -64,10 +65,10 @@ const IdolInfoCard = ({
           blurDataURL="blur"
         />
       )}
-      <Stack w={["100%", "100%", "50%"]}>
+      <Stack w={["100%", "100%", "53%"]}>
         <CardHeader>
           <Flex justifyContent={"space-between"}>
-            <Text fontSize={["xl", "2xl", "4xl"]}>{name}</Text>
+            <TextAtom fontSize={["xl", "2xl", "4xl"]}>{name}</TextAtom>
             <HStack>
               <Link href={instaLink}>
                 <FontAwesomeIcon icon={faInstagram} size="2xl" />
@@ -86,6 +87,7 @@ const IdolInfoCard = ({
         <CardBody>
           <AlbumCarousel albumData={albumData} />
         </CardBody>
+        <CardFooter />
       </Stack>
     </Card>
   );

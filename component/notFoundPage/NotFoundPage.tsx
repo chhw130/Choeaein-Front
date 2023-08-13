@@ -1,16 +1,10 @@
 "use client";
 import React from "react";
-import {
-  Button,
-  Heading,
-  HStack,
-  useColorMode,
-  VStack,
-} from "@chakra-ui/react";
+import { Heading, HStack, useColorMode, VStack } from "@chakra-ui/react";
 import { useRouter } from "next/navigation";
 import { ChoeIdolType } from "@/utils/interface/interface";
-import MemberCard from "@/component/molecules/Idol/MemberCard";
 import ButtonAtom from "../atoms/Button/ButtonAtom";
+import MemberInfo from "../molecules/Idol/MemberInfo";
 
 interface NotFoundPageProps {
   idolRankData: ChoeIdolType[];
@@ -64,7 +58,7 @@ const NotFoundPage = ({ idolRankData }: NotFoundPageProps) => {
             justifyContent="space-between"
           >
             {idolRankData?.map((rankData) => (
-              <MemberCard key={rankData.pk} data={rankData} />
+              <MemberInfo key={rankData.pk} data={rankData} />
             ))}
           </HStack>
         </VStack>

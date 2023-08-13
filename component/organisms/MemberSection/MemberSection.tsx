@@ -1,14 +1,11 @@
 "use client";
-import MemberCard from "@/component/molecules/Idol/MemberCard";
+import TextAtom from "@/component/atoms/Text/TextAtom";
+import MemberCard from "@/component/molecules/Idol/MemberInfo";
 import { GroupType } from "@/utils/interface/interface";
 import { Center, HStack, Text } from "@chakra-ui/react";
 import React from "react";
 
-const MemberSection = ({
-  groupMemberData,
-}: {
-  groupMemberData: GroupType | undefined;
-}) => {
+const MemberSection = ({ groupMemberData }: { groupMemberData: GroupType }) => {
   const member = groupMemberData?.member;
   return (
     <Center
@@ -18,9 +15,9 @@ const MemberSection = ({
       margin={"0 auto"}
       marginBottom={"3rem"}
     >
-      <Text fontSize={["xl", "2xl", "3xl"]} margin={"50px 0"}>
+      <TextAtom fontSize={["xl", "2xl", "3xl"]} margin={"50px 0"}>
         아이돌 스케줄 보러가기
-      </Text>
+      </TextAtom>
 
       <HStack
         alignItems={"center"}

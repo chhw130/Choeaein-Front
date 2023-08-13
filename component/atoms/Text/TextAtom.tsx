@@ -12,11 +12,15 @@ const TextAtom = ({
   margin,
   textAlign,
   _before,
+  letterSpacing,
+  cursor,
 }: TextProps) => {
   return (
     <Text
       w={w}
       as={as}
+      cursor={cursor}
+      letterSpacing={letterSpacing}
       _before={_before}
       textAlign={textAlign}
       fontSize={fontSize}

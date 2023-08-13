@@ -5,12 +5,13 @@ import { useRouter } from "next/navigation";
 import React from "react";
 import styles from "./IdolCard.module.scss";
 import { GroupMember } from "@/utils/interface/interface";
+import TextAtom from "@/component/atoms/Text/TextAtom";
 
 interface IdolCardProps {
   data: GroupMember;
 }
 
-const MemberCard = ({ data }: IdolCardProps) => {
+const MemberInfo = ({ data }: IdolCardProps) => {
   const router = useRouter();
 
   return (
@@ -46,9 +47,9 @@ const MemberCard = ({ data }: IdolCardProps) => {
           cursor={"pointer"}
           color={"white"}
         >
-          <Text>스케줄 보러가기</Text>
+          <TextAtom>스케줄 보러가기</TextAtom>
         </Center>
-        <Text
+        <TextAtom
           paddingTop={"10px"}
           margin={0}
           fontSize={["lg", "lg", "2xl"]}
@@ -56,18 +57,18 @@ const MemberCard = ({ data }: IdolCardProps) => {
           cursor={"pointer"}
         >
           {data.idol_name_kr}
-        </Text>
-        <Text
+        </TextAtom>
+        <TextAtom
           margin={0}
           fontSize={["smaller", "sm", "lg"]}
           letterSpacing="-0.19px"
           color={"#888888"}
         >
           {data.idol_name_en}
-        </Text>
+        </TextAtom>
       </Box>
     </>
   );
 };
 
-export default MemberCard;
+export default MemberInfo;
