@@ -102,7 +102,7 @@ export const icon: IconType = {
 /**singup Data */
 
 export const stepData: StepData[] = [
-  { title: "이메일인증", description: "Contact Info" },
+  { title: "이메일", description: "Contact Info" },
   { title: "회원가입", description: "Date & Time" },
-  { title: "회원가입완료", description: "Select Rooms" },
+  { title: "가입완료", description: "Select Rooms" },
 ];

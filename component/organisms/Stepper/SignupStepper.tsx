@@ -21,10 +21,11 @@ const SignupStepper = () => {
 
   return (
     <Stepper
-      size={["sm", "md", "lg"]}
+      size={["xs", "md", "lg"]}
       index={activeStep}
-      maxW={"500px"}
-      margin={"20px auto"}
+      w={"90%"}
+      maxW={"600px"}
+      margin={"auto auto"}
     >
       {stepData.map((step, index) => (
         <Step key={index}>
@@ -35,7 +36,7 @@ const SignupStepper = () => {
               active={<StepNumber />}
             />
           </StepIndicator>
-          <Box>
+          <Box fontSize={["10px", "15px", "20px"]}>
             <StepDescription>{step.title}</StepDescription>
           </Box>
 

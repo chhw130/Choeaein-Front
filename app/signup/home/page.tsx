@@ -1,14 +1,9 @@
 "use client";
 
-import dynamic from "next/dynamic";
-const VerifyEmail = dynamic(() => import("@/component/singupPage/VerifyEmail"));
+import VerifyEmailTemplate from "@/component/template/VerifyEmailTemplate";
 
 const SignUpHome = () => {
-  return (
-    <main>
-      <VerifyEmail />
-    </main>
-  );
+  return <VerifyEmailTemplate />;
 };
 
 export default SignUpHome;
