@@ -40,7 +40,7 @@
     "pages/api/test.jsx",
     "utils/phone/SendPhoneMessage.js",
     "pages/api/proxy/[...slug].js",
-    "UI/Stepper"
+    "component/organisms/Stepper"
   ],
   "exclude": ["node_modules"]
 }

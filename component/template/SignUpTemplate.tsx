@@ -1,11 +1,11 @@
 import { Box } from "@chakra-ui/react";
 import React from "react";
-import SignUp from "../singupPage/SignUp";
+import SignUpFormSection from "../organisms/Section/SignUpFormSection";
 
 const SignUpTemplate = () => {
   return (
     <Box as="main" paddingTop={"3rem"}>
-      <SignUp />
+      <SignUpFormSection />
     </Box>
   );
 };

@@ -20,7 +20,6 @@ export interface UserData extends UserDataType {
 
 export interface SignUpData extends UserDataType {
   nickname: string;
-  email: string;
   password: string;
   passwordConfirm?: string;
   name: string;

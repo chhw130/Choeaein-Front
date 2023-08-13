@@ -10,11 +10,15 @@ const TextAtom = ({
   as,
   w,
   margin,
+  textAlign,
+  _before,
 }: TextProps) => {
   return (
     <Text
       w={w}
       as={as}
+      _before={_before}
+      textAlign={textAlign}
       fontSize={fontSize}
       color={color}
       margin={margin}
