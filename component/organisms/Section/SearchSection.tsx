@@ -1,7 +1,7 @@
 "use client";
 import { Box, Flex } from "@chakra-ui/react";
 import React from "react";
-import MemberCard from "../../molecules/Idol/MemberCard";
+import MemberCard from "../../molecules/Idol/MemberInfo";
 import useSearchData from "@/utils/hook/useSearchData";
 import SpinnerUI from "@/component/atoms/Spinner/SpinnerUI";
 import { useSearchParams } from "next/navigation";

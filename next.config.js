@@ -14,7 +14,7 @@ const nextConfig = {
           destination: `${API_URL}/:path*/`,
         },
       ];
-    }
+    } else return [];
   },
 
   trailingSlash: true,

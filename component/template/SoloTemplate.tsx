@@ -13,9 +13,8 @@ const SoloTemplate = ({ soloData, albumData }: SoloTemplateProps) => {
   return (
     <Flex
       as={"main"}
-      paddingTop={"9rem"}
       flexDir={"column"}
-      marginBottom={"6rem"}
+      padding={["4rem 0", "4rem 0", "8rem 0"]}
     >
       <IdolInfoCard
         albumData={albumData}

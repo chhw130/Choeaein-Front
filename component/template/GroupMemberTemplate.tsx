@@ -18,12 +18,12 @@ const GroupMemberTemplate = ({
     <Flex as={"main"} paddingTop={"5rem"} flexDir={"column"}>
       <IdolInfoCard
         albumData={albumData}
-        profile={groupMemberData?.group_profile}
-        name={groupMemberData?.groupname}
-        debut={groupMemberData?.group_debut}
-        instaLink={groupMemberData?.group_insta}
-        youtubeLink={groupMemberData?.group_youtube}
-        enter={groupMemberData?.enter}
+        profile={groupMemberData.group_profile}
+        name={groupMemberData.groupname}
+        debut={groupMemberData.group_debut}
+        instaLink={groupMemberData.group_insta}
+        youtubeLink={groupMemberData.group_youtube}
+        enter={groupMemberData.enter}
       />
       <MemberSection groupMemberData={groupMemberData} />
     </Flex>
