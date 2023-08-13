@@ -1,7 +1,7 @@
-import { Flex, FlexProps } from "@chakra-ui/react";
+import { Flex, FlexProps, StackProps, VStack } from "@chakra-ui/react";
 import React from "react";
 
-interface FormProps extends FlexProps {
+interface FormProps extends StackProps {
   children: React.ReactElement;
 }
 
@@ -17,9 +17,10 @@ const Form = ({
   h,
   fontFamily,
   marginTop,
+  spacing,
 }: FormProps) => {
   return (
-    <Flex
+    <VStack
       as={"form"}
       h={h}
       marginTop={marginTop}
@@ -31,9 +32,10 @@ const Form = ({
       alignItems={alignItems}
       margin={margin}
       fontFamily={fontFamily}
+      spacing={spacing}
     >
       {children}
-    </Flex>
+    </VStack>
   );
 };
 
