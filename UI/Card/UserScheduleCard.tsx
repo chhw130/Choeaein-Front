@@ -1,5 +1,12 @@
 import { MypageReportSchedule } from "@/utils/interface/interface";
-import { Box, Card, CardBody, Text, useDisclosure } from "@chakra-ui/react";
+import {
+  Box,
+  Card,
+  CardBody,
+  Text,
+  useColorMode,
+  useDisclosure,
+} from "@chakra-ui/react";
 import React from "react";
 import UserScheduleStatusModal from "../Modal/UserScheduleStatusModal";
 import { icon } from "@/utils/data/ClientData";
@@ -15,7 +22,7 @@ const UserScheduleCard = ({ userReport }: ScheduleCardProps) => {
 
   const category = userReport?.ScheduleType?.type;
 
-  console.log(category);
+  const { colorMode } = useColorMode();
 
   return (
     <>
@@ -27,8 +34,12 @@ const UserScheduleCard = ({ userReport }: ScheduleCardProps) => {
       <Box
         cursor={"pointer"}
         w={["100%", "80%", "80%"]}
-        margin={"10px auto"}
+        padding={"20px"}
+        margin={"0 auto"}
         onClick={() => onOpen()}
+        boxShadow={"lg"}
+        bg={colorMode !== "dark" ? "white" : "blackAlpha.900"}
+        borderRadius={"10px"}
       >
         <TextAtom>
           <FontAwesomeIcon

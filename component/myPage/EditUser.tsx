@@ -27,7 +27,7 @@ const EditUser = () => {
             <TextAtom w="70px" fontWeight={"bold"} fontSize={"lg"}>
               아이디
             </TextAtom>
-            <Text>{userData?.email}</Text>
+            <TextAtom>{userData?.email}</TextAtom>
           </HStack>
         </Flex>
         <ModifyPassword />
