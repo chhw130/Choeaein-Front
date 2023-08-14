@@ -11,7 +11,7 @@ interface UseUserType {
 
 const useUser = (): UseUserType => {
   const {
-    data: userData = {},
+    data: userData,
     isError,
     isLoading,
   } = useQuery([queryKey.userKey], () => getUserInform(), {
