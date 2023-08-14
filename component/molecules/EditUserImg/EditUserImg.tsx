@@ -12,8 +12,8 @@ import {
   useColorMode,
 } from "@chakra-ui/react";
 import { getUploadUrl } from "@/utils/API/CSRSetting";
-import TextAtom from "../atoms/Text/TextAtom";
-import InputAtom from "../atoms/Input/InputAtom";
+import TextAtom from "../../atoms/Text/TextAtom";
+import InputAtom from "../../atoms/Input/InputAtom";
 
 const EditUserImg = () => {
   const { register, handleSubmit } = useForm();

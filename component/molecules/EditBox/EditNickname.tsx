@@ -10,7 +10,7 @@ const ModifyNicknameModal = dynamic(
   () => import("@/UI/Modal/ModifyNicknameModal")
 );
 
-const ModifyNickname = () => {
+const EditNickname = () => {
   const { onClose, isOpen, onOpen } = useDisclosure();
   const { userData } = useUser();
 
@@ -30,4 +30,4 @@ const ModifyNickname = () => {
   );
 };
 
-export default ModifyNickname;
+export default EditNickname;

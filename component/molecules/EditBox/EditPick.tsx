@@ -5,7 +5,7 @@ import dynamic from "next/dynamic";
 
 const ModifyPickModal = dynamic(() => import("@/UI/Modal/ModifyPickModal"));
 
-const ModifyPick = ({ userData }: { userData: UserData }) => {
+const EditPick = ({ userData }: { userData: UserData }) => {
   const { isOpen, onClose, onOpen } = useDisclosure();
 
   return (
@@ -26,4 +26,4 @@ const ModifyPick = ({ userData }: { userData: UserData }) => {
   );
 };
 
-export default ModifyPick;
+export default EditPick;

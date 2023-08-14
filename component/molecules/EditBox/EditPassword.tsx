@@ -9,7 +9,7 @@ const ModifyPasswordModal = dynamic(
   () => import("@/UI/Modal/ModifyPasswordModal")
 );
 
-const ModifyPassword = () => {
+const EditPassword = () => {
   const { onClose, isOpen, onOpen } = useDisclosure();
 
   return (
@@ -28,4 +28,4 @@ const ModifyPassword = () => {
   );
 };
 
-export default ModifyPassword;
+export default EditPassword;
