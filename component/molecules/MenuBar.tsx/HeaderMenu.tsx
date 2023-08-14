@@ -35,8 +35,6 @@ const HeaderMenu = () => {
     await logoutHandler();
   };
 
-  console.log(userData);
-
   return (
     <Menu>
       <MenuButton>
