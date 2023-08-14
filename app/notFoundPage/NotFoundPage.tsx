@@ -3,8 +3,8 @@ import React from "react";
 import { Heading, HStack, useColorMode, VStack } from "@chakra-ui/react";
 import { useRouter } from "next/navigation";
 import { ChoeIdolType } from "@/utils/interface/interface";
-import ButtonAtom from "../atoms/Button/ButtonAtom";
-import MemberInfo from "../molecules/Idol/MemberInfo";
+import ButtonAtom from "../../component/atoms/Button/ButtonAtom";
+import MemberInfo from "../../component/molecules/Idol/MemberInfo";
 
 interface NotFoundPageProps {
   idolRankData: ChoeIdolType[];

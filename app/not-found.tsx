@@ -1,4 +1,4 @@
-import NotFoundPage from "@/component/notFoundPage/NotFoundPage";
+import NotFoundPage from "@/app/notFoundPage/NotFoundPage";
 import { getIdolRank } from "@/utils/API/SSGSetting";
 
 export default async function NotFound() {

@@ -1,9 +1,9 @@
-import ReactQueryProvider from "./ReactQueryProvider";
+import ReactQueryProvider from "../component/proivderComponent/ReactQueryProvider";
 import DefaultLayout from "./DefaultLayout";
-import { Providers } from "./ChakraUIProvider";
+import { Providers } from "../component/proivderComponent/ChakraUIProvider";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import "react-toastify/dist/ReactToastify.css";
-import RecoilProvider from "./RecoilProvider";
+import RecoilProvider from "../component/proivderComponent/RecoilProvider";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
