@@ -1,10 +1,9 @@
 "use client";
 import React from "react";
-import { Heading, HStack, useColorMode, VStack } from "@chakra-ui/react";
-import { useRouter } from "next/navigation";
+import { HStack, useColorMode, VStack } from "@chakra-ui/react";
 import { ChoeIdolType } from "@/utils/interface/interface";
-import ButtonAtom from "../../component/atoms/Button/ButtonAtom";
 import MemberInfo from "../../component/molecules/Idol/MemberInfo";
+import TextAtom from "@/component/atoms/Text/TextAtom";
 
 interface NotFoundPageProps {
   idolRankData: ChoeIdolType[];
@@ -12,46 +11,28 @@ interface NotFoundPageProps {
 
 const NotFoundPage = ({ idolRankData }: NotFoundPageProps) => {
   const color = useColorMode().colorMode;
-  const router = useRouter();
 
   return (
     <HStack
-      as={"main"}
+      as={"section"}
       bg="white"
       justifyContent="space-evenly"
-      minH="100vh"
-      paddingTop={"5rem"}
-      paddingBottom={"3rem"}
       bgColor={
         color === "light" ? "white" : "var(--chakra-colors-chakra-body-bg);"
       }
-      width={"80%"}
+      width={"90%"}
       margin={"0 auto"}
     >
-      <VStack
-        h={"100vh"}
-        alignItems={"HStack-start"}
-        position={"relative"}
-        spacing="10"
-      >
-        <ButtonAtom
-          onClick={() => router.replace("/")}
-          right={0}
-          pos={"relative"}
-          position="relative"
-          variant={"solid"}
-          bg={"gray.400"}
-          w={"100px"}
-        >
-          &larr; Go Home
-        </ButtonAtom>
-        <VStack spacing={10}>
-          <Heading size={"2xl"}>
+      <VStack alignItems={"HStack-start"} position={"relative"} spacing="10">
+        <VStack spacing={4}>
+          <TextAtom fontSize={["40px"]}>
             죄송합니다. 해당 페이지를 찾을 수 없습니다.
-          </Heading>
-          <Heading size={"lg"}>요즘 떠오르는 아이돌들을 살펴보세요.</Heading>
+          </TextAtom>
+          <TextAtom fontSize={"4xl"}>
+            요즘 떠오르는 아이돌들을 살펴보세요.
+          </TextAtom>
           <HStack
-            as={"section"}
+            as={"article"}
             w={"80%"}
             marginTop={"3rem"}
             wrap={"wrap"}
