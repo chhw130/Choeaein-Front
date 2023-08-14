@@ -1,12 +1,8 @@
-import NotFoundPage from "@/app/notFoundPage/NotFoundPage";
+import NotFoundTemplate from "@/component/template/NotFoundTemplate";
 import { getIdolRank } from "@/utils/API/SSGSetting";
 
 export default async function NotFound() {
   const idolRankData = await getIdolRank();
 
-  return (
-    <main>
-      <NotFoundPage idolRankData={idolRankData} />
-    </main>
-  );
+  return <NotFoundTemplate idolRankData={idolRankData} />;
 }
