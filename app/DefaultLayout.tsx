@@ -9,14 +9,17 @@ const DefaultLayout = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <>
-      {true ? (
+      {!isAdminPage ? (
         <>
           <Header />
           {children}
-          {!isAdminPage && <Footer />}
+          <Footer />
         </>
       ) : (
-        <>{children}</>
+        <>
+          <Header />
+          <>{children}</>
+        </>
       )}
     </>
   );

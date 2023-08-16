@@ -2,41 +2,41 @@
 import React, { ReactNode } from "react";
 import {
   Box,
-  Flex,
-  Icon,
   useColorModeValue,
-  FlexProps,
-  HStack,
-  Button,
   useColorMode,
+  useDisclosure,
+  Drawer,
+  DrawerContent,
+  FlexProps,
+  Flex,
+  IconButton,
 } from "@chakra-ui/react";
-import { FiHome, FiTrendingUp, FiCompass } from "react-icons/fi";
-import { IconType } from "react-icons";
-import Link from "next/link";
-import Image from "next/image";
-import logo from "../../../utils/img/logo_main.png";
-import { MoonIcon, SunIcon } from "@chakra-ui/icons";
-import AdimnUserInforSection from "../Section/AdminUserInfoSection";
+import SidebarContent from "@/component/molecules/SidebarContent/SidebarContents";
+import { FiMenu } from "react-icons/fi";
+import MainLogo from "@/component/atoms/Logo/MainLogo";
 
-interface LinkItemProps {
-  name: string;
-  icon: IconType;
-}
-const LinkItems: Array<LinkItemProps> = [
-  { name: "Home", icon: FiHome },
-  { name: "idols", icon: FiTrendingUp },
-  { name: "schedules", icon: FiCompass },
-];
-
-export default function SidebarWithHeader({
-  children,
-}: {
-  children: ReactNode;
-}) {
+const Sidebar = ({ children }: { children: ReactNode }) => {
   const { colorMode } = useColorMode();
+  const { onClose, onOpen, isOpen } = useDisclosure();
   return (
     <Box minH="100vh" bg={useColorModeValue("gray.100", "gray.900")} zIndex="1">
-      <SidebarContent display={{ base: "none", md: "block" }} />
+      <SidebarContent
+        display={{ base: "none", md: "block" }}
+        onClose={onClose}
+      />
+
+      <MobileNav onOpen={onOpen} />
+      <Drawer
+        isOpen={isOpen}
+        onClose={onClose}
+        placement="left"
+        returnFocusOnClose={false}
+        size={"full"}
+      >
+        <DrawerContent>
+          <SidebarContent onClose={onClose} />
+        </DrawerContent>
+      </Drawer>
 
       <Box
         ml={{ base: 0, md: 60 }}
@@ -51,83 +51,41 @@ export default function SidebarWithHeader({
       </Box>
     </Box>
   );
-}
-
-export const SidebarContent = ({ ...rest }) => {
-  const { colorMode, toggleColorMode } = useColorMode();
-
-  return (
-    <Box
-      transition="3s ease"
-      bg={useColorModeValue("white", "gray.900")}
-      borderRight="1px"
-      borderRightColor={useColorModeValue("gray.200", "gray.700")}
-      w={{ base: "full", md: 60 }}
-      pos="fixed"
-      h="full"
-      {...rest}
-    >
-      <Flex h="20" alignItems="center" mx="8" justifyContent="space-between">
-        <HStack>
-          <Image
-            src={logo}
-            width={20}
-            height={20}
-            alt="myfavor"
-            priority={true}
-          />
-        </HStack>
-        <HStack>
-          <Button
-            onClick={toggleColorMode}
-            color={colorMode === "light" ? "black" : "white"}
-          >
-            {colorMode === "light" ? <MoonIcon /> : <SunIcon />}
-          </Button>
-        </HStack>
-      </Flex>
-      <AdimnUserInforSection />
-      {LinkItems.map((link) => (
-        <NavItem key={link.name} link={link.name} icon={link.icon}>
-          {link.name}
-        </NavItem>
-      ))}
-    </Box>
-  );
 };
 
-interface NavItemProps extends FlexProps {
-  icon: IconType;
-  link: string;
+export default Sidebar;
+
+interface MobileProps extends FlexProps {
+  onOpen: () => void;
 }
-const NavItem = ({ icon, children, link, ...rest }: NavItemProps) => {
+
+const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
   return (
-    <Link href={`/admin/${link}`} style={{ textDecoration: "none" }}>
-      <Flex
-        align="center"
-        p="4"
-        mx="4"
-        borderRadius="lg"
-        role="group"
-        cursor="pointer"
-        _hover={{
-          bg: "cyan.400",
-          color: "white",
-        }}
-        {...rest}
-      >
-        {icon && (
-          <Icon
-            mr="4"
-            fontSize="16"
-            _groupHover={{
-              color: "white",
-            }}
-            as={icon}
-          />
-        )}
-        {children}
-      </Flex>
-    </Link>
+    <Flex
+      ml={{ base: 0, md: 60 }}
+      display={{ base: "flex", md: "none" }}
+      position="fixed"
+      width="100%"
+      zIndex={100}
+      px={{ base: 4, md: 4 }}
+      height="65px"
+      alignItems="center"
+      bg={useColorModeValue("white", "gray.900")}
+      borderBottomWidth="1px"
+      borderBottomColor={useColorModeValue("gray.200", "gray.700")}
+      justifyContent={{ base: "space-between", md: "flex-end" }}
+      {...rest}
+    >
+      <IconButton
+        display={{ base: "flex", md: "none" }}
+        onClick={onOpen}
+        variant="outline"
+        aria-label="open menu"
+        icon={<FiMenu />}
+      />
+
+      <MainLogo width={20} height={20} fontSize={[15, 20, 30]} margin="0px" />
+      <Box w={"40px"}></Box>
+    </Flex>
   );
 };

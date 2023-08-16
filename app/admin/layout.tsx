@@ -2,7 +2,7 @@
 import React, { useEffect } from "react";
 import useUser from "@/utils/hook/useUser";
 import { useRouter } from "next/navigation";
-import SidebarWithHeader from "@/component/organisms/SideBar/Sidebar";
+import Sidebar from "@/component/organisms/SideBar/Sidebar";
 
 const AdminLayout = ({ children }: { children: React.ReactNode }) => {
   const { userData, isLoading, isLogin } = useUser();
@@ -19,7 +19,7 @@ const AdminLayout = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <>
-      <SidebarWithHeader>{children}</SidebarWithHeader>
+      <Sidebar>{children}</Sidebar>
     </>
   );
 };
