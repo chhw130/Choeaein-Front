@@ -1,22 +1,11 @@
 "use client";
-import { useQuery } from "@tanstack/react-query";
-import { useMemo } from "react";
-import { useTable, usePagination } from "react-table";
-import {
-  Box,
-  Center,
-  Table,
-  TableContainer,
-  Tbody,
-  Td,
-  Th,
-  Thead,
-  Tr,
-} from "@chakra-ui/react";
-import Image from "next/image";
-import SkeletonUI from "../atoms/Skeleton/SkeletonUI";
-import PageBtn from "../molecules/ButtonGroup/PageBtnGroup";
+import PageBtn from "@/component/molecules/ButtonGroup/PageBtnGroup";
+import IdolListTable from "@/component/molecules/Table/IdolListTable";
 import { MemberType } from "@/utils/interface/interface";
+import { Box } from "@chakra-ui/react";
+import Image from "next/image";
+import React, { useMemo } from "react";
+import { usePagination, useTable } from "react-table";
 
 const IdolList = ({ idolData }: { idolData: MemberType }) => {
   const data = useMemo(() => idolData, [idolData]);
@@ -100,39 +89,13 @@ const IdolList = ({ idolData }: { idolData: MemberType }) => {
 
   return (
     <>
-      <TableContainer>
-        <Table {...getTableProps()}>
-          <Thead overscroll="auto" key={page.id}>
-            {headerGroups.map((headergroup, index) => (
-              <Tr {...headergroup.getHeaderGroupProps()} key={index}>
-                {headergroup.headers.map((column, index) => (
-                  <Th {...column.getHeaderProps()} key={index}>
-                    {column.render("Header")}
-                  </Th>
-                ))}
-              </Tr>
-            ))}
-          </Thead>
-
-          <Tbody {...getTableBodyProps()} textAlign="center" key={page.id}>
-            {page?.map((row: any, index: number) => {
-              prepareRow(row);
-              return (
-                <Tr {...row.getRowProps()} key={index}>
-                  {row.cells.map((cell: any) => {
-                    const { key, ...restCellProps } = cell.getCellProps();
-                    return (
-                      <Td {...restCellProps} key={key}>
-                        {cell.render("Cell")}
-                      </Td>
-                    );
-                  })}
-                </Tr>
-              );
-            })}
-          </Tbody>
-        </Table>
-      </TableContainer>
+      <IdolListTable
+        getTableBodyProps={getTableBodyProps}
+        getTableProps={getTableProps}
+        page={page}
+        headerGroups={headerGroups}
+        prepareRow={prepareRow}
+      />
       <PageBtn
         gotoPage={gotoPage}
         previousPage={previousPage}

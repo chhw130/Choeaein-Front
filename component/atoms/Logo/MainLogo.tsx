@@ -9,12 +9,13 @@ interface MainLogoProps {
   width: number;
   height: number;
   fontSize: number[];
+  margin?: string;
 }
 
-const MainLogo = ({ width, height, fontSize }: MainLogoProps) => {
+const MainLogo = ({ width, height, fontSize, margin }: MainLogoProps) => {
   return (
     <Link href={"/"} prefetch={true} scroll={false}>
-      <HStack margin={"20px"}>
+      <HStack margin={margin ? margin : "20px"}>
         <Image
           src={logo}
           alt="최애돌"

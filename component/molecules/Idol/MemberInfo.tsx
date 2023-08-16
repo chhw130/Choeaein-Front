@@ -1,5 +1,5 @@
 "use client";
-import { Box, Center, Text } from "@chakra-ui/react";
+import { Box, Center } from "@chakra-ui/react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React from "react";
