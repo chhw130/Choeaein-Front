@@ -1,7 +1,8 @@
 import useUser from "@/utils/hook/useUser";
-import { Avatar, Box, Center, Flex, Text, Stack } from "@chakra-ui/react";
+import { Avatar, Box, Center, Flex, Stack } from "@chakra-ui/react";
+import TextAtom from "../../atoms/Text/TextAtom";
 
-export default function UserInform() {
+export default function AdimnUserInforSection() {
   const { userData } = useUser();
 
   return (
@@ -19,8 +20,8 @@ export default function UserInform() {
 
         <Box p={2}>
           <Stack spacing={0} align={"center"}>
-            <Text color={"gray.500"}>{userData?.email}</Text>
-            <Text color={"gray.500"}>({userData?.nickname})</Text>
+            <TextAtom color={"gray.500"}>{userData?.email}</TextAtom>
+            <TextAtom color={"gray.500"}>({userData?.nickname})</TextAtom>
           </Stack>
         </Box>
       </Box>
