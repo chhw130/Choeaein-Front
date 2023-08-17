@@ -1,7 +1,7 @@
 const url = `${process.env.NEXT_PUBLIC_DEPLOY_BASE_URL}/api/v2`;
 
 export const getIdolRank = async () => {
-  const res = await fetch(`${url}/idols/rank/`, { cache: "force-cache" });
+  const res = await fetch(`${url}/idols/rank/`, { cache: "no-cache" });
   return res.json();
 };
 
@@ -35,12 +35,12 @@ export const getIdolMember = async (group: string | null | undefined) => {
 };
 
 export const getIdolMemberAlbum = async (group: string) => {
-  const res = await fetch(`${url}/albums/${group}`, { cache: "force-cache" });
+  const res = await fetch(`${url}/albums/${group}`, { cache: "no-cache" });
   return res.json();
 };
 
 export const getIdolSoloAlbum = async (idol: string) => {
-  const res = await fetch(`${url}/albums/${idol}/`);
+  const res = await fetch(`${url}/albums/${idol}/`, { cache: "no-cache" });
   return res.json();
 };
 
