@@ -10,6 +10,8 @@ import { usePagination, useTable } from "react-table";
 const IdolList = ({ idolData }: { idolData: MemberType }) => {
   const data = useMemo(() => idolData, [idolData]);
 
+  console.log(data);
+
   const COLUMS = [
     {
       Header: "idol",
@@ -40,11 +42,11 @@ const IdolList = ({ idolData }: { idolData: MemberType }) => {
       accessor: "idol_name_kr",
     },
     {
-      Header: "Girl_group",
-      accessor: "Girl_group",
+      Header: "Idol_name_en",
+      accessor: "idol_name_en",
     },
     {
-      Header: "idol_birthday",
+      Header: "Idol_birthday",
       accessor: "idol_birthday",
     },
   ];
