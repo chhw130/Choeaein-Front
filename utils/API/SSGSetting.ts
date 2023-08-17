@@ -1,8 +1,3 @@
-// const url =
-//   process.env.NODE_ENV === "development"
-//     ? `${process.env.NEXT_PUBLIC_DEV_BASE_URL}/api/v2`
-//     : `${process.env.NEXT_PUBLIC_DEPLOY_BASE_URL}/api/v2`;
-
 const url = `${process.env.NEXT_PUBLIC_DEPLOY_BASE_URL}/api/v2`;
 
 export const getIdolRank = async () => {
@@ -40,7 +35,7 @@ export const getIdolMember = async (group: string | null | undefined) => {
 };
 
 export const getIdolMemberAlbum = async (group: string) => {
-  const res = await fetch(`${url}/albums/${group}`);
+  const res = await fetch(`${url}/albums/${group}`, { cache: "force-cache" });
   return res.json();
 };
 
