@@ -1,4 +1,5 @@
 "use client";
+import ButtonAtom from "@/component/atoms/Button/ButtonAtom";
 import TextAtom from "@/component/atoms/Text/TextAtom";
 // import ModifyNicknameModal from "@/UI/Modal/ModifyNicknameModal";
 import useUser from "@/utils/hook/useUser";
@@ -24,7 +25,7 @@ const EditNickname = () => {
           </TextAtom>
           <TextAtom>{userData?.nickname}</TextAtom>
         </HStack>
-        <Button onClick={onOpen}>수정</Button>
+        <ButtonAtom onClick={onOpen}>수정</ButtonAtom>
       </Flex>
     </>
   );

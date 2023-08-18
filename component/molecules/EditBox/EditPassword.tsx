@@ -1,4 +1,5 @@
 "use client";
+import ButtonAtom from "@/component/atoms/Button/ButtonAtom";
 import TextAtom from "@/component/atoms/Text/TextAtom";
 // import ModifyPasswordModal from "@/UI/Modal/ModifyPasswordModal";
 import { Button, Flex, HStack, Text, useDisclosure } from "@chakra-ui/react";
@@ -22,7 +23,7 @@ const EditPassword = () => {
           </TextAtom>
           <TextAtom>***********</TextAtom>
         </HStack>
-        <Button onClick={onOpen}>수정</Button>
+        <ButtonAtom onClick={onOpen}>수정</ButtonAtom>
       </Flex>
     </>
   );

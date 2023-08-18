@@ -14,6 +14,7 @@ import {
 import { getUploadUrl } from "@/utils/API/CSRSetting";
 import TextAtom from "../../atoms/Text/TextAtom";
 import InputAtom from "../../atoms/Input/InputAtom";
+import ButtonAtom from "@/component/atoms/Button/ButtonAtom";
 
 const EditUserImg = () => {
   const { register, handleSubmit } = useForm();
@@ -58,9 +59,9 @@ const EditUserImg = () => {
             opacity={0}
           />
         </Box>
-        <Button type="submit" top={-10}>
+        <ButtonAtom type="submit" top={-10}>
           변경하기
-        </Button>
+        </ButtonAtom>
       </Box>
     </VStack>
   );

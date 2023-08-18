@@ -1,4 +1,4 @@
-import { Box, Card } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import Image from "next/image";
 import React from "react";
 import styles from "./IdolCard.module.scss";
