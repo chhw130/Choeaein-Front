@@ -39,7 +39,7 @@ const RandomScheduleSlider = ({
               padding={["13px", "15px", "20px"]}
               fontSize={["11px", "13px", "15px"]}
               w={["180px", "230px", "280px"]}
-              transition="transform 0.5s"
+              transition="transform 0.3s"
               cursor="pointer"
             >
               <TextAtom>{dateFormat}</TextAtom>
