@@ -1,3 +1,4 @@
+import ButtonAtom from "@/component/atoms/Button/ButtonAtom";
 import TextAtom from "@/component/atoms/Text/TextAtom";
 import { UserData } from "@/utils/interface/interface";
 import { Avatar, Button, Flex, HStack, useDisclosure } from "@chakra-ui/react";
@@ -18,9 +19,9 @@ const EditPick = ({ userData }: { userData: UserData }) => {
           </TextAtom>
           <Avatar size={"xl"} src={userData?.idol_profile} />
         </HStack>
-        <Button margin="auto 0" onClick={onOpen}>
+        <ButtonAtom margin="auto 0" onClick={onOpen}>
           수정
-        </Button>
+        </ButtonAtom>
       </Flex>
     </>
   );
