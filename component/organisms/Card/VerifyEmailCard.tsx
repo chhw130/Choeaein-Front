@@ -14,39 +14,51 @@ import { useMutation } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 import InputAtom from "../../atoms/Input/InputAtom";
 import VerifyEmailCautionArticle from "@/UI/Card/VerifyEmailCautionArticle";
+import { useForm } from "react-hook-form";
 
 const VerifyEmailCard = () => {
   const router = useRouter();
+
+  const { register, handleSubmit } = useForm();
 
   const { mutateAsync: verify } = useMutation((email: object) =>
     verifyEmail(email)
   );
 
-  const verifyEmailHandler = async () => {
-    await verify({
-      email: "527coco@naver.com",
-    });
+  const verifyEmailFormSubmitHandler = async (email: any) => {
+    console.log(email);
+    await verify(email);
   };
 
   return (
     <Card
-      as={"section"}
+      as={"form"}
+      onSubmit={handleSubmit(verifyEmailFormSubmitHandler)}
       maxW={"600px"}
       w={"90%"}
       margin={"auto auto"}
-      h={"70%"}
     >
       <CardHeader></CardHeader>
       <CardBody w={["90%", "80%", "80%"]} margin={"0 auto"}>
         <FormLabel htmlFor="email" fontSize={["13px", "15px", "20px"]}>
           이메일 (ID)
         </FormLabel>
-        <InputGroup size={"md"}>
-          <InputAtom id="email" />
+        <InputGroup>
+          <InputAtom
+            id="email"
+            register={{
+              ...register("email", {
+                required: {
+                  value: true,
+                  message: "필수 정보입니다.",
+                },
+              }),
+            }}
+          />
           <InputRightElement w={"5rem"}>
             <ButtonAtom
+              type="submit"
               fontSize={["13px", "14px", "15px"]}
-              onClick={() => verifyEmailHandler()}
               h="2rem"
             >
               인증하기

@@ -1,0 +1,66 @@
+@charset "UTF-8";
+.listItem {
+  padding: 30px;
+  font-size: 16px;
+  list-style: none;
+}
+
+/* 방송  */
+.broadcast {
+  font-size: 30px;
+  background: #443c68;
+  color: white;
+  border-radius: 5px;
+  padding: 5px;
+  flex-direction: row;
+  align-items: center;
+  display: flex;
+}
+
+/* 발매 */
+.release {
+  font-size: 30px;
+  background: #f16767;
+  color: white;
+  border-radius: 5px;
+  padding: 5px;
+  flex-direction: row;
+  align-items: center;
+  display: flex;
+}
+
+/* 구매 */
+.buy {
+  font-size: 30px;
+  background: #609966;
+  color: white;
+  border-radius: 5px;
+  padding: 5px;
+  flex-direction: row;
+  align-items: center;
+  display: flex;
+}
+
+/* 축하 */
+.congrats {
+  font-size: 30px;
+  background: #e7b10a;
+  color: white;
+  border-radius: 5px;
+  padding: 5px;
+  flex-direction: row;
+  align-items: center;
+  display: flex;
+}
+
+/* 행사 */
+.event {
+  font-size: 30px;
+  background: #537fe7;
+  color: white;
+  border-radius: 5px;
+  padding: 5px;
+  flex-direction: row;
+  align-items: center;
+  display: flex;
+}
