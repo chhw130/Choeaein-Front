@@ -10,16 +10,10 @@ import {
   SoloType,
 } from "@/utils/interface/interface";
 
-const fetchData = async () => {
+export default async function Home() {
   const idolGroupData: IdolGroupType[] = await getIdolGroups();
   const idolSoloData: SoloType[] = await getIdolSolos();
   const randomSchedules: RandomIdolSchedule[] = await getRandomSchedules();
-
-  return { idolGroupData, idolSoloData, randomSchedules };
-};
-
-export default async function Home() {
-  const { idolGroupData, idolSoloData, randomSchedules } = await fetchData();
 
   return (
     <MainTemplate
