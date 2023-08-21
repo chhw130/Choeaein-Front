@@ -339,7 +339,7 @@ const SignUpFormSection = () => {
                 id="pick"
                 fontFamily={"heading"}
                 placeholder="당신의 최애를 알려주세요."
-                {...register}
+                {...register("pick", {})}
               >
                 <IdolOption />
               </Select>
