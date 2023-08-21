@@ -1,0 +1,11 @@
+.groupImg {
+  width: 35%;
+  height: 35%;
+  aspect-ratio: 1/1;
+}
+
+@media (max-width: 767px) {
+  .groupImg {
+    width: 100%;
+  }
+}

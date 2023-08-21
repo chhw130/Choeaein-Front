@@ -8,7 +8,7 @@ import {
   IdolSoloType,
   RandomIdolSchedule,
 } from "@/utils/interface/interface";
-import { Box, Flex } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 
 interface MainTemplateProps {
   idolGroupData: IdolGroupType[];

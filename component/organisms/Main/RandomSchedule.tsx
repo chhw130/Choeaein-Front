@@ -23,7 +23,7 @@ const RandomSchedule = ({ randomSchedules }: RandomScheduleProps) => {
 
   const animation = prefersReducedMotion
     ? undefined
-    : `${loop} 34s linear infinite`;
+    : `${loop} 28s linear infinite`;
 
   return (
     <Box

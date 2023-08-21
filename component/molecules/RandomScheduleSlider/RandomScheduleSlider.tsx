@@ -27,11 +27,11 @@ const RandomScheduleSlider = ({
             as="article"
             key={`${data.pk}-${index}`}
             margin={"0 10px"}
-            transform="transform 0.3s ease"
+            transform="transform 0.1s ease"
             boxShadow="5px 5px 1px 1px rgba(243,97,166,0.2)"
             _hover={{
               transform: "scale(1.1)",
-              transition: "transform 0.3s ease",
+              transition: "transform 0.4s ease",
             }}
             borderRadius={"10px"}
           >
@@ -39,7 +39,7 @@ const RandomScheduleSlider = ({
               padding={["13px", "15px", "20px"]}
               fontSize={["11px", "13px", "15px"]}
               w={["180px", "230px", "280px"]}
-              transition="transform 0.3s"
+              transition="transform 0.8s"
               cursor="pointer"
             >
               <TextAtom>{dateFormat}</TextAtom>
