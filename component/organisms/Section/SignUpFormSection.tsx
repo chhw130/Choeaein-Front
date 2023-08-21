@@ -11,7 +11,7 @@ import {
   useColorMode,
 } from "@chakra-ui/react";
 import { postSignUp } from "@/utils/API/CSRSetting";
-import { useRouter } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { SignUpData } from "@/utils/interface/interface";
 import { useMutation } from "@tanstack/react-query";
 import MainLogo from "@/component/atoms/Logo/MainLogo";
@@ -23,6 +23,9 @@ import IdolOption from "../../atoms/Select/IdolOption";
 import ButtonAtom from "../../atoms/Button/ButtonAtom";
 
 const SignUpFormSection = () => {
+  const params = useParams();
+  const token: string | string[] | undefined = params?.token;
+
   /**회원가입 확인 모달창 */
   const {
     register,
@@ -35,7 +38,7 @@ const SignUpFormSection = () => {
   const { colorMode } = useColorMode();
 
   const { mutateAsync: signUpHandler } = useMutation(
-    (signUpInform: SignUpData) => postSignUp(signUpInform),
+    (signUpInform: SignUpData) => postSignUp(signUpInform, token),
     {
       onSuccess: () => {
         return toast("회원가입에 성공했습니다.", {

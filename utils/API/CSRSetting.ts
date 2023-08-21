@@ -21,9 +21,12 @@ export const verifyEmail = (email: object) =>
   instance.post(`/oauth/signup/step1/`, email).then((res) => res.data);
 
 /**회원가입 */
-export const postSignUp = (signUpInform: any) =>
+export const postSignUp = (
+  signUpInform: any,
+  token: string | string[] | undefined
+) =>
   instance
-    .post(`/oauth/signup/step2/41/EmailVerificationToken/`, signUpInform)
+    .post(`/oauth/signup/step2/${token}/`, signUpInform)
     .then((res) => res.data);
 
 /**로그인 */
