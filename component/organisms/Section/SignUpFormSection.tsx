@@ -64,6 +64,7 @@ const SignUpFormSection = () => {
       phone: data.phone_number,
       pick: Number(data.pick),
     };
+
     await signUpHandler(signUpInform);
   };
 
