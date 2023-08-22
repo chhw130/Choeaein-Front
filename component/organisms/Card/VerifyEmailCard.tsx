@@ -9,31 +9,51 @@ import {
   FormLabel,
   InputGroup,
   InputRightElement,
+  useColorMode,
 } from "@chakra-ui/react";
 import { useMutation } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 import InputAtom from "../../atoms/Input/InputAtom";
 import VerifyEmailCautionArticle from "@/UI/Card/VerifyEmailCautionArticle";
 import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
 
 const VerifyEmailCard = () => {
   const router = useRouter();
 
+  const { colorMode } = useColorMode();
   const { register, handleSubmit } = useForm();
 
-  const { mutateAsync: verify } = useMutation((email: object) =>
-    verifyEmail(email)
+  const { mutateAsync: verifyEmailHandler, isLoading } = useMutation(
+    (email: object) => verifyEmail(email),
+    {
+      onSuccess: () => {
+        toast("이메일 전송이 완료되었습니다.", {
+          type: "success",
+          theme: colorMode,
+          autoClose: 2000,
+          toastId: "verifyEmail",
+        });
+      },
+      onError: () => {
+        toast("이메일 전송에 실패했습니다.", {
+          type: "error",
+          theme: colorMode,
+          autoClose: 2000,
+          toastId: "verfiyEmailErr",
+        });
+      },
+    }
   );
 
-  const verifyEmailFormSubmitHandler = async (email: any) => {
-    console.log(email);
-    await verify(email);
+  const verifyEmailSubmitHandler = async (email: any) => {
+    await verifyEmailHandler(email);
   };
 
   return (
     <Card
       as={"form"}
-      onSubmit={handleSubmit(verifyEmailFormSubmitHandler)}
+      onSubmit={handleSubmit(verifyEmailSubmitHandler)}
       maxW={"600px"}
       w={"90%"}
       margin={"auto auto"}
@@ -60,6 +80,7 @@ const VerifyEmailCard = () => {
               type="submit"
               fontSize={["13px", "14px", "15px"]}
               h="2rem"
+              isLoading={isLoading}
             >
               인증하기
             </ButtonAtom>

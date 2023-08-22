@@ -35,7 +35,7 @@ const SignUpFormSection = () => {
   const router = useRouter();
   const { colorMode } = useColorMode();
 
-  const { mutateAsync: signUpHandler } = useMutation(
+  const { mutateAsync: signUpHandler, isLoading } = useMutation(
     (signUpInform: SignUpData) => postSignUp(signUpInform, token),
     {
       onSuccess: () => {
@@ -353,7 +353,13 @@ const SignUpFormSection = () => {
               >
                 뒤로
               </ButtonAtom>
-              <ButtonAtom w="150px" h="50px" borderRadius="15px" type="submit">
+              <ButtonAtom
+                isLoading={isLoading}
+                w="150px"
+                h="50px"
+                borderRadius="15px"
+                type="submit"
+              >
                 제출
               </ButtonAtom>
             </ButtonGroup>
