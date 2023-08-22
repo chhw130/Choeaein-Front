@@ -2,12 +2,10 @@
 import { useForm } from "react-hook-form";
 import {
   Box,
-  Button,
   ButtonGroup,
   FormControl,
   FormLabel,
   Select,
-  VStack,
   useColorMode,
 } from "@chakra-ui/react";
 import { postSignUp } from "@/utils/API/CSRSetting";
@@ -66,7 +64,6 @@ const SignUpFormSection = () => {
       phone: data.phone_number,
       pick: Number(data.pick),
     };
-
     await signUpHandler(signUpInform);
   };
 
