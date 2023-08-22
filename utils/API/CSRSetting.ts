@@ -17,7 +17,7 @@ export const instance = axios.create({
   withCredentials: true,
 });
 
-export const verifyEmail = (email: object) =>
+export const postVerifyEmail = (email: object) =>
   instance.post(`/oauth/signup/step1/`, email).then((res) => res.data);
 
 /**회원가입 */

@@ -1,6 +1,5 @@
 "use client";
 import ButtonAtom from "@/component/atoms/Button/ButtonAtom";
-import { verifyEmail } from "@/utils/API/CSRSetting";
 import {
   Card,
   CardBody,
@@ -9,44 +8,25 @@ import {
   FormLabel,
   InputGroup,
   InputRightElement,
-  useColorMode,
 } from "@chakra-ui/react";
-import { useMutation } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 import InputAtom from "../../atoms/Input/InputAtom";
 import VerifyEmailCautionArticle from "@/UI/Card/VerifyEmailCautionArticle";
 import { useForm } from "react-hook-form";
-import { toast } from "react-toastify";
+import useVerifyEmail from "@/utils/hook/useVerifyEmail";
+
+interface VerifyEmailType {
+  email: string;
+}
 
 const VerifyEmailCard = () => {
   const router = useRouter();
 
-  const { colorMode } = useColorMode();
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit } = useForm<VerifyEmailType>();
 
-  const { mutateAsync: verifyEmailHandler, isLoading } = useMutation(
-    (email: object) => verifyEmail(email),
-    {
-      onSuccess: () => {
-        toast("이메일 전송이 완료되었습니다.", {
-          type: "success",
-          theme: colorMode,
-          autoClose: 2000,
-          toastId: "verifyEmail",
-        });
-      },
-      onError: () => {
-        toast("이메일 전송에 실패했습니다.", {
-          type: "error",
-          theme: colorMode,
-          autoClose: 2000,
-          toastId: "verfiyEmailErr",
-        });
-      },
-    }
-  );
+  const { verifyEmailHandler, isLoading } = useVerifyEmail();
 
-  const verifyEmailSubmitHandler = async (email: any) => {
+  const verifyEmailSubmitHandler = async (email: VerifyEmailType) => {
     await verifyEmailHandler(email);
   };
 
