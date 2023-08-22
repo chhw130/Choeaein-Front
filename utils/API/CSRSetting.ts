@@ -4,6 +4,8 @@ import axios from "axios";
 import Cookies from "js-cookie";
 import { FindIDFormType } from "@/component/organisms/Section/FindIDFormSection";
 import { ReportPkType } from "@/UI/Modal/ReportRegisterModal";
+import { TokenType } from "@/component/organisms/Section/SignUpFormSection";
+import { SignUpData } from "../interface/interface";
 
 export const instance = axios.create({
   baseURL:
@@ -21,10 +23,7 @@ export const postVerifyEmail = (email: object) =>
   instance.post(`/oauth/signup/step1/`, email).then((res) => res.data);
 
 /**회원가입 */
-export const postSignUp = (
-  signUpInform: any,
-  token: string | string[] | undefined
-) =>
+export const postSignUp = (signUpInform: SignUpData, token: TokenType) =>
   instance
     .post(`/oauth/signup/step2/${token}/`, signUpInform)
     .then((res) => res.data);
