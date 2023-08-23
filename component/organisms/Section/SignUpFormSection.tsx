@@ -6,23 +6,22 @@ import {
   FormControl,
   FormLabel,
   Select,
-  useColorMode,
 } from "@chakra-ui/react";
-import { postSignUp } from "@/utils/API/CSRSetting";
 import { useParams, useRouter } from "next/navigation";
 import { SignUpData } from "@/utils/interface/interface";
-import { useMutation } from "@tanstack/react-query";
 import MainLogo from "@/component/atoms/Logo/MainLogo";
-import { toast } from "react-toastify";
 import Form from "../../molecules/Form/Form";
 import InputAtom from "../../atoms/Input/InputAtom";
 import TextAtom from "../../atoms/Text/TextAtom";
 import IdolOption from "../../atoms/Select/IdolOption";
 import ButtonAtom from "../../atoms/Button/ButtonAtom";
+import useSignUp from "@/utils/hook/useSignUp";
+
+export type TokenType = string | string[] | undefined;
 
 const SignUpFormSection = () => {
   const params = useParams();
-  const token: string | string[] | undefined = params?.token;
+  const token: TokenType = params?.token;
 
   /**회원가입 확인 모달창 */
   const {
@@ -33,21 +32,8 @@ const SignUpFormSection = () => {
   } = useForm<SignUpData>();
 
   const router = useRouter();
-  const { colorMode } = useColorMode();
 
-  const { mutateAsync: signUpHandler } = useMutation(
-    (signUpInform: SignUpData) => postSignUp(signUpInform, token),
-    {
-      onSuccess: () => {
-        return toast("회원가입에 성공했습니다.", {
-          type: "success",
-          theme: colorMode,
-          autoClose: 2000,
-          toastId: "changePassword",
-        });
-      },
-    }
-  );
+  const { signUpHandler, isLoading } = useSignUp(token);
 
   /**회원가입 form 제출시 */
   const onSubmit = async (data: SignUpData) => {
@@ -349,11 +335,17 @@ const SignUpFormSection = () => {
                 h="50px"
                 borderRadius="15px"
                 type="button"
-                onClick={() => router.back()}
+                onClick={() => router.push("/")}
               >
-                뒤로
+                홈으로
               </ButtonAtom>
-              <ButtonAtom w="150px" h="50px" borderRadius="15px" type="submit">
+              <ButtonAtom
+                isLoading={isLoading}
+                w="150px"
+                h="50px"
+                borderRadius="15px"
+                type="submit"
+              >
                 제출
               </ButtonAtom>
             </ButtonGroup>

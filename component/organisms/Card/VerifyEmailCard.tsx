@@ -1,6 +1,5 @@
 "use client";
 import ButtonAtom from "@/component/atoms/Button/ButtonAtom";
-import { verifyEmail } from "@/utils/API/CSRSetting";
 import {
   Card,
   CardBody,
@@ -10,30 +9,31 @@ import {
   InputGroup,
   InputRightElement,
 } from "@chakra-ui/react";
-import { useMutation } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 import InputAtom from "../../atoms/Input/InputAtom";
 import VerifyEmailCautionArticle from "@/UI/Card/VerifyEmailCautionArticle";
 import { useForm } from "react-hook-form";
+import useVerifyEmail from "@/utils/hook/useVerifyEmail";
+
+interface VerifyEmailType {
+  email: string;
+}
 
 const VerifyEmailCard = () => {
   const router = useRouter();
 
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit } = useForm<VerifyEmailType>();
 
-  const { mutateAsync: verify } = useMutation((email: object) =>
-    verifyEmail(email)
-  );
+  const { verifyEmailHandler, isLoading } = useVerifyEmail();
 
-  const verifyEmailFormSubmitHandler = async (email: any) => {
-    console.log(email);
-    await verify(email);
+  const onSubmit = async (email: VerifyEmailType) => {
+    await verifyEmailHandler(email);
   };
 
   return (
     <Card
       as={"form"}
-      onSubmit={handleSubmit(verifyEmailFormSubmitHandler)}
+      onSubmit={handleSubmit(onSubmit)}
       maxW={"600px"}
       w={"90%"}
       margin={"auto auto"}
@@ -60,6 +60,7 @@ const VerifyEmailCard = () => {
               type="submit"
               fontSize={["13px", "14px", "15px"]}
               h="2rem"
+              isLoading={isLoading}
             >
               인증하기
             </ButtonAtom>
