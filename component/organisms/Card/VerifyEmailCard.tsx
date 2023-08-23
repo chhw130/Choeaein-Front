@@ -26,14 +26,14 @@ const VerifyEmailCard = () => {
 
   const { verifyEmailHandler, isLoading } = useVerifyEmail();
 
-  const verifyEmailSubmitHandler = async (email: VerifyEmailType) => {
+  const onSubmit = async (email: VerifyEmailType) => {
     await verifyEmailHandler(email);
   };
 
   return (
     <Card
       as={"form"}
-      onSubmit={handleSubmit(verifyEmailSubmitHandler)}
+      onSubmit={handleSubmit(onSubmit)}
       maxW={"600px"}
       w={"90%"}
       margin={"auto auto"}
