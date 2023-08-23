@@ -25,8 +25,6 @@ const RandomSchedule = ({ randomSchedules }: RandomScheduleProps) => {
     ? undefined
     : `${loop} 28s linear infinite`;
 
-  console.log(randomSchedules);
-
   return (
     <Box
       as="section"
