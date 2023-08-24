@@ -35,6 +35,7 @@ const Idol = ({ data }: IdolProps) => {
           width={300}
           height={300}
           quality={100}
+          loading="lazy"
           className={styles.groupImg}
         />
         <Box
