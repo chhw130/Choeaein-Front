@@ -2,7 +2,6 @@ import React from "react";
 import { PostDataType, ReportForm } from "./ReportModal";
 import { useForm } from "react-hook-form";
 import {
-  Button,
   Container,
   FormLabel,
   HStack,
@@ -14,16 +13,16 @@ import {
   ModalFooter,
   ModalHeader,
   ModalOverlay,
-  useColorMode,
   useRadioGroup,
 } from "@chakra-ui/react";
 import { ModalProps } from "./ViewDayCalendarModal";
-import RadioCard from "../../component/molecules/List/CategoryRadioList";
 import { MypageReportSchedule } from "@/utils/interface/interface";
 import moment from "moment";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { putUserReportDetail } from "@/utils/API/CSRSetting";
-import { toast } from "react-toastify";
+
+import { categoryData } from "@/utils/data/ClientData";
+import CategoryRadioList from "../../component/molecules/List/CategoryRadioList";
+import useReviseReportSchedule from "@/utils/hook/useReviseReportSchedule";
+import ButtonAtom from "@/component/atoms/Button/ButtonAtom";
 
 interface ReportEditModalProps extends ModalProps {
   reportData: MypageReportSchedule;
@@ -35,9 +34,12 @@ const ReportEditModal = ({
   reportData,
 }: ReportEditModalProps) => {
   const { register, handleSubmit } = useForm<ReportForm>();
+  const reportPk = reportData?.pk;
 
-  const categorys = ["broadcast", "release", "buy", "congrats", "행사"];
-  const { colorMode } = useColorMode();
+  const { putUserReportDetailHandler, isLoading } = useReviseReportSchedule(
+    onClose,
+    reportPk
+  );
 
   const {
     getRootProps,
@@ -45,34 +47,14 @@ const ReportEditModal = ({
     value: category,
   } = useRadioGroup({
     name: "category",
-    defaultValue: reportData?.ScheduleType?.type,
+    defaultValue: "방송",
   });
   const group = getRootProps();
 
   const date: string = moment(reportData?.when).format("YYYY-MM-DD");
 
-  const queryClient = useQueryClient();
-
-  const { mutateAsync: putUserReportDetailHandler, isLoading } = useMutation(
-    (formData: PostDataType) => putUserReportDetail(formData, reportData?.pk),
-    {
-      onSuccess: () => {
-        queryClient.invalidateQueries(["userReportSchedule"]);
-        queryClient.invalidateQueries(["myReport"]);
-        onClose();
-        return toast("스케줄이 수정되었습니다.", {
-          type: "success",
-          theme: colorMode,
-          autoClose: 2000,
-          toastId: 1,
-        });
-      },
-    }
-  );
-
   const submitHandler = async (formData: ReportForm) => {
     const data: PostDataType = {
-      // whoes: [reportData?.whoes[0]],
       ScheduleType: category,
       ScheduleTitle: formData.ScheduleTitle,
       location: formData.location,
@@ -92,13 +74,18 @@ const ReportEditModal = ({
             <FormLabel margin={0} htmlFor="category">
               카테고리
             </FormLabel>
-            <HStack {...group}>
-              {categorys.map((value) => {
+            <HStack as={"ul"} {...group}>
+              {categoryData.map((category) => {
+                const value = category.content;
                 const radio = getRadioProps({ value });
                 return (
-                  <RadioCard key={value} {...radio}>
+                  <CategoryRadioList
+                    key={category.pk}
+                    categoryBg={category.bg}
+                    {...radio}
+                  >
                     {value}
-                  </RadioCard>
+                  </CategoryRadioList>
                 );
               })}
             </HStack>
@@ -151,9 +138,9 @@ const ReportEditModal = ({
             />
           </ModalBody>
           <ModalFooter>
-            <Button type="submit" isLoading={isLoading}>
+            <ButtonAtom type="submit" isLoading={isLoading}>
               제보하기
-            </Button>
+            </ButtonAtom>
           </ModalFooter>
         </Container>
       </ModalContent>
