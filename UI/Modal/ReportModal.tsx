@@ -22,6 +22,7 @@ import { useMutation } from "@tanstack/react-query";
 import { postUserReportSchedule } from "@/utils/API/CSRSetting";
 import { ChoeIdolType } from "@/utils/interface/interface";
 import { toast } from "react-toastify";
+import { categoryData } from "@/utils/data/ClientData";
 
 interface ReportModalProps extends ModalProps {
   idolData: ChoeIdolType;
@@ -36,14 +37,13 @@ export interface PostDataType extends ReportForm {
   ScheduleType: string | number;
 }
 
-const ReportModal = ({ isOpen, onClose, idolData }: ReportModalProps) => {
+const ReportModal = ({ isOpen, onClose }: ReportModalProps) => {
   const { register, handleSubmit } = useForm<ReportForm>();
-  const categorys = ["broadcast", "event", "release", "buy", "congrats"];
   const { colorMode } = useColorMode();
 
   const { getRootProps, getRadioProps, value } = useRadioGroup({
     name: "category",
-    defaultValue: "broadcast",
+    defaultValue: "방송",
   });
   const group = getRootProps();
 
@@ -91,10 +91,15 @@ const ReportModal = ({ isOpen, onClose, idolData }: ReportModalProps) => {
               카테고리
             </FormLabel>
             <HStack {...group}>
-              {categorys.map((value) => {
+              {categoryData.map((category) => {
+                const value = category.content;
                 const radio = getRadioProps({ value });
                 return (
-                  <RadioCard key={value} {...radio}>
+                  <RadioCard
+                    key={category.pk}
+                    {...radio}
+                    categoryBg={category.bg}
+                  >
                     {value}
                   </RadioCard>
                 );

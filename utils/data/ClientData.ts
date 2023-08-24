@@ -61,11 +61,31 @@ export const categoryData = [
     category: "broadcast",
     content: "방송",
     icon: faBroadcastTower,
+    bg: "#B677FF",
   },
-  { pk: 2, category: "event", content: "행사", icon: faCalendarCheck },
-  { pk: 3, category: "release", content: "발매", icon: faCompactDisc },
-  { pk: 4, category: "congrats", content: "축하", icon: faGift },
-  { pk: 5, category: "buy", content: "구매", icon: faStore },
+  {
+    pk: 2,
+    category: "event",
+    content: "행사",
+    icon: faCalendarCheck,
+    bg: "#537fe7",
+  },
+  {
+    pk: 3,
+    category: "release",
+    content: "발매",
+    icon: faCompactDisc,
+    bg: "#f16767",
+  },
+  {
+    pk: 4,
+    category: "congrats",
+    content: "축하",
+    icon: faGift,
+
+    bg: "#e7b10a",
+  },
+  { pk: 5, category: "buy", content: "구매", icon: faStore, bg: "#609966" },
 ];
 
 export const categoryPickData = [

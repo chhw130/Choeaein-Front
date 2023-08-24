@@ -6,7 +6,7 @@ import {
   ChoeIdolType,
   IdolDateScheduleType,
 } from "@/utils/interface/interface";
-import DateScheduleCard from "@/UI/Card/DateScheduleCard";
+import ComingScheduleList from "@/component/molecules/List/ComingScheduleList";
 
 interface ComingScheduleProps {
   idolData: ChoeIdolType;
@@ -24,7 +24,7 @@ const ComingScheduleSection = ({ idolData }: ComingScheduleProps) => {
       </Text>
       <VStack margin={10} width={"100%"}>
         {data.map((data: IdolDateScheduleType, index: string) => (
-          <DateScheduleCard key={index} idolDateSchedule={data} />
+          <ComingScheduleList key={index} idolDateSchedule={data} />
         ))}
       </VStack>
     </Center>

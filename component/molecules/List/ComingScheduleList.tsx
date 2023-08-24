@@ -1,16 +1,16 @@
 import { IdolDateScheduleType } from "@/utils/interface/interface";
 import { Card, CardBody, Text, useDisclosure } from "@chakra-ui/react";
 import React from "react";
-import ScheduleDetailModal from "../Modal/ScheduleDetailModal";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { icon } from "@/utils/data/ClientData";
+import ScheduleDetailModal from "@/UI/Modal/ScheduleDetailModal";
 
 interface DateScheduleCardProps {
   idolDateSchedule: IdolDateScheduleType;
 }
 
-const DateScheduleCard = ({ idolDateSchedule }: DateScheduleCardProps) => {
+const ComingScheduleList = ({ idolDateSchedule }: DateScheduleCardProps) => {
   const {
     isOpen: isOpenScheduleDetail,
     onClose: onCloseScheduleDetail,
@@ -45,4 +45,4 @@ const DateScheduleCard = ({ idolDateSchedule }: DateScheduleCardProps) => {
   );
 };
 
-export default DateScheduleCard;
+export default ComingScheduleList;

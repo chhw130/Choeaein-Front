@@ -1,9 +1,12 @@
-import { Box, useRadio } from "@chakra-ui/react";
+import { Box, RadioProps, useRadio } from "@chakra-ui/react";
 import React from "react";
 
-const RadioCard = (props: any) => {
-  const { getInputProps, getRadioProps } = useRadio(props);
+interface RadioListProps extends RadioProps {
+  categoryBg: string;
+}
 
+const RadioCard = (props: RadioListProps) => {
+  const { getInputProps, getRadioProps } = useRadio(props);
   const input = getInputProps();
   const checkbox = getRadioProps();
 
@@ -17,7 +20,7 @@ const RadioCard = (props: any) => {
         borderRadius="md"
         boxShadow="md"
         _checked={{
-          bg: "orange.500",
+          bg: props.categoryBg,
         }}
         _focus={{
           boxShadow: "outline",
