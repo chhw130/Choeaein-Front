@@ -5,13 +5,13 @@ interface RadioListProps extends RadioProps {
   categoryBg: string;
 }
 
-const RadioCard = (props: RadioListProps) => {
+const CategoryRadioList = (props: RadioListProps) => {
   const { getInputProps, getRadioProps } = useRadio(props);
   const input = getInputProps();
   const checkbox = getRadioProps();
 
   return (
-    <Box as="label" marginBottom={3}>
+    <Box as="li" listStyleType={"none"} marginBottom={3}>
       <input {...input} />
       <Box
         {...checkbox}
@@ -35,4 +35,4 @@ const RadioCard = (props: RadioListProps) => {
   );
 };
 
-export default RadioCard;
+export default CategoryRadioList;

@@ -17,12 +17,12 @@ import {
 import React from "react";
 import { useForm } from "react-hook-form";
 import { ModalProps } from "./ViewDayCalendarModal";
-import RadioCard from "../Card/RadioCard";
 import { useMutation } from "@tanstack/react-query";
 import { postUserReportSchedule } from "@/utils/API/CSRSetting";
 import { ChoeIdolType } from "@/utils/interface/interface";
 import { toast } from "react-toastify";
 import { categoryData } from "@/utils/data/ClientData";
+import CategoryRadioList from "../../component/molecules/List/CategoryRadioList";
 
 interface ReportModalProps extends ModalProps {
   idolData: ChoeIdolType;
@@ -90,18 +90,18 @@ const ReportModal = ({ isOpen, onClose }: ReportModalProps) => {
             <FormLabel margin={0} htmlFor="category">
               카테고리
             </FormLabel>
-            <HStack {...group}>
+            <HStack as={"ul"} {...group}>
               {categoryData.map((category) => {
                 const value = category.content;
                 const radio = getRadioProps({ value });
                 return (
-                  <RadioCard
+                  <CategoryRadioList
                     key={category.pk}
                     {...radio}
                     categoryBg={category.bg}
                   >
                     {value}
-                  </RadioCard>
+                  </CategoryRadioList>
                 );
               })}
             </HStack>

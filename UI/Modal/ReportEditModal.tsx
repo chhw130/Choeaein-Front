@@ -18,7 +18,7 @@ import {
   useRadioGroup,
 } from "@chakra-ui/react";
 import { ModalProps } from "./ViewDayCalendarModal";
-import RadioCard from "../Card/RadioCard";
+import RadioCard from "../../component/molecules/List/CategoryRadioList";
 import { MypageReportSchedule } from "@/utils/interface/interface";
 import moment from "moment";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
