@@ -11,7 +11,6 @@ import {
   ModalFooter,
   ModalHeader,
   ModalOverlay,
-  useColorMode,
   useRadioGroup,
 } from "@chakra-ui/react";
 import React from "react";

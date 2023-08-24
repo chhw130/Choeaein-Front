@@ -24,6 +24,8 @@ import moment from "moment";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { putUserReportDetail } from "@/utils/API/CSRSetting";
 import { toast } from "react-toastify";
+import { categoryData } from "@/utils/data/ClientData";
+import CategoryRadioList from "../../component/molecules/List/CategoryRadioList";
 
 interface ReportEditModalProps extends ModalProps {
   reportData: MypageReportSchedule;
@@ -36,7 +38,6 @@ const ReportEditModal = ({
 }: ReportEditModalProps) => {
   const { register, handleSubmit } = useForm<ReportForm>();
 
-  const categorys = ["broadcast", "release", "buy", "congrats", "행사"];
   const { colorMode } = useColorMode();
 
   const {
@@ -45,7 +46,7 @@ const ReportEditModal = ({
     value: category,
   } = useRadioGroup({
     name: "category",
-    defaultValue: reportData?.ScheduleType?.type,
+    defaultValue: "방송",
   });
   const group = getRootProps();
 
@@ -72,7 +73,6 @@ const ReportEditModal = ({
 
   const submitHandler = async (formData: ReportForm) => {
     const data: PostDataType = {
-      // whoes: [reportData?.whoes[0]],
       ScheduleType: category,
       ScheduleTitle: formData.ScheduleTitle,
       location: formData.location,
@@ -92,13 +92,18 @@ const ReportEditModal = ({
             <FormLabel margin={0} htmlFor="category">
               카테고리
             </FormLabel>
-            <HStack {...group}>
-              {categorys.map((value) => {
+            <HStack as={"ul"} {...group}>
+              {categoryData.map((category) => {
+                const value = category.content;
                 const radio = getRadioProps({ value });
                 return (
-                  <RadioCard key={value} {...radio}>
+                  <CategoryRadioList
+                    key={category.pk}
+                    categoryBg={category.bg}
+                    {...radio}
+                  >
                     {value}
-                  </RadioCard>
+                  </CategoryRadioList>
                 );
               })}
             </HStack>
