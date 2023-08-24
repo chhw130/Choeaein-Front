@@ -9,9 +9,9 @@ import {
 import React from "react";
 import { IdolDateScheduleType } from "@/utils/interface/interface";
 import moment from "moment";
-import DateScheduleCard from "../Card/DateScheduleCard";
 import ModalOrganism from "@/component/organisms/Modal/ModalOrganism";
 import TextAtom from "@/component/atoms/Text/TextAtom";
+import ComingScheduleList from "@/component/molecules/List/ComingScheduleList";
 
 export interface ModalProps {
   isOpen: boolean;
@@ -47,7 +47,7 @@ const ViewDayCalendarModal = ({
                 <>
                   {idolDateSchedules?.map(
                     (idolDateSchedule: IdolDateScheduleType) => (
-                      <DateScheduleCard
+                      <ComingScheduleList
                         key={idolDateSchedule.pk}
                         idolDateSchedule={idolDateSchedule}
                       />

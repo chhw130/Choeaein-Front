@@ -1,7 +1,7 @@
 import { Box } from "@chakra-ui/react";
 import Image from "next/image";
 import React from "react";
-import styles from "./IdolCard.module.scss";
+import styles from "./Idol.module.scss";
 import { IdolGroupType } from "@/utils/interface/interface";
 import Link from "next/link";
 import TextAtom from "@/component/atoms/Text/TextAtom";
@@ -35,6 +35,7 @@ const Idol = ({ data }: IdolProps) => {
           width={300}
           height={300}
           quality={100}
+          loading="lazy"
           className={styles.groupImg}
         />
         <Box

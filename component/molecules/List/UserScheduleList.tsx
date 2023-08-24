@@ -8,7 +8,7 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 import React from "react";
-import UserScheduleStatusModal from "../Modal/UserScheduleStatusModal";
+import UserScheduleStatusModal from "../../../UI/Modal/UserScheduleStatusModal";
 import { icon } from "@/utils/data/ClientData";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import TextAtom from "@/component/atoms/Text/TextAtom";
@@ -17,7 +17,7 @@ interface ScheduleCardProps {
   userReport: MypageReportSchedule;
 }
 
-const UserScheduleCard = ({ userReport }: ScheduleCardProps) => {
+const UserScheduleList = ({ userReport }: ScheduleCardProps) => {
   const { onClose, onOpen, isOpen } = useDisclosure();
 
   const category = userReport?.ScheduleType?.type;
@@ -33,6 +33,7 @@ const UserScheduleCard = ({ userReport }: ScheduleCardProps) => {
       />
       <Box
         cursor={"pointer"}
+        as="li"
         w={["100%", "80%", "80%"]}
         padding={"20px"}
         margin={"0 auto"}
@@ -54,4 +55,4 @@ const UserScheduleCard = ({ userReport }: ScheduleCardProps) => {
   );
 };
 
-export default UserScheduleCard;
+export default UserScheduleList;

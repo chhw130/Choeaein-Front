@@ -1,6 +1,6 @@
 "use client";
 
-import UserScheduleCard from "@/UI/Card/UserScheduleCard";
+import UserScheduleList from "@/component/molecules/List/UserScheduleList";
 import TextAtom from "@/component/atoms/Text/TextAtom";
 import EditNickname from "@/component/molecules/EditBox/EditNickname";
 import EditPassword from "@/component/molecules/EditBox/EditPassword";
@@ -59,11 +59,11 @@ const EditUserTabs = () => {
           </VStack>
         </TabPanel>
         <TabPanel>
-          <Box h={"60vh"} as="article" alignItems={"center"}>
+          <Box h={"60vh"} as="ul" listStyleType={"none"} alignItems={"center"}>
             {!isLoading ? (
               userReportData.map((userReport: MypageReportSchedule) => {
                 return (
-                  <UserScheduleCard
+                  <UserScheduleList
                     userReport={userReport}
                     key={userReport.pk}
                   />

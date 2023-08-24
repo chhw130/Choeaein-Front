@@ -11,7 +11,7 @@ import {
 } from "@chakra-ui/react";
 import { useRouter } from "next/navigation";
 import InputAtom from "../../atoms/Input/InputAtom";
-import VerifyEmailCautionArticle from "@/UI/Card/VerifyEmailCautionArticle";
+import VerifyEmailCautionArticle from "@/component/organisms/Article/VerifyEmailCautionArticle";
 import { useForm } from "react-hook-form";
 import useVerifyEmail from "@/utils/hook/useVerifyEmail";
 
