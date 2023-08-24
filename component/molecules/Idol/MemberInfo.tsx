@@ -3,7 +3,7 @@ import { Box, Center } from "@chakra-ui/react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React from "react";
-import styles from "./IdolCard.module.scss";
+import styles from "./Idol.module.scss";
 import { GroupMember } from "@/utils/interface/interface";
 import TextAtom from "@/component/atoms/Text/TextAtom";
 
