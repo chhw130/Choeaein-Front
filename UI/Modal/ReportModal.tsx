@@ -17,12 +17,10 @@ import {
 import React from "react";
 import { useForm } from "react-hook-form";
 import { ModalProps } from "./ViewDayCalendarModal";
-import { useMutation } from "@tanstack/react-query";
-import { postUserReportSchedule } from "@/utils/API/CSRSetting";
 import { ChoeIdolType } from "@/utils/interface/interface";
-import { toast } from "react-toastify";
 import { categoryData } from "@/utils/data/ClientData";
 import CategoryRadioList from "../../component/molecules/List/CategoryRadioList";
+import useReportSchedule from "@/utils/hook/useReportSchedule";
 
 interface ReportModalProps extends ModalProps {
   idolData: ChoeIdolType;
@@ -39,34 +37,13 @@ export interface PostDataType extends ReportForm {
 
 const ReportModal = ({ isOpen, onClose }: ReportModalProps) => {
   const { register, handleSubmit } = useForm<ReportForm>();
-  const { colorMode } = useColorMode();
+  const { reportScheduleHandler, isLoading } = useReportSchedule(onClose);
 
   const { getRootProps, getRadioProps, value } = useRadioGroup({
     name: "category",
     defaultValue: "방송",
   });
   const group = getRootProps();
-
-  const { mutateAsync: reportScheduleHandler } = useMutation(
-    (data: PostDataType) => postUserReportSchedule(data),
-    {
-      onSuccess: () => {
-        onClose();
-        return toast("일정이 제보되었습니다.", {
-          type: "success",
-          theme: colorMode,
-          toastId: "report",
-        });
-      },
-      onError: () => {
-        return toast("잠시후 다시 시도해주세요.", {
-          type: "error",
-          theme: colorMode,
-          toastId: "report",
-        });
-      },
-    }
-  );
 
   const submitHandler = async (formData: ReportForm) => {
     const data: PostDataType = {
@@ -151,7 +128,9 @@ const ReportModal = ({ isOpen, onClose }: ReportModalProps) => {
             />
           </ModalBody>
           <ModalFooter>
-            <Button type="submit">제보하기</Button>
+            <Button isLoading={isLoading} type="submit">
+              제보하기
+            </Button>
           </ModalFooter>
         </Container>
       </ModalContent>
