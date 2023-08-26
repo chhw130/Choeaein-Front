@@ -69,7 +69,11 @@ const IdolSection = ({ idolGroupData, idolSoloData }: IdolSectionProps) => {
                 justifyContent="space-around"
               >
                 {idolGroupData?.map((data: IdolGroupType) => (
-                  <Idol data={data} key={data.pk} />
+                  <Idol
+                    key={data.pk}
+                    groupname={data.groupname}
+                    group_profile={data.group_profile}
+                  />
                 ))}
               </Flex>
             </TabPanel>
@@ -80,7 +84,12 @@ const IdolSection = ({ idolGroupData, idolSoloData }: IdolSectionProps) => {
                 justifyContent="space-around"
               >
                 {idolSoloData?.map((data: IdolSoloType) => (
-                  <Idol data={data} key={data.pk} />
+                  <Idol
+                    key={data.pk}
+                    idol_name_en={data.idol_name_en}
+                    idol_name_kr={data.idol_name_kr}
+                    solo_profile={data.solo_profile}
+                  />
                 ))}
               </Flex>
             </TabPanel>
