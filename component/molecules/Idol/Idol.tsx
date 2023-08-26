@@ -28,7 +28,7 @@ const Idol = ({ data }: IdolProps) => {
       bg={"transparent"}
       shadow={"none"}
     >
-      <Link href={url}>
+      <a href={url}>
         <Image
           src={data?.group_profile || data?.solo_profile || data?.idol_profile}
           alt="아티스트 이미지"
@@ -57,7 +57,7 @@ const Idol = ({ data }: IdolProps) => {
         >
           <TextAtom>자세히 보러가기</TextAtom>
         </Box>
-      </Link>
+      </a>
       <TextAtom
         paddingTop={"20px"}
         margin={1}
