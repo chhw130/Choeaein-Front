@@ -2,20 +2,27 @@ import { Box } from "@chakra-ui/react";
 import Image from "next/image";
 import React from "react";
 import styles from "./Idol.module.scss";
-import { IdolGroupType } from "@/utils/interface/interface";
-import Link from "next/link";
 import TextAtom from "@/component/atoms/Text/TextAtom";
 
 interface IdolProps {
-  data: IdolGroupType | any;
+  groupname?: string;
+  idol_name_en?: string;
+  group_profile?: string;
+  solo_profile?: string;
+  idol_name_kr?: string;
 }
 
-const Idol = ({ data }: IdolProps) => {
-  const idol = data.groupname || data.idol_name_en;
+const Idol = ({
+  groupname,
+  idol_name_en,
+  idol_name_kr,
+  solo_profile,
+  group_profile,
+}: IdolProps) => {
+  const idol = groupname || idol_name_en;
+  const idolProfile = group_profile || solo_profile;
 
-  const url = data.groupname
-    ? `/groupmember?group=${idol}`
-    : `/solo?idol=${idol}`;
+  const url = groupname ? `/groupmember?group=${idol}` : `/solo?idol=${idol}`;
 
   return (
     <Box
@@ -28,16 +35,18 @@ const Idol = ({ data }: IdolProps) => {
       bg={"transparent"}
       shadow={"none"}
     >
-      <a href={url}>
-        <Image
-          src={data?.group_profile || data?.solo_profile || data?.idol_profile}
-          alt="아티스트 이미지"
-          width={300}
-          height={300}
-          quality={100}
-          loading="lazy"
-          className={styles.groupImg}
-        />
+      <Box as="a" href={url}>
+        {idolProfile && (
+          <Image
+            src={idolProfile}
+            alt="아티스트 이미지"
+            width={300}
+            height={300}
+            quality={100}
+            loading="lazy"
+            className={styles.groupImg}
+          />
+        )}
         <Box
           className={styles.textBox}
           pos={"absolute"}
@@ -57,7 +66,7 @@ const Idol = ({ data }: IdolProps) => {
         >
           <TextAtom>자세히 보러가기</TextAtom>
         </Box>
-      </a>
+      </Box>
       <TextAtom
         paddingTop={"20px"}
         margin={1}
@@ -65,7 +74,7 @@ const Idol = ({ data }: IdolProps) => {
         letterSpacing="-0.19px"
         cursor={"pointer"}
       >
-        {data.idol_name_kr || data.groupname}
+        {idol_name_kr || groupname}
       </TextAtom>
       <TextAtom
         margin={0}
@@ -73,7 +82,7 @@ const Idol = ({ data }: IdolProps) => {
         letterSpacing="-0.19px"
         color={"#888888"}
       >
-        {data.idol_name_en}
+        {idol_name_en}
       </TextAtom>
     </Box>
   );
