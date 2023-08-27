@@ -5,6 +5,7 @@ import React from "react";
 import styles from "./Idol.module.scss";
 import { GroupMember } from "@/utils/interface/interface";
 import TextAtom from "@/component/atoms/Text/TextAtom";
+import { imgPlaceholder } from "@/utils/data/ClientData";
 
 interface IdolCardProps {
   data: GroupMember;
@@ -27,6 +28,8 @@ const MemberInfo = ({ data }: IdolCardProps) => {
             height={300}
             loading="lazy"
             className={styles.groupImg}
+            placeholder="blur"
+            blurDataURL={imgPlaceholder}
           />
           <Center
             className={styles.textBox}

@@ -1,8 +1,9 @@
 import { Box } from "@chakra-ui/react";
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Idol.module.scss";
 import TextAtom from "@/component/atoms/Text/TextAtom";
+import { imgPlaceholder } from "@/utils/data/ClientData";
 
 interface IdolProps {
   groupname?: string;
@@ -20,7 +21,7 @@ const Idol = ({
   group_profile,
 }: IdolProps) => {
   const idol = groupname || idol_name_en;
-  const idolProfile = group_profile || solo_profile;
+  const idolProfile: any = group_profile || solo_profile;
 
   const url = groupname ? `/groupmember?group=${idol}` : `/solo?idol=${idol}`;
 
@@ -45,6 +46,8 @@ const Idol = ({
             quality={100}
             loading="lazy"
             className={styles.groupImg}
+            placeholder="blur"
+            blurDataURL={imgPlaceholder}
           />
         )}
         <Box
