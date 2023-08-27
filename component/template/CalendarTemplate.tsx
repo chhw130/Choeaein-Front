@@ -1,17 +1,11 @@
 "use client";
 import React from "react";
-import dynamic from "next/dynamic";
 import { ChoeIdolType } from "@/utils/interface/interface";
 import { VStack } from "@chakra-ui/react";
 import useUser from "@/utils/hook/useUser";
 import CalendarReportSection from "../molecules/ButtonGroup/CalendarReportSection";
-
-const CalendarSection = dynamic(
-  () => import("../organisms/Section/CalendarSection")
-);
-const ComingScheduleSection = dynamic(
-  () => import("../organisms/Section/ComingScheduleSection")
-);
+import CalendarSection from "../organisms/Section/CalendarSection";
+import ComingScheduleSection from "../organisms/Section/ComingScheduleSection";
 
 const CalendarTemplate = ({ idolData }: { idolData: ChoeIdolType }) => {
   const { userData } = useUser();

@@ -1,7 +1,6 @@
 "use client";
 import { Box, Center } from "@chakra-ui/react";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
 import React from "react";
 import styles from "./Idol.module.scss";
 import { GroupMember } from "@/utils/interface/interface";
@@ -12,8 +11,6 @@ interface IdolCardProps {
 }
 
 const MemberInfo = ({ data }: IdolCardProps) => {
-  const router = useRouter();
-
   return (
     <>
       <Box
@@ -21,34 +18,36 @@ const MemberInfo = ({ data }: IdolCardProps) => {
         w={["40%", "30%", "20%"]}
         className={styles.idolBox}
         pos={"relative"}
-        onClick={() => router.push(`/calendar?idol=${data.idol_name_en}`)}
       >
-        <Image
-          src={data?.idol_profile}
-          alt="아티스트 이미지"
-          width={300}
-          height={300}
-          loading="lazy"
-          className={styles.groupImg}
-        />
-        <Center
-          className={styles.textBox}
-          pos={"absolute"}
-          top={0}
-          aspectRatio={1 / 1}
-          visibility={"hidden"}
-          width={"100%"}
-          justifyContent={"center"}
-          display={"flex"}
-          flexDir={"column"}
-          alignItems={"center"}
-          borderRadius={"20%"}
-          fontSize={"1.2rem"}
-          cursor={"pointer"}
-          color={"white"}
-        >
-          <TextAtom>스케줄 보러가기</TextAtom>
-        </Center>
+        <Box as="a" href={`/calendar?idol=${data.idol_name_en}`}>
+          <Image
+            src={data?.idol_profile}
+            alt="아티스트 이미지"
+            width={300}
+            height={300}
+            loading="lazy"
+            className={styles.groupImg}
+          />
+          <Center
+            className={styles.textBox}
+            pos={"absolute"}
+            top={0}
+            aspectRatio={1 / 1}
+            visibility={"hidden"}
+            width={"100%"}
+            justifyContent={"center"}
+            display={"flex"}
+            flexDir={"column"}
+            alignItems={"center"}
+            borderRadius={"20%"}
+            fontSize={"1.2rem"}
+            cursor={"pointer"}
+            color={"white"}
+          >
+            <TextAtom>스케줄 보러가기</TextAtom>
+          </Center>
+        </Box>
+
         <TextAtom
           paddingTop={"10px"}
           margin={0}
