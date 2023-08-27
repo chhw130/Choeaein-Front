@@ -9,6 +9,7 @@ import { albumType } from "@/utils/interface/interface";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCompactDisc } from "@fortawesome/free-solid-svg-icons";
 import TextAtom from "@/component/atoms/Text/TextAtom";
+import { imgPlaceholder } from "@/utils/data/ClientData";
 
 interface AlbumCaruoselProps {
   albumData: albumType[];
@@ -19,6 +20,7 @@ const AlbumCarousel = ({ albumData }: AlbumCaruoselProps) => {
 
   const settings = {
     dots: true,
+    infinite: false,
     speed: 400,
     slidesToShow: 3,
     slidesToScroll: 3,
@@ -43,6 +45,8 @@ const AlbumCarousel = ({ albumData }: AlbumCaruoselProps) => {
                   width={380}
                   height={380}
                   priority={true}
+                  placeholder="blur"
+                  blurDataURL={imgPlaceholder}
                 />
               </Tooltip>
             </Box>
