@@ -108,7 +108,7 @@ export const getUpcomingSchedule = (idol: string) =>
 export const getUploadUrl = async (img: any) => {
   let resData: any = "";
   await instance
-    .post(`/media/photos/get-url/`, img.file)
+    .post(`/medias/photos/get-url/`, img.file)
     .then((data) => {
       resData = uploadImg(data, img);
       return resData;
@@ -134,8 +134,8 @@ export const uploadImg = async (data: any, img: any) => {
       withCredentials: false,
     })
     .then((res) => {
-      resData = res.data.result;
-      return res.data.result;
+      resData = res.data.result.variants[0];
+      return postProfileImg(resData);
     });
 
   return resData;
@@ -143,6 +143,7 @@ export const uploadImg = async (data: any, img: any) => {
 
 /**유저 이미지를 넣은 url post 하기 */
 export const postProfileImg = async (profileImg: any) => {
+  console.log(profileImg);
   await instance
     .put(`/users/mypage/`, profileImg, {
       withCredentials: true,
