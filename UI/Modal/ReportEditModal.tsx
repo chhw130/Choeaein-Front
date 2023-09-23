@@ -54,12 +54,17 @@ const ReportEditModal = ({
   const date: string = moment(reportData?.when).format("YYYY-MM-DD");
 
   const submitHandler = async (formData: ReportForm) => {
+    const ScheduleType = categoryData.find(
+      (cate) => cate.content === category
+    )?.category;
+
     const data: PostDataType = {
-      ScheduleType: category,
+      ScheduleType,
       ScheduleTitle: formData.ScheduleTitle,
       location: formData.location,
       when: formData.when,
     };
+
     await putUserReportDetailHandler(data);
   };
 
@@ -74,7 +79,7 @@ const ReportEditModal = ({
             <FormLabel margin={0} htmlFor="category">
               카테고리
             </FormLabel>
-            <HStack as={"ul"} {...group}>
+            <HStack {...group}>
               {categoryData.map((category) => {
                 const value = category.content;
                 const radio = getRadioProps({ value });
