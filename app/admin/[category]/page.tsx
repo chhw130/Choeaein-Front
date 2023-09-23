@@ -1,4 +1,3 @@
-"use client";
 import React from "react";
 import { getIdolList } from "@/utils/API/SSGSetting";
 import { MemberType } from "@/utils/interface/interface";

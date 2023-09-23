@@ -31,22 +31,29 @@ export interface ReportForm {
 }
 
 export interface PostDataType extends ReportForm {
-  ScheduleType: string | number;
+  ScheduleType: string | undefined;
 }
 
 const ReportModal = ({ isOpen, onClose }: ReportModalProps) => {
   const { register, handleSubmit } = useForm<ReportForm>();
   const { reportScheduleHandler, isLoading } = useReportSchedule(onClose);
 
-  const { getRootProps, getRadioProps, value } = useRadioGroup({
+  const {
+    getRootProps,
+    getRadioProps,
+    value: category,
+  } = useRadioGroup({
     name: "category",
     defaultValue: "방송",
   });
   const group = getRootProps();
 
   const submitHandler = async (formData: ReportForm) => {
+    const ScheduleType = categoryData.find(
+      (cate) => cate.content === category
+    )?.category;
     const data: PostDataType = {
-      ScheduleType: value,
+      ScheduleType,
       ScheduleTitle: formData.ScheduleTitle,
       location: formData.location,
       when: formData.when,

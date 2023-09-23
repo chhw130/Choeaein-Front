@@ -11,7 +11,7 @@ const CategoryRadioList = (props: RadioListProps) => {
   const checkbox = getRadioProps();
 
   return (
-    <Box as="li" listStyleType={"none"} marginBottom={3}>
+    <Box as="label" listStyleType={"none"} marginBottom={3}>
       <input {...input} />
       <Box
         {...checkbox}
