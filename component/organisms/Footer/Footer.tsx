@@ -1,7 +1,7 @@
 "use client";
 import FooterLogo from "@/component/atoms/Logo/FooterLogo";
 import TextAtom from "@/component/atoms/Text/TextAtom";
-import { Box, Text, VStack, useColorMode } from "@chakra-ui/react";
+import { VStack, useColorMode } from "@chakra-ui/react";
 
 const Footer = () => {
   const { colorMode } = useColorMode();
@@ -15,8 +15,6 @@ const Footer = () => {
       }
       w="100%"
       h={"350px"}
-      position={"absolute"}
-      bottom={0}
       spacing={2}
       alignItems="flex-start"
     >
