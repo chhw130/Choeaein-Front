@@ -15,6 +15,8 @@ const Footer = () => {
       }
       w="100%"
       h={"350px"}
+      position={"absolute"}
+      bottom={0}
       spacing={2}
       alignItems="flex-start"
     >
