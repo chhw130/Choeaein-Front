@@ -22,7 +22,7 @@ const IdolSection = ({ idolGroupData, idolSoloData }: IdolSectionProps) => {
   return (
     <>
       <Box as="section" w={["98%", "90%", "80%"]} maxW="1200px" margin="0 auto">
-        <VStack textAlign={"center"} margin={"50px 0"} spacing={50}>
+        <VStack textAlign={"center"} margin={"10em 0"} spacing={50}>
           <TextAtom as={"h1"} fontSize={["1.5em", "2.6em", "3.8em"]}>
             다양한 아티스트들의 스케줄을
             <br />

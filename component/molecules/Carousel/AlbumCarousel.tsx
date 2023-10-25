@@ -28,8 +28,8 @@ const AlbumCarousel = ({ albumData }: AlbumCaruoselProps) => {
   };
 
   return (
-    <Box marginTop={"10px"} pos={"relative"}>
-      <TextAtom fontSize={"2xl"}>
+    <Box pos={"relative"}>
+      <TextAtom fontSize={"2xl"} padding={"10px 0"}>
         <FontAwesomeIcon icon={faCompactDisc} />
         &nbsp;Album
       </TextAtom>
@@ -37,19 +37,17 @@ const AlbumCarousel = ({ albumData }: AlbumCaruoselProps) => {
       <Slider {...settings} ref={slickRef}>
         {albumData?.map((data) => {
           return (
-            <Box key={data.pk} cursor="pointer">
-              <Tooltip label={data.album_name} placement="bottom">
-                <Image
-                  src={data.album_cover}
-                  alt={data.album_name}
-                  width={380}
-                  height={380}
-                  priority={true}
-                  placeholder="blur"
-                  blurDataURL={imgPlaceholder}
-                />
-              </Tooltip>
-            </Box>
+            <Tooltip label={data.album_name} placement="bottom" key={data.pk}>
+              <Image
+                src={data.album_cover}
+                alt={data.album_name}
+                width={380}
+                height={380}
+                priority={true}
+                placeholder="blur"
+                blurDataURL={imgPlaceholder}
+              />
+            </Tooltip>
           );
         })}
       </Slider>

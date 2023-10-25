@@ -14,6 +14,7 @@ const TextAtom = ({
   _before,
   letterSpacing,
   cursor,
+  padding,
 }: TextProps) => {
   return (
     <Text
@@ -28,6 +29,7 @@ const TextAtom = ({
       margin={margin}
       h={h}
       lineHeight={lineHeight}
+      padding={padding}
     >
       {children}
     </Text>
