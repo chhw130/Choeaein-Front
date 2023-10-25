@@ -11,6 +11,7 @@ const MemberSection = ({ groupMemberData }: { groupMemberData: GroupType }) => {
     <Center
       as="section"
       w={"80%"}
+      maxW={"1300px"}
       flexDir={"column"}
       margin={"0 auto"}
       marginBottom={"3rem"}

@@ -46,6 +46,7 @@ const IdolInfoCard = ({
     <Card
       as="article"
       w={["100%", "100%", "90%"]}
+      maxW={"1365px"}
       h={"100%"}
       borderLeft={"8px solid black"}
       flexDir={["column", "column", "row"]}

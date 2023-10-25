@@ -17,6 +17,7 @@ const MemberInfo = ({ data }: IdolCardProps) => {
       <Box
         textAlign="center"
         w={["40%", "30%", "20%"]}
+        margin={"1%"}
         className={styles.idolBox}
         pos={"relative"}
       >

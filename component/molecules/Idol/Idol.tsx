@@ -66,12 +66,12 @@ const Idol = ({
           cursor={"pointer"}
           color={"white"}
         >
-          <TextAtom fontSize={"2vh"}>자세히 보러가기</TextAtom>
+          <TextAtom fontSize={"1.6vw"}>자세히 보러가기</TextAtom>
         </Box>
       </Box>
       <TextAtom
         margin={1}
-        fontSize={["4vw", "2.5vw", "2vw"]}
+        fontSize={["1rem", "1.2rem", "1.5rem"]}
         letterSpacing="-0.19px"
         cursor={"pointer"}
       >
@@ -79,7 +79,7 @@ const Idol = ({
       </TextAtom>
       <TextAtom
         margin={0}
-        fontSize={["3vw", "2.1vw", "1.5vw"]}
+        fontSize={["1rem", "1rem", "1.2rem"]}
         letterSpacing="-0.19px"
         color={"#888888"}
       >
