@@ -19,7 +19,7 @@ const Footer = () => {
       alignItems="flex-start"
     >
       <FooterLogo />
-      <TextAtom fontSize={"25px"} color={"white"}>
+      <TextAtom fontSize={"1em"} color={"white"}>
         더욱 다양한 아이돌을 만나보세요!
       </TextAtom>
     </VStack>

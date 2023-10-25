@@ -1,6 +1,6 @@
 import { Box } from "@chakra-ui/react";
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import styles from "./Idol.module.scss";
 import TextAtom from "@/component/atoms/Text/TextAtom";
 import { imgPlaceholder } from "@/utils/data/ClientData";
@@ -29,7 +29,7 @@ const Idol = ({
     <Box
       textAlign="center"
       as="article"
-      margin="30px 0"
+      margin="3% 0"
       w={["40%", "24%", "23%"]}
       className={styles.idolBox}
       pos={"relative"}
@@ -63,17 +63,15 @@ const Idol = ({
           flexDir={"column"}
           alignItems={"center"}
           borderRadius={"20%"}
-          fontSize={"1.2rem"}
           cursor={"pointer"}
           color={"white"}
         >
-          <TextAtom>자세히 보러가기</TextAtom>
+          <TextAtom fontSize={"2vh"}>자세히 보러가기</TextAtom>
         </Box>
       </Box>
       <TextAtom
-        paddingTop={"20px"}
         margin={1}
-        fontSize={["16px", "17px", "20px"]}
+        fontSize={["4vw", "2.5vw", "2vw"]}
         letterSpacing="-0.19px"
         cursor={"pointer"}
       >
@@ -81,7 +79,7 @@ const Idol = ({
       </TextAtom>
       <TextAtom
         margin={0}
-        fontSize={["14px", "15px", "18px"]}
+        fontSize={["3vw", "2.1vw", "1.5vw"]}
         letterSpacing="-0.19px"
         color={"#888888"}
       >
