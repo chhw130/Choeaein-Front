@@ -8,12 +8,9 @@ import { days } from "@/utils/data/ClientData";
 import dynamic from "next/dynamic";
 import CategoryBtnGroup from "../../molecules/ButtonGroup/CategoryBtnGroup";
 import CalendarDateBtnGroup from "../../molecules/ButtonGroup/CalendarDateBtnGroup";
-
+import CalendarTable from "@/component/molecules/Table/CalendarTable";
 const ViewDayCalendarModal = dynamic(
   () => import("@/UI/Modal/ViewDayCalendarModal")
-);
-const CalendarTable = dynamic(
-  () => import("../../molecules/Table/CalendarTable")
 );
 
 const CalendarSection = ({ idolData }: { idolData: ChoeIdolType }) => {
