@@ -30,7 +30,7 @@ const CalendarTable = ({
         <Box pos={"relative"}>
           <Skeleton
             w={"100%"}
-            h={"500px"}
+            h={["550px", "600px", "700px"]}
             top={"0"}
             flexDir={"column"}
             borderRadius={"10px"}
@@ -40,7 +40,7 @@ const CalendarTable = ({
             top={"10px"}
             flexDir={"column"}
             w={"100%"}
-            h={"500px"}
+            h={["550px", "600px", "700px"]}
           >
             <SpinnerUI />
             <TextAtom color={"olive"}>
@@ -49,7 +49,7 @@ const CalendarTable = ({
           </Center>
         </Box>
       ) : (
-        <Table h={"500px"} w="100%" pos={"relative"}>
+        <Table h={["550px", "600px", "700px"]} w="100%" pos={"relative"}>
           <Thead>
             <Tr>
               {days.map((day, index) => {

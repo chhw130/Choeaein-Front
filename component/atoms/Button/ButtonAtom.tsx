@@ -18,6 +18,7 @@ const ButtonAtom = ({
   fontSize,
   size,
   isLoading,
+  padding,
 }: ButtonProps) => {
   return (
     <Button
@@ -36,6 +37,7 @@ const ButtonAtom = ({
       _hover={{ bg: { bg } }}
       onClick={onClick}
       isDisabled={disabled}
+      padding={padding}
     >
       {children}
     </Button>

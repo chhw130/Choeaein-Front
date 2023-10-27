@@ -66,7 +66,9 @@ const Idol = ({
           cursor={"pointer"}
           color={"white"}
         >
-          <TextAtom fontSize={"1.6vw"}>자세히 보러가기</TextAtom>
+          <TextAtom fontSize={["4vw", "2vw", "1.4vw"]}>
+            자세히 보러가기
+          </TextAtom>
         </Box>
       </Box>
       <TextAtom
