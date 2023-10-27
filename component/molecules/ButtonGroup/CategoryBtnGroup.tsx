@@ -34,12 +34,16 @@ const CategoryBtnGroup = ({ idolId }: CategoryBtnProps) => {
   };
 
   return (
-    <ButtonGroup justifyContent={"center"} spacing={0}>
+    <ButtonGroup
+      justifyContent={"center"}
+      spacing={1}
+      padding={["5px", "10px", "30px"]}
+    >
       {buttons.map((btn) => (
         <ButtonAtom
-          fontSize={[11, 13, 15]}
-          w={[40, 80, 150]}
-          h={[10, 14, 16]}
+          fontSize={[11, 16, 20]}
+          w={"100%"}
+          h={[10, 14, "6vh"]}
           className={`${
             category.includes(btn.category) ? styles.active : styles.inactive
           } 

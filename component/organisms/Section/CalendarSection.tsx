@@ -42,12 +42,13 @@ const CalendarSection = ({ idolData }: { idolData: ChoeIdolType }) => {
       />
       <Flex
         as="article"
-        w={["100%", "100%", "75%"]}
+        w={"100%"}
+        maxW="1400px"
         h={"80%"}
         fontSize={"1.3rem"}
         display={"flex"}
         flexDir={"column"}
-        margin={"0 auto"}
+        margin={"30px auto"}
       >
         <Flex justifyContent="space-between" padding="10px 15px">
           <IdolInform idolData={idolData} />
