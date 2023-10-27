@@ -49,7 +49,7 @@ const CalendarTable = ({
           </Center>
         </Box>
       ) : (
-        <Table h={"500px"} w="100%" pos={"relative"}>
+        <Table h={["550px", "600px", "700px"]} w="100%" pos={"relative"}>
           <Thead>
             <Tr>
               {days.map((day, index) => {
