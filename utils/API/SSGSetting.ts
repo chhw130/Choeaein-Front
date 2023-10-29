@@ -1,4 +1,7 @@
-const url = `${process.env.NEXT_PUBLIC_DEPLOY_BASE_URL}/api/v2`;
+const url =
+  process.env.NODE_ENV !== "development"
+    ? `${process.env.NEXT_PUBLIC_DEV_BASE_URL}/api/v2`
+    : `${process.env.NEXT_PUBLIC_DEPLOY_BASE_URL}/api/v2`;
 
 export const getIdolRank = async () => {
   const res = await fetch(`${url}/idols/rank/`, { cache: "no-cache" });
@@ -20,6 +23,7 @@ export const getRandomSchedules = async () => {
 /**아이돌 그룹*/
 export const getIdolGroups = async () => {
   const res = await fetch(`${url}/groups/`);
+  console.log(res);
   return res.json();
 };
 
