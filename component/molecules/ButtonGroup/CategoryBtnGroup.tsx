@@ -43,7 +43,7 @@ const CategoryBtnGroup = ({ idolId }: CategoryBtnProps) => {
         <ButtonAtom
           fontSize={[11, 16, 20]}
           w={"100%"}
-          h={[10, 14, "6vh"]}
+          h={[10, 14, 20]}
           className={`${
             category.includes(btn.category) ? styles.active : styles.inactive
           } 

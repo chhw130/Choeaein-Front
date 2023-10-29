@@ -21,6 +21,7 @@ interface RandomScheduleProps {
 const RandomSchedule = ({ randomSchedules }: RandomScheduleProps) => {
   const prefersReducedMotion = usePrefersReducedMotion();
 
+  console.log(randomSchedules);
   const animation = prefersReducedMotion
     ? undefined
     : `${loop} 28s linear infinite`;
