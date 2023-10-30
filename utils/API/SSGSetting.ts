@@ -1,6 +1,6 @@
 const BASE_URL =
-  process.env.NODE_ENV !== "development"
-    ? `${process.env.NEXT_PUBLIC_DEV_BASE_URL}/api/v2`
+  process.env.NODE_ENV === "development"
+    ? `${process.env.NEXT_PUBLIC_DEPLOY_BASE_URL}/api/v2`
     : `${process.env.NEXT_PUBLIC_DEPLOY_BASE_URL}/api/v2`;
 
 export const getIdolRank = async () => {

@@ -19,28 +19,56 @@ interface CalendarTableProps {
   isLoading: boolean;
 }
 
-const CalendarTable = ({ calendarArr, days }: CalendarTableProps) => {
+const CalendarTable = ({
+  calendarArr,
+  days,
+  isLoading,
+}: CalendarTableProps) => {
   return (
     <>
-      <Table h={["550px", "600px", "700px"]} w="100%" pos={"relative"}>
-        <Thead>
-          <Tr>
-            {days.map((day, index) => {
-              return (
-                <Th
-                  key={index}
-                  textAlign="center"
-                  fontSize={[15, 18, 20]}
-                  padding={[3, 4, 5]}
-                >
-                  {day}
-                </Th>
-              );
-            })}
-          </Tr>
-        </Thead>
-        <Tbody>{calendarArr()}</Tbody>
-      </Table>
+      {isLoading ? (
+        <Box pos={"relative"}>
+          <Skeleton
+            w={"100%"}
+            h={["550px", "600px", "700px"]}
+            top={"0"}
+            flexDir={"column"}
+            borderRadius={"10px"}
+          />
+          <Center
+            pos={"absolute"}
+            top={"10px"}
+            flexDir={"column"}
+            w={"100%"}
+            h={["550px", "600px", "700px"]}
+          >
+            <SpinnerUI />
+            <TextAtom color={"olive"}>
+              아이돌 일정을 불러오고 있습니다.
+            </TextAtom>
+          </Center>
+        </Box>
+      ) : (
+        <Table h={["550px", "600px", "700px"]} w="100%" pos={"relative"}>
+          <Thead>
+            <Tr>
+              {days.map((day, index) => {
+                return (
+                  <Th
+                    key={index}
+                    textAlign="center"
+                    fontSize={[15, 18, 20]}
+                    padding={[3, 4, 5]}
+                  >
+                    {day}
+                  </Th>
+                );
+              })}
+            </Tr>
+          </Thead>
+          <Tbody>{calendarArr()}</Tbody>
+        </Table>
+      )}
     </>
   );
 };
