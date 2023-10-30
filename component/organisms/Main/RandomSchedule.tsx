@@ -21,7 +21,6 @@ interface RandomScheduleProps {
 const RandomSchedule = ({ randomSchedules }: RandomScheduleProps) => {
   const prefersReducedMotion = usePrefersReducedMotion();
 
-  console.log(randomSchedules);
   const animation = prefersReducedMotion
     ? undefined
     : `${loop} 28s linear infinite`;
@@ -32,11 +31,13 @@ const RandomSchedule = ({ randomSchedules }: RandomScheduleProps) => {
       position="relative"
       overflow="hidden"
       display="flex"
-      h={["150px", "180px", "200px"]}
       w="100%"
+      margin={"0 auto"}
+      padding={"1%"}
     >
       <Container
         display="flex"
+        height={"100%"}
         alignItems="center"
         animation={animation}
         margin={0}

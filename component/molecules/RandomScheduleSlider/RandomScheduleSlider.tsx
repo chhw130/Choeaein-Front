@@ -1,6 +1,6 @@
 import { icon } from "@/utils/data/ClientData";
 import { RandomIdolSchedule } from "@/utils/interface/interface";
-import { Box } from "@chakra-ui/react";
+import { Box, Flex } from "@chakra-ui/react";
 import { faMicrophone } from "@fortawesome/free-solid-svg-icons/faMicrophone";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
@@ -35,12 +35,17 @@ const RandomScheduleSlider = ({
             }}
             borderRadius={"10px"}
           >
-            <Box
-              padding={["13px", "15px", "20px"]}
-              fontSize={["11px", "13px", "15px"]}
-              w={["180px", "230px", "280px"]}
+            <Flex
+              padding={"4%"}
+              fontSize={["11px", "13px", "1.1em"]}
+              w={["180px", "230px", "15vw"]}
+              minW={["100%", "100%", "280px"]}
+              aspectRatio={"7/3.9"}
               transition="transform 0.8s"
               cursor="pointer"
+              pos={"relative"}
+              flexDir={"column"}
+              justifyContent={"space-around"}
             >
               <TextAtom>{dateFormat}</TextAtom>
               <Box>
@@ -58,11 +63,11 @@ const RandomScheduleSlider = ({
                   &nbsp;{data.ScheduleTitle}
                 </TextAtom>
               </Box>
-              <TextAtom>
+              <TextAtom w={"100%"} textAlign={"end"}>
                 <FontAwesomeIcon icon={faMicrophone} />
                 &nbsp;{data.participant.idol}
               </TextAtom>
-            </Box>
+            </Flex>
           </Box>
         );
       })}
