@@ -15,6 +15,8 @@ const TextAtom = ({
   letterSpacing,
   cursor,
   padding,
+  bottom,
+  pos,
 }: TextProps) => {
   return (
     <Text
@@ -30,6 +32,8 @@ const TextAtom = ({
       h={h}
       lineHeight={lineHeight}
       padding={padding}
+      bottom={bottom}
+      pos={pos}
     >
       {children}
     </Text>
