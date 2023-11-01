@@ -20,12 +20,12 @@ export const metadata: Metadata = {
     siteName: "choeaein",
     images: [
       {
-        url: "https://example.com/icon.png",
+        url: "/MainLogo.png",
         width: 800,
         height: 600,
       },
       {
-        url: "https://example.com/icon.png",
+        url: "/MainLogo.png",
         width: 1800,
         height: 1600,
       },
