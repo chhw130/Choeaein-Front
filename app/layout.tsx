@@ -20,15 +20,14 @@ export const metadata: Metadata = {
     siteName: "choeaein",
     images: [
       {
-        url: "https://nextjs.org/og.png",
+        url: "https://example.com/icon.png",
         width: 800,
         height: 600,
       },
       {
-        url: "https://nextjs.org/og-alt.png",
+        url: "https://example.com/icon.png",
         width: 1800,
         height: 1600,
-        alt: "My custom alt",
       },
     ],
     locale: "en_US",
