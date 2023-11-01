@@ -23,8 +23,8 @@ const IdolSection = ({ idolGroupData, idolSoloData }: IdolSectionProps) => {
     <>
       <Box
         as="section"
-        w={["98%", "90%", "80%"]}
-        maxW="1200px"
+        w={["98%", "90%", "90%"]}
+        maxW="1400px"
         margin="10% auto 5% auto"
       >
         <VStack textAlign={"center"} spacing={50}>
@@ -52,7 +52,7 @@ const IdolSection = ({ idolGroupData, idolSoloData }: IdolSectionProps) => {
               _selected={{ color: "white", bg: "#fccec0" }}
               borderTopRadius={"lg"}
               fontWeight={"extrabold"}
-              fontSize={"20px"}
+              fontSize={["1em", "1.5em", "2.2em"]}
             >
               그룹
             </Tab>
@@ -61,7 +61,7 @@ const IdolSection = ({ idolGroupData, idolSoloData }: IdolSectionProps) => {
               _selected={{ color: "white", bg: "#fccec0" }}
               borderTopRadius={"lg"}
               fontWeight={"extrabold"}
-              fontSize={"20px"}
+              fontSize={["1em", "1.5em", "2.2em"]}
             >
               솔로
             </Tab>
