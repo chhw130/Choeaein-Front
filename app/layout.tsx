@@ -20,12 +20,12 @@ export const metadata: Metadata = {
     siteName: "choeaein",
     images: [
       {
-        url: "/MainLogo.png",
+        url: "https://i.pinimg.com/564x/fb/d3/b7/fbd3b75c7367c4d992ab65ec2567c489.jpg",
         width: 800,
         height: 600,
       },
       {
-        url: "/MainLogo.png",
+        url: "https://i.pinimg.com/564x/fb/d3/b7/fbd3b75c7367c4d992ab65ec2567c489.jpg",
         width: 1800,
         height: 1600,
       },
