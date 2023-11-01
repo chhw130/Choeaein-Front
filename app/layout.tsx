@@ -7,6 +7,7 @@ import RecoilProvider from "../component/proivderComponent/RecoilProvider";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("http://localhost:3000"),
   title: "최애인",
   description: "최애의 스케줄을 확인하세요 !!",
   icons: {
