@@ -2,8 +2,12 @@
 import { MemberType } from "@/utils/interface/interface";
 import React from "react";
 import { Box } from "@chakra-ui/react";
-import IdolList from "../organisms/Admin/IdolList";
-import UserReportScheduleList from "../organisms/Admin/UserReportScheduleList";
+
+const IdolList = dynamic(() => import("../organisms/Admin/IdolList"));
+const UserReportScheduleList = dynamic(
+  () => import("../organisms/Admin/UserReportScheduleList")
+);
+import dynamic from "next/dynamic";
 
 interface AdminTemplateProps {
   path: string;

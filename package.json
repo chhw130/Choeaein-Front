@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "analyze": "ANALYZE=true NODE_ENV=production next build",
     "start": "next start",
     "lint": "next lint"
   },

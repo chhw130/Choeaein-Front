@@ -66,7 +66,7 @@ const Idol = ({
           cursor={"pointer"}
           color={"white"}
         >
-          <TextAtom fontSize={["4vw", "2vw", "1.4vw"]}>
+          <TextAtom fontSize={["4vw", "1.8vw", "1.4vw"]}>
             자세히 보러가기
           </TextAtom>
         </Box>
