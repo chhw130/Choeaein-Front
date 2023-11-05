@@ -14,7 +14,6 @@ const GroupMemberTemplate = ({
   groupMemberData,
   albumData,
 }: GroupMemberTemplateProps) => {
-  console.log(groupMemberData, albumData);
   return (
     <Flex as={"main"} paddingTop={"5rem"} flexDir={"column"}>
       <IdolInfoCard
