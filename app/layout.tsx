@@ -7,13 +7,9 @@ import RecoilProvider from "../component/proivderComponent/RecoilProvider";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("http://localhost:3000"),
+  metadataBase: new URL("https://www.choeaein.click/"),
   title: "최애인",
   description: "최애의 스케줄을 확인하세요 !!",
-  icons: {
-    icon: "https://example.com/icon.png",
-    apple: "https://example.com/apple-icon.png",
-  },
   openGraph: {
     title: "최애인",
     description: "최애의 스케줄을 확인하세요 !!",
