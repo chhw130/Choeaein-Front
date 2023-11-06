@@ -1,6 +1,6 @@
 import { MetadataRoute } from "next";
 
-export const robot = (): MetadataRoute.Robots => {
+export default function robot(): MetadataRoute.Robots {
   return {
     rules: {
       userAgent: "*",
@@ -9,4 +9,4 @@ export const robot = (): MetadataRoute.Robots => {
     },
     sitemap: "https://www.choeaein.click/sitemap.xml",
   };
-};
+}
