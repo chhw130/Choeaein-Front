@@ -43,6 +43,11 @@ export default function RootLayout({
         name="google-site-verification"
         content="gYcNBMByGyryPu6Sb-eDJP1_pUTNnXKAZlbhF5ITj84"
       />
+      <meta
+        name="naver-site-verification"
+        content="f9186a89fa693d6d0865950927b0b184ee1b94f9"
+      />
+
       <body suppressHydrationWarning>
         <ReactQueryProvider>
           <RecoilProvider>
