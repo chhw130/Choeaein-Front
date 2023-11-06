@@ -39,6 +39,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" style={{ height: "100vh" }} suppressHydrationWarning>
+      <meta
+        name="google-site-verification"
+        content="gYcNBMByGyryPu6Sb-eDJP1_pUTNnXKAZlbhF5ITj84"
+      />
       <body suppressHydrationWarning>
         <ReactQueryProvider>
           <RecoilProvider>
