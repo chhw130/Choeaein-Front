@@ -2,11 +2,14 @@ import GroupMemberTemplate from "@/component/template/GroupMemberTemplate";
 import { getIdolMember, getIdolMemberAlbum } from "@/utils/API/SSGSetting";
 import { GroupType, albumType } from "@/utils/interface/interface";
 import { Metadata } from "next";
-import React from "react";
+
+interface GroupMemberPageProps {
+  searchParams: { group: string };
+}
 
 export const generateMetadata = async ({
   searchParams,
-}: any): Promise<Metadata> => {
+}: GroupMemberPageProps): Promise<Metadata> => {
   const groupName: string = searchParams.group;
   const groupMemberData: GroupType = await getIdolMember(groupName);
 
@@ -20,9 +23,6 @@ export const generateMetadata = async ({
     },
   };
 };
-interface GroupMemberPageProps {
-  searchParams: { group: string };
-}
 
 const GroupMemberPage = async ({ searchParams }: GroupMemberPageProps) => {
   const groupName: string = searchParams.group;

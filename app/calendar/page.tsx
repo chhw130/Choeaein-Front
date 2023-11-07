@@ -3,9 +3,13 @@ import { getIdolInform } from "@/utils/API/SSGSetting";
 import { ChoeIdolType } from "@/utils/interface/interface";
 import { Metadata } from "next";
 
+export interface CalendarPageProps {
+  searchParams: { idol: string };
+}
+
 export const generateMetadata = async ({
   searchParams,
-}: any): Promise<Metadata> => {
+}: CalendarPageProps): Promise<Metadata> => {
   const idolName = searchParams.idol;
   const idolData: ChoeIdolType = await getIdolInform(idolName);
 
@@ -20,9 +24,6 @@ export const generateMetadata = async ({
     },
   };
 };
-export interface CalendarPageProps {
-  searchParams: { idol: string };
-}
 
 async function CalendarPage({ searchParams }: CalendarPageProps) {
   const idolName = searchParams.idol;
