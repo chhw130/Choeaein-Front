@@ -2,11 +2,15 @@ import SoloTemplate from "@/component/template/SoloTemplate";
 import { getIdolSolo, getIdolSoloAlbum } from "@/utils/API/SSGSetting";
 import { SoloType, albumType } from "@/utils/interface/interface";
 import { Metadata } from "next";
-import React from "react";
+
+interface SoloPageProps {
+  searchParams: { idol: string };
+}
 
 export const generateMetadata = async ({
   searchParams,
-}: any): Promise<Metadata> => {
+}: SoloPageProps): Promise<Metadata> => {
+  searchParams;
   const idolName: string = searchParams.idol;
   const soloData: SoloType = await getIdolSolo(idolName);
 
@@ -21,9 +25,6 @@ export const generateMetadata = async ({
     },
   };
 };
-interface SoloPageProps {
-  searchParams: { idol: string };
-}
 
 const SoloPage = async ({ searchParams }: SoloPageProps) => {
   const idolName: string = searchParams.idol;
