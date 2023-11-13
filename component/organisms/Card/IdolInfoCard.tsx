@@ -16,13 +16,13 @@ import Image from "next/image";
 import React from "react";
 import styles from "./IdolInfoCard.module.scss";
 import AlbumCarousel from "../../molecules/Carousel/AlbumCarousel";
-import { albumType } from "@/utils/interface/interface";
+import { AlbumType } from "@/utils/interface/interface";
 import Link from "next/link";
 import ButtonAtom from "@/component/atoms/Button/ButtonAtom";
 import TextAtom from "@/component/atoms/Text/TextAtom";
 
 interface IdolInfoCardProps {
-  albumData: albumType[];
+  albumData: AlbumType[];
   profile: string;
   name: string;
   enName?: string;

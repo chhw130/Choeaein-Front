@@ -2,11 +2,11 @@
 import React from "react";
 import IdolInfoCard from "../organisms/Card/IdolInfoCard";
 import { Flex } from "@chakra-ui/react";
-import { SoloType, albumType } from "@/utils/interface/interface";
+import { SoloType, AlbumType } from "@/utils/interface/interface";
 
 interface SoloTemplateProps {
   soloData: SoloType;
-  albumData: albumType[];
+  albumData: AlbumType[];
 }
 
 const SoloTemplate = ({ soloData, albumData }: SoloTemplateProps) => {

@@ -2,11 +2,11 @@
 import { Flex } from "@chakra-ui/react";
 import React from "react";
 import MemberSection from "../organisms/MemberSection/MemberSection";
-import { GroupType, albumType } from "@/utils/interface/interface";
+import { GroupType, AlbumType } from "@/utils/interface/interface";
 import IdolInfoCard from "../organisms/Card/IdolInfoCard";
 
 export interface GroupMemberTemplateProps {
-  albumData: albumType[];
+  albumData: AlbumType[];
   groupMemberData: GroupType;
 }
 
