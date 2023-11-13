@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import UserLoginSection from "../organisms/Section/UserLoginSection";
 import { Box } from "@chakra-ui/react";

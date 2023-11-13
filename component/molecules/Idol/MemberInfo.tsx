@@ -54,7 +54,7 @@ const MemberInfo = ({ data }: IdolCardProps) => {
 
         <TextAtom
           paddingTop={"10px"}
-          margin={0}
+          margin={1}
           fontSize={["lg", "lg", "2xl"]}
           letterSpacing="-0.19px"
           cursor={"pointer"}

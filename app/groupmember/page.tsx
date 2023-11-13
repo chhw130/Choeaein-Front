@@ -1,6 +1,6 @@
 import GroupMemberTemplate from "@/component/template/GroupMemberTemplate";
 import { getIdolMember, getIdolMemberAlbum } from "@/utils/API/SSGSetting";
-import { GroupType, albumType } from "@/utils/interface/interface";
+import { GroupType, AlbumType } from "@/utils/interface/interface";
 import { Metadata } from "next";
 
 interface GroupMemberPageProps {
@@ -28,7 +28,7 @@ const GroupMemberPage = async ({ searchParams }: GroupMemberPageProps) => {
   const groupName: string = searchParams.group;
 
   const groupMemberData: GroupType = await getIdolMember(groupName);
-  const albumData: albumType[] = await getIdolMemberAlbum(groupName);
+  const albumData: AlbumType[] = await getIdolMemberAlbum(groupName);
 
   return (
     <GroupMemberTemplate

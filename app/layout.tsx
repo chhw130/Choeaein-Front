@@ -8,10 +8,10 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.choeaein.click/"),
-  title: "최애인",
+  title: "최애인 - 나만의 최애 스케줄",
   description: "최애의 스케줄을 확인하세요 !!",
   openGraph: {
-    title: "최애인",
+    title: "최애인 - 나만의 최애 스케줄",
     description: "최애의 스케줄을 확인하세요 !!",
     url: "https://www.choeaein.click/",
     siteName: "choeaein",

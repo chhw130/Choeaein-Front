@@ -1,5 +1,3 @@
-"use client";
-
 import UserLoginTemplate from "@/component/template/UserLoginTemplate";
 
 const LoginPage = async () => {

@@ -75,7 +75,7 @@ export interface SoloType extends IdolSoloType {
 }
 
 /**아이돌 앨범 타입 */
-export interface albumType {
+export interface AlbumType {
   pk: number;
   album_name: string;
   album_cover: string;

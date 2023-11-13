@@ -1,4 +1,4 @@
-import { HStack, Text, TypographyProps } from "@chakra-ui/react";
+import { HStack } from "@chakra-ui/react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -14,7 +14,7 @@ interface MainLogoProps {
 
 const MainLogo = ({ width, height, fontSize, margin }: MainLogoProps) => {
   return (
-    <Link href={"/"} prefetch={true} scroll={false}>
+    <Link href={"/"} scroll={false}>
       <HStack margin={margin ? margin : "20px"}>
         <Image
           src={logo}
