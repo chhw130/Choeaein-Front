@@ -1,6 +1,6 @@
 import SoloTemplate from "@/component/template/SoloTemplate";
 import { getIdolSolo, getIdolSoloAlbum } from "@/utils/API/SSGSetting";
-import { SoloType, albumType } from "@/utils/interface/interface";
+import { SoloType, AlbumType } from "@/utils/interface/interface";
 import { Metadata } from "next";
 
 interface SoloPageProps {
@@ -30,7 +30,7 @@ const SoloPage = async ({ searchParams }: SoloPageProps) => {
   const idolName: string = searchParams.idol;
 
   const soloData: SoloType = await getIdolSolo(idolName);
-  const albumData: albumType[] = await getIdolSoloAlbum(idolName);
+  const albumData: AlbumType[] = await getIdolSoloAlbum(idolName);
 
   return <SoloTemplate soloData={soloData} albumData={albumData} />;
 };
