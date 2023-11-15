@@ -19,8 +19,13 @@ const VerifyEmailCautionArticle = () => {
           👉 이미 존재하는 이메일의 경우 회원가입이 불가능합니다.
         </TextAtom>
         <TextAtom>
-          👉 인증 완료 후 회원가입 진행을 하지않은 경우 별도의 <br />
-          &nbsp;&nbsp;&nbsp; 인증 없이 회원가입 페이지로 넘어갑니다.
+          👉 인증 완료 후 회원가입 진행을 하지않은 경우 별도의 인증 없이 회원가입 페이지로 넘어갑니다.
+        </TextAtom>
+        <TextAtom>
+          👉 인증 완료 후 회원가입 진행을 하지않은 경우 별도의 인증 없이 회원가입 페이지로 넘어갑니다.
+        </TextAtom>
+        <TextAtom>
+          👉 타인의 이메일을 도용할 경우 처벌 대상이 될 수 있습니다.
         </TextAtom>
       </VStack>
     </Box>

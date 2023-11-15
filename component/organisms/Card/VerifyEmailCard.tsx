@@ -4,7 +4,6 @@ import {
   Card,
   CardBody,
   CardFooter,
-  CardHeader,
   FormLabel,
   InputGroup,
   InputRightElement,
@@ -29,16 +28,14 @@ const VerifyEmailCard = () => {
   const onSubmit = async (email: VerifyEmailType) => {
     await verifyEmailHandler(email);
   };
-
+  
   return (
     <Card
       as={"form"}
       onSubmit={handleSubmit(onSubmit)}
       maxW={"600px"}
       w={"90%"}
-      margin={"auto auto"}
     >
-      <CardHeader></CardHeader>
       <CardBody w={["90%", "80%", "80%"]} margin={"0 auto"}>
         <FormLabel htmlFor="email" fontSize={["13px", "15px", "20px"]}>
           이메일 (ID)

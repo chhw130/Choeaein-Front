@@ -22,7 +22,6 @@ interface IdolSectionProps {
 const IdolSection = ({ idolGroupData, idolSoloData }: IdolSectionProps) => {
 
   const {colorMode} = useColorMode()
-  console.log(colorMode)
   
   return (
     <>
@@ -30,7 +29,7 @@ const IdolSection = ({ idolGroupData, idolSoloData }: IdolSectionProps) => {
         as="section"
         w={["98%", "90%", "90%"]}
         maxW="1400px"
-        margin="10% auto 5% auto"
+        margin="10% auto 0 auto"
       >
         <VStack textAlign={"center"} spacing={50}>
           <TextAtom as={"h1"} fontSize={["1.5em", "2.6em", "3.8em"]}>

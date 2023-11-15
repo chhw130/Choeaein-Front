@@ -1,15 +1,15 @@
 "use client";
-import { Flex } from "@chakra-ui/react";
+import { Flex, VStack } from "@chakra-ui/react";
 import React from "react";
 import SignupStepper from "../organisms/Stepper/SignupStepper";
 import VerifyEmailCard from "../organisms/Card/VerifyEmailCard";
 
 const VerifyEmailTemplate = () => {
   return (
-    <Flex paddingTop={"4rem"} as="main" h={"100vh"} flexDir={"column"}>
+    <VStack paddingTop={"2em"} as="main"  >
       <SignupStepper />
       <VerifyEmailCard />
-    </Flex>
+    </VStack>
   );
 };
 

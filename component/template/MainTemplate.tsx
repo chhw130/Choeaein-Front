@@ -22,7 +22,7 @@ const MainTemplate = ({
   randomSchedules,
 }: MainTemplateProps) => {
   return (
-    <Box as="main" padding={"4rem 0 10rem 0"}>
+    <Box as="main" padding={"4rem 0 0rem 0"}>
       <MainVideo />
       <RandomSchedule randomSchedules={randomSchedules} />
       <IdolSection idolGroupData={idolGroupData} idolSoloData={idolSoloData} />

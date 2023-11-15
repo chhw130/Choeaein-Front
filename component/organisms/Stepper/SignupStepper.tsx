@@ -25,7 +25,7 @@ const SignupStepper = () => {
       index={activeStep}
       w={"90%"}
       maxW={"600px"}
-      margin={"auto auto"}
+      margin={"8rem"}
     >
       {stepData.map((step, index) => (
         <Step key={index}>
