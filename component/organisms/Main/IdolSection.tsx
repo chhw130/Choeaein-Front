@@ -8,6 +8,7 @@ import {
   TabPanels,
   Tabs,
   VStack,
+useColorMode,
 } from "@chakra-ui/react";
 import { IdolGroupType, IdolSoloType } from "@/utils/interface/interface";
 import TextAtom from "../../atoms/Text/TextAtom";
@@ -19,13 +20,16 @@ interface IdolSectionProps {
 }
 
 const IdolSection = ({ idolGroupData, idolSoloData }: IdolSectionProps) => {
+
+  const {colorMode} = useColorMode()
+  
   return (
     <>
       <Box
         as="section"
         w={["98%", "90%", "90%"]}
         maxW="1400px"
-        margin="10% auto 5% auto"
+        margin="10% auto 0 auto"
       >
         <VStack textAlign={"center"} spacing={50}>
           <TextAtom as={"h1"} fontSize={["1.5em", "2.6em", "3.8em"]}>
@@ -49,7 +53,7 @@ const IdolSection = ({ idolGroupData, idolSoloData }: IdolSectionProps) => {
           <TabList>
             <Tab
               w={"50%"}
-              _selected={{ color: "white", bg: "#fccec0" }}
+              _selected={{ color: "white", bg: colorMode === "light" ? "#fccec0" : "grey" }}
               borderTopRadius={"lg"}
               fontWeight={"extrabold"}
               fontSize={["1em", "1.5em", "2.2em"]}
@@ -58,7 +62,7 @@ const IdolSection = ({ idolGroupData, idolSoloData }: IdolSectionProps) => {
             </Tab>
             <Tab
               w={"50%"}
-              _selected={{ color: "white", bg: "#fccec0" }}
+              _selected={{ color: "white", bg: colorMode === "light" ? "#fccec0" : "grey" }}
               borderTopRadius={"lg"}
               fontWeight={"extrabold"}
               fontSize={["1em", "1.5em", "2.2em"]}

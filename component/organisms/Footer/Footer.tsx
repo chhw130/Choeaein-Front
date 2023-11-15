@@ -8,14 +8,17 @@ const Footer = () => {
 
   return (
     <VStack
-      padding="60px"
+    marginTop={"16rem"}
+      padding={"5rem 5rem 18rem 5rem" }
       as={"footer"}
       bg={
         colorMode === "light" ? "linear-gradient(#fccec0, #f89598)" : "#171923"
       }
       w="100%"
-      h={"350px"}
+      h={"auto"}
       spacing={2}
+      bottom={"0"}
+      position={"static"}
       alignItems="flex-start"
     >
       <FooterLogo />

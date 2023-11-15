@@ -12,8 +12,8 @@ const LoginBtnGroup = ({ loginLoading }: LoginBtnGroupProps) => {
   return (
     <ButtonGroup marginTop="10px" justifyContent="center" w="100%">
       <ButtonAtom
-        w="50%"
-        h="50px"
+        w="100%"
+        h="53px"
         margin={"0 auto"}
         onClick={() => {
           router.push("/");
@@ -24,8 +24,8 @@ const LoginBtnGroup = ({ loginLoading }: LoginBtnGroupProps) => {
       </ButtonAtom>
 
       <ButtonAtom
-        w="50%"
-        h="50px"
+        w="100%"
+        h="53px"
         type="submit"
         color="white"
         bg="#f89598"

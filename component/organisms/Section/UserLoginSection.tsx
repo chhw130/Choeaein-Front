@@ -36,13 +36,14 @@ const UserLoginSection = () => {
     await loginHandler(loginData);
   };
 
+
   return (
     <>
-      <Flex as={"section"} height="100vh">
+      <Flex as={"section"} height="90vh">
         <Form
           onSubmit={handleSubmit(onSubmit)}
           w={"100%"}
-          maxW={"500px"}
+          maxW={"600px"}
           flexDir={"column"}
           justifyContent={"center"}
           alignItems={"center"}
@@ -50,7 +51,7 @@ const UserLoginSection = () => {
           fontFamily={"inherit"}
         >
           <>
-            <MainLogo width={60} height={60} fontSize={[10, 20, 30]} />
+            <MainLogo width={60} height={60} fontSize={[30, 30, 30]} />
             <InputAtom
               fontFamily={"heading"}
               w={"90%"}
@@ -80,7 +81,7 @@ const UserLoginSection = () => {
               }}
             />
 
-            <Stack spacing="6" w="90%" maxW="450px" marginTop={5}>
+            <Stack spacing="6" w="90%" marginTop={3}>
               {(errors.email && (
                 <TextAtom color={"#bf1650"}>⚠ {errors.email.message}</TextAtom>
               )) ||

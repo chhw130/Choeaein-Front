@@ -5,14 +5,14 @@ import Image from "next/image";
 import { Box, Tooltip } from "@chakra-ui/react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { albumType } from "@/utils/interface/interface";
+import { AlbumType } from "@/utils/interface/interface";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCompactDisc } from "@fortawesome/free-solid-svg-icons";
 import TextAtom from "@/component/atoms/Text/TextAtom";
 import { imgPlaceholder } from "@/utils/data/ClientData";
 
 interface AlbumCaruoselProps {
-  albumData: albumType[];
+  albumData: AlbumType[];
 }
 
 const AlbumCarousel = ({ albumData }: AlbumCaruoselProps) => {
