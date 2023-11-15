@@ -37,6 +37,7 @@ const nextConfig = {
       "i.pinimg.com",
       "www.jeonsomiofficial.com",
     ],
+      formats: ['image/avif', 'image/webp'],
   },
 };
 
