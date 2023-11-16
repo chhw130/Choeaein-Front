@@ -57,7 +57,7 @@ const CalendarTable = ({
                   <Th
                     key={index}
                     textAlign="center"
-                    fontSize={[15, 18, 20]}
+                    fontSize={[15, 18, 24]}
                     padding={[3, 4, 5]}
                   >
                     {day}
@@ -66,7 +66,7 @@ const CalendarTable = ({
               })}
             </Tr>
           </Thead>
-          <Tbody>{calendarArr()}</Tbody>
+          <Tbody >{calendarArr()}</Tbody>
         </Table>
       )}
     </>
