@@ -19,7 +19,6 @@ const NotFoundIdolSection = ({ idolRankData, isSoloPage }: NotFoundPageProps) =>
      maxW={"1300px"}
      flexDir={"column"}
      margin={"0 auto"}
-     marginBottom={"3rem"}
    >
      <TextAtom fontSize={["lg", "2xl", "3xl"]} margin={"50px 0"}>
       {isSoloPage ? "다른" : null} 아이돌 스케줄 보러가기
