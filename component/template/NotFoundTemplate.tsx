@@ -11,7 +11,7 @@ interface NotFoundTemplateProps {
 
 const NotFoundTemplate = ({ idolRankData }: NotFoundTemplateProps) => {
   return (
-    <Box as="main" padding={"9rem 0 5rem 0"}>
+    <Box as="main" padding={"9rem  1rem 0 1rem"}>
       <NotFoundInfoSection />
       <NotFoundIdolSection idolRankData={idolRankData} />
     </Box>

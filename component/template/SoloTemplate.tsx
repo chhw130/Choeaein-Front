@@ -2,19 +2,21 @@
 import React from "react";
 import IdolInfoCard from "../organisms/Card/IdolInfoCard";
 import { Flex } from "@chakra-ui/react";
-import { SoloType, AlbumType } from "@/utils/interface/interface";
+import { SoloType, AlbumType, ChoeIdolType } from "@/utils/interface/interface";
+import NotFoundIdolSection from "../organisms/Section/NotFoundIdolSection";
 
 interface SoloTemplateProps {
   soloData: SoloType;
   albumData: AlbumType[];
+  idolRankData : ChoeIdolType[]
 }
 
-const SoloTemplate = ({ soloData, albumData }: SoloTemplateProps) => {
+const SoloTemplate = ({ soloData, albumData, idolRankData }: SoloTemplateProps) => {
   return (
     <Flex
       as={"main"}
       flexDir={"column"}
-      padding={["4rem 0", "4rem 0", "8rem 0"]}
+      padding={["4rem 0 0 0", "4rem 0 0 0 ", "8rem 0 0 0"]}
     >
       <IdolInfoCard
         albumData={albumData}
@@ -26,6 +28,9 @@ const SoloTemplate = ({ soloData, albumData }: SoloTemplateProps) => {
         enName={soloData.idol_name_en}
         enter={soloData.enter}
       />
+
+<NotFoundIdolSection idolRankData={idolRankData} isSoloPage={true} />
+
     </Flex>
   );
 };

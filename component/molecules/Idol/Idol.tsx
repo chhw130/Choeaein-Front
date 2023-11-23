@@ -21,7 +21,7 @@ const Idol = ({
   group_profile,
 }: IdolProps) => {
   const idol = groupname || idol_name_en;
-  const idolProfile: any = group_profile || solo_profile;
+  const idolProfile: string | undefined = group_profile || solo_profile;
 
   const url = groupname ? `/groupmember?group=${idol}` : `/solo?idol=${idol}`;
 
