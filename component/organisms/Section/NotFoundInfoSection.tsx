@@ -4,11 +4,11 @@ import React from "react";
 
 const NotFoundInfoSection = () => {
   return (
-    <VStack fontSize={"4xl"}>
-      <TextAtom fontSize={["40px"]}>
+    <VStack textAlign={"center"} >
+      <TextAtom fontSize={["xl", "3xl","5xl"]}>
         죄송합니다. 해당 페이지를 찾을 수 없습니다.
       </TextAtom>
-      <TextAtom fontSize={"4xl"}>요즘 떠오르는 아이돌들을 살펴보세요.</TextAtom>
+      <TextAtom fontSize={[ "lg","2xl","4xl"]}>요즘 떠오르는 아이돌들을 살펴보세요.</TextAtom>
     </VStack>
   );
 };

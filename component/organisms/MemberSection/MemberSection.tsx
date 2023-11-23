@@ -1,6 +1,6 @@
 "use client";
 import TextAtom from "@/component/atoms/Text/TextAtom";
-import MemberCard from "@/component/molecules/Idol/MemberInfo";
+import MemberInfo from "@/component/molecules/Idol/MemberInfo";
 import { GroupType } from "@/utils/interface/interface";
 import { Center, HStack, Text } from "@chakra-ui/react";
 import React from "react";
@@ -28,7 +28,7 @@ const MemberSection = ({ groupMemberData }: { groupMemberData: GroupType }) => {
         h={"100%"}
       >
         {member?.map((data) => {
-          return <MemberCard data={data} key={data.idol_name_kr} />;
+          return <MemberInfo data={data} key={data.idol_name_kr} />;
         })}
       </HStack>
     </Center>

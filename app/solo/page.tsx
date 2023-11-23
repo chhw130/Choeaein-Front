@@ -1,6 +1,6 @@
 import SoloTemplate from "@/component/template/SoloTemplate";
-import { getIdolSolo, getIdolSoloAlbum } from "@/utils/API/SSGSetting";
-import { SoloType, AlbumType } from "@/utils/interface/interface";
+import { getIdolRank, getIdolSolo, getIdolSoloAlbum } from "@/utils/API/SSGSetting";
+import { SoloType, AlbumType, ChoeIdolType } from "@/utils/interface/interface";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
@@ -15,7 +15,7 @@ export const generateMetadata = async ({
   const idolName: string = searchParams.idol;
   const soloData: SoloType = await getIdolSolo(idolName);
 
-  if(!soloData.pk) return notFound()
+
 
   const idolNameKr = soloData.idol_name_kr;
   const idolProfile = soloData.solo_profile;
@@ -33,9 +33,13 @@ const SoloPage = async ({ searchParams }: SoloPageProps) => {
   const idolName: string = searchParams.idol;
 
   const soloData: SoloType = await getIdolSolo(idolName);
-  const albumData: AlbumType[] = await getIdolSoloAlbum(idolName);
+  if(!soloData.pk) return notFound()
 
-  return <SoloTemplate soloData={soloData} albumData={albumData} />;
+  const albumData: AlbumType[] = await getIdolSoloAlbum(idolName);
+  const idolRankData: ChoeIdolType[] = await getIdolRank();
+
+
+  return <SoloTemplate soloData={soloData} albumData={albumData} idolRankData={idolRankData}/>;
 };
 
 export default SoloPage;
