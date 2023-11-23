@@ -2,6 +2,7 @@
 import {
   Box,
   Flex,
+  Highlight,
   Tab,
   TabList,
   TabPanel,
@@ -34,8 +35,14 @@ const IdolSection = ({ idolGroupData, idolSoloData }: IdolSectionProps) => {
         <VStack textAlign={"center"} spacing={50}>
           <TextAtom as={"h1"} fontSize={["1.5em", "2.6em", "3.8em"]}>
             다양한 아티스트들의 스케줄을
-            <br />
-            최애인에서 확인하세요.
+            <br/>
+            <Highlight query='최애인'
+             styles= {{ px: '4', py: '3' ,bg:  colorMode === "light" ? '#fccec0' : 'var(--chakra-colors-gray-700)', color : "#F6F6F6" , rounded : "var(--chakra-sizes-5)"}}
+            >
+              
+            최애인
+            </Highlight>
+            &nbsp;에서 확인하세요.
           </TextAtom>
 
           <TextAtom
@@ -45,7 +52,7 @@ const IdolSection = ({ idolGroupData, idolSoloData }: IdolSectionProps) => {
           >
             지금 인기있는 아티스트들을 선택하고
             <br />
-            스케줄을 확인해서 나만의 스케줄을 만들어보세요
+            스케줄을 확인해서 나만의 스케줄을 만들어보세요.
           </TextAtom>
         </VStack>
 
@@ -53,7 +60,7 @@ const IdolSection = ({ idolGroupData, idolSoloData }: IdolSectionProps) => {
           <TabList>
             <Tab
               w={"50%"}
-              _selected={{ color: "white", bg: colorMode === "light" ? "#fccec0" : "grey" }}
+              _selected={{ color: "white", bg: colorMode === "light" ? "#fccec0" : "var(--chakra-colors-gray-700)" }}
               borderTopRadius={"lg"}
               fontWeight={"extrabold"}
               fontSize={["1em", "1.5em", "2.2em"]}
