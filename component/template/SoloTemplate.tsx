@@ -3,7 +3,7 @@ import React from "react";
 import IdolInfoCard from "../organisms/Card/IdolInfoCard";
 import { Flex } from "@chakra-ui/react";
 import { SoloType, AlbumType, ChoeIdolType } from "@/utils/interface/interface";
-import NotFoundIdolSection from "../organisms/Section/NotFoundIdolSection";
+import RankIdolSection from "../organisms/Section/RankIdolSection";
 
 interface SoloTemplateProps {
   soloData: SoloType;
@@ -29,7 +29,7 @@ const SoloTemplate = ({ soloData, albumData, idolRankData }: SoloTemplateProps) 
         enter={soloData.enter}
       />
 
-<NotFoundIdolSection idolRankData={idolRankData} isSoloPage={true} />
+<RankIdolSection idolRankData={idolRankData} isSoloPage={true} />
 
     </Flex>
   );
