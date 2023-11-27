@@ -5,7 +5,7 @@ export default function robot(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
-      disallow: "/admin/",
+      disallow: "/admin",
     },
     sitemap: "https://www.choeaein.click/sitemap.xml",
   };

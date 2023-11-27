@@ -10,7 +10,7 @@ interface NotFoundPageProps {
   isSoloPage? : boolean
 }
 
-const NotFoundIdolSection = ({ idolRankData, isSoloPage }: NotFoundPageProps) => {
+const RankIdolSection = ({ idolRankData, isSoloPage }: NotFoundPageProps) => {
   return (
     <>
      <Center
@@ -21,7 +21,7 @@ const NotFoundIdolSection = ({ idolRankData, isSoloPage }: NotFoundPageProps) =>
      margin={"0 auto"}
    >
      <TextAtom fontSize={["lg", "2xl", "3xl"]} margin={"50px 0"}>
-      {isSoloPage ? "다른" : null} 아이돌 스케줄 보러가기
+      {isSoloPage && "다른" } 아이돌 스케줄 보러가기
      </TextAtom>
 
      <HStack
@@ -40,4 +40,4 @@ const NotFoundIdolSection = ({ idolRankData, isSoloPage }: NotFoundPageProps) =>
   );
 };
 
-export default NotFoundIdolSection;
+export default RankIdolSection
