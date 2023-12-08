@@ -15,6 +15,7 @@ const NotFoundTemplate = ({ idolRankData }: NotFoundTemplateProps) => {
       <NotFoundInfoSection />
       <RankIdolSection idolRankData={idolRankData} />
     </Box>
+    //
   );
 };
 
